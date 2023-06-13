@@ -1,0 +1,22 @@
+[dev]
+    command = "yarn dev-ssl"
+    autoLaunch = false
+#[dev.https]
+#    certFile = "localhost.pem"
+#    keyFile = "localhost-key.pem"
+
+
+[context.dev.environment]
+    NODE_ENV = "development"
+    PORT = "3000"
+    # This is to make hot reloading works on live dev server
+    HMR_PROTOCOL = "wss"
+
+[context.production]
+    NODE_ENV = "production"
+
+# Specific branch context: all deploys from
+# this specific branch will inherit these settings.
+[context.staging] # “staging” is a branch name
+    command = "echo 'staging'"
+    base = "staging"
