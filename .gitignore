@@ -11,3 +11,13 @@ dist
 # Local Netlify folder
 .netlify
 *.pem*
+
+
+# Jetbrains Settings
+.idea/*
+!.idea/
+!.idea/codeStyles/
+!.idea/fileTemplates/
+!.idea/file.template.settings.xml
+!.idea/prettier.xml
+!.idea/jsLinters
