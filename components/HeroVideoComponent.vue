@@ -50,9 +50,9 @@ const props = defineProps<PropTypes>()
         <div
           class="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-white/10 hover:ring-white/50"
         >
-          New communities opening soon.
-          <a href="#" class="font-semibold text-white">
-            <span class="absolute inset-0" aria-hidden="true" />Read more <span aria-hidden="true">&rarr;</span>
+          <slot name="top-button"></slot>
+          <a href="props.blok.topButtonLink" class="font-semibold text-white">
+            <span class="absolute inset-0" aria-hidden="true" /> Read more <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>
@@ -64,16 +64,16 @@ const props = defineProps<PropTypes>()
           <slot name="small-text"></slot>
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <slot name="cta"></slot>
+          <slot name="ctas"></slot>
           <!--          <a-->
           <!--            href="#"-->
           <!--            class="rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"-->
-          <!--          >Get started</a>-->
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="group rounded-md text-sm font-semibold leading-6 text-white"-->
-          <!--          >Learn more-->
-          <!--            <span aria-hidden="true" class="pr-1.5 transition-all group-hover:pl-1.5 group-hover:pr-0">→</span></a>-->
+          <!--            >Get started</a-->
+          <!--          >-->
+          <!--          <a href="#" class="group rounded-md text-sm font-semibold leading-6 text-white"-->
+          <!--            >Learn more-->
+          <!--            <span aria-hidden="true" class="pr-1.5 transition-all group-hover:pl-1.5 group-hover:pr-0">→</span></a-->
+          <!--          >-->
         </div>
       </div>
     </div>

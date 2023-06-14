@@ -20,6 +20,8 @@ For windows plebs use this [guide.](https://www.storyblok.com/faq/setup-dev-serv
 
 [Nuxt-Image](https://image.nuxtjs.org/components/nuxt-img)
 
+[Headless UI](https://headlessui.com/)
+
 # Storyblok Notes
 
 You can't name a StoryBlok component the same as a Vue Component.
