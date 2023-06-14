@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import NavBarMenu from '~/components/NavBarComponent.vue'
-defineProps({ blok: Object })
+import NavBarMenu from "~/components/NavBarComponent.vue"
+interface PropTypes {
+  blok: Object
+}
+
+const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <NavBarMenu v-editable="blok">
+  <NavBarMenu v-editable="props.blok">
     <template #desktop-nav="{ isOverlay }">
       <StoryblokComponent
-        v-for="childBlok in blok.desktopNavigation"
+        v-for="childBlok in props.blok.desktopNavigation"
         :key="childBlok._uid"
         :blok="childBlok"
         :isOverlay="isOverlay"
@@ -15,17 +19,17 @@ defineProps({ blok: Object })
     </template>
     <template #desktop-social="{ isOverlay }">
       <StoryblokComponent
-        v-for="childBlok in blok.desktopSocial"
+        v-for="childBlok in props.blok.desktopSocial"
         :key="childBlok._uid"
         :blok="childBlok"
         :isOverlay="isOverlay"
       />
     </template>
     <template #mobile-nav>
-      <StoryblokComponent v-for="childBlok in blok.mobileNavigation" :key="childBlok._uid" :blok="childBlok" />
+      <StoryblokComponent v-for="childBlok in props.blok.mobileNavigation" :key="childBlok._uid" :blok="childBlok" />
     </template>
     <template #mobile-social>
-      <StoryblokComponent v-for="childBlok in blok.mobileSocial" :key="childBlok._uid" :blok="childBlok" />
+      <StoryblokComponent v-for="childBlok in props.blok.mobileSocial" :key="childBlok._uid" :blok="childBlok" />
     </template>
   </NavBarMenu>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBarMobileDisclosureComponent from '~/components/NavBarMobileDisclosureComponent.vue'
+import NavBarMobileDisclosureComponent from "~/components/NavBarMobileDisclosureComponent.vue"
 interface PropTypes {
   blok: Object
 }

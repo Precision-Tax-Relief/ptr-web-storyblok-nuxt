@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { loadStateStore } from '~/stores/loadState'
+import { onMounted } from "vue"
+import { loadStateStore } from "~/stores/loadState"
 const loadStore = loadStateStore()
 
 onMounted(() => {
   setTimeout(() => {
-    loadStore.loadState = 'loaded'
+    loadStore.loadState = "loaded"
   }, 1000)
 })
 </script>

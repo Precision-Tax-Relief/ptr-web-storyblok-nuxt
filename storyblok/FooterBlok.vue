@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FooterComponent from '~/components/FooterComponent.vue'
+import FooterComponent from "~/components/FooterComponent.vue"
 interface PropTypes {
   blok: Object
 }

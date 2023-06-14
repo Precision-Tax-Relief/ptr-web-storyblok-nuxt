@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBarPopover from '~/components/NavBarPopover.vue'
+import NavBarPopover from "~/components/NavBarPopover.vue"
 
 defineProps({
   blok: Object,

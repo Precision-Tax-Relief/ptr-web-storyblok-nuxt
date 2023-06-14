@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+import { defineProps, computed } from "vue"
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue"
 
 type PropTypes = {
   isOverlay: boolean
@@ -8,9 +8,9 @@ type PropTypes = {
 const props = defineProps<PropTypes>()
 
 const styles = {
-  shared: 'motion-safe:transition-colors motion-safe:duration-500 ',
-  overlay: 'text-neutral-100 hover:text-white hover:drop-shadow-md',
-  default: 'text-charcoal-600'
+  shared: "motion-safe:transition-colors motion-safe:duration-500 ",
+  overlay: "text-neutral-100 hover:text-white hover:drop-shadow-md",
+  default: "text-charcoal-600"
 }
 
 const style = computed(() => {

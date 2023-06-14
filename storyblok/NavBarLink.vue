@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBarLinkComponent from '~/components/NavBarLinkComponent.vue'
+import NavBarLinkComponent from "~/components/NavBarLinkComponent.vue"
 
 defineProps({
   blok: Object,

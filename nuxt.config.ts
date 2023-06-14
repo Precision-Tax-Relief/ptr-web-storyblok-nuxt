@@ -1,17 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import type { NuxtConfig } from '@nuxt/types'
+import type { NuxtConfig } from "@nuxt/types"
 
 const config: NuxtConfig = {
-  css: ['@/assets/css/main.css'],
-  modules: [
-    '@storyblok/nuxt',
-    '@nuxtjs/tailwindcss',
-    '@nuxt/image-edge',
-    'nuxt-icon',
-    '@pinia/nuxt',
-    'nuxt-swiper'
-  ],
-  buildModules: ['@nuxt/typescript-build'],
+  css: ["@/assets/css/main.css"],
+  modules: ["@storyblok/nuxt", "@nuxtjs/tailwindcss", "@nuxt/image-edge", "nuxt-icon", "@pinia/nuxt", "nuxt-swiper"],
+  buildModules: ["@nuxt/typescript-build"],
   build: {
     postcss: {
       postcssOptions: {
@@ -24,30 +17,30 @@ const config: NuxtConfig = {
   },
   storyblok: {
     accessToken: process.env.STORYBLOCK_TOKEN,
-    bridge: process.env.NODE_ENV === 'development',
-    devtools: process.env.NODE_ENV === 'development',
+    bridge: process.env.NODE_ENV === "development",
+    devtools: process.env.NODE_ENV === "development",
     apiOptions: {
-      region: 'us' // Set 'US" if your space is created in US region (EU default)
+      region: "us" // Set 'US" if your space is created in US region (EU default)
     }
   },
   vite: {
-    optimizeDeps: { exclude: ['fsevents'] },
+    optimizeDeps: { exclude: ["fsevents"] },
     server: {
       hmr: {
-        protocol: 'wss'
+        protocol: "wss"
       }
     }
   },
   image: {
-    provider: 'storyblok',
+    provider: "storyblok",
     storyblok: {
-      baseURL: 'https://a-us.storyblok.com'
+      baseURL: "https://a-us.storyblok.com"
     }
   },
   app: {
     pageTransition: {
-      name: 'page',
-      mode: 'out-in'
+      name: "page",
+      mode: "out-in"
     }
   }
 }

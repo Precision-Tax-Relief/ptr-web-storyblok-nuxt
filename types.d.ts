@@ -68,10 +68,10 @@ interface WpPost extends BaseWpAPI {
     about: LinkObj[]
     author: LinkObj[]
     replies: LinkObj[]
-    'version-history': LinkObj[]
-    'wp:featuredmedia': LinkObj[]
-    'wp:attachment': LinkObj[]
-    'wp:term': LinkObj[]
+    "version-history": LinkObj[]
+    "wp:featuredmedia": LinkObj[]
+    "wp:attachment": LinkObj[]
+    "wp:term": LinkObj[]
   }
 }
 

@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { loadStateStore } from '~/stores/loadState'
+import { computed } from "vue"
+import { loadStateStore } from "~/stores/loadState"
 const loadStore = loadStateStore()
 const videoDelay = computed(() => {
-  return loadStore.loadState === 'loaded' ? '#t=1' : ''
+  return loadStore.loadState === "loaded" ? "#t=1" : ""
 })
+
+interface PropTypes {
+  blok: Object
+  videoSrc: String
+}
+
+const props = defineProps<PropTypes>()
 </script>
 
 <template>
   <div class="relative isolate overflow-hidden bg-neutral-900 pt-14">
     <video autoplay loop playsinline muted class="absolute inset-0 -z-10 h-full w-full object-cover brightness-50">
-      <source
-        :src="'https://timberedridge.com/wp-content/uploads/2023/04/Timbered-Ridge-Home-Video.mp4' + videoDelay"
-      />
+      <source :src="props.videoSrc + videoDelay" />
     </video>
     <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
       <div
@@ -52,20 +57,23 @@ const videoDelay = computed(() => {
         </div>
       </div>
       <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Constructing homes for generations</h1>
+        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+          <slot name="big-text"></slot>
+        </h1>
         <p class="mt-6 text-lg leading-8 text-charcoal-100">
-          Timbered Ridge has homes available now in the North Idaho region.
+          <slot name="small-text"></slot>
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a
-            href="#"
-            class="rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-            >Get started</a
-          >
-          <a href="#" class="group rounded-md text-sm font-semibold leading-6 text-white"
-            >Learn more
-            <span aria-hidden="true" class="pr-1.5 transition-all group-hover:pl-1.5 group-hover:pr-0">→</span></a
-          >
+          <slot name="cta"></slot>
+          <!--          <a-->
+          <!--            href="#"-->
+          <!--            class="rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"-->
+          <!--          >Get started</a>-->
+          <!--          <a-->
+          <!--            href="#"-->
+          <!--            class="group rounded-md text-sm font-semibold leading-6 text-white"-->
+          <!--          >Learn more-->
+          <!--            <span aria-hidden="true" class="pr-1.5 transition-all group-hover:pl-1.5 group-hover:pr-0">→</span></a>-->
         </div>
       </div>
     </div>

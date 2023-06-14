@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
-import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/vue'
-import { useRoute } from '#app'
-import DarkButton from '~/components/DarkButton.vue'
-import TRLogo from '~/components/svg/TRLogo.vue'
+import { ref, computed, watch } from "vue"
+import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/vue"
+import { useRoute } from "#app"
+import DarkButton from "~/components/DarkButton.vue"
+import TRLogo from "~/components/svg/TRLogo.vue"
 
 /**
  *  Overlay Animation Handling
@@ -16,7 +16,7 @@ const transitionToOverlay = () => {
   }, 250)
 }
 function getUseOverlay() {
-  return route.path === '/'
+  return route.path === "/"
 }
 
 const useOverlay = computed(() => {
@@ -32,49 +32,49 @@ watch(useOverlay, (val) => {
 })
 
 const sharedStyles = {
-  headerClass: 'top absolute z-30 flex w-full overflow-visible motion-safe:transition-all motion-safe:duration-500 ',
-  popoverTextColor: 'motion-safe:transition-colors motion-safe:duration-500 ',
-  button: 'rounded text-sm ml-1.5 px-3 py-1 motion-safe:transition-colors motion-safe:duration-500 ',
-  nuxtLinkClass: 'rounded p-1.5 font-semibold leading-6 motion-safe:transition-colors motion-safe:duration-500 ',
-  iconLinkClass: 'm-0.5 rounded p-1 leading-none motion-safe:transition-colors motion-safe:duration-500 ',
+  headerClass: "top absolute z-30 flex w-full overflow-visible motion-safe:transition-all motion-safe:duration-500 ",
+  popoverTextColor: "motion-safe:transition-colors motion-safe:duration-500 ",
+  button: "rounded text-sm ml-1.5 px-3 py-1 motion-safe:transition-colors motion-safe:duration-500 ",
+  nuxtLinkClass: "rounded p-1.5 font-semibold leading-6 motion-safe:transition-colors motion-safe:duration-500 ",
+  iconLinkClass: "m-0.5 rounded p-1 leading-none motion-safe:transition-colors motion-safe:duration-500 ",
   svg: {
-    svg: 'w-24 lg:w-40 motion-safe:transition-all motion-safe:duration-500 ',
-    group: 'motion-safe:transition-colors motion-safe:duration-500 '
+    svg: "w-24 lg:w-40 motion-safe:transition-all motion-safe:duration-500 ",
+    group: "motion-safe:transition-colors motion-safe:duration-500 "
   },
   mobileButton:
-    '-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 motion-safe:transition-colors motion-safe:duration-500 '
+    "-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 motion-safe:transition-colors motion-safe:duration-500 "
 }
 
 const styles = computed(() => {
   if (isOverlay.value) {
     return {
-      headerClass: sharedStyles.headerClass + 'bg-none',
-      popoverTextColor: sharedStyles.popoverTextColor + 'text-neutral-100 hover:text-white hover:drop-shadow-md',
-      button: sharedStyles.button + 'text-charcoal-600 bg-neutral-100 hover:text-neutral-100 hover:bg-charcoal-700',
-      nuxtLinkClass: sharedStyles.nuxtLinkClass + 'text-neutral-100 hover:text-white hover:drop-shadow-md',
-      iconLinkClass: sharedStyles.iconLinkClass + 'text-neutral-100 hover:bg-neutral-100 hover:text-charcoal-700',
+      headerClass: sharedStyles.headerClass + "bg-none",
+      popoverTextColor: sharedStyles.popoverTextColor + "text-neutral-100 hover:text-white hover:drop-shadow-md",
+      button: sharedStyles.button + "text-charcoal-600 bg-neutral-100 hover:text-neutral-100 hover:bg-charcoal-700",
+      nuxtLinkClass: sharedStyles.nuxtLinkClass + "text-neutral-100 hover:text-white hover:drop-shadow-md",
+      iconLinkClass: sharedStyles.iconLinkClass + "text-neutral-100 hover:bg-neutral-100 hover:text-charcoal-700",
       svg: {
         svg: sharedStyles.svg.svg,
-        primary: sharedStyles.svg.group + 'fill-charcoal-100 group-hover:fill-charcoal-700',
-        secondary: sharedStyles.svg.group + 'fill-neutral-100 group-hover:fill-white',
-        subtext: sharedStyles.svg.group + 'fill-charcoal-800 group-hover:fill-charcoal-50'
+        primary: sharedStyles.svg.group + "fill-charcoal-100 group-hover:fill-charcoal-700",
+        secondary: sharedStyles.svg.group + "fill-neutral-100 group-hover:fill-white",
+        subtext: sharedStyles.svg.group + "fill-charcoal-800 group-hover:fill-charcoal-50"
       },
-      mobileButton: sharedStyles.mobileButton + 'text-neutral-100'
+      mobileButton: sharedStyles.mobileButton + "text-neutral-100"
     }
   } else {
     return {
-      headerClass: sharedStyles.headerClass + 'bg-white shadow-md',
-      popoverTextColor: sharedStyles.popoverTextColor + '',
-      button: sharedStyles.button + 'bg-charcoal-600 text-neutral-100 hover:bg-charcoal-700',
-      nuxtLinkClass: sharedStyles.nuxtLinkClass + 'text-charcoal-600',
-      iconLinkClass: sharedStyles.iconLinkClass + 'text-charcoal-600 hover:bg-neutral-100 hover:text-charcoal-700',
+      headerClass: sharedStyles.headerClass + "bg-white shadow-md",
+      popoverTextColor: sharedStyles.popoverTextColor + "",
+      button: sharedStyles.button + "bg-charcoal-600 text-neutral-100 hover:bg-charcoal-700",
+      nuxtLinkClass: sharedStyles.nuxtLinkClass + "text-charcoal-600",
+      iconLinkClass: sharedStyles.iconLinkClass + "text-charcoal-600 hover:bg-neutral-100 hover:text-charcoal-700",
       svg: {
         svg: sharedStyles.svg.svg,
-        primary: sharedStyles.svg.group + 'fill-charcoal-600 group-hover:fill-charcoal-700',
-        secondary: sharedStyles.svg.group + 'fill-charcoal-200 group-hover:fill-charcoal-400',
-        subtext: sharedStyles.svg.group + 'fill-charcoal-200 group-hover:fill-charcoal-50'
+        primary: sharedStyles.svg.group + "fill-charcoal-600 group-hover:fill-charcoal-700",
+        secondary: sharedStyles.svg.group + "fill-charcoal-200 group-hover:fill-charcoal-400",
+        subtext: sharedStyles.svg.group + "fill-charcoal-200 group-hover:fill-charcoal-50"
       },
-      mobileButton: sharedStyles.mobileButton + 'text-charcoal-600'
+      mobileButton: sharedStyles.mobileButton + "text-charcoal-600"
     }
   }
 })
