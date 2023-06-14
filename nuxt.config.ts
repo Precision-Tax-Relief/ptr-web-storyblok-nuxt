@@ -6,7 +6,6 @@ const config: NuxtConfig = {
   modules: [
     '@storyblok/nuxt',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/eslint-module',
     '@nuxt/image-edge',
     'nuxt-icon',
     '@pinia/nuxt',
@@ -40,9 +39,10 @@ const config: NuxtConfig = {
     }
   },
   image: {
-    dir: 'assets/images',
-    provider: 'ipx',
-    domains: ['timberedridge.com', 'trhstaging.wpengine.com']
+    provider: 'storyblok',
+    storyblok: {
+      baseURL: 'https://a-us.storyblok.com'
+    }
   },
   app: {
     pageTransition: {
