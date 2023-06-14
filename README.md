@@ -18,6 +18,8 @@ For windows plebs use this [guide.](https://www.storyblok.com/faq/setup-dev-serv
 
 [Icon Reference](https://icon-sets.iconify.design/)
 
+[Nuxt-Image](https://image.nuxtjs.org/components/nuxt-img)
+
 # Storyblok Notes
 
 You can't name a StoryBlok component the same as a Vue Component.
