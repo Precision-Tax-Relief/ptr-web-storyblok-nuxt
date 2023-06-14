@@ -1,16 +1,12 @@
-<script setup lang='ts'>
-const props = defineProps<PropTypes>()
+<script setup lang="ts">
 interface PropTypes {
   blok: Object
 }
+const props = defineProps<PropTypes>()
 </script>
 
 <template>
   <div v-editable="props.blok">
-    <StoryblokComponent
-      v-for="child_block in blok.body"
-      :key="child_block._uid"
-      :blok="child_block"
-    />
+    <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />
   </div>
 </template>

@@ -4,8 +4,8 @@ defineProps({ blok: Object })
 
 <template>
   <div
-      v-editable="blok"
-      class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 motion-safe:transition-colors"
+    v-editable="blok"
+    class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 motion-safe:transition-colors"
   >
     <div class="flex-auto">
       <nuxt-link :to="blok.link" class="block font-semibold text-gray-900">

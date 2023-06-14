@@ -1,7 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import type { NuxtConfig } from '@nuxt/types'
-import path from 'path'
-import fs from 'fs'
 
 const config: NuxtConfig = {
   css: ['@/assets/css/main.css'],

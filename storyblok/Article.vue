@@ -5,7 +5,7 @@
       :src="blok.image.filename + '/m/1600x0'"
       :alt="blok.image.alt"
       class="h-[360px] w-full object-cover lg:h-[450px]"
-    >
+    />
     <div class="container mx-auto mb-12">
       <h1 class="mb-4 mt-12 text-6xl font-bold text-[#50b0ae]">{{ blok.title }}</h1>
       <h2 class="mb-4 text-2xl font-bold text-[#1d243d]">

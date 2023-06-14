@@ -15,7 +15,7 @@ const transitionToOverlay = () => {
     isOverlay.value = true
   }, 250)
 }
-function getUseOverlay () {
+function getUseOverlay() {
   return route.path === '/'
 }
 
@@ -90,12 +90,9 @@ const mobileMenuOpen = ref(false)
         <TRLogo :styles="styles.svg" />
       </nuxt-link>
       <PopoverGroup class="hidden lg:flex lg:gap-x-4">
-
         <slot name="desktop-nav" :isOverlay="isOverlay"></slot>
-
       </PopoverGroup>
       <div class="hidden items-center lg:flex lg:flex-1 lg:justify-end">
-
         <slot name="desktop-social" :isOverlay="isOverlay"></slot>
 
         <nuxt-link to="#" :class="styles.button"> Contact Our Team </nuxt-link>
@@ -130,14 +127,10 @@ const mobileMenuOpen = ref(false)
             <div class="mt-6 flow-root">
               <div class="-my-6 divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
-
                   <slot name="mobile-nav" />
-
                 </div>
                 <div class="space-y-2 py-6">
-
                   <slot name="mobile-social" />
-
                 </div>
                 <div class="pt-8">
                   <DarkButton href="#">Contact Our Team</DarkButton>

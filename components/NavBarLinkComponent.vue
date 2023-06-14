@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { computed } from 'vue'
 
 type PropTypes = {
@@ -16,7 +16,6 @@ const styles = computed(() => {
     return default_styles
   }
 })
-
 </script>
 
 <template>

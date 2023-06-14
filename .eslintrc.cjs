@@ -8,7 +8,7 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser'
   },
-  extends: ['@nuxtjs/eslint-config-typescript'],
+  extends: ['@nuxtjs/eslint-config-typescript', 'plugin:prettier/recommended'],
   plugins: [],
   rules: {
     quotes: ['error', 'single'],
@@ -16,6 +16,7 @@ module.exports = {
     camelcase: 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/attribute-hyphenation': 'off',
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'vue/require-default-prop': 'off'
   }
 }

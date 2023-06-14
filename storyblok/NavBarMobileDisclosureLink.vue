@@ -7,9 +7,9 @@ const props = defineProps<PropTypes>()
 
 <template>
   <NuxtLink
-      v-editable="props.blok"
-      :to="props.blok.link.url"
-      class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+    v-editable="props.blok"
+    :to="props.blok.link.url"
+    class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
   >
     {{ props.blok.text }}
   </NuxtLink>

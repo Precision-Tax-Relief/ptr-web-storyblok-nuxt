@@ -5,11 +5,21 @@ defineProps({ blok: Object })
 
 <template>
   <NavBarMenu v-editable="blok">
-    <template #desktop-nav="{isOverlay}">
-      <StoryblokComponent v-for="childBlok in blok.desktopNavigation" :key="childBlok._uid" :blok="childBlok" :isOverlay="isOverlay" />
+    <template #desktop-nav="{ isOverlay }">
+      <StoryblokComponent
+        v-for="childBlok in blok.desktopNavigation"
+        :key="childBlok._uid"
+        :blok="childBlok"
+        :isOverlay="isOverlay"
+      />
     </template>
-    <template #desktop-social="{isOverlay}">
-      <StoryblokComponent v-for="childBlok in blok.desktopSocial" :key="childBlok._uid" :blok="childBlok" :isOverlay="isOverlay" />
+    <template #desktop-social="{ isOverlay }">
+      <StoryblokComponent
+        v-for="childBlok in blok.desktopSocial"
+        :key="childBlok._uid"
+        :blok="childBlok"
+        :isOverlay="isOverlay"
+      />
     </template>
     <template #mobile-nav>
       <StoryblokComponent v-for="childBlok in blok.mobileNavigation" :key="childBlok._uid" :blok="childBlok" />
@@ -19,4 +29,3 @@ defineProps({ blok: Object })
     </template>
   </NavBarMenu>
 </template>
-

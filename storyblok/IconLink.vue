@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, computed } from "vue";
+import { defineProps, computed } from 'vue'
 interface PropTypes {
   blok: Object
   isOverlay?: Boolean
@@ -39,16 +39,11 @@ const styles = computed(() => {
     return [shared_styles, default_styles, size_styles_link.value].join(' ')
   }
 })
-
 </script>
 
 <template>
-  <nuxt-link
-      v-editable="props.blok"
-      :class="styles"
-      :href="props.blok.link.url"
-  >
-    <span class="sr-only">{{props.blok.alt}}</span>
-    <Icon :name="props.blok.icon" :class='size_styles_svg' />
+  <nuxt-link v-editable="props.blok" :class="styles" :href="props.blok.link.url">
+    <span class="sr-only">{{ props.blok.alt }}</span>
+    <Icon :name="props.blok.icon" :class="size_styles_svg" />
   </nuxt-link>
 </template>

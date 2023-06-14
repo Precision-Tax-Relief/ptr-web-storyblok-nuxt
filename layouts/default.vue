@@ -1,10 +1,7 @@
 <script setup lang="ts">
-const story = await useAsyncStoryblok(
-    'layouts/default',
-    {
-      version: 'draft',
-    },
-)
+const story = await useAsyncStoryblok('layouts/default', {
+  version: 'draft'
+})
 </script>
 
 <template>
