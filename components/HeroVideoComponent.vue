@@ -65,15 +65,6 @@ const props = defineProps<PropTypes>()
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <slot name="ctas"></slot>
-          <!--          <a-->
-          <!--            href="#"-->
-          <!--            class="rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"-->
-          <!--            >Get started</a-->
-          <!--          >-->
-          <!--          <a href="#" class="group rounded-md text-sm font-semibold leading-6 text-white"-->
-          <!--            >Learn more-->
-          <!--            <span aria-hidden="true" class="pr-1.5 transition-all group-hover:pl-1.5 group-hover:pr-0">→</span></a-->
-          <!--          >-->
         </div>
       </div>
     </div>
