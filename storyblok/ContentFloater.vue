@@ -9,12 +9,12 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div>
-    <ContentFloaterComponent v-editable="props.blok">
-      <template #title>{{ props.blok.topButtonText }}</template>
-      <template #big-text>{{ props.blok.contentFloaterBigText }}</template>
-      <template #small-text>{{ props.blok.contentFloaterSmallText }}</template>
-    </ContentFloaterComponent>
-    <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />
-  </div>
+  <ContentFloaterComponent v-editable="props.blok">
+    <template #title>{{ props.blok.topButtonText }}</template>
+    <template #big-text>{{ props.blok.contentFloaterBigText }}</template>
+    <template #small-text>{{ props.blok.contentFloaterSmallText }}</template>
+    <template v-if="Boolean(props.blok.contentFloaterFigures?.length)" #content-floater-figures>
+      <StoryblokComponent v-for="childBlok in blok.contentFloaterFigures" :key="childBlok._uid" :blok="childBlok" />
+    </template>
+  </ContentFloaterComponent>
 </template>

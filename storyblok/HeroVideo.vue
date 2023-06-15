@@ -9,14 +9,12 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div>
-    <HeroVideoComponent v-editable="props.blok" :videoSrc="blok.video?.filename">
-      <template #top-button>{{ props.blok.topButtonText }}</template>
-      <template #big-text>{{ props.blok.bigText }}</template>
-      <template #small-text>{{ props.blok.smallText }}</template>
-      <template #ctas>
-        <StoryblokComponent v-for="childBlok in blok.ctas" :key="childBlok._uid" :blok="childBlok" />
-      </template>
-    </HeroVideoComponent>
-  </div>
+  <HeroVideoComponent v-editable="props.blok" :videoSrc="blok.video?.filename">
+    <template #top-button>{{ props.blok.topButtonText }}</template>
+    <template #big-text>{{ props.blok.bigText }}</template>
+    <template #small-text>{{ props.blok.smallText }}</template>
+    <template #ctas>
+      <StoryblokComponent v-for="childBlok in props.blok.ctas" :key="childBlok._uid" :blok="childBlok" />
+    </template>
+  </HeroVideoComponent>
 </template>

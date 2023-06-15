@@ -9,6 +9,7 @@ interface PropTypes {
   blok: Object
 }
 
+const slots = useSlots()
 const props = defineProps<PropTypes>()
 </script>
 
@@ -27,27 +28,16 @@ const props = defineProps<PropTypes>()
             <h1 class="mt-2 text-3xl font-bold tracking-tight text-charcoal-800 sm:text-4xl">
               <slot name="title"></slot>
             </h1>
-            <p class="mt-6 text-lg leading-8 text-charcoal-600">
+            <p class="mt-6 whitespace-pre-wrap text-lg leading-8 text-charcoal-600">
               <slot name="big-text"></slot>
             </p>
           </div>
           <div
             class="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-x-5 gap-y-12 lg:mx-0 lg:mt-8 lg:max-w-none lg:grid-cols-12"
           >
-            <div class="relative lg:order-last lg:col-span-5">
-              <div class="pl-3kk flex flex-row items-stretch justify-center border-l border-sand-700 py-6">
-                <figure class="w-1/3 text-center text-5xl font-bold text-sand-800">
-                  22
-                  <figcaption class="text-lg font-semibold">Awards</figcaption>
-                </figure>
-                <figure class="w-1/3 text-center text-5xl font-bold text-sand-800">
-                  15
-                  <figcaption class="text-lg font-semibold">Years</figcaption>
-                </figure>
-                <figure class="w-1/3 text-center text-5xl font-bold text-sand-800">
-                  750+
-                  <figcaption class="text-lg font-semibold">Homes Built</figcaption>
-                </figure>
+            <div v-if="!!slots['content-floater-figures']" class="relative lg:order-last lg:col-span-5">
+              <div class="flex flex-row items-stretch justify-evenly border-l border-sand-700 py-6 pl-3">
+                <slot name="content-floater-figures"></slot>
               </div>
             </div>
             <div class="max-w-xl text-base leading-7 text-gray-700 lg:col-span-7">
