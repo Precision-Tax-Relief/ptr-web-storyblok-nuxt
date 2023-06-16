@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface PropTypes {
-  blok: blok
+  blok: Object
 }
 
 const props = defineProps<PropTypes>()
@@ -8,8 +8,7 @@ const imageSources = props.blok.images?.map((image) => image?.filename)
 </script>
 
 <template>
-  <GalleryPreviewComponent v-editable="props.blok" :imageSources="imageSources">
+  <GalleryPreviewComponent v-editable="props.blok" :imageSources="imageSources" :viewMoreLink="props.blok.link">
     <template #title>{{ props.blok.title }}</template>
-    <template #link-label>{{ props.blok.linkLabel }}</template>
   </GalleryPreviewComponent>
 </template>

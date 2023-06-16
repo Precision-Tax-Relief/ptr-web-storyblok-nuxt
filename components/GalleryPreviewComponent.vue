@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { MultilinkStoryblok } from "~/types/component-types-sb"
+
 interface PropTypes {
   imageSources: Array<String>
+  viewMoreLink: MultilinkStoryblok
 }
 
 const props = defineProps<PropTypes>()
@@ -13,13 +16,14 @@ const props = defineProps<PropTypes>()
         class="mx-auto grid max-w-2xl grid-cols-2 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8"
       >
         <div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-          <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 class="pr-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             <slot name="title"></slot>
           </h2>
-          <p class="mt-6 text-xl leading-8 text-gray-600">
-            <slot name="link-label"></slot>
-            →
-          </p>
+          <NuxtLink :href="viewMoreLink.url" class="group block py-6 text-xl leading-8 text-gray-600">
+            View More
+            <span aria-hidden="true" class="pr-1.5 transition-all group-hover:pl-1.5 group-hover:pr-0">→</span>
+          </NuxtLink>
+          <!--          <p class="mt-6 text-xl leading-8 text-gray-600">View More →</p>-->
         </div>
         <div class="flex w-64 flex-none justify-end self-end lg:w-auto">
           <img
