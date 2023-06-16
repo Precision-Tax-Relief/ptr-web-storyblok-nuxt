@@ -7,7 +7,6 @@ const videoDelay = computed(() => {
 })
 
 interface PropTypes {
-  blok: Object
   videoSrc: String
 }
 

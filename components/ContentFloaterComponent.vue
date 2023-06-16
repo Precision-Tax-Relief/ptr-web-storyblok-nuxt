@@ -5,12 +5,8 @@ import TopoMap from "@/components/svg/TopoMap.vue"
 
 const wrapper = ref(null)
 const { y, height } = useElementBounding(wrapper)
-interface PropTypes {
-  blok: Object
-}
 
 const slots = useSlots()
-const props = defineProps<PropTypes>()
 </script>
 
 <template>

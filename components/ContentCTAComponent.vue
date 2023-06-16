@@ -1,10 +1,4 @@
-<script setup lang="ts">
-interface PropTypes {
-  blok: Object
-}
-
-const props = defineProps<PropTypes>()
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <article class="bg-white">
