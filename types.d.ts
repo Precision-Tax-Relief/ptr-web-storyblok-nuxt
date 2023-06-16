@@ -1,3 +1,35 @@
+/**
+ * Storyblok API
+ */
+
+interface blok {
+  _uid: string
+  _editable: string
+  component: string
+}
+
+interface sbAsset {
+  id: number
+  alt: string
+  name: string
+  focus: string
+  title: string
+  source: string
+  filename: string
+  copyright: string
+  fieldtype: "Asset"
+  meta_data: Object
+  is_external_url: boolean
+}
+
+interface sbLink {
+  id: string
+  url: string
+  linktype: string
+  fieldtype: string
+  cached_url: string
+}
+
 type oneToNine = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 type zeroToNine = 0 | oneToNine
 
