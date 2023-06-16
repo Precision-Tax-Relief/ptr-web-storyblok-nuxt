@@ -40,7 +40,7 @@ export interface ArticleStoryblok {
 
 export interface ColumnStoryblok {
   title?: string;
-  text?: string;
+  description?: string;
   image?: AssetStoryblok;
   _uid: string;
   component: "Column";
@@ -153,6 +153,25 @@ export interface FooterLinkStoryblok {
   [k: string]: any;
 }
 
+export type MultiassetStoryblok = {
+  alt?: string;
+  copyright?: string;
+  id: number;
+  filename: string;
+  name: string;
+  title?: string;
+  [k: string]: any;
+}[];
+
+export interface GalleryPreviewStoryblok {
+  title?: string;
+  link?: MultilinkStoryblok;
+  images?: MultiassetStoryblok;
+  _uid: string;
+  component: "GalleryPreview";
+  [k: string]: any;
+}
+
 export interface GridStoryblok {
   columns?: any[];
   _uid: string;
@@ -189,20 +208,23 @@ export interface IconLinkStoryblok {
   [k: string]: any;
 }
 
+export interface ImageCardStoryblok {
+  image?: AssetStoryblok;
+  category?: string;
+  link?: MultilinkStoryblok;
+  preheading?: string;
+  heading?: string;
+  subheading?: string;
+  _uid: string;
+  component: "ImageCard";
+  [k: string]: any;
+}
+
 export interface LayoutStoryblok {
   header?: any[];
   footer?: any[];
   _uid: string;
   component: "layout";
-  [k: string]: any;
-}
-
-export interface MultiColumnStoryblok {
-  title?: string;
-  text?: string;
-  columns?: any[];
-  _uid: string;
-  component: "MultiColumn";
   [k: string]: any;
 }
 
@@ -269,7 +291,6 @@ export interface NavBarMobileLinkStoryblok {
 export interface PageStoryblok {
   header_type: "" | "default" | "overlay";
   body?: any[];
-  test?: string;
   _uid: string;
   component: "page";
   uuid?: string;
@@ -340,5 +361,14 @@ export interface TestimonialSliderStoryblok {
   testimonials?: TestimonialStoryblok[];
   _uid: string;
   component: "TestimonialSlider";
+  [k: string]: any;
+}
+
+export interface ThreeColumnStoryblok {
+  title?: string;
+  description?: string;
+  content?: any[];
+  _uid: string;
+  component: "ThreeColumn";
   [k: string]: any;
 }
