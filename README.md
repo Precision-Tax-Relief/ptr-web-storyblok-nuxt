@@ -26,6 +26,21 @@ For windows plebs use this [guide.](https://www.storyblok.com/faq/setup-dev-serv
 
 You can't name a StoryBlok component the same as a Vue Component.
 
+# Generate Storyblok Types
+
+Make sure storyblok is installed globally:
+
+```bash
+npm i storyblok -g
+storyblok login
+```
+
+Pull Storyblok components and generate types:
+```bash
+storyblok pull-components --space=[SPACE_ID]
+yarn run generate-sb-types
+```
+
 ## NuxtPicture with Storyblok example:
 
 ```html

@@ -12,6 +12,8 @@ dist
 .netlify
 *.pem*
 
+# Storyblok
+components.*.json
 
 # Jetbrains Settings
 .idea/*

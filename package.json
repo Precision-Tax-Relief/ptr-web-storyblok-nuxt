@@ -14,7 +14,8 @@
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
     "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
-    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 3010 --cert localhost.pem --key localhost-key.pem"
+    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 3010 --cert localhost.pem --key localhost-key.pem",
+    "generate-sb-types": "storyblok-generate-ts source=./components.1014492.json target=./types/component-types-sb"
   },
   "devDependencies": {
     "@nuxt/image": "^1.0.0-rc.1",
@@ -34,6 +35,7 @@
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
+    "storyblok-generate-ts": "^1.15.0",
     "tailwindcss": "^3.3.2"
   },
   "dependencies": {

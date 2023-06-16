@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { TestimonialSliderStoryblok } from "~/types/component-types-sb"
+
 interface PropTypes {
-  blok: Object
+  blok: TestimonialSliderStoryblok
 }
 
 const props = defineProps<PropTypes>()
