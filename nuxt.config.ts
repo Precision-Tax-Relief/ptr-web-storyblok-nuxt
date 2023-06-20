@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import type { NuxtConfig } from "@nuxt/types"
+import { RichTextSchema } from "@storyblok/js"
 
 const config: NuxtConfig = {
   css: ["@/assets/css/main.css"],
@@ -16,7 +17,9 @@ const config: NuxtConfig = {
     }
   },
   vite: {
-    resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } },
+    resolve: {
+      alias: process.env.NODE_ENV === "development" ? { vue: "vue/dist/vue.esm-bundler.js" } : {}
+    },
     vue: {
       customElement: true
     },
@@ -28,7 +31,8 @@ const config: NuxtConfig = {
     },
     server: {
       hmr: {
-        protocol: "wss"
+        // protocol: "wss" // Use with proxy
+        protocol: "ws" // Use without proxy
       }
     }
   },
@@ -36,6 +40,9 @@ const config: NuxtConfig = {
     accessToken: process.env.STORYBLOCK_TOKEN,
     bridge: process.env.NODE_ENV === "development",
     devtools: process.env.NODE_ENV === "development",
+    richText: {
+      shcema: RichTextSchema
+    },
     apiOptions: {
       region: "us" // Set 'US" if your space is created in US region (EU default)
     }
