@@ -16,7 +16,7 @@ const props = defineProps<PropTypes>()
 <template>
   <div class="relative isolate overflow-hidden bg-neutral-900 pt-14">
     <video autoplay loop playsinline muted class="absolute inset-0 -z-10 h-full w-full object-cover brightness-50">
-      <source src="https://timberedridge.com/wp-content/uploads/2023/04/Timbered-Ridge-Home-Video.mp4" />
+      <source :src="props.videoSrc + videoDelay" />
     </video>
     <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
       <div
