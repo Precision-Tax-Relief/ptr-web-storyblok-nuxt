@@ -1,10 +1,12 @@
+// fetchRoutes.ts
 const toIgnore = ["home", "layouts/default"]
 import fetch from "node-fetch"
 
-export async function fetchStories(routes: string[], cacheVersion: number, page: number = 1) {
+export async function fetchStories(cacheVersion: number, page: number = 1): Promise<string[]> {
   const token = process.env.STORYBLOCK_TOKEN
   const version = "published"
   const perPage = 100
+  let routes: string[] = []
 
   try {
     const response = await fetch(
@@ -20,14 +22,17 @@ export async function fetchStories(routes: string[], cacheVersion: number, page:
     })
 
     // Check if there are more pages with links
-
     const total = response.headers.get("total")
     const maxPage = Math.ceil(total / perPage)
 
     if (maxPage > page) {
-      await fetchStories(routes, cacheVersion, ++page)
+      const nextRoutes = await fetchStories(cacheVersion, ++page)
+      routes = routes.concat(nextRoutes)
     }
   } catch (error) {
     console.error(error)
   }
+
+  // return the routes
+  return routes
 }
