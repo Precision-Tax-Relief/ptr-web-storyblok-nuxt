@@ -41,7 +41,7 @@ const slots = useSlots()
       >
         <div class="max-w-2xl lg:ml-auto">
           <div
-            class="g:max-w-2xl hidden lg:row-start-3 lg:mt-10 lg:block lg:border-t-2 lg:border-charcoal-600/50 lg:pt-10"
+            class="hidden lg:row-start-3 lg:block lg:max-w-2xl lg:border-t-2 lg:border-charcoal-600/50 lg:pt-10"
           ></div>
           <p class="whitespace-pre-wrap text-base leading-7 text-charcoal-600">
             <slot name="small-text"></slot>
