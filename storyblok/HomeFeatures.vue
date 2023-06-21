@@ -19,8 +19,8 @@ const props = defineProps<PropTypes>()
         <dl
           class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4"
         >
-          <div v-for="stat in blok.stats" :key="stat._uid" v-editable="stat" class="flex flex-col bg-sand-200 p-8">
-            <dt class="text-sm font-semibold leading-6 text-sand-700">{{ stat.name }}</dt>
+          <div v-for="stat in blok.stats" :key="stat._uid" v-editable="stat" class="flex flex-col bg-sand-100 p-8">
+            <dt class="text-md font-semibold leading-6 text-sand-800">{{ stat.name }}</dt>
             <dd class="order-first text-3xl font-semibold tracking-tight text-sand-1000">{{ stat.value }}</dd>
           </div>
         </dl>
