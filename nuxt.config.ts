@@ -3,6 +3,7 @@ import type { NuxtConfig } from "@nuxt/types"
 import { RichTextSchema } from "@storyblok/js"
 
 const config: NuxtConfig = {
+  target: "static",
   css: ["@/assets/css/main.css"],
   modules: ["@storyblok/nuxt", "@nuxtjs/tailwindcss", "@nuxt/image", "nuxt-icon", "@pinia/nuxt", "nuxt-swiper"],
   buildModules: ["@nuxt/typescript-build"],
