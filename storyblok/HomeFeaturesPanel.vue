@@ -35,7 +35,7 @@ const props = defineProps<PropTypes>()
             loading="lazy"
             :modifiers="{ smart: true }"
             :src="image.filename"
-            :imgAttrs="{ class: 'max-h-full absolute inset-0 object-cover' }"
+            :imgAttrs="{ class: 'max-h-full absolute inset-0 object-cover', alt: image.alt }"
           ></NuxtPicture>
         </SwiperSlide>
       </Swiper>
