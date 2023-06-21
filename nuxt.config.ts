@@ -34,8 +34,8 @@ const config: NuxtConfig = {
     },
     server: {
       hmr: {
-        // protocol: "wss" // Use with proxy
-        protocol: "ws" // Use without proxy
+        protocol: "wss" // Use with proxy
+        // protocol: "ws" // Use without proxy
       }
     }
   },

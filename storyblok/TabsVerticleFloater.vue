@@ -92,6 +92,7 @@ const panels = props.blok.tabs.map((tab) => {
           ref="panel_background"
           class="absolute inset-0 col-start-3 col-end-11 md:-inset-2 md:left-4 md:top-1"
           :style="`perspective: 10px; perspective-origin: center ${panel_y + panel_height / 2}px`"
+          aria-hidden="true"
         >
           <span class="panel-3d absolute inset-0 overflow-hidden bg-sand-200/80">
             <svg

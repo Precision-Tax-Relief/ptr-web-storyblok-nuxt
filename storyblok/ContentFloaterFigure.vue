@@ -11,6 +11,6 @@ const props = defineProps<PropTypes>()
     <dt class="text-lg font-semibold">
       {{ props.blok.text }}
     </dt>
-    <dl>{{ props.blok.value }}</dl>
+    <dd>{{ props.blok.value }}</dd>
   </div>
 </template>
