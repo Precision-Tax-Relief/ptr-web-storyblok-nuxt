@@ -11,8 +11,6 @@ export async function fetchStories(routes: string[], cacheVersion: number, page:
     )
     const data = await response.json()
 
-    console.log(JSON.stringify(data, null, 2))
-
     // Add routes to the array
     Object.values(data.links).forEach((link) => {
       if (!toIgnore.includes(link.slug)) {
