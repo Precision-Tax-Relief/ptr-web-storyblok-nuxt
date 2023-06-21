@@ -2,6 +2,7 @@
 import type { NuxtConfig } from "@nuxt/types"
 import { RichTextSchema } from "@storyblok/js"
 import { fetchStories } from "./utils/fetchStories"
+import fetch from "node-fetch"
 
 const config: NuxtConfig = {
   target: "static",

@@ -1,4 +1,5 @@
-const toIgnore = ["home", "layouts"]
+const toIgnore = ["home", "layouts/default"]
+import fetch from "node-fetch"
 
 export async function fetchStories(routes: string[], cacheVersion: number, page: number = 1) {
   const token = process.env.STORYBLOCK_TOKEN
