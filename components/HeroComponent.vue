@@ -10,15 +10,15 @@ const slots = useSlots()
 
 <template>
   <div class="relative bg-white">
-    <div class="pb-10 pt-10 lg:grid lg:grid-cols-11 lg:grid-rows-2 lg:gap-x-8 lg:px-0 lg:pb-20 lg:pt-20">
+    <div class="pb-10 lg:grid lg:auto-rows-min lg:grid-cols-11 lg:gap-x-8 lg:px-0 lg:pb-20">
       <div
         :class="[
           'mx-auto px-6 md:pl-20 lg:col-span-6 lg:mx-0 xl:col-span-5',
           slots['small-text'] ? 'lg:row-span-1' : 'lg:row-span-2'
         ]"
       >
-        <div class="max-w-2xl lg:ml-auto">
-          <h1 class="mt-24 text-4xl font-bold tracking-tight text-charcoal-900 sm:mt-10 sm:text-6xl">
+        <div class="max-w-2xl pt-12 lg:ml-auto">
+          <h1 class="text-4xl font-bold tracking-tight text-charcoal-900 sm:mt-10 sm:text-6xl">
             <slot name="title"></slot>
           </h1>
           <p class="mt-6 whitespace-pre-wrap text-lg leading-8 text-charcoal-700">
@@ -26,7 +26,7 @@ const slots = useSlots()
           </p>
         </div>
       </div>
-      <div class="relative h-full pb-6 pt-6 lg:col-span-5 lg:row-span-2 xl:col-span-6">
+      <div class="relative h-full pb-6 pt-6 lg:col-span-5 lg:row-span-2 lg:min-h-[40em] xl:col-span-6">
         <NuxtPicture
           :imgAttrs="{
             class:
@@ -40,9 +40,7 @@ const slots = useSlots()
         :class="['px-6 md:pl-20 lg:col-span-6 lg:mx-0 xl:col-span-5', slots['small-text'] ? 'lg:block' : 'lg:hidden']"
       >
         <div class="max-w-2xl lg:ml-auto">
-          <div
-            class="hidden lg:row-start-3 lg:block lg:max-w-2xl lg:border-t-2 lg:border-charcoal-600/50 lg:pt-10"
-          ></div>
+          <div class="mt-10 hidden max-w-2xl border-t-2 border-charcoal-600/50 pt-10 lg:block"></div>
           <p class="whitespace-pre-wrap text-base leading-7 text-charcoal-600">
             <slot name="small-text"></slot>
           </p>
