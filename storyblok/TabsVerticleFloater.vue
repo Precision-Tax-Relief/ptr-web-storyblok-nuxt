@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
-import { Tab, TabGroup, TabList, TabPanels } from "@headlessui/vue"
+import { Tab, TabGroup, TabList, TabPanels, TabPanel } from "@headlessui/vue"
 import { useElementBounding, breakpointsTailwind, useBreakpoints } from "@vueuse/core"
 import { TabsVerticleFloaterStoryblok } from "~/types/component-types-sb"
 
@@ -21,21 +21,21 @@ interface PropTypes {
 const props = defineProps<PropTypes>()
 
 // Create component templates for each development
-const panels = props.blok.tabs.map((tab) => {
-  return {
-    props: {
-      tab: {
-        type: Object,
-        required: true
-      }
-    },
-    template: `
-      <article class="z-10 z-10 flex flex-col gap-4 py-6 pl-12 pr-6" v-editable="tab">
-      <slot :tab="tab"></slot>
-      </article>
-      `
-  }
-})
+// const panels = props.blok.tabs.map((tab) => {
+//   return {
+//     props: {
+//       tab: {
+//         type: Object,
+//         required: true
+//       }
+//     },
+//     template: `
+//       <article class="z-10 z-10 flex flex-col gap-4 py-6 pl-12 pr-6" v-editable="tab">
+//       <slot :tab="tab"></slot>
+//       </article>
+//       `
+//   }
+// })
 </script>
 
 <template>
@@ -111,36 +111,69 @@ const panels = props.blok.tabs.map((tab) => {
           </span>
         </div>
 
-        <Transition as="div" mode="out-in" name="slide-fade">
-          <component :is="panels[selectedIndex]" :tab="props.blok.tabs[selectedIndex]">
-            <template v-slot="{ tab }">
-              <NuxtPicture
-                class="duration-500"
-                :imgAttrs="{
-                  class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500'
-                }"
-                :src="tab.image.filename"
-                :alt="tab.image.alt"
-                loading="lazy"
-              />
-              <h1
-                class="mr-18 mt-2 text-2xl font-semibold leading-8 text-charcoal-900 transition-all delay-150 duration-500"
+        <TabPanel
+          v-for="tab in props.blok.tabs"
+          class="relative z-10 mx-auto w-screen max-w-6xl overflow-hidden md:w-full"
+        >
+          <article class="flex flex-col gap-4 py-6 pl-12 pr-6" v-editable="tab">
+            <NuxtPicture
+              class="duration-500"
+              :imgAttrs="{
+                class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500'
+              }"
+              :src="tab.image.filename"
+              :alt="tab.image.alt"
+              loading="lazy"
+            />
+            <h1
+              class="mr-18 mt-2 text-2xl font-semibold leading-8 text-charcoal-900 transition-all delay-150 duration-500"
+            >
+              {{ tab.title }}
+            </h1>
+            <p class="mr-20 text-base leading-7 text-gray-600 transition-all delay-250 duration-500">
+              {{ tab.content }}
+            </p>
+            <div class="delay-400 duration-500">
+              <a
+                :href="tab.link.url"
+                class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                >Read more</a
               >
-                {{ tab.title }}
-              </h1>
-              <p class="mr-20 text-base leading-7 text-gray-600 transition-all delay-250 duration-500">
-                {{ tab.content }}
-              </p>
-              <div class="delay-400 duration-500">
-                <a
-                  :href="tab.link.url"
-                  class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                  >Read more</a
-                >
-              </div>
-            </template>
-          </component>
-        </Transition>
+            </div>
+          </article>
+        </TabPanel>
+        <!--        <Transition as="div" mode="out-in" name="slide-fade">-->
+        <!--        <div class="relative z-10">-->
+        <!--          <component :is="panels[selectedIndex]" :tab="props.blok.tabs[selectedIndex]">-->
+        <!--            <template v-slot="{ tab }">-->
+        <!--              <NuxtPicture-->
+        <!--                class="duration-500"-->
+        <!--                :imgAttrs="{-->
+        <!--                  class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500'-->
+        <!--                }"-->
+        <!--                :src="tab.image.filename"-->
+        <!--                :alt="tab.image.alt"-->
+        <!--                loading="lazy"-->
+        <!--              />-->
+        <!--              <h1-->
+        <!--                class="mr-18 mt-2 text-2xl font-semibold leading-8 text-charcoal-900 transition-all delay-150 duration-500"-->
+        <!--              >-->
+        <!--                {{ tab.title }}-->
+        <!--              </h1>-->
+        <!--              <p class="mr-20 text-base leading-7 text-gray-600 transition-all delay-250 duration-500">-->
+        <!--                {{ tab.content }}-->
+        <!--              </p>-->
+        <!--              <div class="delay-400 duration-500">-->
+        <!--                <a-->
+        <!--                  :href="tab.link.url"-->
+        <!--                  class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"-->
+        <!--                  >Read more</a-->
+        <!--                >-->
+        <!--              </div>-->
+        <!--            </template>-->
+        <!--          </component>-->
+        <!--        </Transition>-->
+        <!--        </div>-->
       </TabPanels>
     </TabGroup>
   </article>
