@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import type { NuxtConfig } from "@nuxt/types"
 import { RichTextSchema } from "@storyblok/js"
-import { fetchStories } from "./utils/fetchStories"
 import fetch from "node-fetch"
+import { fetchStories } from "./utils/fetchStories"
 
 const config: NuxtConfig = {
   target: "static",
@@ -34,8 +34,8 @@ const config: NuxtConfig = {
     },
     server: {
       hmr: {
-        protocol: "wss" // Use with proxy
-        // protocol: "ws" // Use without proxy
+        // protocol: "wss" // Use with proxy
+        protocol: "ws" // Use without proxy
       }
     }
   },
