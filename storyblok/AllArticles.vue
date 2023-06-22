@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { useStoryblokApi } from "@storyblok/vue"
+
+defineProps({ blok: Object })
+
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get("cdn/stories", {
+  version: "draft",
+  starts_with: "blog",
+  is_startpage: 0
+})
+const articles = data.stories
+</script>
+
 <template>
   <div class="py-24">
     <h2 class="mb-12 text-center text-6xl font-bold text-[#50b0ae]">{{ blok.title }}</h2>
@@ -11,16 +25,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-defineProps({ blok: Object })
-
-const articles = ref(null)
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get("cdn/stories", {
-  version: "draft",
-  starts_with: "blog",
-  is_startpage: false
-})
-articles.value = data.stories
-</script>
