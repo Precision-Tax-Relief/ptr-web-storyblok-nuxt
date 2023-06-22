@@ -101,15 +101,6 @@ export interface ButtonOutlineStoryblok {
   [k: string]: any;
 }
 
-export interface ColumnStoryblok {
-  title?: string;
-  description?: string;
-  image?: AssetStoryblok;
-  _uid: string;
-  component: "Column";
-  [k: string]: any;
-}
-
 export interface ContentCTAStoryblok {
   title?: string;
   text?: string;
@@ -167,6 +158,14 @@ export interface FooterLinkStoryblok {
   [k: string]: any;
 }
 
+export interface GalleryStoryblok {
+  headingImage?: AssetStoryblok;
+  panels?: GalleryPanelStoryblok[];
+  _uid: string;
+  component: "Gallery";
+  [k: string]: any;
+}
+
 export type MultiassetStoryblok = {
   alt?: string;
   copyright?: string;
@@ -176,6 +175,21 @@ export type MultiassetStoryblok = {
   title?: string;
   [k: string]: any;
 }[];
+
+export interface GalleryCustomStoryblok {
+  images?: MultiassetStoryblok;
+  _uid: string;
+  component: "GalleryCustom";
+  [k: string]: any;
+}
+
+export interface GalleryPanelStoryblok {
+  heading?: string;
+  images?: MultiassetStoryblok;
+  _uid: string;
+  component: "GalleryPanel";
+  [k: string]: any;
+}
 
 export interface GalleryPreviewStoryblok {
   title?: string;
@@ -194,10 +208,10 @@ export interface GridStoryblok {
 }
 
 export interface HeroStoryblok {
-  title?: string;
-  bigText?: string;
+  title: string;
+  bigText: string;
   smallText?: string;
-  image?: AssetStoryblok;
+  image: AssetStoryblok;
   _uid: string;
   component: "Hero";
   [k: string]: any;
@@ -331,6 +345,10 @@ export interface NavBarMobileLinkStoryblok {
 }
 
 export interface PageStoryblok {
+  Meta?: any;
+  title?: string;
+  description?: string;
+  image?: AssetStoryblok;
   body?: any[];
   _uid: string;
   component: "page";
@@ -416,7 +434,7 @@ export interface TestimonialSliderStoryblok {
 export interface ThreeColumnStoryblok {
   title?: string;
   description?: string;
-  content?: any[];
+  content?: ImageCardStoryblok[];
   _uid: string;
   component: "ThreeColumn";
   [k: string]: any;

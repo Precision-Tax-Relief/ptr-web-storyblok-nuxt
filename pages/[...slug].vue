@@ -33,13 +33,6 @@ const useOverlay = computed(() => {
 
 <template>
   <div :class="[useOverlay ? '' : 'pt-[4.25rem] lg:pt-[5.5rem]']">
-    <Head>
-      <Title>Timbered Ridge Homes</Title>
-      <Meta
-        name="description"
-        content="Discover Timbered Ridge Homes, North Idaho's premier home builder. Crafting exceptional, high-quality homes with precision and passion, we bring your dream home to life in Idaho's majestic landscapes. Explore our custom designs today and start your journey to personalized, luxurious living"
-      />
-    </Head>
     <StoryblokComponent v-if="story" :blok="story.content" />
   </div>
 </template>
