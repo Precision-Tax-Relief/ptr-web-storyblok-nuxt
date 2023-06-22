@@ -111,7 +111,8 @@ const panels = props.blok.tabs.map((tab) => {
           </span>
         </div>
 
-        <Transition as="div" mode="out-in" name="slide-fade">
+        <!--        <Transition as="div" mode="out-in" name="slide-fade">-->
+        <div class="relative z-10">
           <component :is="panels[selectedIndex]" :tab="props.blok.tabs[selectedIndex]">
             <template v-slot="{ tab }">
               <NuxtPicture
@@ -140,7 +141,8 @@ const panels = props.blok.tabs.map((tab) => {
               </div>
             </template>
           </component>
-        </Transition>
+          <!--        </Transition>-->
+        </div>
       </TabPanels>
     </TabGroup>
   </article>
