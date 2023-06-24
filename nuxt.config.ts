@@ -34,8 +34,8 @@ const config: NuxtConfig = {
     },
     server: {
       hmr: {
-        // protocol: "wss" // Use with proxy
-        protocol: "ws" // Use without proxy
+        protocol: "wss" // Use with proxy
+        // protocol: "ws" // Use without proxy
       }
     }
   },
@@ -43,9 +43,6 @@ const config: NuxtConfig = {
     accessToken: process.env.STORYBLOCK_TOKEN,
     bridge: process.env.NODE_ENV === "development",
     devtools: process.env.NODE_ENV === "development",
-    richText: {
-      schema: RichTextSchema
-    },
     apiOptions: {
       region: "us" // Set 'US" if your space is created in US region (EU default)
     }
