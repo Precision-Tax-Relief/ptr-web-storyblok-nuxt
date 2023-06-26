@@ -19,7 +19,7 @@ const props = defineProps<PropTypes>()
     <div class="mx-auto max-w-full sm:mx-0 md:block" style="min-width: 1em">
       <Swiper
         v-editable="props.blok"
-        class="aspect-video max-w-xl overflow-hidden bg-gray-900 shadow-md ring-1 ring-white/10 md:aspect-square md:rounded-2xl"
+        class="aspect-video max-w-xl overflow-hidden bg-charcoal-200 shadow-md ring-1 ring-white/10 md:aspect-square md:rounded-2xl"
         :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperA11y]"
         :slides-per-view="1"
         :loop="true"

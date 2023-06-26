@@ -20,8 +20,7 @@ const props = defineProps<PropTypes>()
         :src="image?.filename"
         :alt="image?.alt"
         loading="lazy"
-      >
-      </NuxtPicture>
+      ></NuxtPicture>
     </div>
   </div>
 </template>

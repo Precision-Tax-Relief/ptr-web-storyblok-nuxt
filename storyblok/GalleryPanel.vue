@@ -11,7 +11,7 @@ const styles = {
     "lg:row-span-2 lg:col-span-2",
     "lg:row-span-1 lg:col-span-2"
   ],
-  imgSizes: ["lg:50vw", "lg:25vw", "lg:25vw", "lg:50vw", "lg:50vw"]
+  imgSizes: ["lg:100vw", "lg:50vw", "lg:50vw", "lg:100vw", "lg:100vw"]
 }
 
 const props = defineProps<PropTypes>()
