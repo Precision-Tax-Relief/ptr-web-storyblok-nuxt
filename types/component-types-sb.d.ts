@@ -1,9 +1,9 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface AllArticlesStoryblok {
-  headline?: string;
+  title?: string;
   _uid: string;
-  component: "all-articles";
+  component: "AllArticles";
   [k: string]: any;
 }
 
@@ -35,6 +35,13 @@ export interface ArticleStoryblok {
   content?: RichtextStoryblok;
   _uid: string;
   component: "Article";
+  [k: string]: any;
+}
+
+export interface ArticleTestStoryblok {
+  content?: RichtextStoryblok;
+  _uid: string;
+  component: "ArticleTest";
   [k: string]: any;
 }
 
@@ -200,6 +207,22 @@ export interface GalleryPreviewStoryblok {
   [k: string]: any;
 }
 
+export interface GetInTouchStoryblok {
+  title?: string;
+  description?: string;
+  addressLineOne?: string;
+  addressLineTwo?: string;
+  mapsLink?: MultilinkStoryblok;
+  telNumber?: string;
+  telLink?: MultilinkStoryblok;
+  email?: string;
+  emailLink?: MultilinkStoryblok;
+  form?: any[];
+  _uid: string;
+  component: "GetInTouch";
+  [k: string]: any;
+}
+
 export interface GridStoryblok {
   columns?: any[];
   _uid: string;
@@ -245,6 +268,15 @@ export interface HomeFeaturesPanelStoryblok {
   images?: MultiassetStoryblok;
   _uid: string;
   component: "HomeFeaturesPanel";
+  [k: string]: any;
+}
+
+export interface HubSpotFormStoryblok {
+  region?: string;
+  portalId?: string;
+  formId?: string;
+  _uid: string;
+  component: "HubSpotForm";
   [k: string]: any;
 }
 

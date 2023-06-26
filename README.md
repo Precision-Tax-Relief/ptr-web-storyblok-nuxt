@@ -32,7 +32,7 @@ Make sure storyblok is installed globally:
 
 ```bash
 npm i storyblok -g
-storyblok login
+storyblok login --token [YOUR_TOKEN] --region us
 ```
 
 Pull Storyblok components and generate types:
