@@ -26,6 +26,7 @@ const route = useRoute()
 function getUseOverlay() {
   return ["/", "/our-homes/gallery/"].includes(route.path)
 }
+
 const useOverlay = computed(() => {
   return getUseOverlay()
 })

@@ -4,12 +4,6 @@ import { Tab, TabGroup, TabList, TabPanels, TabPanel } from "@headlessui/vue"
 import { useElementBounding, breakpointsTailwind, useBreakpoints } from "@vueuse/core"
 import { TabsVerticleFloaterStoryblok } from "~/types/component-types-sb"
 
-// Handle 3D parallax effect
-const tab_wrapper = ref(null)
-const { y: tab_y, height: tab_height } = useElementBounding(tab_wrapper)
-const panel_background = ref(null)
-const { y: panel_y, height: panel_height } = useElementBounding(panel_background)
-
 // Change tab accessibility buttons based on screen size
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const small = breakpoints.isSmallerOrEqual("md")
@@ -20,22 +14,6 @@ interface PropTypes {
 
 const props = defineProps<PropTypes>()
 
-// Create component templates for each development
-// const panels = props.blok.tabs.map((tab) => {
-//   return {
-//     props: {
-//       tab: {
-//         type: Object,
-//         required: true
-//       }
-//     },
-//     template: `
-//       <article class="z-10 z-10 flex flex-col gap-4 py-6 pl-12 pr-6" v-editable="tab">
-//       <slot :tab="tab"></slot>
-//       </article>
-//       `
-//   }
-// })
 </script>
 
 <template>
@@ -48,10 +26,9 @@ const props = defineProps<PropTypes>()
       <div
         ref="tab_wrapper"
         class="z-10 col-span-4 my-auto flex h-full items-center justify-center"
-        :style="`perspective: 10px; perspective-origin: center ${tab_y + tab_height / 2}px`"
       >
         <TabList
-          class="tab-3d relative mt-4 flex h-fit flex-row overflow-y-scroll rounded-xl bg-charcoal-50 p-2 shadow-lg md:flex-grow md:flex-col md:gap-2 md:overflow-hidden md:px-2 md:py-6 lg:px-4"
+          class="relative mt-4 flex h-fit flex-row overflow-y-scroll rounded-xl bg-charcoal-50 p-2 shadow-lg md:flex-grow md:flex-col md:gap-2 md:overflow-hidden md:px-2 md:py-6 lg:px-4"
         >
           <Tab v-for="tab in props.blok.tabs" :key="tab._uuid" v-slot="{ selected }" as="template">
             <button
@@ -91,10 +68,9 @@ const props = defineProps<PropTypes>()
         <div
           ref="panel_background"
           class="absolute inset-0 col-start-3 col-end-11 md:-inset-2 md:left-4 md:top-1"
-          :style="`perspective: 10px; perspective-origin: center ${panel_y + panel_height / 2}px`"
           aria-hidden="true"
         >
-          <span class="panel-3d absolute inset-0 overflow-hidden bg-sand-200/80">
+          <span class="absolute inset-0 overflow-hidden bg-sand-200/80">
             <svg
               viewBox="0 0 1024 1024"
               class="absolute left-1/2 top-1/4 -z-10 h-[84rem] w-[84rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
@@ -192,15 +168,5 @@ const props = defineProps<PropTypes>()
 
 .slide-fade-leave-to > * {
   opacity: 0;
-}
-
-@media (min-width: 768px) {
-  .panel-3d {
-    transform: translateZ(-1px) scaleY(1.3) scaleX(1.2);
-  }
-
-  .tab-3d {
-    transform: translateZ(1.2px) scale(0.94);
-  }
 }
 </style>
