@@ -271,6 +271,17 @@ export interface HomeFeaturesPanelStoryblok {
   [k: string]: any;
 }
 
+export interface HomeModelStoryblok {
+  model?: string;
+  series?: string;
+  featuredImage: AssetStoryblok;
+  stats?: ModelStatStoryblok[];
+  body?: any[];
+  _uid: string;
+  component: "HomeModel";
+  [k: string]: any;
+}
+
 export interface HubSpotFormStoryblok {
   region?: string;
   portalId?: string;
@@ -313,6 +324,22 @@ export interface LayoutStoryblok {
   footer?: any[];
   _uid: string;
   component: "layout";
+  [k: string]: any;
+}
+
+export interface ModelStatStoryblok {
+  icon?:
+    | ""
+    | "fluent:bed-20-regular"
+    | "ph:bathtub-thin"
+    | "ph:ruler-thin"
+    | "ph:stairs-thin"
+    | "ph:toilet-thin"
+    | "ph:garage-thin";
+  value?: string;
+  label?: string;
+  _uid: string;
+  component: "ModelStat";
   [k: string]: any;
 }
 
