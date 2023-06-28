@@ -6,30 +6,34 @@ interface PropTypes {
 }
 
 const props = defineProps<PropTypes>()
-
 </script>
 
 <template>
-  <div v-editable="props.blok">
-    <div class="relative aspect-22/11 w-full flex">
-     <div class="relative z-20 self-end w-full pt-48 pb-16 bg-gradient-to-b from-transparent via-charcoal-900/75 to-charcoal-900">
-       <div class="mx-auto w-full max-w-screen-lg flex gap-9 justify-between">
-         <div class="max-w-2xl">
-           <p class="p-2 px-3  uppercase font-semibold bg-sand-800 text-sand-100 inline-block tracking-wider">
-             {{ props.blok.series }} Series</p>
-           <h1 class="font-bold text-6xl text-white py-4">{{ props.blok.model }}</h1>
-           <ul class="flex flex-row gap-3 justify-between text-white">
-             <li>Single-Family Home</li>
-             <li>Available in MT & ID</li>
-             <li>Starting At $000,000</li>
-           </ul>
-         </div>
-         <a href="#test"
-            class="self-end font-semibold tracking-wider text-sand-800 bg-sand-200 p-4 px-6 rounded-xl uppercase hover:bg-sand-50 hover:text-sand-1000">
-           View Floorplan
-         </a>
-       </div>
-     </div>
+  <div v-editable="props.blok" class="mx-auto">
+    <div class="relative flex aspect-22/11 w-full">
+      <div
+        class="relative z-20 w-full self-end bg-gradient-to-b from-transparent via-charcoal-900/75 to-charcoal-900 px-6 pb-16 pt-48"
+      >
+        <div class="mx-auto flex w-full max-w-screen-lg flex-wrap justify-start justify-between gap-x-9 gap-y-16">
+          <div class="max-w-3xl flex-grow">
+            <p class="inline-block bg-sand-800 p-2 px-3 text-lg font-semibold uppercase tracking-wider text-sand-100">
+              {{ props.blok.series }} Series
+            </p>
+            <h1 class="py-4 text-6xl font-bold text-white">{{ props.blok.model }}</h1>
+            <ul class="flex flex-col justify-between gap-2 text-lg font-semibold tracking-tight text-white sm:flex-row">
+              <li>Single-Family Home</li>
+              <li>Available in MT & ID</li>
+              <li>Starting At ${{ props.blok.startingPrice }}</li>
+            </ul>
+          </div>
+          <a
+            href="#test"
+            class="flex-shrink-0 self-end rounded-xl bg-sand-200 p-4 px-6 font-semibold uppercase tracking-wider text-sand-800 hover:bg-sand-50 hover:text-sand-1000"
+          >
+            View Floorplan
+          </a>
+        </div>
+      </div>
       <NuxtPicture
         :src="props.blok.featuredImage.filename"
         :imgAttrs="{
@@ -38,15 +42,17 @@ const props = defineProps<PropTypes>()
         }"
       />
     </div>
-    <div class="w-full px-16 pt-8 bg-charcoal-900">
-      <div class="border-t border-charcoal-600 flex flex-row justify-between py-8">
+    <div class="mx-auto w-full bg-charcoal-900 px-16 pt-8">
+      <div class="mx-auto grid grid-cols-2 gap-4 border-t border-charcoal-600 py-8 sm:grid-cols-3 lg:grid-cols-5">
         <div v-for="stat in blok.stats" :key="stat._uid" v-editable="stat" class="flex flex-col-reverse">
-          <dt class="text-sm tracking-wider font-semibold leading-6 text-charcoal-300 uppercase">{{ stat.label }}</dt>
+          <dt class="text-sm font-semibold uppercase leading-6 tracking-wider text-charcoal-300">{{ stat.label }}</dt>
           <dd class="text-3xl font-semibold tracking-tight text-charcoal-100">{{ stat.value }}</dd>
-          <Icon :name="stat.icon" class="w-12 h-12 text-charcoal-500" />
+          <Icon :name="stat.icon" class="h-12 w-12 text-charcoal-500" />
         </div>
       </div>
     </div>
-    <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />
+    <div class="pt-20">
+      <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />
+    </div>
   </div>
 </template>

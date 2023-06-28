@@ -38,13 +38,6 @@ export interface ArticleStoryblok {
   [k: string]: any;
 }
 
-export interface ArticleTestStoryblok {
-  content?: RichtextStoryblok;
-  _uid: string;
-  component: "ArticleTest";
-  [k: string]: any;
-}
-
 export type MultilinkStoryblok =
   | {
       cached_url?: string;
@@ -274,6 +267,7 @@ export interface HomeFeaturesPanelStoryblok {
 export interface HomeModelStoryblok {
   model?: string;
   series?: string;
+  startingPrice?: string;
   featuredImage: AssetStoryblok;
   stats?: ModelStatStoryblok[];
   body?: any[];
@@ -331,11 +325,11 @@ export interface ModelStatStoryblok {
   icon?:
     | ""
     | "fluent:bed-20-regular"
-    | "ph:bathtub-thin"
-    | "ph:ruler-thin"
-    | "ph:stairs-thin"
-    | "ph:toilet-thin"
-    | "ph:garage-thin";
+    | "ph:bathtub-light"
+    | "ph:ruler-light"
+    | "ph:stairs-light"
+    | "ph:toilet-light"
+    | "ph:garage-light";
   value?: string;
   label?: string;
   _uid: string;
@@ -437,6 +431,14 @@ export interface SecondaryButtonStoryblok {
   dark?: boolean;
   _uid: string;
   component: "SecondaryButton";
+  [k: string]: any;
+}
+
+export interface SelectHomeModelStoryblok {
+  title?: string;
+  homeModels?: (StoryblokStory<HomeModelStoryblok> | string)[];
+  _uid: string;
+  component: "SelectHomeModel";
   [k: string]: any;
 }
 
