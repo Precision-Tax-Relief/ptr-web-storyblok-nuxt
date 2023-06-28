@@ -26,17 +26,19 @@ const props = defineProps<PropTypes>()
           <!--          <p class="mt-6 text-xl leading-8 text-gray-600">View More →</p>-->
         </div>
         <div class="flex w-64 flex-none justify-end self-end lg:w-auto">
-          <img
+          <NuxtImg
             :src="imageSources[0]"
+            loading="lazy"
             alt=""
             class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
           />
         </div>
         <div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
           <div class="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
-            <img
+            <NuxtImg
               :src="imageSources[1]"
               alt=""
+              loading="lazy"
               class="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
             />
           </div>
@@ -44,23 +46,26 @@ const props = defineProps<PropTypes>()
             class="contents lg:col-span-3 lg:col-end-3 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8"
           >
             <div class="order-first mb-auto flex w-64 flex-none justify-start self-end lg:w-auto">
-              <img
+              <NuxtImg
                 :src="imageSources[2]"
                 alt=""
                 class="aspect-[8/3] w-[42rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                loading="lazy"
               />
             </div>
             <div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
-              <img
+              <NuxtImg
                 :src="imageSources[3]"
                 alt=""
+                loading="lazy"
                 class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
               />
             </div>
             <div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
-              <img
+              <NuxtImg
                 :src="imageSources[4]"
                 alt=""
+                loading="lazy"
                 class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
               />
             </div>
