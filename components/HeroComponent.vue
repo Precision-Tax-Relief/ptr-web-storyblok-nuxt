@@ -32,8 +32,8 @@ const slots = useSlots()
             class:
               'aspect-square sm:aspect-[4/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full'
           }"
-          :src="props.image.filename"
-          :alt="props.image.alt"
+          :src="props.image?.filename"
+          :alt="props.image?.alt"
         />
       </div>
       <div class="px-6 md:pl-20 lg:col-span-6 lg:mx-0 xl:col-span-5">
