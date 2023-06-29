@@ -6,7 +6,7 @@ defineProps({ blok: Object })
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get("cdn/stories", {
-  version: "draft",
+  version: "published",
   starts_with: "blog",
   is_startpage: 0
 })
