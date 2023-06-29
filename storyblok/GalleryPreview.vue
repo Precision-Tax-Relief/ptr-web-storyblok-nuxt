@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { GalleryPreviewStoryblok } from "~/types/component-types-sb"
+
 interface PropTypes {
-  blok: Object
+  blok: GalleryPreviewStoryblok
 }
 
 const props = defineProps<PropTypes>()
