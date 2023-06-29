@@ -22,19 +22,22 @@ function formatDate(dateStr) {
   <NuxtLink
     v-editable="props.article"
     :to="'/' + props.slug"
-    class="flex h-full w-full overflow-hidden rounded-[5px] text-left"
+    class="group flex h-full w-full overflow-hidden rounded-[5px] text-left"
   >
     <div>
-      <div class="font-semibold text-charcoal-700">
+      <div class="font-semibold text-charcoal-500">
         {{ formatDate(props.article.date).toUpperCase() }}
       </div>
-      <h2 class="mb-1 pt-3 text-3xl font-bold text-charcoal-700">
+      <h2 class="mb-1 pt-3 text-3xl font-bold text-charcoal-900">
         {{ props.article.title }}
       </h2>
-      <div class="line-clamp-5 pt-6">
+      <p class="line-clamp-5 pt-6 text-charcoal-700">
         {{ props.article.teaser }}
-      </div>
-      <h2 class="pl-1 pt-5 align-bottom text-xl font-bold text-charcoal-700">Read More</h2>
+      </p>
+      <span
+        class="mt-3 inline-block border-2 border-charcoal-600 bg-charcoal-50/50 px-3 py-2 align-bottom text-xl font-bold text-charcoal-600 group-hover:border-charcoal-800 group-hover:bg-white group-hover:text-charcoal-900 motion-safe:transition-all motion-safe:duration-100"
+        >Read More</span
+      >
     </div>
   </NuxtLink>
 </template>

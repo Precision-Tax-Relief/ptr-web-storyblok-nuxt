@@ -38,9 +38,12 @@ const style = computed(() => {
       leave-to-class="opacity-0 translate-y-1"
     >
       <PopoverPanel
+        v-slot="{ close }"
         class="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-gray-50 shadow-lg ring-1 ring-gray-900/5"
       >
-        <slot name="panel" />
+        <div @click.capture="close()">
+          <slot name="panel" />
+        </div>
       </PopoverPanel>
     </transition>
   </Popover>

@@ -17,8 +17,8 @@ const props = defineProps<PropTypes>()
     <Meta property="og:description" :content="props.blok?.description" />
     <Meta name="twitter:description" :content="props.blok?.description" />
 
-    <Meta property="og:image" :content="props.blok?.image.filename" />
-    <Meta name="twitter:image" :content="props.blok?.image.filename" />
+    <Meta property="og:image" :content="props.blok?.image?.filename" />
+    <Meta name="twitter:image" :content="props.blok?.image?.filenailme" />
   </Head>
   <div v-editable="props.blok">
     <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />

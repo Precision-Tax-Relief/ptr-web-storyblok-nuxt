@@ -10,16 +10,16 @@ const props = defineProps<PropTypes>()
 
 <template>
   <ImageCardComponent v-editable="props.blok" :img="props.blok.image" :link="props.blok.link">
-    <template #category v-if="props.blok.category">
+    <template v-if="props.blok.category" #category>
       {{ props.blok.category }}
     </template>
-    <template #preheading v-if="props.blok.preheading">
+    <template v-if="props.blok.preheading" #preheading>
       {{ props.blok.preheading }}
     </template>
-    <template #heading v-if="props.blok.heading">
+    <template v-if="props.blok.heading" #heading>
       {{ props.blok.heading }}
     </template>
-    <template #subheading v-if="props.blok.subheading">
+    <template v-if="props.blok.subheading" #subheading>
       {{ props.blok.subheading }}
     </template>
   </ImageCardComponent>

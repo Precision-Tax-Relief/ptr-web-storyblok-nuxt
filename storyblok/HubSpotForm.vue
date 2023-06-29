@@ -8,9 +8,7 @@ interface PropTypes {
 const props = defineProps<PropTypes>()
 
 useHead({
-  script: [
-    {src: "//js.hsforms.net/forms/embed/v2.js"}
-  ]
+  script: [{ src: "//js.hsforms.net/forms/embed/v2.js" }]
 })
 
 onMounted(() => {
@@ -18,13 +16,11 @@ onMounted(() => {
     region: props.blok.region,
     portalId: props.blok.portalId,
     formId: props.blok.formId,
-    target: `#form-${props.blok.formId}`,
-  });
+    target: `#form-${props.blok.formId}`
+  })
 })
-
 </script>
 
 <template>
-  <div v-editable="props.blok" :id="`form-${props.blok.formId}`" class="max-w-xl mx-auto">
-  </div>
+  <div :id="`form-${props.blok.formId}`" v-editable="props.blok" class="mx-auto max-w-xl"></div>
 </template>

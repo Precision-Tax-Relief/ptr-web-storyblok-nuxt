@@ -20,13 +20,17 @@ const models = data.stories
 </script>
 
 <template>
-  <div v-editable="props.blok" class="mx-auto container px-6 pt-6 pb-24">
-    <h2 class="text-center text-34xl font-bold tracking-tight text-charcoal-900 sm:text-4xl pb-12">
-
+  <div v-editable="props.blok" class="container mx-auto px-6 pb-24 pt-6">
+    <h2 class="text-34xl pb-12 text-center font-bold tracking-tight text-charcoal-900 sm:text-4xl">
       {{ props.blok.title }}
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 max-w-lg sm:max-w-max md:grid-cols-3 mx-auto gap-5">
-      <HomeModelCard v-for="model in models" :key="model.uid" :model="model.content" :slug="model.full_slug"></HomeModelCard>
+    <div class="mx-auto grid max-w-lg grid-cols-1 gap-5 sm:max-w-max sm:grid-cols-2 md:grid-cols-3">
+      <HomeModelCard
+        v-for="model in models"
+        :key="model.uid"
+        :model="model.content"
+        :slug="model.full_slug"
+      ></HomeModelCard>
     </div>
   </div>
 </template>

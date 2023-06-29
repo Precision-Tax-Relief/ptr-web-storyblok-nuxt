@@ -95,7 +95,7 @@ const mobileMenuOpen = ref(false)
       <div class="hidden items-center lg:flex lg:flex-1 lg:justify-end">
         <slot name="desktop-social" :isOverlay="isOverlay"></slot>
 
-        <nuxt-link to="#" :class="styles.button"> Contact Our Team </nuxt-link>
+        <NuxtLink to="#contact" :class="styles.button"> Contact Our Team </NuxtLink>
       </div>
 
       <!--Mobile Menu-->

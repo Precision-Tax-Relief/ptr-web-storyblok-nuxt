@@ -22,8 +22,8 @@ const props = defineProps<PropTypes>()
   >
     <SwiperSlide
       v-for="tm of props.blok.testimonials"
-      v-editable="tm"
       :key="tm.name"
+      v-editable="tm"
       class="h-auto flex-col px-12 py-4"
       style="height: auto !important; display: flex !important"
     >

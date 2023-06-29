@@ -22,9 +22,9 @@ function getArticleStyles(index) {
 </script>
 
 <template>
-  <div class="mx-auto max-w-7xl p-20 py-24">
+  <div class="mx-auto max-w-7xl p-8 py-24">
     <h2 class="mb-20 text-left text-6xl font-bold text-charcoal-900">{{ blok.title }}</h2>
-    <div class="mx-auto my-12 grid place-items-start gap-4 md:auto-rows-[350px] md:grid-cols-3">
+    <div class="mx-auto my-12 grid place-items-start gap-8 md:auto-rows-[350px] md:grid-cols-3">
       <NuxtPicture
         class="h-full w-full py-1 md:col-span-2 md:row-span-1"
         :src="articles[0].content.image.filename"

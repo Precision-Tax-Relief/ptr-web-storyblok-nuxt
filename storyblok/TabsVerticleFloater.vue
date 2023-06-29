@@ -13,7 +13,6 @@ interface PropTypes {
 }
 
 const props = defineProps<PropTypes>()
-
 </script>
 
 <template>
@@ -23,10 +22,7 @@ const props = defineProps<PropTypes>()
       <p class="mt-6 text-lg leading-8 text-gray-600">{{ props.blok.subtitle }}</p>
     </div>
     <TabGroup :vertical="!small" class="relative mx-auto max-w-7xl grid-cols-11 sm:rounded-lg md:grid" as="div">
-      <div
-        ref="tab_wrapper"
-        class="z-10 col-span-4 my-auto flex h-full items-center justify-center"
-      >
+      <div ref="tab_wrapper" class="z-10 col-span-4 my-auto flex h-full items-center justify-center">
         <TabList
           class="relative mt-4 flex h-fit flex-row overflow-y-scroll rounded-xl bg-charcoal-50 p-2 shadow-lg md:flex-grow md:flex-col md:gap-2 md:overflow-hidden md:px-2 md:py-6 lg:px-4"
         >
@@ -91,7 +87,7 @@ const props = defineProps<PropTypes>()
           v-for="tab in props.blok.tabs"
           class="relative z-10 mx-auto w-screen max-w-6xl overflow-hidden md:w-full"
         >
-          <article class="flex flex-col gap-4 py-6 pl-12 pr-6" v-editable="tab">
+          <article v-editable="tab" class="flex flex-col gap-4 py-6 pl-12 pr-6">
             <NuxtPicture
               class="duration-500"
               :imgAttrs="{
@@ -110,10 +106,10 @@ const props = defineProps<PropTypes>()
               {{ tab.content }}
             </p>
             <div class="delay-400 duration-500">
-              <a
-                :href="tab.link.url"
+              <NuxtLink
+                :to="tab.link.url"
                 class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                >Read more</a
+                >Read more</NuxtLink
               >
             </div>
           </article>

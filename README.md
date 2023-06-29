@@ -36,6 +36,7 @@ storyblok login --token [YOUR_TOKEN] --region us
 ```
 
 Pull Storyblok components and generate types:
+
 ```bash
 storyblok pull-components --space=[SPACE_ID]
 yarn run generate-sb-types

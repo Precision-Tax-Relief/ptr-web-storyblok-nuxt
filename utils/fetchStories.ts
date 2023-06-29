@@ -1,8 +1,8 @@
 // fetchRoutes.ts
-const toIgnore = ["home", "layouts/default"]
 import fetch from "node-fetch"
+const toIgnore = ["home", "layouts/default"]
 
-export async function fetchStories(cacheVersion: number, page: number = 1): Promise<string[]> {
+export async function fetchStories(cacheVersion: number, page = 1): Promise<string[]> {
   const token = process.env.STORYBLOCK_TOKEN
   const version = "published"
   const perPage = 100
