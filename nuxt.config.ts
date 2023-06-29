@@ -58,7 +58,15 @@ const config: NuxtConfig = {
   nitro: {
     prerender: {
       crawler: false,
-      routes: ["/", "/our-homes/ridge/", "/our-homes/timbered/", "/our-homes/custom/", "/our-homes/gallery/"]
+      routes: [
+        "/",
+        "/our-homes/ridge/",
+        "/our-homes/timbered/",
+        "/our-homes/custom/",
+        "/our-homes/gallery/",
+        "/blog/",
+        "/start-the-process/"
+      ]
     }
   }
 }
