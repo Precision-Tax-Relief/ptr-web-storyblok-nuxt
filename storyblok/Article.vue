@@ -5,7 +5,7 @@ interface PropTypes {
 const props = defineProps<PropTypes>()
 </script>
 <template>
-  <div v-editable="props.blok" class="mx-auto px-6 sm:px-0">
+  <div v-editable="props.blok" class="mx-auto mb-32 px-6 sm:px-0">
     <div class="prose mx-auto lg:prose-xl">
       <NuxtPicture :imgAttrs="{ alt: props.blok.image.alt }" :src="props.blok.image.filename"></NuxtPicture>
       <h1>
