@@ -36,7 +36,7 @@ function getArticleStyles(index) {
         v-for="(article, index) in articles"
         :key="article.uuid"
         :article="article.content"
-        :slug="article.full_slug"
+        :slug="article.full_slug + '/'"
         :class="'' + getArticleStyles(index)"
       />
     </div>
