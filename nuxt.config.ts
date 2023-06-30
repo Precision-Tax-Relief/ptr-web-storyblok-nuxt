@@ -49,7 +49,7 @@ const config: NuxtConfig = {
     "nuxt-swiper",
     "nuxt-simple-sitemap"
   ],
-  buildModules: ["@nuxt/typescript-build"],
+  buildModules: ["@nuxt/typescript-build", "@nuxtjs/google-fonts"],
   build: {
     postcss: {
       postcssOptions: {
@@ -151,6 +151,11 @@ const config: NuxtConfig = {
       page: {
         exclude: ["/blog/**", "/model/**"]
       }
+    }
+  },
+  googleFonts: {
+    families: {
+      Inter: [400, 500, 600, 700, 800]
     }
   }
 }
