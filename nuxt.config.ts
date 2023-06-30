@@ -16,11 +16,8 @@ async function fetchStories(routes: string[], cacheVersion: number, page: number
 
     // Add routes to the array
     Object.values(data.links).forEach((link: any) => {
-      if (link.slug === "home") {
-        console.log(JSON.stringify(link, null, 2))
-      }
-      if (!toIgnore.includes(link.slug) && !link.is_folder && !link.slug.startsWith("layouts/")) {
-        routes.push(("/" + link.slug + "/").replace("//", "/"))
+      if (!toIgnore.includes(link.slug) && !link.is_folder && !link.slug.startsWith("layouts")) {
+        routes.push("/" + link.slug)
       }
     })
 
