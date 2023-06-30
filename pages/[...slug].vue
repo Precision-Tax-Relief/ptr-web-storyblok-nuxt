@@ -6,14 +6,13 @@ useHead({
   }
 })
 
-import { useRoute } from "nuxt/app"
 const { slug } = useRoute().params
 const resolveRelations = ["popular-articles.articles"]
 
 const story = await useAsyncStoryblok(
-  slug && slug.length > 0 ? slug.join("/") : "index",
+  slug.join("/").replace(/\/$/, ""),
   {
-    version: "draft",
+    version: "published",
     resolve_relations: resolveRelations
   },
   {
