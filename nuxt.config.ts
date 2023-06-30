@@ -82,7 +82,7 @@ const config: NuxtConfig = {
     }
   },
   storyblok: {
-    accessToken: process.env.STORYBLOCK_TOKEN,
+    accessToken: process.env.STORYBLOK_TOKEN,
     bridge: process.env.NODE_ENV === "development",
     devtools: process.env.NODE_ENV === "development",
     apiOptions: {
