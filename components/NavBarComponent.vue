@@ -4,7 +4,13 @@ import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/vue"
 import { useRoute } from "#app"
 import DarkButton from "~/components/DarkButton.vue"
 import TRLogo from "~/components/svg/TRLogo.vue"
-await prefetchComponents(["NavBarLinkComponent", "NavBarPopover", "NavBarMobileDisclosureComponent"])
+await prefetchComponents([
+  "NavBarLinkComponent",
+  "NavBarPopover",
+  "NavBarMobileDisclosureComponent",
+  "NavBarDropdown",
+  "NavBarDropdownLink"
+])
 
 /**
  *  Overlay Animation Handling
