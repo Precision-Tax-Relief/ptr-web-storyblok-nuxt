@@ -6,7 +6,7 @@ const { slug } = useRoute().params
 const resolveRelations = ["popular-articles.articles"]
 
 const story = await useAsyncStoryblok(
-  slug && slug.length > 0 ? slug.join("/") : "home",
+  slug && slug.length > 0 ? slug.join("/") : "index",
   {
     version: "draft",
     resolve_relations: resolveRelations

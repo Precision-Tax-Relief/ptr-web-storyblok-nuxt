@@ -1,5 +1,41 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import type { NuxtConfig } from "@nuxt/types"
+import fetch from "node-fetch"
+const toIgnore = ["index", "layouts/default"]
+
+async function fetchStories(routes: string[], cacheVersion: number, page: number = 1) {
+  const token = process.env.STORYBLOK_TOKEN
+  const version = "published"
+  const perPage = 100
+
+  try {
+    const response = await fetch(
+      `https://api-us.storyblok.com/v2/cdn/links?token=${token}&version=${version}&per_page=${perPage}&page=${page}&cv=${cacheVersion}`
+    )
+    const data = (await response.json()) as any
+
+    // Add routes to the array
+    Object.values(data.links).forEach((link: any) => {
+      if (link.slug === "home") {
+        console.log(JSON.stringify(link, null, 2))
+      }
+      if (!toIgnore.includes(link.slug) && !link.is_folder && !link.slug.startsWith("layouts/")) {
+        routes.push(("/" + link.slug + "/").replace("//", "/"))
+      }
+    })
+
+    // Check if there are more pages with links
+
+    const total = response.headers.get("total") as any
+    const maxPage = Math.ceil(total / perPage)
+
+    if (maxPage > page) {
+      await fetchStories(routes, cacheVersion, ++page)
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 const config: NuxtConfig = {
   target: "static",
@@ -55,18 +91,39 @@ const config: NuxtConfig = {
       mode: "out-in"
     }
   },
+  hooks: {
+    async "nitro:config"(nitroConfig) {
+      if (!nitroConfig || nitroConfig.dev) {
+        return
+      }
+      const token = process.env.STORYBLOK_TOKEN
+
+      let cache_version = 0
+
+      // other routes that are not in Storyblok with their slug.
+      let routes = ["/"] // adds home directly but with / instead of /index
+      try {
+        const result = await fetch(`https://api-us.storyblok.com/v2/cdn/spaces/me?token=${token}`)
+
+        if (!result.ok) {
+          throw new Error("Could not fetch Storyblok data")
+        }
+        // timestamp of latest publish
+        const space = await result.json()
+        cache_version = space.space.version
+
+        // Recursively fetch all routes and set them to the routes array
+        await fetchStories(routes, cache_version)
+        // Adds the routes to the prerenderer
+        nitroConfig.prerender.routes.push(...routes)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  },
   nitro: {
     prerender: {
-      crawler: false,
-      routes: [
-        "/",
-        "/our-homes/ridge/",
-        "/our-homes/timbered/",
-        "/our-homes/custom/",
-        "/our-homes/gallery/",
-        "/blog/",
-        "/start-the-process/"
-      ]
+      crawlLinks: false
     }
   }
 }
