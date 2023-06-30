@@ -40,7 +40,15 @@ async function fetchStories(routes: string[], cacheVersion: number, page: number
 const config: NuxtConfig = {
   target: "static",
   css: ["@/assets/css/main.css"],
-  modules: ["@storyblok/nuxt", "@nuxtjs/tailwindcss", "@nuxt/image", "nuxt-icon", "@pinia/nuxt", "nuxt-swiper"],
+  modules: [
+    "@storyblok/nuxt",
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+    "nuxt-icon",
+    "@pinia/nuxt",
+    "nuxt-swiper",
+    "nuxt-simple-sitemap"
+  ],
   buildModules: ["@nuxt/typescript-build"],
   build: {
     postcss: {
@@ -50,6 +58,11 @@ const config: NuxtConfig = {
           autoprefixer: {}
         }
       }
+    }
+  },
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.URL || "https://example.com"
     }
   },
   vite: {
@@ -124,6 +137,20 @@ const config: NuxtConfig = {
   nitro: {
     prerender: {
       crawlLinks: false
+    }
+  },
+  sitemap: {
+    // manually chunk into multiple sitemaps
+    sitemaps: {
+      post: {
+        include: ["/blog/**"]
+      },
+      model: {
+        include: ["/model/**"]
+      },
+      page: {
+        exclude: ["/blog/**", "/model/**"]
+      }
     }
   }
 }
