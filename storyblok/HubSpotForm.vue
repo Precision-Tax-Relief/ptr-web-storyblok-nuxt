@@ -8,16 +8,28 @@ interface PropTypes {
 const props = defineProps<PropTypes>()
 
 useHead({
-  script: [{ src: "//js.hsforms.net/forms/embed/v2.js" }]
+  script: [{ src: "//js.hsforms.net/forms/embed/v2.js", defer: true }]
 })
+const createForm = () => {
+  if (
+    typeof hbspt === "undefined" ||
+    typeof hbspt?.forms === "undefined" ||
+    typeof hbspt?.forms?.create === "undefined"
+  ) {
+    setTimeout(createForm, 200)
+    return
+  }
 
-onMounted(() => {
   hbspt.forms.create({
     region: props.blok.region,
     portalId: props.blok.portalId,
     formId: props.blok.formId,
     target: `#form-${props.blok.formId}`
   })
+}
+
+onMounted(() => {
+  createForm()
 })
 </script>
 

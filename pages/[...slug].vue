@@ -1,8 +1,13 @@
 <script setup>
+useHead({
+  htmlAttrs: {
+    lang: "en",
+    style: "font-size: .8125rem"
+  }
+})
+
 import { useRoute } from "nuxt/app"
-
 const { slug } = useRoute().params
-
 const resolveRelations = ["popular-articles.articles"]
 
 const story = await useAsyncStoryblok(
@@ -16,12 +21,6 @@ const story = await useAsyncStoryblok(
   }
 )
 
-useHead({
-  htmlAttrs: {
-    lang: "en",
-    style: "font-size: 13px"
-  }
-})
 const route = useRoute()
 function getUseOverlay() {
   return ["/", "/our-homes/gallery/"].includes(route.path)
