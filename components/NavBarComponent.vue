@@ -139,9 +139,6 @@ const mobileMenuOpen = ref(false)
                 <div class="space-y-2 py-6">
                   <slot name="mobile-social" />
                 </div>
-                <div class="pt-8">
-                  <DarkButton href="#">Contact Our Team</DarkButton>
-                </div>
               </div>
             </div>
           </DialogPanel>
