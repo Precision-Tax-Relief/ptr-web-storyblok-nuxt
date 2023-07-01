@@ -9,7 +9,7 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <ImageCardComponent v-editable="props.blok" :img="props.blok.image" :link="props.blok.link">
+  <ImageCardComponent v-editable="props.blok" :img="props.blok.image" :link="props.blok.link.url">
     <template v-if="props.blok.category" #category>
       {{ props.blok.category }}
     </template>

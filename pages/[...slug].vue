@@ -7,12 +7,12 @@ useHead({
 })
 
 const { slug } = useRoute().params
-const resolveRelations = ["popular-articles.articles"]
+const resolveRelations = ["popular-articles.articles", "ArticleCard.post"]
 
 const story = await useAsyncStoryblok(
   slug && slug.length > 0 ? slug.join("/").replace(/\/$/, "") : "index",
   {
-    version: "published",
+    version: "draft",
     resolve_relations: resolveRelations
   },
   {

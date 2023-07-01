@@ -38,6 +38,13 @@ export interface ArticleStoryblok {
   [k: string]: any;
 }
 
+export interface ArticleCardStoryblok {
+  post?: StoryblokStory<ArticleStoryblok> | string;
+  _uid: string;
+  component: "ArticleCard";
+  [k: string]: any;
+}
+
 export type MultilinkStoryblok =
   | {
       cached_url?: string;
@@ -507,7 +514,7 @@ export interface TestimonialSliderStoryblok {
 export interface ThreeColumnStoryblok {
   title?: string;
   description?: string;
-  content?: ImageCardStoryblok[];
+  content?: (ImageCardStoryblok | ArticleCardStoryblok)[];
   _uid: string;
   component: "ThreeColumn";
   [k: string]: any;

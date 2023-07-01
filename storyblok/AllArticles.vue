@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useStoryblokApi } from "@storyblok/vue"
-import ArticleCard from "~/components/ArticleCard.vue"
 
 defineProps({ blok: Object })
 
@@ -8,7 +7,8 @@ const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get("cdn/stories", {
   version: "published",
   starts_with: "blog",
-  is_startpage: 0
+  is_startpage: 0,
+  sort_by: "content.date:desc"
 })
 const articles = data.stories
 
@@ -32,7 +32,7 @@ function getArticleStyles(index) {
         :imgAttrs="{ class: 'object-cover h-full w-full', alt: articles[0].content.image.alt }"
       >
       </NuxtPicture>
-      <ArticleCard
+      <ArticleCardComponent
         v-for="(article, index) in articles"
         :key="article.uuid"
         :article="article.content"

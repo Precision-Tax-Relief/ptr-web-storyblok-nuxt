@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useSlots } from "vue"
-import { AssetStoryblok, MultilinkStoryblok } from "~/types/component-types-sb"
+import { AssetStoryblok } from "~/types/component-types-sb"
 
 interface Props {
   img: AssetStoryblok
-  link: MultilinkStoryblok
+  link: String
 }
 const props = defineProps<Props>()
 const slots = useSlots()
@@ -41,7 +41,7 @@ const slots = useSlots()
     </div>
 
     <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
-      <nuxt-link :href="props.link.url">
+      <nuxt-link :href="props.link">
         <span class="absolute inset-0" />
         <slot name="heading" />
       </nuxt-link>
