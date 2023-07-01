@@ -2,7 +2,6 @@
 import { ref, computed, watch } from "vue"
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/vue"
 import { useRoute } from "#app"
-import DarkButton from "~/components/DarkButton.vue"
 import TRLogo from "~/components/svg/TRLogo.vue"
 await prefetchComponents([
   "NavBarLinkComponent",
@@ -87,6 +86,9 @@ const styles = computed(() => {
 })
 
 const mobileMenuOpen = ref(false)
+watch(route, () => {
+  mobileMenuOpen.value = false
+})
 </script>
 
 <template>
