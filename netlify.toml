@@ -1,5 +1,5 @@
 [dev]
-    command = "yarn dev-ssl"
+    command = "yarn dev"
     autoLaunch = false
 #[dev.https]
 #    certFile = "localhost.pem"
@@ -20,3 +20,52 @@
 [context.staging] # “staging” is a branch name
     command = "echo 'staging'"
     base = "staging"
+
+
+[[redirects]]
+from = "/why-north-idaho-is-a-great-place-to-buy-land"
+to = "/blog/why-north-idaho-is-a-great-place-to-buy-land"
+
+[[redirects]]
+from = "/north-idaho-a-destination-through-the-years"
+to = "/blog/north-idaho-a-destination-through-the-years"
+
+[[redirects]]
+from = "/the-best-places-to-fish-in-north-idaho"
+to = "/blog/the-best-places-to-fish-in-north-idaho"
+
+[[redirects]]
+from = "/hunting-in-north-idaho-a-guide-to-access-and-opportunities"
+to = "/blog/hunting-in-north-idaho-a-guide-to-access-and-opportunities"
+
+[[redirects]]
+from = "/land-lot-inventory"
+to = "/communities"
+
+[[redirects]]
+from = "/home-series"
+to = "/our-homes"
+
+[[redirects]]
+from = "/timbered-ridge-homes/gallery*"
+to = "/our-homes/gallery"
+
+[[redirects]]
+from = "/timbered-ridge-homes/custom-series*"
+to = "/our-homes/custom"
+
+[[redirects]]
+from = "/timbered-ridge-homes/timbered-series*"
+to = "/our-homes/timbered"
+
+[[redirects]]
+from = "/timbered-ridge-homes/ridge-series*"
+to = "/our-homes/ridge"
+
+[[redirects]]
+from = "/images*"
+to = "/our-homes/gallery"
+
+[[redirects]]
+from = "/timbered-ridge-homes/*"
+to = "/"
