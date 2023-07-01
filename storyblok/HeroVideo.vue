@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import HeroVideoComponent from "~/components/HeroVideoComponent.vue"
+import { HeroVideoStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
-  blok: Object
+  blok: HeroVideoStoryblok
 }
 
 const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <HeroVideoComponent v-editable="props.blok" :videoSrc="blok.video?.filename">
+  <HeroVideoComponent
+    v-editable="props.blok"
+    :videoSrc="props.blok.video?.filename"
+    :topLink="props.blok.topButtonLink?.url"
+  >
     <template #top-button>{{ props.blok.topButtonText }}</template>
     <template #big-text><span v-html="props.blok.bigText" /></template>
     <template #small-text>{{ props.blok.smallText }}</template>

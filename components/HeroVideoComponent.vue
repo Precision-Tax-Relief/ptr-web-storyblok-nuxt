@@ -8,6 +8,7 @@ const videoDelay = computed(() => {
 
 interface PropTypes {
   videoSrc: String
+  topLink: String
 }
 
 const props = defineProps<PropTypes>()
@@ -15,10 +16,10 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="relative isolate overflow-hidden bg-neutral-900 pt-14">
-    <video autoplay loop playsinline muted class="absolute inset-0 -z-10 h-full w-full object-cover brightness-50">
+    <video autoplay loop playsinline muted class="absolute inset-0 z-0 h-full w-full object-cover brightness-50">
       <source :src="props.videoSrc + videoDelay" />
     </video>
-    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+    <div class="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
       <div
         class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#F9F4ED] to-[#47423E] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
         style="
@@ -44,15 +45,15 @@ const props = defineProps<PropTypes>()
       />
     </div>
 
-    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+    <div class="relative z-20 mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       <div class="hidden sm:mb-8 sm:flex sm:justify-center">
         <div
           class="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-white/10 hover:ring-white/50"
         >
           <slot name="top-button"></slot>
-          <a href="props.blok.topButtonLink" class="font-semibold text-white">
+          <NuxtLink :href="props.topLink" class="font-semibold text-white">
             <span class="absolute inset-0" aria-hidden="true" /> Read more <span aria-hidden="true">&rarr;</span>
-          </a>
+          </NuxtLink>
         </div>
       </div>
       <div class="text-center">
