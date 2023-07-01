@@ -16,9 +16,10 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="relative isolate overflow-hidden bg-neutral-900 pt-14">
-    <video autoplay loop playsinline muted class="absolute inset-0 z-0 h-full w-full object-cover brightness-50">
+    <video autoplay loop playsinline muted class="inset-0 z-0 h-full w-full object-cover brightness-50">
       <source :src="props.videoSrc + videoDelay" />
     </video>
+    <h2 class="text-white">Test 1</h2>
     <div class="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
       <div
         class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#F9F4ED] to-[#47423E] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
