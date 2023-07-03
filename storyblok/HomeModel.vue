@@ -25,7 +25,11 @@ const props = defineProps<PropTypes>()
       property="og:image"
       :content="props.blok?.featuredImage?.filename"
     />
-    <Meta v-if="props.blok?.featuredImage?.filename" name="twitter:image" :content="props.blok?.featuredImage?." />
+    <Meta
+      v-if="props.blok?.featuredImage?.filename"
+      name="twitter:image"
+      :content="props.blok?.featuredImage?.filename"
+    />
   </Head>
   <div v-editable="props.blok" class="mx-auto">
     <div class="relative flex aspect-22/11 w-full">
