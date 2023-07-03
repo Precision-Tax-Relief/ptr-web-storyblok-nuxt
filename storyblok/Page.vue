@@ -9,11 +9,11 @@ const props = defineProps<PropTypes>()
 
 <template>
   <Head>
-    <Title>{{ props.blok?.title }}</Title>
-    <Meta property="og:title" :content="props.blok?.title" />
-    <Meta name="twitter:title" :content="props.blok?.title" />
+    <Title>{{ props.blok.title }}</Title>
+    <Meta property="og:title" :content="props.blok.title" />
+    <Meta name="twitter:title" :content="props.blok.title" />
 
-    <Meta name="description" :content="props.blok?.description" />
+    <Meta v-if="props.blok?.description" name="description" :content="props.blok?.description" />
     <Meta v-if="props.blok?.description" property="og:description" :content="props.blok?.description" />
     <Meta v-if="props.blok?.description" name="twitter:description" :content="props.blok?.description" />
 

@@ -9,6 +9,24 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
+  <Head>
+    <Title>Home Model - {{ props.blok.model }} {{ props.blok.series }}</Title>
+    <Meta
+      property="og:title"
+      content="Home Model - {{ props.blok?.model }} {{ props.blok?.series }} | Timbered Ridge Homes"
+    />
+    <Meta
+      name="twitter:title"
+      content="Home Model - {{ props.blok?.model }} {{ props.blok?.series }} | Timbered Ridge Homes"
+    />
+
+    <Meta
+      v-if="props.blok?.featuredImage?.filename"
+      property="og:image"
+      :content="props.blok?.featuredImage?.filename"
+    />
+    <Meta v-if="props.blok?.featuredImage?.filename" name="twitter:image" :content="props.blok?.featuredImage?." />
+  </Head>
   <div v-editable="props.blok" class="mx-auto">
     <div class="relative flex aspect-22/11 w-full">
       <div
