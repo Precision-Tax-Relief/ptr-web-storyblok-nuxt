@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
-import { Tab, TabGroup, TabList, TabPanels, TabPanel } from "@headlessui/vue"
+import { Tab, TabGroup, TabList, TabPanels, TabPanel, TransitionRoot } from "@headlessui/vue"
 import { useElementBounding, breakpointsTailwind, useBreakpoints } from "@vueuse/core"
 import { TabsVerticleFloaterStoryblok } from "~/types/component-types-sb"
 
@@ -13,6 +13,16 @@ interface PropTypes {
 }
 
 const props = defineProps<PropTypes>()
+
+const tabIndex = ref(0)
+const selectedIndex = ref(0)
+function setNextIndex(index) {
+  tabIndex.value = null
+  selectedIndex.value = index
+}
+function setSelectedIndex() {
+  tabIndex.value = selectedIndex.value
+}
 </script>
 
 <template>
@@ -21,16 +31,22 @@ const props = defineProps<PropTypes>()
       <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ props.blok.title }}</h2>
       <p class="mt-6 text-lg leading-8 text-gray-600">{{ props.blok.subtitle }}</p>
     </div>
-    <TabGroup :vertical="!small" class="relative mx-auto max-w-7xl grid-cols-11 sm:rounded-lg md:grid" as="div">
+    <TabGroup
+      :vertical="!small"
+      class="relative mx-auto max-w-7xl grid-cols-11 sm:rounded-lg md:grid"
+      as="div"
+      :selectedIndex="tabIndex"
+      @change="setNextIndex"
+    >
       <div ref="tab_wrapper" class="z-10 col-span-4 my-auto flex h-full items-center justify-center">
         <TabList
           class="relative mt-4 flex h-fit flex-row overflow-y-scroll rounded-xl bg-charcoal-50 p-2 shadow-lg md:flex-grow md:flex-col md:gap-2 md:overflow-hidden md:px-2 md:py-6 lg:px-4"
         >
-          <Tab v-for="tab in props.blok.tabs" :key="tab._uuid" v-slot="{ selected }" as="template">
+          <Tab v-for="(tab, index) in props.blok.tabs" :key="tab._uuid" as="template">
             <button
               :class="[
                 'mx-1 flex items-center gap-4 rounded-lg px-1 py-2.5 transition-all md:p-3',
-                selected ? 'bg-white/75 shadow-md' : 'text-charcoal hover:bg-white/30 hover:text-charcoal-700'
+                index === tabIndex ? 'bg-white/75 shadow-md' : 'text-charcoal hover:bg-white/30 hover:text-charcoal-700'
               ]"
             >
               <nuxt-img
@@ -60,7 +76,7 @@ const props = defineProps<PropTypes>()
         </TabList>
       </div>
 
-      <TabPanels v-slot="{ selectedIndex }" class="relative col-span-7 mt-4 grid grid-cols-1 grid-rows-1 md:static">
+      <TabPanels :static="true" class="relative col-span-7 mt-4 grid grid-cols-1 grid-rows-1 md:static">
         <div
           ref="panel_background"
           class="absolute inset-0 col-start-3 col-end-11 md:-inset-2 md:left-4 md:top-1"
@@ -83,37 +99,44 @@ const props = defineProps<PropTypes>()
           </span>
         </div>
 
-        <TabPanel
-          v-for="tab in props.blok.tabs"
-          class="relative z-10 mx-auto w-screen max-w-6xl overflow-hidden md:w-full"
+        <TransitionRoot
+          v-for="(tab, index) in props.blok.tabs"
+          :show="index === tabIndex"
+          enter="duration-[850ms]"
+          enterFrom="opacity-0 translate-x-30"
+          leave="duration-[850ms]"
+          leaveTo="opacity-0"
+          @after-leave="setSelectedIndex"
         >
-          <article v-editable="tab" class="flex flex-col gap-4 py-6 pl-12 pr-6">
-            <NuxtPicture
-              class="duration-500"
-              :imgAttrs="{
-                class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500'
-              }"
-              :src="tab.image.filename"
-              :alt="tab.image.alt"
-              loading="lazy"
-            />
-            <h1
-              class="mr-18 mt-2 text-2xl font-semibold leading-8 text-charcoal-900 transition-all delay-150 duration-500"
-            >
-              {{ tab.title }}
-            </h1>
-            <p class="mr-20 text-base leading-7 text-gray-600 transition-all delay-250 duration-500">
-              {{ tab.content }}
-            </p>
-            <div class="delay-400 duration-500">
-              <NuxtLink
-                :to="tab.link.url"
-                class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                >Read more</NuxtLink
+          <TabPanel :static="true" class="relative z-10 mx-auto w-screen max-w-6xl overflow-hidden md:w-full">
+            <article v-editable="tab" class="flex flex-col gap-4 py-6 pl-12 pr-6">
+              <NuxtPicture
+                class="duration-500"
+                :imgAttrs="{
+                  class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500'
+                }"
+                :src="tab.image.filename"
+                :alt="tab.image.alt"
+                loading="lazy"
+              />
+              <h1
+                class="mr-18 mt-2 text-2xl font-semibold leading-8 text-charcoal-900 transition-all delay-150 duration-500"
               >
-            </div>
-          </article>
-        </TabPanel>
+                {{ tab.title }}
+              </h1>
+              <p class="mr-20 text-base leading-7 text-gray-600 transition-all delay-250 duration-500">
+                {{ tab.content }}
+              </p>
+              <div class="delay-400 duration-500">
+                <NuxtLink
+                  :to="tab.link.url"
+                  class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                  >Read more</NuxtLink
+                >
+              </div>
+            </article>
+          </TabPanel>
+        </TransitionRoot>
         <!--        <Transition as="div" mode="out-in" name="slide-fade">-->
         <!--        <div class="relative z-10">-->
         <!--          <component :is="panels[selectedIndex]" :tab="props.blok.tabs[selectedIndex]">-->
@@ -150,19 +173,3 @@ const props = defineProps<PropTypes>()
     </TabGroup>
   </article>
 </template>
-
-<style>
-/*We don't actually use this, but vue uses it to calculate the duration of the transition */
-.slide-fade-leave-active {
-  transition-duration: 0.85s;
-}
-
-.slide-fade-enter-from > * {
-  transform: translateX(30px);
-  opacity: 0;
-}
-
-.slide-fade-leave-to > * {
-  opacity: 0;
-}
-</style>
