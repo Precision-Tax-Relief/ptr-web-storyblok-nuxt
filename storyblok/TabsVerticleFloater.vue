@@ -131,44 +131,12 @@ function setSelectedIndex() {
                 <NuxtLink
                   :to="tab.link.url"
                   class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
-                  >Read more</NuxtLink
+                  >View Community</NuxtLink
                 >
               </div>
             </article>
           </TabPanel>
         </TransitionRoot>
-        <!--        <Transition as="div" mode="out-in" name="slide-fade">-->
-        <!--        <div class="relative z-10">-->
-        <!--          <component :is="panels[selectedIndex]" :tab="props.blok.tabs[selectedIndex]">-->
-        <!--            <template v-slot="{ tab }">-->
-        <!--              <NuxtPicture-->
-        <!--                class="duration-500"-->
-        <!--                :imgAttrs="{-->
-        <!--                  class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500'-->
-        <!--                }"-->
-        <!--                :src="tab.image.filename"-->
-        <!--                :alt="tab.image.alt"-->
-        <!--                loading="lazy"-->
-        <!--              />-->
-        <!--              <h1-->
-        <!--                class="mr-18 mt-2 text-2xl font-semibold leading-8 text-charcoal-900 transition-all delay-150 duration-500"-->
-        <!--              >-->
-        <!--                {{ tab.title }}-->
-        <!--              </h1>-->
-        <!--              <p class="mr-20 text-base leading-7 text-gray-600 transition-all delay-250 duration-500">-->
-        <!--                {{ tab.content }}-->
-        <!--              </p>-->
-        <!--              <div class="delay-400 duration-500">-->
-        <!--                <a-->
-        <!--                  :href="tab.link.url"-->
-        <!--                  class="delay-350 rounded-md bg-sand-1000 px-3.5 py-2.5 text-sm font-semibold text-charcoal-50 shadow-sm hover:bg-sand-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"-->
-        <!--                  >Read more</a-->
-        <!--                >-->
-        <!--              </div>-->
-        <!--            </template>-->
-        <!--          </component>-->
-        <!--        </Transition>-->
-        <!--        </div>-->
       </TabPanels>
     </TabGroup>
   </article>
