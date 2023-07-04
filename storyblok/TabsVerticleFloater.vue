@@ -46,7 +46,9 @@ function setSelectedIndex() {
             <button
               :class="[
                 'mx-1 flex items-center gap-4 rounded-lg px-1 py-2.5 transition-all md:p-3',
-                index === tabIndex ? 'bg-white/75 shadow-md' : 'text-charcoal hover:bg-white/30 hover:text-charcoal-700'
+                index === selectedIndex
+                  ? 'bg-white/75 shadow-md'
+                  : 'text-charcoal hover:bg-white/30 hover:text-charcoal-700'
               ]"
             >
               <nuxt-img
@@ -102,9 +104,10 @@ function setSelectedIndex() {
         <TransitionRoot
           v-for="(tab, index) in props.blok.tabs"
           :show="index === tabIndex"
-          enter="duration-[850ms]"
-          enterFrom="opacity-0 translate-x-30"
-          leave="duration-[850ms]"
+          enter="transform transition duration-300"
+          enterFrom="opacity-0 translate-x-20"
+          enterTo="opacity-100"
+          leave="duration-300"
           leaveTo="opacity-0"
           @after-leave="setSelectedIndex"
         >
