@@ -44,7 +44,8 @@ const config: NuxtConfig = {
     "nuxt-icon",
     "@pinia/nuxt",
     "nuxt-swiper",
-    "nuxt-simple-sitemap"
+    "nuxt-simple-sitemap",
+    "@zadigetvoltaire/nuxt-gtm"
   ],
   buildModules: ["@nuxt/typescript-build", "@nuxtjs/google-fonts"],
   build: {
@@ -154,6 +155,13 @@ const config: NuxtConfig = {
     families: {
       Inter: [400, 500, 600, 700, 800]
     }
+  },
+  gtm: {
+    id: "GTM-NG5ZNPS",
+    defer: true,
+    enabled: process.env.NODE_ENV !== "development",
+    debug: false,
+    devtools: false
   }
 }
 
