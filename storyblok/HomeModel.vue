@@ -32,24 +32,26 @@ const props = defineProps<PropTypes>()
     />
   </Head>
   <div v-editable="props.blok" class="mx-auto">
-    <div class="relative flex aspect-22/11 w-full">
+    <div class="relative flex w-full">
       <div
         class="relative z-20 w-full self-end bg-gradient-to-b from-transparent via-charcoal-900/75 to-charcoal-900 px-6 pb-16 pt-48"
       >
-        <div class="mx-auto flex w-full max-w-screen-lg flex-wrap justify-start justify-between gap-x-9 gap-y-16">
+        <div class="mx-auto flex w-full max-w-screen-lg flex-wrap justify-between gap-x-9 gap-y-16">
           <div class="max-w-3xl flex-grow">
             <p class="inline-block bg-sand-800 p-2 px-3 text-lg font-semibold uppercase tracking-wider text-sand-100">
               {{ props.blok.series }} Series
             </p>
             <h1 class="py-4 text-6xl font-bold text-white">{{ props.blok.model }}</h1>
-            <ul class="flex flex-col justify-between gap-2 text-lg font-semibold tracking-tight text-white sm:flex-row">
+            <ul
+              class="flex max-w-md flex-col justify-between gap-2 text-lg font-semibold tracking-tight text-white sm:flex-row"
+            >
               <li>Single-Family Home</li>
               <li>Available in MT & ID</li>
-              <li>Starting At ${{ props.blok.startingPrice }}</li>
             </ul>
           </div>
           <a
-            href="#test"
+            :href="props.blok.floorPlan?.filename"
+            target="_blank"
             class="flex-shrink-0 self-end rounded-xl bg-sand-200 p-4 px-6 font-semibold uppercase tracking-wider text-sand-800 hover:bg-sand-50 hover:text-sand-1000"
           >
             View Floorplan
@@ -73,6 +75,23 @@ const props = defineProps<PropTypes>()
         </div>
       </div>
     </div>
+    <NuxtLink
+      v-if="props.blok.matterPortImage"
+      class="relative m-auto mt-20 flex aspect-22/11 max-w-7xl flex-col items-center justify-center gap-5 sm:gap-10"
+      :to="props.blok.matterPortLink?.url"
+      target="_blank"
+    >
+      <Icon name="octicon:play-16" class="h-12 w-12 sm:h-24 sm:w-24" color="white" />
+      <h3 class="text-lg font-bold tracking-tight text-white sm:text-2xl">View 3D Walkthrough</h3>
+      <NuxtPicture
+        :src="props.blok.matterPortImage?.filename"
+        :imgAttrs="{
+          class: 'opacity-30 absolute inset-0 object-cover h-full w-full',
+          alt: props.blok.matterPortImage?.alt
+        }"
+      ></NuxtPicture>
+      <div class="class absolute inset-0 -z-10 bg-black opacity-100"></div>
+    </NuxtLink>
     <div class="pt-20">
       <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />
     </div>
