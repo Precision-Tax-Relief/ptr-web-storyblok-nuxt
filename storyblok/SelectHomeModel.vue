@@ -25,12 +25,9 @@ const models = data.stories
       {{ props.blok.title }}
     </h2>
     <div class="mx-auto grid max-w-lg grid-cols-1 gap-5 sm:max-w-max sm:grid-cols-2 md:grid-cols-3">
-      <HomeModelCard
-        v-for="model in models"
-        :key="model.uid"
-        :model="model.content"
-        :slug="model.full_slug"
-      ></HomeModelCard>
+      <div v-for="model in models" :key="model.uid">
+        <HomeModelCard :model="model.content" :slug="model.full_slug"></HomeModelCard>
+      </div>
     </div>
   </div>
 </template>

@@ -77,13 +77,15 @@ const props = defineProps<PropTypes>()
     </div>
     <NuxtLink
       v-if="props.blok.matterPortImage"
-      class="relative m-auto mt-20 flex aspect-22/11 max-w-7xl flex-col items-center justify-center gap-5 sm:gap-10"
+      class="relative m-auto mt-20 flex aspect-[4/3] w-full max-w-7xl flex-col items-center justify-center gap-5 sm:gap-10 md:aspect-22/11 md:w-[60rem] lg:w-[80rem]"
       :to="props.blok.matterPortLink?.url"
       target="_blank"
     >
       <Icon name="octicon:play-16" class="h-12 w-12 sm:h-24 sm:w-24" color="white" />
       <h3 class="text-lg font-bold tracking-tight text-white sm:text-2xl">View 3D Walkthrough</h3>
       <NuxtPicture
+        sizes="sm:100vw md:1920px lg:2560px"
+        loading="lazy"
         :src="props.blok.matterPortImage?.filename"
         :imgAttrs="{
           class: 'opacity-30 absolute inset-0 object-cover h-full w-full',
