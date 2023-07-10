@@ -3,7 +3,7 @@ import type { NuxtConfig } from "@nuxt/types"
 import fetch from "node-fetch"
 const toIgnore = ["index", "layouts/default"]
 
-async function fetchStories(routes: string[], cacheVersion: number, page: number = 1) {
+async function fetchStories(routes: string[], cacheVersion: number, page = 1) {
   const token = process.env.STORYBLOK_TOKEN
   const version = "published"
   const perPage = 100
@@ -60,7 +60,8 @@ const config: NuxtConfig = {
   },
   runtimeConfig: {
     public: {
-      siteUrl: process.env.URL || "https://example.com"
+      siteUrl: process.env.URL || "https://example.com",
+      storyblokVersion: process.env.STORYBLOK_VERSION || "published"
     }
   },
   vite: {
@@ -112,7 +113,7 @@ const config: NuxtConfig = {
       let cache_version = 0
 
       // other routes that are not in Storyblok with their slug.
-      let routes = ["/"] // adds home directly but with / instead of /index
+      const routes = ["/"] // adds home directly but with / instead of /index
       try {
         const result = await fetch(`https://api-us.storyblok.com/v2/cdn/spaces/me?token=${token}`)
 

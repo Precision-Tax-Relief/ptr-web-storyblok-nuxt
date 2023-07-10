@@ -76,7 +76,7 @@ const props = defineProps<PropTypes>()
       </div>
     </div>
     <NuxtLink
-      v-if="props.blok.matterPortImage"
+      v-if="props.blok.matterPortImage?.filename && props.blok.matterPortLink?.url"
       class="relative m-auto mt-20 flex aspect-[4/3] w-full max-w-7xl flex-col items-center justify-center gap-5 sm:gap-10 md:aspect-22/11 md:w-[60rem] lg:w-[80rem]"
       :to="props.blok.matterPortLink?.url"
       target="_blank"

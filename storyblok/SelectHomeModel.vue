@@ -10,8 +10,9 @@ interface PropTypes {
 const props = defineProps<PropTypes>()
 
 const storyblokApi = useStoryblokApi()
+const runtimeConfig = useRuntimeConfig()
 const { data } = await storyblokApi.get("cdn/stories", {
-  version: "published",
+  version: runtimeConfig.public.storyblokVersion ? runtimeConfig.public.storyblokVersion : "published",
   starts_with: "model",
   by_uuids: props.blok.homeModels?.join(","),
   resolve_links: "link"

@@ -37,7 +37,7 @@ const props = defineProps<PropTypes>()
         </div>
       </div>
       <NuxtLink
-        v-if="props.model.matterPortLink"
+        v-if="props.model.matterPortLink?.url"
         :to="props.model.matterPortLink?.url"
         target="_blank"
         class="flex w-full items-center justify-center gap-3 border-t border-charcoal-100 p-2 transition duration-300 hover:bg-charcoal-100"
