@@ -40,11 +40,11 @@ const props = defineProps<PropTypes>()
         v-if="props.model.matterPortLink?.url"
         :to="props.model.matterPortLink?.url"
         target="_blank"
-        class="flex w-full items-center justify-center gap-3 border-t border-charcoal-100 p-2 transition duration-300 hover:bg-charcoal-100"
+        class="flex w-full items-center justify-center gap-3 border-t border-charcoal-100 p-2 transition duration-300 hover:bg-sand-300"
         @click.stop
       >
-        <Icon name="ion:dice" class="h-8 w-8 md:h-6 md:w-6 lg:h-8 lg:w-8"></Icon>
-        <h3 class="text-2xl font-semibold tracking-tight text-charcoal-700 md:text-xl">View 3D Walkthrough</h3>
+        <Icon name="cil:3d" class="h-6 w-6 text-sand-700"></Icon>
+        <h3 class="text-2xl font-semibold tracking-tight text-sand-700 md:text-xl">View 3D Walkthrough</h3>
       </NuxtLink>
     </div>
   </div>

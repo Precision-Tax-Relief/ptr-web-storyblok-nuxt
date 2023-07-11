@@ -82,7 +82,7 @@ const props = defineProps<PropTypes>()
       target="_blank"
     >
       <Icon name="octicon:play-16" class="h-12 w-12 sm:h-24 sm:w-24" color="white" />
-      <h3 class="text-lg font-bold tracking-tight text-white sm:text-2xl">View 3D Walkthrough</h3>
+      <h3 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">View 3D Walkthrough</h3>
       <NuxtPicture
         sizes="sm:100vw md:1920px lg:2560px"
         loading="lazy"
