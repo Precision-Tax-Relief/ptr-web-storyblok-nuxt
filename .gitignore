@@ -25,3 +25,4 @@ components.*.json
 !.idea/jsLinters
 !.idea/modules.xml
 !.idea/project-module.iml
+/.unlighthouse/
