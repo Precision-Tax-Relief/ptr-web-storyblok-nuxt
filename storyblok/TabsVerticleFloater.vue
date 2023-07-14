@@ -111,8 +111,12 @@ function setSelectedIndex() {
           leaveTo="opacity-0"
           @after-leave="setSelectedIndex"
         >
-          <TabPanel :static="true" class="relative z-10 mx-auto w-screen max-w-6xl overflow-hidden md:w-full">
-            <article v-editable="tab" class="flex flex-col gap-4 py-6 pl-12 pr-6">
+          <TabPanel
+            v-editable="tab"
+            :static="true"
+            class="relative z-10 mx-auto w-screen max-w-6xl overflow-hidden md:w-full"
+          >
+            <article class="flex flex-col gap-4 py-6 pl-12 pr-6">
               <NuxtPicture
                 class="duration-500"
                 :imgAttrs="{

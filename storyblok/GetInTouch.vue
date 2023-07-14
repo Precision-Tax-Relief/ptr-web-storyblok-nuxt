@@ -10,7 +10,7 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <GetInTouchComponent>
+  <GetInTouchComponent v-editable="props.blok">
     <template #title>{{ props.blok.title }}</template>
     <template #description>{{ props.blok.description }}</template>
     <template #address>
