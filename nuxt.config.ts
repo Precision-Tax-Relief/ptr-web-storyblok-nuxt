@@ -69,7 +69,10 @@ const config: NuxtConfig = {
       alias: process.env.NODE_ENV === "development" ? { vue: "vue/dist/vue.esm-bundler.js" } : {}
     },
     vue: {
-      customElement: true
+      customElement: true,
+      config: {
+        devtools: process.env.NODE_ENV === "development"
+      }
     },
     vueJsx: {
       mergeProps: true
