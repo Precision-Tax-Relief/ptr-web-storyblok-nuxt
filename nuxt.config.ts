@@ -69,10 +69,7 @@ const config: NuxtConfig = {
       alias: process.env.NODE_ENV === "development" ? { vue: "vue/dist/vue.esm-bundler.js" } : {}
     },
     vue: {
-      customElement: true,
-      config: {
-        devtools: process.env.NODE_ENV === "development"
-      }
+      customElement: true
     },
     vueJsx: {
       mergeProps: true
@@ -88,10 +85,8 @@ const config: NuxtConfig = {
   },
   storyblok: {
     accessToken: process.env.STORYBLOK_TOKEN,
-    // bridge: process.env.NODE_ENV === "development",
-    // devtools: process.env.NODE_ENV === "development",
-    bridge: true,
-    devtools: true,
+    bridge: process.env.DEV_TOOLS,
+    devtools: process.env.DEV_TOOLS,
     apiOptions: {
       region: "us" // Set 'US" if your space is created in US region (EU default)
     }
