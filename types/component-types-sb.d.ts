@@ -45,6 +45,15 @@ export interface ArticleCardStoryblok {
   [k: string]: any;
 }
 
+export interface BannerStoryblok {
+  image: AssetStoryblok;
+  bannerTitle?: string;
+  bannerText?: string;
+  _uid: string;
+  component: "Banner";
+  [k: string]: any;
+}
+
 export type MultilinkStoryblok =
   | {
       cached_url?: string;
@@ -143,6 +152,15 @@ export interface ContentFloaterFigureStoryblok {
   text?: string;
   _uid: string;
   component: "ContentFloaterFigure";
+  [k: string]: any;
+}
+
+export interface ContentImageStoryblok {
+  image?: AssetStoryblok;
+  text?: string;
+  imageLeft?: boolean;
+  _uid: string;
+  component: "ContentImage";
   [k: string]: any;
 }
 
@@ -285,8 +303,10 @@ export interface HomeFeaturesPanelStoryblok {
 export interface HomeModelStoryblok {
   model?: string;
   series?: string;
-  startingPrice?: string;
   featuredImage: AssetStoryblok;
+  floorPlan?: AssetStoryblok;
+  matterPortLink?: MultilinkStoryblok;
+  matterPortImage?: AssetStoryblok;
   stats?: ModelStatStoryblok[];
   body?: any[];
   _uid: string;
@@ -418,7 +438,7 @@ export interface NavBarMobileLinkStoryblok {
 
 export interface PageStoryblok {
   Meta?: any;
-  title?: string;
+  title: string;
   description?: string;
   image?: AssetStoryblok;
   body?: any[];
@@ -517,5 +537,21 @@ export interface ThreeColumnStoryblok {
   content?: (ImageCardStoryblok | ArticleCardStoryblok)[];
   _uid: string;
   component: "ThreeColumn";
+  [k: string]: any;
+}
+
+export interface TitleBlokStoryblok {
+  title?: string;
+  subtitle1?: string;
+  subtitle2?: string;
+  _uid: string;
+  component: "TitleBlok";
+  [k: string]: any;
+}
+
+export interface YoutubeEmbedStoryblok {
+  youtubeLink: MultilinkStoryblok;
+  _uid: string;
+  component: "YoutubeEmbed";
   [k: string]: any;
 }
