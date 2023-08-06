@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import ContentFloaterComponent from "~/components/ContentFloaterComponent.vue"
+import { ContentFloaterStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
-  blok: Object
+  blok: ContentFloaterStoryblok
 }
 
 const props = defineProps<PropTypes>()
@@ -10,7 +11,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <ContentFloaterComponent v-editable="props.blok">
-    <template #title>{{ props.blok.topButtonText }}</template>
+    <template #title>{{ props.blok.contentFloaterTitle }}</template>
     <template #big-text>{{ props.blok.contentFloaterBigText }}</template>
     <template #small-text>{{ props.blok.contentFloaterSmallText }}</template>
     <template v-if="Boolean(props.blok.contentFloaterFigures?.length)" #content-floater-figures>
