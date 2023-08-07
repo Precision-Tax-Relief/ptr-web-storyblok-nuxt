@@ -22,7 +22,13 @@ const story = await useAsyncStoryblok(
 
 const route = useRoute()
 function getUseOverlay() {
-  return ["/", "/our-homes/gallery/"].includes(route.path)
+  return [
+    "/",
+    "/our-homes/gallery/",
+    "/communities/athol/",
+    "/communities/hauser-lake/",
+    "/communities/hayden/"
+  ].includes(route.path)
 }
 
 const useOverlay = computed(() => {

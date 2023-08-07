@@ -194,6 +194,14 @@ export interface FooterLinkStoryblok {
   [k: string]: any;
 }
 
+export interface FullPageHeroStoryblok {
+  image?: AssetStoryblok;
+  title?: string;
+  _uid: string;
+  component: "FullPageHero";
+  [k: string]: any;
+}
+
 export interface GalleryStoryblok {
   headingImage?: AssetStoryblok;
   panels?: GalleryPanelStoryblok[];
