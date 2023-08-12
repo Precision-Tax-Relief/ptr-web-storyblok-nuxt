@@ -164,6 +164,16 @@ export interface ContentImageStoryblok {
   [k: string]: any;
 }
 
+export interface DividerStoryblok {
+  size: "none" | "sm" | "md" | "lg" | "xl";
+  line_thickness: "none" | "sm" | "md" | "lg" | "xl";
+  line_width: "sm" | "md" | "lg" | "xl" | "full";
+  line_color: "primary-light" | "primary-medium" | "primary-dark" | "accent-light" | "accent-dark";
+  _uid: string;
+  component: "Divider";
+  [k: string]: any;
+}
+
 export interface FeatureStoryblok {
   name?: string;
   _uid: string;
