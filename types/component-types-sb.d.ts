@@ -117,6 +117,30 @@ export interface ButtonOutlineStoryblok {
   [k: string]: any;
 }
 
+export interface CalloutContainerStoryblok {
+  items: CalloutItemStoryblok[];
+  _uid: string;
+  component: "CalloutContainer";
+  [k: string]: any;
+}
+
+export interface CalloutItemStoryblok {
+  icon: "fa6-solid:handshake" | "fa6-solid:eye" | "fa6-solid:compass" | "fa6-solid:binoculars";
+  heading: string;
+  content: RichtextStoryblok;
+  _uid: string;
+  component: "CalloutItem";
+  [k: string]: any;
+}
+
+export interface ChipButtonStoryblok {
+  text?: string;
+  link?: MultilinkStoryblok;
+  _uid: string;
+  component: "ChipButton";
+  [k: string]: any;
+}
+
 export interface ColumnTwoDividerStoryblok {
   header?: string;
   headerOne?: string;
@@ -125,6 +149,23 @@ export interface ColumnTwoDividerStoryblok {
   contentTwo?: string;
   _uid: string;
   component: "ColumnTwoDivider";
+  [k: string]: any;
+}
+
+export interface ContactCTAStoryblok {
+  body: ContactCtaItemStoryblok[];
+  _uid: string;
+  component: "ContactCTA";
+  [k: string]: any;
+}
+
+export interface ContactCTAItemStoryblok {
+  title: string;
+  icon: "fa6-solid:house" | "fa6-solid:user";
+  content: RichtextStoryblok;
+  buttons: ChipButtonStoryblok[];
+  _uid: string;
+  component: "ContactCTAItem";
   [k: string]: any;
 }
 
@@ -141,7 +182,7 @@ export interface ContentFloaterStoryblok {
   contentFloaterTitle?: string;
   contentFloaterBigText?: string;
   contentFloaterSmallText?: string;
-  contentFloaterFigures?: any[];
+  contentFloaterFigures?: (ContentFloaterFigureAnimatedStoryblok | ContentFloaterFigureStoryblok)[];
   _uid: string;
   component: "ContentFloater";
   [k: string]: any;
@@ -155,12 +196,31 @@ export interface ContentFloaterFigureStoryblok {
   [k: string]: any;
 }
 
+export interface ContentFloaterFigureAnimatedStoryblok {
+  label?: string;
+  starting_value: string;
+  ending_value?: string;
+  time: string;
+  prepend?: string;
+  append?: string;
+  _uid: string;
+  component: "ContentFloaterFigureAnimated";
+  [k: string]: any;
+}
+
 export interface ContentImageStoryblok {
   image?: AssetStoryblok;
   text?: string;
   imageLeft?: boolean;
   _uid: string;
   component: "ContentImage";
+  [k: string]: any;
+}
+
+export interface CustomContentStoryblok {
+  html?: string;
+  _uid: string;
+  component: "CustomContent";
   [k: string]: any;
 }
 
@@ -207,6 +267,7 @@ export interface FooterLinkStoryblok {
 export interface FullPageHeroStoryblok {
   image?: AssetStoryblok;
   title?: string;
+  body?: any[];
   _uid: string;
   component: "FullPageHero";
   [k: string]: any;
@@ -274,6 +335,14 @@ export interface GridStoryblok {
   columns?: any[];
   _uid: string;
   component: "grid";
+  [k: string]: any;
+}
+
+export interface HeaderBannerStoryblok {
+  text?: RichtextStoryblok;
+  link?: MultilinkStoryblok;
+  _uid: string;
+  component: "HeaderBanner";
   [k: string]: any;
 }
 
@@ -355,6 +424,13 @@ export interface IconLinkStoryblok {
   size: "" | "small" | "medium" | "large";
   _uid: string;
   component: "IconLink";
+  [k: string]: any;
+}
+
+export interface IframeBlokStoryblok {
+  url: MultilinkStoryblok;
+  _uid: string;
+  component: "iframeBlok";
   [k: string]: any;
 }
 
@@ -466,6 +542,14 @@ export interface PageStoryblok {
   [k: string]: any;
 }
 
+export interface PictureContainerStoryblok {
+  image: AssetStoryblok;
+  lazy?: boolean;
+  _uid: string;
+  component: "PictureContainer";
+  [k: string]: any;
+}
+
 export interface PopularArticlesStoryblok {
   headline?: string;
   articles?: (StoryblokStory<ArticleStoryblok> | string)[];
@@ -496,6 +580,13 @@ export interface SelectHomeModelStoryblok {
   homeModels?: (StoryblokStory<HomeModelStoryblok> | string)[];
   _uid: string;
   component: "SelectHomeModel";
+  [k: string]: any;
+}
+
+export interface StandardContainerStoryblok {
+  body?: any[];
+  _uid: string;
+  component: "StandardContainer";
   [k: string]: any;
 }
 
