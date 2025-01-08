@@ -10,7 +10,7 @@ mkcert -install
 mkcert localhost
 ```
 
-For windows plebs use this [guide.](https://www.storyblok.com/faq/setup-dev-server-https-windows)
+For windows users use this [guide.](https://www.storyblok.com/faq/setup-dev-server-https-windows)
 
 # References
 
