@@ -54,7 +54,7 @@ function setSelectedIndex() {
               <nuxt-img
                 :src="tab.logo.filename"
                 :alt="tab.logo.alt"
-                class="hidden h-20 w-20 shrink-0 rounded-xl border-2 border-white shadow-md md:block lg:h-24 lg:w-24"
+                class="hidden h-20 w-20 shrink-0 rounded-xl border-2 border-white bg-white shadow-md md:block lg:h-24 lg:w-24"
                 width="288"
                 height="288"
                 loading="lazy"
@@ -120,7 +120,7 @@ function setSelectedIndex() {
               <NuxtPicture
                 class="duration-500"
                 :imgAttrs="{
-                  class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500'
+                  class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500 bg-white'
                 }"
                 :src="tab.image.filename"
                 :alt="tab.image.alt"
