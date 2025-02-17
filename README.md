@@ -1,6 +1,8 @@
-Code for [Timbered Ridge Homes](https://timberedridge.com/) website.
-
-
+# Storyblok CLI
+1. [Install CLI](https://github.com/storyblok/storyblok-cli)
+2. [Get personal access token](https://app.storyblok.com/#/me/account?tab=token)
+3. Copy `.env.sample` -> `.env` and add personal access token
+4. Run `storyblok login --token <PERSONAL_ACCESS_TOKEN> --region us`
 
 # Launching Dev Environment
 
@@ -14,7 +16,7 @@ mkcert -install
 mkcert localhost
 ```
 
-For windows users use this [guide.](https://www.storyblok.com/faq/setup-dev-server-https-windows)
+For Windows users use this [guide.](https://www.storyblok.com/faq/setup-dev-server-https-windows)
 
 # References
 
