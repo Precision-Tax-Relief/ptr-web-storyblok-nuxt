@@ -10,6 +10,6 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div v-editable="props.blok">
-    <div v-html="props.blok.html"></div> 
+    <div v-html="props.blok.html"></div>
   </div>
 </template>

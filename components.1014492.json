@@ -33,9 +33,7 @@
         "image": {
           "type": "asset",
           "pos": 0,
-          "filetypes": [
-            "images"
-          ],
+          "filetypes": ["images"],
           "required": true
         },
         "title": {
@@ -78,9 +76,7 @@
           "type": "option",
           "use_uuid": true,
           "source": "internal_stories",
-          "filter_content_type": [
-            "Article"
-          ]
+          "filter_content_type": ["Article"]
         }
       },
       "image": null,
@@ -105,9 +101,7 @@
         "image": {
           "type": "asset",
           "required": true,
-          "filetypes": [
-            "images"
-          ],
+          "filetypes": ["images"],
           "key": "image",
           "pos": 0
         },
@@ -177,9 +171,7 @@
           "maximum": 3,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "CalloutItem"
-          ],
+          "component_whitelist": ["CalloutItem"],
           "required": true
         }
       },
@@ -331,9 +323,7 @@
           "required": true,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "ContactCTAItem"
-          ]
+          "component_whitelist": ["ContactCTAItem"]
         }
       },
       "image": null,
@@ -386,9 +376,7 @@
           "required": true,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "ChipButton"
-          ]
+          "component_whitelist": ["ChipButton"]
         }
       },
       "image": null,
@@ -421,11 +409,7 @@
           "display_name": "Call To Actions",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "PrimaryButton",
-            "SecondaryButton",
-            "ButtonOutline"
-          ]
+          "component_whitelist": ["PrimaryButton", "SecondaryButton", "ButtonOutline"]
         }
       },
       "image": null,
@@ -461,10 +445,7 @@
           "display_name": "Content Floater Figures",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "ContentFloaterFigureAnimated",
-            "ContentFloaterFigure"
-          ]
+          "component_whitelist": ["ContentFloaterFigureAnimated", "ContentFloaterFigure"]
         }
       },
       "image": null,
@@ -798,17 +779,13 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "FooterLink"
-          ]
+          "component_whitelist": ["FooterLink"]
         },
         "icons": {
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "IconLink"
-          ]
+          "component_whitelist": ["IconLink"]
         },
         "copy": {
           "type": "text"
@@ -896,9 +873,7 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "GalleryPanel"
-          ],
+          "component_whitelist": ["GalleryPanel"],
           "pos": 1
         }
       },
@@ -950,9 +925,7 @@
         },
         "images": {
           "type": "multiasset",
-          "filetypes": [
-            "images"
-          ],
+          "filetypes": ["images"],
           "required": false,
           "pos": 2
         }
@@ -988,9 +961,7 @@
         },
         "images": {
           "type": "multiasset",
-          "filetypes": [
-            "images"
-          ],
+          "filetypes": ["images"],
           "required": false,
           "tooltip": false,
           "allow_external_url": false,
@@ -1136,9 +1107,7 @@
         },
         "image": {
           "type": "asset",
-          "filetypes": [
-            "images"
-          ],
+          "filetypes": ["images"],
           "pos": 5,
           "required": true
         }
@@ -1165,10 +1134,7 @@
         "topButton": {
           "type": "section",
           "pos": 1,
-          "keys": [
-            "topButtonLink",
-            "topButtonText"
-          ]
+          "keys": ["topButtonLink", "topButtonText"]
         },
         "topButtonText": {
           "type": "text",
@@ -1180,9 +1146,7 @@
         },
         "video": {
           "type": "asset",
-          "filetypes": [
-            "videos"
-          ],
+          "filetypes": ["videos"],
           "key": "video",
           "pos": 4
         },
@@ -1231,17 +1195,13 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "StatData"
-          ]
+          "component_whitelist": ["StatData"]
         },
         "panels": {
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "HomeFeaturesPanel"
-          ]
+          "component_whitelist": ["HomeFeaturesPanel"]
         }
       },
       "image": null,
@@ -1304,9 +1264,7 @@
         },
         "featuredImage": {
           "type": "asset",
-          "filetypes": [
-            "images"
-          ],
+          "filetypes": ["images"],
           "pos": 2,
           "key": "Image",
           "required": true
@@ -1329,9 +1287,7 @@
           "pos": 6,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "ModelStat"
-          ]
+          "component_whitelist": ["ModelStat"]
         },
         "body": {
           "type": "bloks",
@@ -1650,10 +1606,7 @@
         "Desktop": {
           "type": "section",
           "pos": 0,
-          "keys": [
-            "desktopNavigation",
-            "desktopSocial"
-          ]
+          "keys": ["desktopNavigation", "desktopSocial"]
         },
         "desktopNavigation": {
           "type": "bloks",
@@ -1661,43 +1614,30 @@
           "pos": 1,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "NavBarLink",
-            "NavBarDropdown"
-          ]
+          "component_whitelist": ["NavBarLink", "NavBarDropdown"]
         },
         "desktopSocial": {
           "type": "bloks",
           "pos": 2,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "IconLink"
-          ]
+          "component_whitelist": ["IconLink"]
         },
         "Mobile": {
           "type": "section",
-          "keys": [
-            "mobileSocial",
-            "mobileNavigation"
-          ]
+          "keys": ["mobileSocial", "mobileNavigation"]
         },
         "mobileNavigation": {
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "NavBarMobileDisclosure",
-            "NavBarMobileLink"
-          ]
+          "component_whitelist": ["NavBarMobileDisclosure", "NavBarMobileLink"]
         },
         "mobileSocial": {
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "IconLink"
-          ]
+          "component_whitelist": ["IconLink"]
         }
       },
       "image": null,
@@ -1726,9 +1666,7 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "NavBarDropdownLink"
-          ]
+          "component_whitelist": ["NavBarDropdownLink"]
         }
       },
       "image": null,
@@ -1815,9 +1753,7 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "NavBarMobileDisclosureLink"
-          ],
+          "component_whitelist": ["NavBarMobileDisclosureLink"],
           "key": "dropdown",
           "pos": 1
         }
@@ -1903,11 +1839,7 @@
       "schema": {
         "Meta": {
           "type": "section",
-          "keys": [
-            "title",
-            "description",
-            "image"
-          ],
+          "keys": ["title", "description", "image"],
           "pos": 0
         },
         "title": {
@@ -1949,9 +1881,7 @@
       "schema": {
         "image": {
           "type": "asset",
-          "filetypes": [
-            "images"
-          ],
+          "filetypes": ["images"],
           "required": true
         },
         "lazy": {
@@ -1986,9 +1916,7 @@
           "type": "options",
           "source": "internal_stories",
           "folder_slug": "blog/",
-          "filter_content_type": [
-            "Article"
-          ],
+          "filter_content_type": ["Article"],
           "max_options": "3"
         }
       },
@@ -2076,9 +2004,7 @@
         "homeModels": {
           "type": "options",
           "source": "internal_stories",
-          "filter_content_type": [
-            "HomeModel"
-          ]
+          "filter_content_type": ["HomeModel"]
         }
       },
       "image": null,
@@ -2159,9 +2085,7 @@
           "type": "bloks",
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "TabsVerticleFloaterTab"
-          ]
+          "component_whitelist": ["TabsVerticleFloaterTab"]
         }
       },
       "image": null,
@@ -2273,9 +2197,7 @@
           "pos": 0,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "Testimonial"
-          ]
+          "component_whitelist": ["Testimonial"]
         }
       },
       "image": null,
@@ -2312,10 +2234,7 @@
           "pos": 2,
           "restrict_type": "",
           "restrict_components": true,
-          "component_whitelist": [
-            "ImageCard",
-            "ArticleCard"
-          ]
+          "component_whitelist": ["ImageCard", "ArticleCard"]
         }
       },
       "image": null,
