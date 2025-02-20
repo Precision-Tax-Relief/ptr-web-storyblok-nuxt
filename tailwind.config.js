@@ -50,6 +50,13 @@ module.exports = {
         }
       }),
       colors: {
+        primary: "#078082", // Main teal color
+        primaryDark: "#056062", // Darker teal
+        primaryLight: "#46aaac", // Lighter teal
+        secondary: "#005f86", // Complementary orange-brown
+        secondaryMuted: "#aa6e2d", // Softer secondary
+        neutralDark: "#21282d", // Dark neutral for text
+        neutralLight: "#e6f0f2", // Light neutral for backgrounds
         charcoal: {
           DEFAULT: "#4c4d4f",
           50: "#F2F3F5",
@@ -76,6 +83,9 @@ module.exports = {
           900: "#5C554E",
           1000: "#47423E"
         }
+      },
+      screens: {
+        xl: "1300px"
       },
       transitionDelay: {
         50: "50ms",

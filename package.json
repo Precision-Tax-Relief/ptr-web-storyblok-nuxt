@@ -12,8 +12,8 @@
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "lint": "npm lint:js && npm lint:prettier",
+    "lintfix": "prettier --write --list-different . && npm lint:js --fix",
     "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 3010 --cert localhost.pem --key localhost-key.pem",
     "pull-components": "node scripts/pull-components.mjs",
     "generate-sb-types": "storyblok-generate-ts source=./components.1014492.json target=./types/component-types-sb"

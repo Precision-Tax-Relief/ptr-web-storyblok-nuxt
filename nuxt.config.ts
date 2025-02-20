@@ -78,9 +78,9 @@ const config: NuxtConfig = {
       exclude: ["fsevents"]
     },
     server: {
-      hmr: {
-        protocol: process.env.WS_PROTOCOL ? process.env.WS_PROTOCOL : "wss" // Use with proxy
-      }
+      // hmr: {
+      //   protocol: process.env.WS_PROTOCOL ? process.env.WS_PROTOCOL : "wss" // Use with proxy
+      // }
     }
   },
   storyblok: {
@@ -88,7 +88,7 @@ const config: NuxtConfig = {
     bridge: process.env.DEV_TOOLS,
     devtools: process.env.DEV_TOOLS,
     apiOptions: {
-      region: "us" // Set 'US" if your space is created in US region (EU default)
+      region: "us" // Set "US" if your space is created in US region (EU default)
     }
   },
   image: {

@@ -1,4 +1,5 @@
 # Storyblok CLI
+
 1. [Install CLI](https://github.com/storyblok/storyblok-cli)
 2. [Get personal access token](https://app.storyblok.com/#/me/account?tab=token)
 3. Copy `.env.sample` -> `.env` and add personal access token
