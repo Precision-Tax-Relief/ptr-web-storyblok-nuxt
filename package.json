@@ -16,7 +16,7 @@
     "lintfix": "prettier --write --list-different . && npm lint:js --fix",
     "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 3010 --cert localhost.pem --key localhost-key.pem",
     "pull-components": "node scripts/pull-components.mjs",
-    "generate-sb-types": "storyblok-generate-ts source=./components.1014492.json target=./types/component-types-sb"
+    "generate-sb-types": "storyblok-generate-ts source=./types/components.$SPACE_ID.json target=./types/component-types-sb"
   },
   "devDependencies": {
     "@nuxt/image": "^1.0.0-rc.1",
@@ -30,6 +30,7 @@
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "autoprefixer": "^10.4.14",
     "consola": "^3.1.0",
+    "dotenv": "^16.4.7",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
