@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import { loadStateStore } from "~/stores/loadState"
-const loadStore = loadStateStore()
-const videoDelay = computed(() => {
-  return loadStore.loadState === "loaded" ? "#t=1" : ""
-})
-
 interface PropTypes {
   videoSrc: String
   topLink: String
@@ -17,7 +10,7 @@ const props = defineProps<PropTypes>()
 <template>
   <div class="relative isolate flex min-h-screen flex-col overflow-hidden bg-neutral-900 pt-14 lg:flex-col-reverse">
     <video autoplay loop playsinline muted class="absolute inset-0 z-0 h-full w-full object-cover">
-      <source :src="props.videoSrc + videoDelay" />
+      <source :src="props.videoSrc" />
     </video>
     <!--    <div class="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">-->
     <!--      <div-->
