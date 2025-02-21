@@ -35,6 +35,7 @@ async function fetchStories(routes: string[], cacheVersion: number, page = 1) {
 }
 
 const config: NuxtConfig = {
+  compatibilityDate: "2025-02-21",
   target: "static",
   css: ["@/assets/css/main.css"],
   modules: [
@@ -43,9 +44,8 @@ const config: NuxtConfig = {
     "@nuxt/image",
     "nuxt-icon",
     "@pinia/nuxt",
-    "nuxt-swiper",
-    "nuxt-simple-sitemap",
-    "@zadigetvoltaire/nuxt-gtm"
+    "nuxt-swiper"
+    // "@zadigetvoltaire/nuxt-gtm"
   ],
   buildModules: ["@nuxt/typescript-build", "@nuxtjs/google-fonts"],
   build: {
@@ -60,7 +60,7 @@ const config: NuxtConfig = {
   },
   runtimeConfig: {
     public: {
-      siteUrl: process.env.URL || "https://example.com",
+      siteUrl: process.env.URL || "https://localhost:3000",
       storyblokVersion: process.env.STORYBLOK_VERSION || "published"
     }
   },
@@ -78,9 +78,9 @@ const config: NuxtConfig = {
       exclude: ["fsevents"]
     },
     server: {
-      // hmr: {
-      //   protocol: process.env.WS_PROTOCOL ? process.env.WS_PROTOCOL : "wss" // Use with proxy
-      // }
+      hmr: {
+        protocol: process.env.WS_PROTOCOL ? process.env.WS_PROTOCOL : "wss" // Use with proxy
+      }
     }
   },
   storyblok: {
@@ -103,67 +103,68 @@ const config: NuxtConfig = {
       mode: "out-in"
     }
   },
-  hooks: {
-    async "nitro:config"(nitroConfig) {
-      if (!nitroConfig || nitroConfig.dev) {
-        return
-      }
-      const token = process.env.STORYBLOK_TOKEN
-
-      let cache_version = 0
-
-      // other routes that are not in Storyblok with their slug.
-      const routes = ["/"] // adds home directly but with / instead of /index
-      try {
-        const result = await fetch(`https://api-us.storyblok.com/v2/cdn/spaces/me?token=${token}`)
-
-        if (!result.ok) {
-          throw new Error("Could not fetch Storyblok data")
-        }
-        // timestamp of latest publish
-        const space = await result.json()
-        cache_version = space.space.version
-
-        // Recursively fetch all routes and set them to the routes array
-        await fetchStories(routes, cache_version)
-        // Adds the routes to the prerenderer
-        nitroConfig.prerender.routes.push(...routes)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-  },
-  nitro: {
-    prerender: {
-      crawlLinks: false
-    }
-  },
-  sitemap: {
-    // manually chunk into multiple sitemaps
-    sitemaps: {
-      post: {
-        include: ["/blog/**"]
-      },
-      model: {
-        include: ["/model/**"]
-      },
-      page: {
-        exclude: ["/blog/**", "/model/**"]
-      }
-    }
-  },
+  // hooks: {
+  //   async "nitro:config"(nitroConfig) {
+  //     if (!nitroConfig || nitroConfig.dev) {
+  //       return
+  //     }
+  //     const token = process.env.STORYBLOK_TOKEN
+  //
+  //     let cache_version = 0
+  //
+  //     // other routes that are not in Storyblok with their slug.
+  //     const routes = ["/"] // adds home directly but with / instead of /index
+  //     try {
+  //       const result = await fetch(`https://api-us.storyblok.com/v2/cdn/spaces/me?token=${token}`)
+  //
+  //       if (!result.ok) {
+  //         throw new Error("Could not fetch Storyblok data")
+  //       }
+  //       // timestamp of latest publish
+  //       const space = await result.json()
+  //       cache_version = space.space.version
+  //
+  //       // Recursively fetch all routes and set them to the routes array
+  //       await fetchStories(routes, cache_version)
+  //       // Adds the routes to the prerenderer
+  //       nitroConfig.prerender.routes.push(...routes)
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  // },
+  // nitro: {
+  //   prerender: {
+  //     crawlLinks: false
+  //   }
+  // },
+  // TODO: Sitemap incompatible with current nuxt version, need to move this to new plugin
+  // sitemap: {
+  //   // manually chunk into multiple sitemaps
+  //   sitemaps: {
+  //     post: {
+  //       include: ["/blog/**"]
+  //     },
+  //     model: {
+  //       include: ["/model/**"]
+  //     },
+  //     page: {
+  //       exclude: ["/blog/**", "/model/**"]
+  //     }
+  //   }
+  // },
   googleFonts: {
     families: {
       Inter: [400, 500, 600, 700, 800]
     }
-  },
-  gtm: {
-    id: "GTM-NG5ZNPS",
-    defer: true,
-    enabled: process.env.NODE_ENV !== "development",
-    debug: false,
-    devtools: false
   }
+  // gtm: {
+  //   id: "GTM-NG5ZNPS",
+  //   defer: true,
+  //   enabled: process.env.NODE_ENV !== "development",
+  //   debug: false,
+  //   devtools: false
+  // }
 }
 
 export default config
