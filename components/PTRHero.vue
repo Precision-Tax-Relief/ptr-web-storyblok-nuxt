@@ -111,8 +111,8 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                   <div class="form-group mb-6">
                     <div class="input-group_icon input-group_icon-name relative">
                       <Icon
-                        name="material-symbols:person"
-                        class="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 text-gray-400"
+                        name="fa-solid:user-alt"
+                        class="absolute left-4 top-1/2 h-8 w-8 -translate-y-1/2 text-gray-400"
                       />
                       <input
                         class="form-control lg:h-lg h-16 w-full bg-slate-200 pl-16"
@@ -130,8 +130,8 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                   <div class="form-group mb-6">
                     <div class="input-group_icon input-group_icon-phone relative">
                       <Icon
-                        name="material-symbols:phone-enabled"
-                        class="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 text-gray-400"
+                        name="fa-solid:phone-alt"
+                        class="absolute left-4 top-1/2 h-8 w-8 -translate-y-1/2 text-gray-400"
                       />
                       <input
                         class="form-control lg:h-lg h-16 w-full bg-slate-200 pl-16"
@@ -150,8 +150,8 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                   <div class="form-group mb-6">
                     <div class="input-group_icon input-group_icon-email relative">
                       <Icon
-                        name="material-symbols:mail-sharp"
-                        class="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 text-gray-400"
+                        name="fa-solid:envelope"
+                        class="absolute left-4 top-1/2 h-8 w-8 -translate-y-1/2 text-gray-400"
                       />
                       <input
                         class="form-control lg:h-lg h-16 w-full bg-slate-200 pl-16"

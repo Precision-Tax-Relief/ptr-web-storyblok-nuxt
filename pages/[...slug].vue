@@ -45,5 +45,6 @@ const headerHeight = inject("headerHeight")
 <template>
   <div>
     <PTRHero />
+    <PTRCallToAction />
   </div>
 </template>
