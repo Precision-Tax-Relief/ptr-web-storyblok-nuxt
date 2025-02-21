@@ -57,7 +57,7 @@
             >3</span
           >
           <PTRArrow class="grow px-4" />
-          <Icon name="material-symbols-light:check-circle" class="-m-4 text-green-500" size="69px" />
+          <Icon name="material-symbols-light:check-circle" class="-my-4 -ml-4 -mr-1 text-green-500" size="69px" />
         </div>
         <h4 class="mb-8 text-[2.1rem] font-bold leading-[1.3] text-primary lg:my-8 xl:text-[2.7rem]">
           Get a transparent quote with affordable payments

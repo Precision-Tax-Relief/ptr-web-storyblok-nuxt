@@ -103,41 +103,41 @@ const config: NuxtConfig = {
       mode: "out-in"
     }
   },
-  // hooks: {
-  //   async "nitro:config"(nitroConfig) {
-  //     if (!nitroConfig || nitroConfig.dev) {
-  //       return
-  //     }
-  //     const token = process.env.STORYBLOK_TOKEN
-  //
-  //     let cache_version = 0
-  //
-  //     // other routes that are not in Storyblok with their slug.
-  //     const routes = ["/"] // adds home directly but with / instead of /index
-  //     try {
-  //       const result = await fetch(`https://api-us.storyblok.com/v2/cdn/spaces/me?token=${token}`)
-  //
-  //       if (!result.ok) {
-  //         throw new Error("Could not fetch Storyblok data")
-  //       }
-  //       // timestamp of latest publish
-  //       const space = await result.json()
-  //       cache_version = space.space.version
-  //
-  //       // Recursively fetch all routes and set them to the routes array
-  //       await fetchStories(routes, cache_version)
-  //       // Adds the routes to the prerenderer
-  //       nitroConfig.prerender.routes.push(...routes)
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-  // },
-  // nitro: {
-  //   prerender: {
-  //     crawlLinks: false
-  //   }
-  // },
+  hooks: {
+    async "nitro:config"(nitroConfig) {
+      if (!nitroConfig || nitroConfig.dev) {
+        return
+      }
+      const token = process.env.STORYBLOK_TOKEN
+
+      let cache_version = 0
+
+      // other routes that are not in Storyblok with their slug.
+      const routes = ["/"] // adds home directly but with / instead of /index
+      try {
+        const result = await fetch(`https://api-us.storyblok.com/v2/cdn/spaces/me?token=${token}`)
+
+        if (!result.ok) {
+          throw new Error("Could not fetch Storyblok data")
+        }
+        // timestamp of latest publish
+        const space = await result.json()
+        cache_version = space.space.version
+
+        // Recursively fetch all routes and set them to the routes array
+        await fetchStories(routes, cache_version)
+        // Adds the routes to the prerenderer
+        nitroConfig.prerender.routes.push(...routes)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: false
+    }
+  },
   // TODO: Sitemap incompatible with current nuxt version, need to move this to new plugin
   // sitemap: {
   //   // manually chunk into multiple sitemaps
