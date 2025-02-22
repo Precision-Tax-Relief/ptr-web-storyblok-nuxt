@@ -5,20 +5,14 @@ useHead({
   }
 })
 
+const config = useRuntimeConfig()
 const { slug } = useRoute().params
 
 const story = await useAsyncStoryblok(slug && slug.length > 0 ? slug.join("/").replace(/\/$/, "") : "index", {
-  version: process.env.STORYBLOK_VERSION
+  version: config.public.storyblokVersion
 })
 </script>
 
-<!--<template>-->
-<!--  <StoryblokComponent v-if="story" :blok="story.content" />-->
-<!--</template>-->
-
 <template>
-  <div>
-    <PTRHero />
-    <PTRCallToAction />
-  </div>
+  <StoryblokComponent v-if="story" :blok="story.content" />
 </template>

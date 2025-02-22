@@ -14,11 +14,10 @@ provide("headerHeight", height)
 <template>
   <div>
     <div class="top absolute z-30 w-full">
-<!--      <StoryblokComponent ref="headerWrapper" v-for="blok in story?.content?.header" :key="blok._uid" :blok="blok" />-->
-      <PTRHeader/>
+      <StoryblokComponent ref="headerWrapper" v-for="blok in story?.content?.header" :key="blok._uid" :blok="blok" />
     </div>
     <div :style="{ height: `${height}px` }"></div>
     <slot />
-<!--    <StoryblokComponent v-for="blok in story?.content?.footer" :key="blok._uid" :blok="blok" />-->
+    <StoryblokComponent v-for="blok in story?.content?.footer" :key="blok._uid" :blok="blok" />
   </div>
 </template>

@@ -23,3 +23,6 @@ dist
 !.idea/modules.xml
 !.idea/project-module.iml
 /.unlighthouse/
+
+
+components.*.json*
