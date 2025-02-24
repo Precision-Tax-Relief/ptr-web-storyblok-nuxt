@@ -2,8 +2,10 @@
 import { ref, provide } from "vue"
 import { useElementSize } from "@vueuse/core"
 
+const config = useRuntimeConfig()
+
 const story = await useAsyncStoryblok("layouts/default", {
-  version: "draft"
+  version: config.public.storyblokVersion
 })
 
 const headerWrapper = ref<HTMLElement | null>(null)
@@ -13,10 +15,11 @@ provide("headerHeight", height)
 
 <template>
   <div>
-    <div class="top absolute z-30 w-full">
+    <div>
       <StoryblokComponent ref="headerWrapper" v-for="blok in story?.content?.header" :key="blok._uid" :blok="blok" />
     </div>
     <div :style="{ height: `${height}px` }"></div>
+    {{height}}
     <slot />
     <StoryblokComponent v-for="blok in story?.content?.footer" :key="blok._uid" :blok="blok" />
   </div>

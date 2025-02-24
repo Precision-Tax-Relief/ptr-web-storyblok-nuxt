@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { type ${NAME}Storyblok } from "~/types/component-types-sb"
+
 interface PropTypes {
-  blok: blok
+  blok: ${NAME}Storyblok
 }
 const props = defineProps<PropTypes>()
 #[[$END$]]#

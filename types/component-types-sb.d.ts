@@ -8,13 +8,20 @@ export interface AllArticlesStoryblok {
 }
 
 export interface AssetStoryblok {
-  alt?: string;
-  copyright?: string;
-  id: number;
-  filename: string;
+  _uid?: string;
+  id: number | null;
+  alt: string | null;
   name: string;
-  title?: string;
-  focus?: string;
+  focus: string | null;
+  source: string | null;
+  title: string | null;
+  filename: string;
+  copyright: string | null;
+  fieldtype?: string;
+  meta_data?: null | {
+    [k: string]: any;
+  };
+  is_external_url?: boolean;
   [k: string]: any;
 }
 
@@ -60,35 +67,7 @@ export type MultilinkStoryblok =
       cached_url?: string;
       anchor?: string;
       linktype?: "story";
-      story?: {
-        name: string;
-        created_at?: string;
-        published_at?: string;
-        id: number;
-        uuid: string;
-        content?: {
-          [k: string]: any;
-        };
-        slug: string;
-        full_slug: string;
-        sort_by_date?: null | string;
-        position?: number;
-        tag_list?: string[];
-        is_startpage?: boolean;
-        parent_id?: null | number;
-        meta_data?: null | {
-          [k: string]: any;
-        };
-        group_id?: string;
-        first_published_at?: string;
-        release_id?: null | number;
-        lang?: string;
-        path?: null | string;
-        alternates?: any[];
-        default_full_slug?: null | string;
-        translated_slugs?: null | any[];
-        [k: string]: any;
-      };
+      target?: "_self" | "_blank";
       [k: string]: any;
     }
   | {
@@ -96,11 +75,13 @@ export type MultilinkStoryblok =
       cached_url?: string;
       anchor?: string;
       linktype?: "asset" | "url";
+      target?: "_self" | "_blank";
       [k: string]: any;
     }
   | {
       email?: string;
       linktype?: "email";
+      target?: "_self" | "_blank";
       [k: string]: any;
     };
 
@@ -147,14 +128,14 @@ export interface ColumnTwoDividerStoryblok {
   [k: string]: any;
 }
 
-export interface ContactCTAStoryblok {
+export interface ContactCtaStoryblok {
   body: ContactCtaItemStoryblok[];
   _uid: string;
   component: "ContactCTA";
   [k: string]: any;
 }
 
-export interface ContactCTAItemStoryblok {
+export interface ContactCtaItemStoryblok {
   title: string;
   icon: "fa6-solid:house" | "fa6-solid:user";
   content: RichtextStoryblok;
@@ -164,7 +145,7 @@ export interface ContactCTAItemStoryblok {
   [k: string]: any;
 }
 
-export interface ContentCTAStoryblok {
+export interface ContentCtaStoryblok {
   title?: string;
   text?: string;
   ctas?: (PrimaryButtonStoryblok | SecondaryButtonStoryblok | ButtonOutlineStoryblok)[];
@@ -206,7 +187,7 @@ export interface ContentFloaterFigureAnimatedStoryblok {
 export interface ContentImageStoryblok {
   image?: AssetStoryblok;
   text?: string;
-  imageLeft?: boolean;
+  imageLeft: boolean;
   _uid: string;
   component: "ContentImage";
   [k: string]: any;
@@ -307,6 +288,10 @@ export interface FullPageHeroStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -429,6 +414,10 @@ export interface GetInTouchStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -500,6 +489,10 @@ export interface GridStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -595,6 +588,10 @@ export interface HeroVideoStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -691,6 +688,10 @@ export interface HomeModelStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -807,6 +808,10 @@ export interface LayoutStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -872,6 +877,10 @@ export interface LayoutStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -1019,6 +1028,10 @@ export interface PageStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
@@ -1040,7 +1053,7 @@ export interface PageStoryblok {
 
 export interface PictureContainerStoryblok {
   image: AssetStoryblok;
-  lazy?: boolean;
+  lazy: boolean;
   _uid: string;
   component: "PictureContainer";
   [k: string]: any;
@@ -1062,10 +1075,34 @@ export interface PrimaryButtonStoryblok {
   [k: string]: any;
 }
 
+export interface PtrCallToActionStoryblok {
+  _uid: string;
+  component: "PTRCallToAction";
+  [k: string]: any;
+}
+
+export interface PtrDiscoverWhyStoryblok {
+  _uid: string;
+  component: "PTRDiscoverWhy";
+  [k: string]: any;
+}
+
+export interface PtrHeaderStoryblok {
+  _uid: string;
+  component: "PTRHeader";
+  [k: string]: any;
+}
+
+export interface PtrHeroStoryblok {
+  _uid: string;
+  component: "PTRHero";
+  [k: string]: any;
+}
+
 export interface SecondaryButtonStoryblok {
   text?: string;
   link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
-  dark?: boolean;
+  dark: boolean;
   _uid: string;
   component: "SecondaryButton";
   [k: string]: any;
@@ -1132,6 +1169,10 @@ export interface StandardContainerStoryblok {
     | PictureContainerStoryblok
     | PopularArticlesStoryblok
     | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
     | StandardContainerStoryblok
