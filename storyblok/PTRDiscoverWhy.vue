@@ -111,6 +111,29 @@ const props = defineProps<PropTypes>()
         <StoryblokComponent v-for="child_block in blok.slider" :key="child_block._uid" :blok="child_block" />
       </div>
       <PTRChoiceTable />
+      <PTRClientResults />
+      <div class="max-w-2xl mx-auto flex flex-col justify-center items-center text-center">
+        <a
+          href="#page"
+          data-click-name="ClickBody - Form Scroll  Below Result Results"
+          class="flex bg-green-500 hover:bg-green-600 py-5 lg:py-8 px-16 lg:px-20 rounded-[4px] items-center justify-center gap-[14px] mb-4"
+        >
+          <Icon name="fa-solid:phone text-white text-5xl lg:text-6xl" />
+          <div class="text-white flex flex-col text-left justify-center col-span-1">
+            <span class="font-normal md:text-2xl text-lg uppercase">GET A FREE CONSULTATION</span>
+            <p class="font-bold text-2xl md:text-4xl">(844) 229-6966</p>
+          </div></a
+        >
+        <div>
+          <a
+            class="underline text-[#9b9b9b] activate-form"
+            href="#"
+            data-modal-open=""
+            data-click-name="ClickBodyM - Callback Form Modal Below Result Results"
+            >or click here to request a call back</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>

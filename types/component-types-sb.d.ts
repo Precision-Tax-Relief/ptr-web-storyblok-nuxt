@@ -203,6 +203,23 @@ export interface DividerStoryblok {
   [k: string]: any;
 }
 
+export interface FaqStoryblok {
+  title: string;
+  subtitle?: string;
+  faq_items?: FaqItemStoryblok[];
+  _uid: string;
+  component: "faq";
+  [k: string]: any;
+}
+
+export interface FaqItemStoryblok {
+  question?: string;
+  answer?: RichtextStoryblok;
+  _uid: string;
+  component: "faq_item";
+  [k: string]: any;
+}
+
 export interface FeatureStoryblok {
   name?: string;
   _uid: string;
@@ -254,6 +271,8 @@ export interface FullPageHeroStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -380,6 +399,8 @@ export interface GetInTouchStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -455,6 +476,8 @@ export interface GridStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -554,6 +577,8 @@ export interface HeroVideoStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -654,6 +679,8 @@ export interface HomeModelStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -774,6 +801,8 @@ export interface LayoutStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -843,6 +872,8 @@ export interface LayoutStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -994,6 +1025,8 @@ export interface PageStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -1101,6 +1134,8 @@ export interface PtrDiscoverWhyStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok
@@ -1205,6 +1240,8 @@ export interface StandardContainerStoryblok {
     | ContentFloaterFigureAnimatedStoryblok
     | ContentImageStoryblok
     | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
     | FeatureStoryblok
     | FeaturesStoryblok
     | FooterBlokStoryblok

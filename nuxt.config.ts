@@ -37,7 +37,7 @@ async function fetchStories(routes: string[], cacheVersion: number, page = 1) {
 }
 
 const config: NuxtConfig = {
-  compatibilityDate: "2025-02-21",
+  compatibilityDate: "2025-02-25",
   target: "static",
   css: ["@/assets/css/main.css"],
   modules: [
@@ -63,9 +63,6 @@ const config: NuxtConfig = {
       }
     ]
   ],
-  headlessui: {
-    prefix: "Headless"
-  },
   build: {
     postcss: {
       postcssOptions: {
@@ -97,6 +94,12 @@ const config: NuxtConfig = {
         protocol: process.env.WS_PROTOCOL ? process.env.WS_PROTOCOL : "wss" // Use with proxy
       }
     }
+  },
+  swiper: {
+    styleLazyLoad: true
+  },
+  headlessui: {
+    prefix: "Headless"
   },
   image: {
     provider: "storyblok",
