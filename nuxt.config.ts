@@ -143,7 +143,15 @@ const config: NuxtConfig = {
       failOnError: true
     }
   },
-  googleFonts: {}
+  googleFonts: {
+    display: "swap",
+    prefetch: true,
+    preconnect: true,
+    preload: true,
+    families: {
+      // Your fonts here
+    }
+  }
 }
 // sitemap: {
 //   // manually chunk into multiple sitemaps

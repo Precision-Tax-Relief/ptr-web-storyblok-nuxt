@@ -95,5 +95,18 @@ module.exports = {
         "22/11": "22 / 11"
       }
     }
+  },
+  purge: {
+    enabled: process.env.NODE_ENV !== "production",
+    content: [
+      "./components/**/*.{js,vue,ts}",
+      "./layouts/**/*.vue",
+      "./pages/**/*.vue",
+      "./plugins/**/*.{js,ts}",
+      "./storyblok/**/*.{html,js,ts,vue}"
+    ],
+    options: {
+      safelist: [] // Add any classes that might be dynamically created
+    }
   }
 }
