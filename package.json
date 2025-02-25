@@ -8,7 +8,7 @@
     "dev-ssl": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
     "typecheck": "nuxt typecheck",
-    "preview": "nuxt preview",
+    "preview": "nuxt generate && npx serve dist -p 3010",
     "postinstall": "npx nuxt prepare",
     "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
