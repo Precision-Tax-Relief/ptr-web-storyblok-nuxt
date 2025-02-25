@@ -55,8 +55,8 @@ const config: NuxtConfig = {
       "@storyblok/nuxt",
       {
         accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
-        bridge: process.env.DEV_TOOLS,
-        devtools: process.env.DEV_TOOLS,
+        bridge: process.env.NODE_ENV === "development",
+        devtools: process.env.NODE_ENV === "development",
         apiOptions: {
           region: "us" // Set "US" if your space is created in US region (EU default)
         }
