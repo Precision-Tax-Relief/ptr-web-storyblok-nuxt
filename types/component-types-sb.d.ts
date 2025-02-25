@@ -1082,6 +1082,76 @@ export interface PtrCallToActionStoryblok {
 }
 
 export interface PtrDiscoverWhyStoryblok {
+  googleImg: AssetStoryblok;
+  slider?: (
+    | AllArticlesStoryblok
+    | ArticleStoryblok
+    | ArticleCardStoryblok
+    | BannerStoryblok
+    | ButtonOutlineStoryblok
+    | CalloutContainerStoryblok
+    | CalloutItemStoryblok
+    | ChipButtonStoryblok
+    | ColumnTwoDividerStoryblok
+    | ContactCtaStoryblok
+    | ContactCtaItemStoryblok
+    | ContentCtaStoryblok
+    | ContentFloaterStoryblok
+    | ContentFloaterFigureStoryblok
+    | ContentFloaterFigureAnimatedStoryblok
+    | ContentImageStoryblok
+    | DividerStoryblok
+    | FeatureStoryblok
+    | FeaturesStoryblok
+    | FooterBlokStoryblok
+    | FooterLinkStoryblok
+    | FullPageHeroStoryblok
+    | GalleryStoryblok
+    | GalleryCustomStoryblok
+    | GalleryPanelStoryblok
+    | GalleryPreviewStoryblok
+    | GetInTouchStoryblok
+    | GridStoryblok
+    | HeaderBannerStoryblok
+    | HeroStoryblok
+    | HeroVideoStoryblok
+    | HomeFeaturesStoryblok
+    | HomeFeaturesPanelStoryblok
+    | HomeModelStoryblok
+    | HubSpotFormStoryblok
+    | IconLinkStoryblok
+    | IframeBlokStoryblok
+    | ImageCardStoryblok
+    | LayoutStoryblok
+    | ModelStatStoryblok
+    | NavBarStoryblok
+    | NavBarDropdownStoryblok
+    | NavBarDropdownLinkStoryblok
+    | NavBarLinkStoryblok
+    | NavBarMobileDisclosureStoryblok
+    | NavBarMobileDisclosureLinkStoryblok
+    | NavBarMobileLinkStoryblok
+    | PageStoryblok
+    | PictureContainerStoryblok
+    | PopularArticlesStoryblok
+    | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
+    | SecondaryButtonStoryblok
+    | SelectHomeModelStoryblok
+    | StandardContainerStoryblok
+    | StatDataStoryblok
+    | TabsVerticleFloaterStoryblok
+    | TabsVerticleFloaterTabStoryblok
+    | TeaserStoryblok
+    | TestimonialStoryblok
+    | TestimonialSliderStoryblok
+    | ThreeColumnStoryblok
+    | TitleBlokStoryblok
+    | YoutubeEmbedStoryblok
+  )[];
   _uid: string;
   component: "PTRDiscoverWhy";
   [k: string]: any;
@@ -1227,8 +1297,11 @@ export interface TeaserStoryblok {
 }
 
 export interface TestimonialStoryblok {
-  text?: string;
   name?: string;
+  owed?: string;
+  paid?: string;
+  text?: string;
+  youtube?: YoutubeEmbedStoryblok[];
   _uid: string;
   component: "Testimonial";
   [k: string]: any;

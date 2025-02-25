@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { YoutubeEmbedStoryblok } from "~/types/component-types-sb"
+import { type YoutubeEmbedStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: YoutubeEmbedStoryblok
@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
 <template>
   <div v-editable="props.blok">
     <iframe
-      class="left-0 top-0 mx-auto aspect-video h-full w-full pt-10 md:w-[60rem] lg:w-[80rem]"
+      class="mx-auto aspect-video h-full w-full"
       :src="props.blok.youtubeLink.url + '?modestbranding=1'"
       title="YouTube video player"
       frameborder="0"
