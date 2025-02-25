@@ -14,7 +14,7 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <ClientOnly>
+  <LazyClientOnly>
     <swiper-container
       ref="containerRef"
       :init="false"
@@ -63,5 +63,5 @@ const props = defineProps<PropTypes>()
         </div>
       </swiper-slide>
     </swiper-container>
-  </ClientOnly>
+  </LazyClientOnly>
 </template>
