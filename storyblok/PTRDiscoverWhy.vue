@@ -118,7 +118,7 @@ const props = defineProps<PropTypes>()
           data-click-name="ClickBody - Form Scroll  Below Result Results"
           class="flex bg-green-500 hover:bg-green-600 py-5 lg:py-8 px-16 lg:px-20 rounded-[4px] items-center justify-center gap-[14px] mb-4"
         >
-          <Icon name="fa-solid:phone text-white text-5xl lg:text-6xl" />
+          <Icon name="fa-solid:phone" class="text-white text-5xl lg:text-6xl" />
           <div class="text-white flex flex-col text-left justify-center col-span-1">
             <span class="font-normal md:text-2xl text-lg uppercase">GET A FREE CONSULTATION</span>
             <p class="font-bold text-2xl md:text-4xl">(844) 229-6966</p>
