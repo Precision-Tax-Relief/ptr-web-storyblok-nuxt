@@ -139,7 +139,8 @@ const config: NuxtConfig = {
   },
   nitro: {
     prerender: {
-      crawlLinks: false
+      crawlLinks: false,
+      failOnError: true
     }
   },
   googleFonts: {}

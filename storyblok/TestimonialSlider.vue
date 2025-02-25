@@ -1,23 +1,18 @@
 <script setup lang="ts">
 import { type TestimonialSliderStoryblok } from "~/types/component-types-sb"
-import "swiper/css"
-
-const containerRef = ref(null)
 
 interface PropTypes {
   blok: TestimonialSliderStoryblok
 }
 
-const swiper = useSwiper(containerRef, {})
-
 const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <LazyClientOnly>
+  <ClientOnly>
     <swiper-container
       ref="containerRef"
-      :init="false"
+      :init="true"
       :navigation="true"
       :loop="true"
       :pagination="{ type: 'progressbar' }"
@@ -63,5 +58,5 @@ const props = defineProps<PropTypes>()
         </div>
       </swiper-slide>
     </swiper-container>
-  </LazyClientOnly>
+  </ClientOnly>
 </template>
