@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "typecheck": "nuxt typecheck",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "npx nuxt prepare",
     "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lint": "npm lint:js && npm lint:prettier",
