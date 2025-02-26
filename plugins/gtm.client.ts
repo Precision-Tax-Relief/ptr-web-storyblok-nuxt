@@ -10,7 +10,6 @@ export default defineNuxtPlugin({
       // Delay GTM initialization to improve TBT
       setTimeout(() => {
         const gtm = useGtm()
-        console.log("useGtm", gtm)
         if (gtm) {
           gtm.enable(true)
         }
