@@ -309,10 +309,12 @@ export interface FullPageHeroStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -437,10 +439,12 @@ export interface GetInTouchStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -514,10 +518,12 @@ export interface GridStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -615,10 +621,12 @@ export interface HeroVideoStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -717,10 +725,12 @@ export interface HomeModelStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -839,10 +849,12 @@ export interface LayoutStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -910,10 +922,12 @@ export interface LayoutStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -1063,10 +1077,12 @@ export interface PageStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -1172,10 +1188,12 @@ export interface PtrDiscoverWhyStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok
@@ -1187,8 +1205,16 @@ export interface PtrDiscoverWhyStoryblok {
     | TitleBlokStoryblok
     | YoutubeEmbedStoryblok
   )[];
+  resultSlides?: SlideClientResultsStoryblok[];
   _uid: string;
   component: "PTRDiscoverWhy";
+  [k: string]: any;
+}
+
+export interface PtrFooterStoryblok {
+  groupPhoto: AssetStoryblok;
+  _uid: string;
+  component: "PTRFooter";
   [k: string]: any;
 }
 
@@ -1199,6 +1225,7 @@ export interface PtrHeaderStoryblok {
 }
 
 export interface PtrHeroStoryblok {
+  image: AssetStoryblok;
   _uid: string;
   component: "PTRHero";
   [k: string]: any;
@@ -1218,6 +1245,17 @@ export interface SelectHomeModelStoryblok {
   homeModels?: (StoryblokStory<HomeModelStoryblok> | string)[];
   _uid: string;
   component: "SelectHomeModel";
+  [k: string]: any;
+}
+
+export interface SlideClientResultsStoryblok {
+  name: string;
+  location: string;
+  owed: string;
+  paid: string;
+  profile: AssetStoryblok;
+  _uid: string;
+  component: "SlideClientResults";
   [k: string]: any;
 }
 
@@ -1278,10 +1316,12 @@ export interface StandardContainerStoryblok {
     | PrimaryButtonStoryblok
     | PtrCallToActionStoryblok
     | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
     | PtrHeaderStoryblok
     | PtrHeroStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
     | TabsVerticleFloaterStoryblok

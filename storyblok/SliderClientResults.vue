@@ -20,14 +20,9 @@ const props = defineProps<PropTypes>()
       :init="false"
       :navigation="true"
       :loop="true"
-      :pagination="{ type: 'progressbar' }"
-      :style="{
-        '--swiper-navigation-color': '#46aaac',
-        '--swiper-pagination-color': '#46aaac'
-      }"
       :autoplay="{
         delay: 75000,
-        disableOnInteraction: true
+        disableOnInteraction: false
       }"
     >
       <swiper-slide

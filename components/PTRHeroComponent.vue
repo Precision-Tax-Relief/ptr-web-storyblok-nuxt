@@ -1,35 +1,4 @@
 <script setup lang="ts">
-// const operations = {
-//   1: (x, y) => x + y,
-//   2: (x, y) => x * y,
-//   3: (x, y) => x - y,
-//   4: (x, y) => Math.max(x, y),
-//   5: (x, y) => Math.min(x, y),
-//   6: (x, y) => Math.max(x, y) + x,
-//   7: (x, y) => Math.min(x, y) + x,
-//   8: (x, y) => Math.max(x, y) + Math.min(x, y),
-//   9: (x, y) => x,
-//   10: (x, y) => y
-// }
-//
-// function calculateAbIdResult(ABId1, ABId2, ABIdType) {
-//   const idType = (ABIdType - 1) % Object.keys(operations).length + 1
-//   if (ABId1 <= 0 || ABId2 <= 0 || ABIdType <= 0 || idType <= 0 || idType > Object.keys(operations).length) {
-//     return null
-//   }
-//   const operation = operations[idType]
-//   return operation(ABId1, ABId2)
-// }
-//
-// document.getElementById("referrer").value = document.referrer
-// document.getElementById("request_url").value = window.location.href
-// var inputPhone = document.getElementById("PhoneNumber")
-// var inputEmail = document.getElementById("my-email")
-// var btnSubmit = document.getElementById("btn-submit")
-// var inputAbId1 = document.getElementById("abid_1")
-// var inputAbId2 = document.getElementById("abid_2")
-// var inputAbIdType = document.getElementById("abid_type")
-// var inputAbIdR = document.getElementById("abid_r")
 import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
 </script>
 

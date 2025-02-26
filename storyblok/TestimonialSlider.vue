@@ -39,7 +39,7 @@ const props = defineProps<PropTypes>()
           :blok="child_block"
         />
         <div class="basis-2/3 grow">
-          <ul class="flex lg:gap-8 gap-4 flex-wrap justify-between">
+          <ul class="flex lg:gap-8 gap-4 flex-wrap justify-between mb-2">
             <li class="lg:ml-0 w-full lg:w-auto">
               <div class="user_title">
                 <p class="text-4xl font-bold">{{ tm.name }}</p>
@@ -47,7 +47,6 @@ const props = defineProps<PropTypes>()
             </li>
             <li class="lg:ml-0">
               <strong class="text-3xl text-rose-950"><span class="text-rose-600">Owed: </span>{{ tm.owed }}</strong>
-              <p></p>
             </li>
             <li>
               <strong class="text-3xl text-emerald-950">

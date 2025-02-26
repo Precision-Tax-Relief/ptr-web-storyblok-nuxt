@@ -111,7 +111,7 @@ const props = defineProps<PropTypes>()
         <StoryblokComponent v-for="child_block in blok.slider" :key="child_block._uid" :blok="child_block" />
       </div>
       <PTRChoiceTable />
-      <PTRClientResults />
+      <PTRClientResults :bloks="blok.resultSlides" />
       <div class="max-w-2xl mx-auto flex flex-col justify-center items-center text-center">
         <a
           href="#page"

@@ -10,7 +10,6 @@ const props = defineProps<PropTypes>()
 <template>
   <NavBarMenu v-editable="props.blok">
     <template #desktop-nav="{ isOverlay }">
-      <!--      <pre>{{ JSON.stringify(props.blok.desktopNavigation, null, 2) }}</pre>-->
       <StoryblokComponent
         v-for="childBlok in props.blok.desktopNavigation"
         :key="childBlok._uid"

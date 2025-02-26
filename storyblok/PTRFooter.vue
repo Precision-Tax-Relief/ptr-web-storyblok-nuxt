@@ -15,24 +15,16 @@ const props = defineProps<PropTypes>()
         <div class="">
           <div class="mx-auto text-center">
             <figure class="flex items-center justify-center flex-col">
-              <picture
-                class="lozad"
-                data-iesrc="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/team-all.jpg"
-                data-loaded="true"
-                ><source
-                  srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/team-all.webp"
-                  type="image/webp"
-                />
-                <source
-                  srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/team-all.jpg"
-                  type="image/jpg"
-                />
-                <img
-                  class="xl:h-[340px]"
-                  src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/team-all.jpg"
-                  alt="Precision Tax Team"
-                />
-              </picture>
+              <NuxtPicture
+                height="380"
+                :modifiers="{ smart: true }"
+                :src="blok.groupPhoto.filename"
+                :alt="blok.groupPhoto.alt"
+                loading="lazy"
+                :imgAttrs="{
+                  class: 'mx-auto'
+                }"
+              />
               <figcaption class="text-[#96a7ba] pt-6 text-2xl">
                 Our team consists of proven tax professionals that include CPAs, Tax Attorneys, and federally licensed
                 Enrolled Agents.
