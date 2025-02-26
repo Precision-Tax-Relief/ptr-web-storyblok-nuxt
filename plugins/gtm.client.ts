@@ -3,17 +3,18 @@ export default defineNuxtPlugin({
   enforce: "post", // Run after other plugins
   setup(nuxtApp) {
     // Only run on client
-    if (process.server) return
+    if (process.server || !nuxtApp.$config.public.useGtm) return
 
     // Wait until after page is loaded and interactive
     window.addEventListener("load", () => {
       // Delay GTM initialization to improve TBT
       setTimeout(() => {
-        const { $gtm } = nuxtApp
-        if ($gtm) {
-          $gtm.init()
+        const gtm = useGtm()
+        console.log("useGtm", gtm)
+        if (gtm) {
+          gtm.enable(true)
         }
-      }, 2000) // 2-second delay for better TBT - adjust as needed
+      }, 50) // 2-second delay for better TBT - adjust as needed
     })
   }
 })

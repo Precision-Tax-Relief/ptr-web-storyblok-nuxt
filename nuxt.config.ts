@@ -76,7 +76,8 @@ const config: NuxtConfig = {
   runtimeConfig: {
     public: {
       siteUrl: process.env.URL || "https://localhost:3000",
-      storyblokVersion: process.env.STORYBLOK_VERSION || "published"
+      storyblokVersion: process.env.STORYBLOK_VERSION || "published",
+      useGtm: process.env.NODE_ENV === "production"
     }
   },
   vite: {
@@ -156,11 +157,10 @@ const config: NuxtConfig = {
     id: process.env.GTM_ID || "", // Replace with your new GTM container ID
     defer: true, // This improves performance by deferring script loading
     compatibility: true, // For SSR compatibility
-    enabled: process.env.NODE_ENV === "production", // Only enable in production
-    loadScript: true,
+    // enabled: process.env.NODE_ENV === "production", // Only enable in production
+    enabled: false, // This is enabled in the gtm.client.ts plug after page load
+    loadScript: true
 
-    // We will initialize GTM after a short delay as to not effect TBT.
-    initialized: false
     // enableRouterSync: true, // Track page views automatically
   }
 }
