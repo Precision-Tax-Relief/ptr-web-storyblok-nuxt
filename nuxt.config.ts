@@ -50,7 +50,7 @@ const config: NuxtConfig = {
     "nuxt-swiper",
     "@nuxtjs/google-fonts",
     "@nuxtjs/sitemap",
-    // "@zadigetvoltaire/nuxt-gtm",
+    "@zadigetvoltaire/nuxt-gtm",
     [
       "@storyblok/nuxt",
       {
@@ -151,6 +151,19 @@ const config: NuxtConfig = {
     families: {
       // Your fonts here
     }
+  },
+  gtm: {
+    id: process.env.GTM_ID || "", // Replace with your new GTM container ID
+    defer: true, // This improves performance by deferring script loading
+    enabled: process.env.NODE_ENV === "production", // Only enable in production
+    debug: false,
+    devtools: false,
+    compatibility: false, // For SSR compatibility
+    loadScript: true
+    // enableRouterSync: true, // Track page views automatically
+
+    // Additional options you might need:
+    // nonce: '', // For CSP
   }
 }
 // sitemap: {
@@ -167,12 +180,5 @@ const config: NuxtConfig = {
 //     }
 //   }
 // },
-// gtm: {
-//   id: "GTM-NG5ZNPS",
-//   defer: true,
-//   enabled: process.env.NODE_ENV !== "development",
-//   debug: false,
-//   devtools: false
-// }
 
 export default config

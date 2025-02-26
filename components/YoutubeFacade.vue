@@ -19,11 +19,12 @@ const getYoutubeId = (url: string): string => {
 }
 
 const videoId = getYoutubeId(props.blok.youtubeLink.url)
-const thumbnailUrl = ref(`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`)
+// const thumbnailUrl = ref(`https://i3.ytimg.com/vi/${videoId}/maxresdefault.jpg`)
+const thumbnailUrl = ref(`https://i3.ytimg.com/vi/${videoId}/hqdefault.jpg`)
 
 // Fallback if high-res thumbnail not available
 const handleImgError = () => {
-  thumbnailUrl.value = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+  thumbnailUrl.value = `https://i3.ytimg.com/vi/${videoId}/hqdefault.jpg`
   isFallbackImg.value = true
 }
 
@@ -46,10 +47,8 @@ const loadYouTube = () => {
         fetchpriority="low"
       />
       <div class="play-button absolute inset-0 flex items-center justify-center">
-        <div class="play-icon w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
-          <div
-            class="w-0 h-0 ml-1 border-solid border-t-8 border-b-8 border-l-12 border-t-transparent border-b-transparent border-l-white"
-          ></div>
+        <div class="bg-stone-800 bg-opacity-70 rounded-full flex items-center justify-center shadow-lg">
+          <Icon name="ic:baseline-play-arrow" class="h-16 w-16 text-white" />
         </div>
         <div
           class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 py-2 text-white text-sm md:text-base text-center"
