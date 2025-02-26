@@ -157,13 +157,11 @@ const config: NuxtConfig = {
     defer: true, // This improves performance by deferring script loading
     compatibility: true, // For SSR compatibility
     enabled: process.env.NODE_ENV === "production", // Only enable in production
-    debug: true,
-    devtools: true,
-    loadScript: true
-    // enableRouterSync: true, // Track page views automatically
+    loadScript: true,
 
-    // Additional options you might need:
-    // nonce: '', // For CSP
+    // We will initialize GTM after a short delay as to not effect TBT.
+    initialized: false
+    // enableRouterSync: true, // Track page views automatically
   }
 }
 // sitemap: {
