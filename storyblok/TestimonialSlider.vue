@@ -32,7 +32,7 @@ const props = defineProps<PropTypes>()
         v-editable="tm"
         class="flex flex-row px-12 py-6 bg-white gap-6"
       >
-        <LazyYoutubeEmbed
+        <LazyYoutubeFacade
           class="basis-1/2"
           v-for="child_block in tm.youtube"
           :key="child_block._uid"
