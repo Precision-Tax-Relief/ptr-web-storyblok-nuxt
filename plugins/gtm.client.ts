@@ -3,7 +3,10 @@ export default defineNuxtPlugin({
   enforce: "post", // Run after other plugins
   setup(nuxtApp) {
     // Only run on client
-    if (process.server || !nuxtApp.$config.public.useGtm) return
+    if (process.server || !nuxtApp.$config.public.useGtm) {
+      console.log("Skipping GTM")
+      return
+    }
 
     // Wait until after page is loaded and interactive
     window.addEventListener("load", () => {

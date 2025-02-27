@@ -19,7 +19,6 @@ provide("headerHeight", height)
       <StoryblokComponent ref="headerWrapper" v-for="blok in story?.content?.header" :key="blok._uid" :blok="blok" />
     </div>
     <div :style="{ height: `${height}px` }"></div>
-    {{height}}
     <slot />
     <StoryblokComponent v-for="blok in story?.content?.footer" :key="blok._uid" :blok="blok" />
   </div>
