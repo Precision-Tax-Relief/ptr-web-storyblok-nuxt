@@ -4,7 +4,6 @@ export default defineNuxtPlugin({
   setup(nuxtApp) {
     // Only run on client
     if (process.server || !nuxtApp.$config.public.useGtm) {
-      console.log("Skipping GTM")
       return
     }
 
