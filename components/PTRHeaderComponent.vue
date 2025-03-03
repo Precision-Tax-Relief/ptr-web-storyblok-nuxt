@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed inset-x-0 top-0 hidden bg-primary px-0 py-4 text-left leading-6 text-white lg:block lg:px-0 lg:py-[22px]"
+    class="bg-primary px-0 py-4 text-left leading-6 text-white lg:block lg:px-0 lg:py-[22px]"
     id="head"
     style="z-index: 100"
   >

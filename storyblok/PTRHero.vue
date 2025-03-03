@@ -10,17 +10,13 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div class="lg:pt-30 bg-slate-100 pb-10 pt-20 md:py-20 lg:mt-0">
-    <div class="container mx-auto mt-28 pt-20">
-      <div class="text-left leading-6 text-black lg:flex lg:flex-row lg:items-start lg:justify-between">
-        <div class="px-0 pb-12 pt-0 text-left text-4xl text-black lg:py-0 lg:pl-0 lg:pr-[4.8rem] xl:pr-[6rem]">
-          <div class="mb-8 lg:mx-auto lg:max-w-[82rem]">
-            <h1 class="mb-12 text-center text-5xl font-bold tracking-wider text-primary lg:mb-10 xl:text-6xl">
-              BBB Approved Tax Attorney
-            </h1>
-            <h3
-              class="mx-auto my-0 text-center text-2xl font-normal leading-normal text-primary lg:text-3xl lg:leading-normal xl:text-3xl xl:leading-normal"
-            >
+  <div class="bg-slate-100 pb-10 md:py-20">
+    <div class="container mx-auto">
+      <div class="lg:flex lg:flex-row gap-16 lg:items-start lg:justify-between">
+        <div>
+          <div class="mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
+            <h1 class="mb-12 text-7xl font-bold tracking-wider lg:mb-10">BBB Approved Tax&nbsp;Attourney</h1>
+            <h3 class="text-3xl/8 font-normal">
               <span>
                 Get <strong class="font-bold">Immediate</strong> Help with a
                 <strong class="font-bold">FREE</strong> Confidential Consultation from the BBB's
@@ -37,11 +33,11 @@ const props = defineProps<PropTypes>()
               }"
             />
             <figcaption
-              class="text-pretty lg:leading-1 mx-5 block px-0 pb-0 pt-6 text-center text-[1.2rem] leading-normal text-[#666] md:mx-0 lg:px-0 lg:pb-0 lg:pt-2 lg:text-left xl:text-[1.6rem]"
+              class="text-pretty lg:leading-1 px-0 pb-0 pt-6 text-center text-sm leading-normal text-[#666] lg:pt-2 lg:text-left xl:text-xl"
             >
               <p>
                 <strong>Precision Tax</strong>, under the leadership of Scott Gettis, Michele Mulkey, and Gene Haag,
-                proudly maintains an <strong>A+ BBB</strong> rating and has been awarded the
+                proudly maintains an <strong>A+&nbsp;BBB</strong> rating and has been awarded the
                 <strong>Torch Award for Ethics in 2019, 2023, and 2024.</strong>
               </p>
             </figcaption>
@@ -49,12 +45,10 @@ const props = defineProps<PropTypes>()
         </div>
         <div class="shrink-0 basis-auto lg:grow-0">
           <div id="main-form-slide" class="mx-auto">
-            <div class="bg-secondary px-1 py-3 text-center font-bold text-white">
-              <h3 class="m-0 py-2 text-center text-xl font-bold text-white sm:text-3xl lg:text-2xl xl:text-3xl">
-                Set up your FREE Consultation
-              </h3>
+            <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
+              <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl">Set up your FREE Consultation</h3>
             </div>
-            <div class="bg-white p-8 text-left leading-6 text-black sm:p-8 lg:p-6 xl:p-8">
+            <div class="bg-white p-6">
               <div class="main-form" id="main-form">
                 <form id="callbackForm" class="validate" method="post" action="/api/v2/lead">
                   <input type="hidden" id="abid_1" name="AbId1" value="763202" />
@@ -77,19 +71,15 @@ const props = defineProps<PropTypes>()
                   />
                   <input type="hidden" id="ga_client_id" name="GaClientId" value="78236266.1740001216" />
                   <input type="hidden" id="iis_id" name="IisId" value="1a9430ec-ab96-2ba8-3500-2e2feb5a15fe.dd44e611" />
-                  <h4
-                    class="desktop mb-10 mt-2 text-center text-[1.3rem] font-bold leading-5 text-black lg:text-[1.3rem] xl:text-[1.6rem]"
-                  >
-                    Let us know how we can reach you.
-                  </h4>
-                  <div class="form-group mb-6">
-                    <div class="input-group_icon input-group_icon-name relative">
+                  <h4 class="mb-6 text-center text-base font-bold lg:text-lg">Let us know how we can reach you.</h4>
+                  <div class="form-group mb-4">
+                    <div class="relative">
                       <Icon
                         name="fa-solid:user-alt"
-                        class="absolute left-4 top-1/2 h-8 w-8 -translate-y-1/2 text-gray-400"
+                        class="absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400"
                       />
                       <input
-                        class="form-control lg:h-lg h-16 w-full bg-slate-200 pl-16"
+                        class="form-control h-12 w-full bg-slate-200 pl-14"
                         id="form-name"
                         name="Name"
                         placeholder="Full Name"
@@ -101,14 +91,14 @@ const props = defineProps<PropTypes>()
                       </div>
                     </div>
                   </div>
-                  <div class="form-group mb-6">
+                  <div class="form-group mb-4">
                     <div class="input-group_icon input-group_icon-phone relative">
                       <Icon
                         name="fa-solid:phone-alt"
-                        class="absolute left-4 top-1/2 h-8 w-8 -translate-y-1/2 text-gray-400"
+                        class="absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400"
                       />
                       <input
-                        class="form-control lg:h-lg h-16 w-full bg-slate-200 pl-16"
+                        class="form-control h-12 w-full bg-slate-200 pl-14"
                         minlength="14"
                         name="Phone"
                         id="PhoneNumber"
@@ -125,10 +115,10 @@ const props = defineProps<PropTypes>()
                     <div class="input-group_icon input-group_icon-email relative">
                       <Icon
                         name="fa-solid:envelope"
-                        class="absolute left-4 top-1/2 h-8 w-8 -translate-y-1/2 text-gray-400"
+                        class="absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400"
                       />
                       <input
-                        class="form-control lg:h-lg h-16 w-full bg-slate-200 pl-16"
+                        class="form-control h-12 w-full bg-slate-200 pl-14"
                         email=""
                         name="Email"
                         id="my-email"
@@ -143,16 +133,14 @@ const props = defineProps<PropTypes>()
                     </div>
                   </div>
                   <button
-                    class="m-0 block w-full cursor-pointer overflow-visible rounded-sm border-0 bg-green-500 px-1 py-4 text-center font-sans text-2xl font-bold normal-case tracking-wider text-white hover:bg-green-600 lg:rounded-md lg:py-6 xl:text-2xl"
+                    class="w-full cursor-pointer rounded-sm bg-green-500 px-4 py-4 text-center font-sans text-xl font-bold tracking-wider text-white hover:bg-green-600 lg:rounded-md"
                     id="btn-submit"
                     data-click-name="ClickForm - Submit"
                   >
                     Get My Free Consultation
                   </button>
-                  <div class="form-summary mb-0 mb-2 mt-8 text-center">
-                    <strong
-                      class="text-center text-[2.2rem] leading-8 text-black lg:text-[1.7rem] xl:text-[2.2rem]"
-                      style="font-weight: bolder"
+                  <div class="form-summary mt-4 text-center">
+                    <strong class="text-center text-2xl text-black" style="font-weight: bolder"
                       >or Call 1-877-635-2025</strong
                     >
                   </div>
@@ -234,7 +222,7 @@ const props = defineProps<PropTypes>()
           </li>
         </ul>
       </div>
-      <div class="container pt-5 text-2xl md:text-center xl:text-3xl">
+      <div class="pt-5 text-xl md:text-center xl:text-2xl">
         <h5 class="mb-5 text-center text-3xl font-bold text-primary underline lg:hidden">Our promise:</h5>
         <p>
           <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax Relief
