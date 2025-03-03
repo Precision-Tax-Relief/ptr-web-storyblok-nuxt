@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <h3 class="font-bold text-primary text-[2.8rem] px-4 lg:px-0 mb-10" id="compare-title">
+    <h3 id="compare-title" class="font-bold text-primary text-[2.8rem] px-4 lg:px-0 mb-10">
       Why Precision Tax Relief Is Trusted by the BBB Over Competitors
     </h3>
     <div id="tabs-compare">
@@ -19,13 +19,13 @@
                       <g fill="#FFF" fill-rule="evenodd">
                         <path
                           d="M12.884 52l-2.951-9.338L0 45.416 12.551 23l1.31.648-10.89 19.48 6.75-1.835.49-.141.74-.227.352 1.168 1.964 6.264 10.956-19.081 1.309.666z"
-                        ></path>
+                        />
                         <path
                           d="M37.104 52L24.468 29.943l1.31-.667 10.92 19.053 1.963-6.264.164-.49.23-.679.721.227c.236.075.47.134.47.134l6.757 1.872-10.907-19.481 1.31-.648L50 45.416l-9.938-2.753L37.104 52z"
-                        ></path>
+                        />
                         <path
                           d="M35.379 34l-10.367-3.542L14.621 34l-1.919-10.284L4.255 17l8.48-6.716L14.622 0l10.392 3.569L35.379 0l1.957 10.284L45.745 17l-8.442 6.716L35.379 34zm-10.367-5.066l9.2 3.166 1.71-9.137 7.5-5.963-7.502-5.963L34.21 1.9l-9.199 3.173L15.788 1.9l-1.71 9.137L6.576 17l7.502 5.963 1.71 9.137 9.224-3.166z"
-                        ></path>
+                        />
                       </g>
                     </svg>
                     <span>The Choice is Clear</span>
@@ -62,7 +62,7 @@
                       <path
                         d="M13.9333 25.1749L7.28335 18.5249L5.06668 20.7416L13.9333 29.6083L32.9333 10.6083L30.7167 8.3916L13.9333 25.1749Z"
                         fill="#5D9E61"
-                      ></path>
+                      />
                     </svg>
                     <a
                       href="https://www.bbb.org/us/id/coeur-d-alene/profile/tax-consultant/precision-tax-relief-llc-1296-1000004284"
@@ -109,7 +109,7 @@
                       <path
                         d="M13.9333 25.1749L7.28335 18.5249L5.06668 20.7416L13.9333 29.6083L32.9333 10.6083L30.7167 8.3916L13.9333 25.1749Z"
                         fill="#5D9E61"
-                      ></path>
+                      />
                     </svg>
                     <a
                       href="https://www.bbb.org/us/id/coeur-d-alene/profile/tax-consultant/precision-tax-relief-llc-1296-1000004284/complaints"
@@ -156,7 +156,7 @@
                       <path
                         d="M13.9333 25.1749L7.28335 18.5249L5.06668 20.7416L13.9333 29.6083L32.9333 10.6083L30.7167 8.3916L13.9333 25.1749Z"
                         fill="#5D9E61"
-                      ></path>
+                      />
                     </svg>
                     <a
                       href="https://cdapress.com/news/2023/dec/24/precision-tax-receives-torch-award/"
@@ -187,7 +187,7 @@
                       <path
                         d="M13.9333 25.1749L7.28335 18.5249L5.06668 20.7416L13.9333 29.6083L32.9333 10.6083L30.7167 8.3916L13.9333 25.1749Z"
                         fill="#5D9E61"
-                      ></path>
+                      />
                     </svg>
                     <a
                       href="https://www.google.com/maps/place/Precision+Tax+Relief/@47.6937866,-116.7832412,15z/data=!4m2!3m1!1s0x0:0x11a9c7e1bd2363cb?sa=X&amp;ved=2ahUKEwi1lZXlpvSEAxWAka8BHci7B6UQ_BJ6BAgTEAA&amp;hl=en&amp;gl=us"
@@ -234,7 +234,7 @@
                       <path
                         d="M13.9333 25.1749L7.28335 18.5249L5.06668 20.7416L13.9333 29.6083L32.9333 10.6083L30.7167 8.3916L13.9333 25.1749Z"
                         fill="#5D9E61"
-                      ></path>
+                      />
                     </svg>
                     <a
                       href="https://www.trustpilot.com/review/www.precisiontaxrelief.com"
@@ -281,7 +281,7 @@
                       <path
                         d="M13.9333 25.1749L7.28335 18.5249L5.06668 20.7416L13.9333 29.6083L32.9333 10.6083L30.7167 8.3916L13.9333 25.1749Z"
                         fill="#5D9E61"
-                      ></path>
+                      />
                     </svg>
                     <a
                       href="https://www.bbb.org/us/id/coeur-d-alene/profile/tax-consultant/precision-tax-relief-llc-1296-1000004284"

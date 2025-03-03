@@ -1,6 +1,6 @@
-import { SbRichTextOptions } from "@storyblok/js/dist/types/types"
-import { RichtextResolver } from "storyblok-js-client"
-import { RichtextStoryblok } from "~/types/component-types-sb"
+import type { SbRichTextOptions } from "@storyblok/js/dist/types/types"
+import type { RichtextResolver } from "storyblok-js-client"
+import type { RichtextStoryblok } from "~/types/component-types-sb"
 declare global {
   function renderRichText(
     data: RichtextStoryblok,

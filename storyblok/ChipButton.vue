@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type ChipButtonStoryblok } from "~/types/component-types-sb"
+import type { ChipButtonStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: ChipButtonStoryblok

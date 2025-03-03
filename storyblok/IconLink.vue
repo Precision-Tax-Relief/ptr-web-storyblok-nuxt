@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { defineProps, computed } from "vue"
 interface PropTypes {
-  blok: Object
-  isOverlay?: Boolean
+  blok: object
+  isOverlay?: boolean
 }
 const props = defineProps<PropTypes>()
 

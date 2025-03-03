@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavBarMenu from "~/components/NavBarComponent.vue"
 interface PropTypes {
-  blok: Object
+  blok: object
 }
 
 const props = defineProps<PropTypes>()
@@ -14,7 +14,7 @@ const props = defineProps<PropTypes>()
         v-for="childBlok in props.blok.desktopNavigation"
         :key="childBlok._uid"
         :blok="childBlok"
-        :isOverlay="isOverlay"
+        :is-overlay="isOverlay"
       />
     </template>
     <template #desktop-social="{ isOverlay }">
@@ -22,7 +22,7 @@ const props = defineProps<PropTypes>()
         v-for="childBlok in props.blok.desktopSocial"
         :key="childBlok._uid"
         :blok="childBlok"
-        :isOverlay="isOverlay"
+        :is-overlay="isOverlay"
       />
     </template>
     <template #mobile-nav>

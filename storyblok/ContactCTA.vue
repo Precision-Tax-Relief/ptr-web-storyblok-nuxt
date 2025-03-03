@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ContactCTAStoryblok } from "~/types/component-types-sb"
+import type { ContactCTAStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: ContactCTAStoryblok

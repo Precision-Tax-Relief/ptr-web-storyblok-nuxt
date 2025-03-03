@@ -2,7 +2,7 @@
 import { ref } from "vue"
 import { Tab, TabGroup, TabList, TabPanels, TabPanel, TransitionRoot } from "@headlessui/vue"
 import { useElementBounding, breakpointsTailwind, useBreakpoints } from "@vueuse/core"
-import { TabsVerticleFloaterStoryblok } from "~/types/component-types-sb"
+import type { TabsVerticleFloaterStoryblok } from "~/types/component-types-sb"
 
 // Change tab accessibility buttons based on screen size
 const breakpoints = useBreakpoints(breakpointsTailwind)
@@ -35,7 +35,7 @@ function setSelectedIndex() {
       :vertical="!small"
       class="relative mx-auto max-w-7xl grid-cols-11 sm:rounded-lg md:grid"
       as="div"
-      :selectedIndex="tabIndex"
+      :selected-index="tabIndex"
       @change="setNextIndex"
     >
       <div ref="tab_wrapper" class="z-10 col-span-4 my-auto flex h-full items-center justify-center">
@@ -105,10 +105,10 @@ function setSelectedIndex() {
           v-for="(tab, index) in props.blok.tabs"
           :show="index === tabIndex"
           enter="transform transition duration-300"
-          enterFrom="opacity-0 translate-x-20"
-          enterTo="opacity-100"
+          enter-from="opacity-0 translate-x-20"
+          enter-to="opacity-100"
           leave="duration-300"
-          leaveTo="opacity-0"
+          leave-to="opacity-0"
           @after-leave="setSelectedIndex"
         >
           <TabPanel
@@ -119,7 +119,7 @@ function setSelectedIndex() {
             <article class="flex flex-col gap-4 py-6 pl-12 pr-6">
               <NuxtPicture
                 class="duration-500"
-                :imgAttrs="{
+                :img-attrs="{
                   class: 'aspect-[3/2] w-full rounded-2xl object-cover shadow-md transition-all duration-500 bg-white'
                 }"
                 :src="tab.image.filename"

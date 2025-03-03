@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type YoutubeEmbedStoryblok } from "~/types/component-types-sb"
+import type { YoutubeEmbedStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: YoutubeEmbedStoryblok
@@ -18,6 +18,6 @@ const props = defineProps<PropTypes>()
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen
-    ></iframe>
+    />
   </div>
 </template>

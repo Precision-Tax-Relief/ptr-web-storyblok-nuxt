@@ -11,10 +11,10 @@
             />
           </div>
           <h2 class="text-4xl font-bold tracking-tight text-charcoal-900">
-            <slot name="title"></slot>
+            <slot name="title"/>
           </h2>
           <p class="mt-6 text-lg leading-8 text-charcoal-700">
-            <slot name="description"></slot>
+            <slot name="description"/>
           </p>
           <dl class="mt-12 space-y-4 text-lg leading-7 text-charcoal-700">
             <div class="flex gap-x-4">
@@ -23,7 +23,7 @@
                 <Icon name="mdi:office-building-marker" class="h-7 w-6 text-charcoal-500" />
               </dt>
               <dd>
-                <slot name="address"></slot>
+                <slot name="address"/>
               </dd>
             </div>
             <div class="flex gap-x-4">
@@ -32,7 +32,7 @@
                 <Icon name="mdi:phone-outline" class="h-7 w-6 text-charcoal-500" />
               </dt>
               <dd>
-                <slot name="telephone"></slot>
+                <slot name="telephone"/>
               </dd>
             </div>
             <div class="flex gap-x-4">
@@ -41,13 +41,13 @@
                 <Icon name="mdi:email-outline" class="h-7 w-6 text-charcoal-500" />
               </dt>
               <dd>
-                <slot name="email"></slot>
+                <slot name="email"/>
               </dd>
             </div>
           </dl>
         </div>
       </div>
-      <slot name="form"></slot>
+      <slot name="form"/>
     </div>
   </div>
 </template>

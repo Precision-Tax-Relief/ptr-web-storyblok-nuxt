@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ContactCTAItemStoryblok } from "~/types/component-types-sb"
+import type { ContactCTAItemStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: ContactCTAItemStoryblok
@@ -22,7 +22,7 @@ const props = defineProps<PropTypes>()
         </span>
         <h1 class="text-2xl font-semibold">{{ props.blok.title }}</h1>
       </div>
-      <div class="text-lg" v-html="renderRichText(props.blok.content)"></div>
+      <div class="text-lg" v-html="renderRichText(props.blok.content)"/>
     </div>
     <div class="flex gap-4">
       <StoryblokComponent v-for="child_block in props.blok.buttons" :key="child_block._uid" :blok="child_block" />

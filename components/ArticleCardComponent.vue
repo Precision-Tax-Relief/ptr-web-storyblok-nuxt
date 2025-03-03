@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface PropTypes {
-  article: Object
-  slug: String
+  article: object
+  slug: string
 }
 
 const props = defineProps<PropTypes>()

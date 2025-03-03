@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HeaderBannerStoryblok } from "~/types/component-types-sb"
+import type { HeaderBannerStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: HeaderBannerStoryblok

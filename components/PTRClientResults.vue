@@ -27,8 +27,8 @@
                     <NuxtPicture
                       :src="client.profile.filename"
                       loading="lazy"
-                      :imgAttrs="{ class: 'h-12 w-12' }"
-                    ></NuxtPicture>
+                      :img-attrs="{ class: 'h-12 w-12' }"
+                    />
                   </figure>
                   <div class="user_title ml-5 flex flex-col justify-center">
                     <h4 class="font-bold text-3xl leading-tight mb-2">{{ client.name }}</h4>
@@ -61,7 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import { type SlideClientResultsStoryblok } from "~/types/component-types-sb"
+import type { SlideClientResultsStoryblok } from "~/types/component-types-sb"
 const containerRef = ref(null)
 
 interface PropTypes {

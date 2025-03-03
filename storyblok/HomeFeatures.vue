@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@headlessui/vue"
-import { HomeFeaturesStoryblok } from "~/types/component-types-sb"
+import type { HomeFeaturesStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: HomeFeaturesStoryblok
@@ -47,7 +47,7 @@ const props = defineProps<PropTypes>()
               {{ tab.heading }}
               <div
                 :class="['border-t-2 border-charcoal-600/50 transition-all duration-300', selected ? 'w-full' : 'w-0']"
-              ></div></button
+              /></button
           ></Tab>
         </TabList>
         <TabPanels>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CalloutContainerStoryblok } from "~/types/component-types-sb"
+import type { CalloutContainerStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: CalloutContainerStoryblok

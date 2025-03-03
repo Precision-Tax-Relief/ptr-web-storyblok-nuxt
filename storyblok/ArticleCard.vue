@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArticleCardStoryblok } from "~/types/component-types-sb"
+import type { ArticleCardStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: ArticleCardStoryblok

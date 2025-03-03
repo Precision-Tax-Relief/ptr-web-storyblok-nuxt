@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface PropTypes {
-  blok: Object
+  blok: object
 }
 
 const props = defineProps<PropTypes>()

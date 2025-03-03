@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue"
 import { TransitionPresets, useTransition, useElementVisibility } from "@vueuse/core"
-import { ContentFloaterFigureAnimatedStoryblok } from "~/types/component-types-sb"
+import type { ContentFloaterFigureAnimatedStoryblok } from "~/types/component-types-sb"
 interface PropTypes {
   blok: ContentFloaterFigureAnimatedStoryblok
 }

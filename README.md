@@ -12,6 +12,7 @@
 Install `mkcert` and generate a certificate for `localhost`:
 
 ### MacOS
+
 ```bash
 brew install mkcert
 mkcert -install
@@ -19,12 +20,14 @@ mkcert localhost
 ```
 
 ### Windows Powershell
+
 For Windows users use this [guide.](https://www.storyblok.com/faq/setup-dev-server-https-windows)
 
-Install Choco 
+Install Choco
 https://chocolatey.org/install
 
 Run powershell as admin
+
 ```
 choco install mkcert // install mkcert
 mkcert --version // check the mkcert version
@@ -32,17 +35,19 @@ choco install nvm
 ```
 
 Run powershell as regular user
+
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser // Allow script execution so nvm can install node
 nvm install lts // or whatever version is being used in the project
 nvm use lts
 npm install -g local-ssl-proxy
 ```
+
 Run powershell as admin
+
 ```
 npm run proxy
 ```
-
 
 # References
 

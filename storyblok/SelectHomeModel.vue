@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStoryblokApi } from "@storyblok/vue"
-import { SelectHomeModelStoryblok } from "~/types/component-types-sb"
+import type { SelectHomeModelStoryblok } from "~/types/component-types-sb"
 import HomeModelCard from "~/components/HomeModelCard.vue"
 
 interface PropTypes {
@@ -27,7 +27,7 @@ const models = data.stories
     </h2>
     <div class="mx-auto grid max-w-lg grid-cols-1 gap-5 sm:max-w-max sm:grid-cols-2 md:grid-cols-3">
       <div v-for="model in models" :key="model.uid">
-        <HomeModelCard :model="model.content" :slug="model.full_slug"></HomeModelCard>
+        <HomeModelCard :model="model.content" :slug="model.full_slug"/>
       </div>
     </div>
   </div>

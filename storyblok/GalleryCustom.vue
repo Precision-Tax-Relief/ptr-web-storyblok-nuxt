@@ -16,11 +16,11 @@ const props = defineProps<PropTypes>()
         width="507"
         height="338"
         sizes="sm:100vw md:66vw lg:66vw xl:66vw 2xl:66vw"
-        :imgAttrs="{ class: 'h-auto max-w-full' }"
+        :img-attrs="{ class: 'h-auto max-w-full' }"
         :src="image?.filename"
         :alt="image?.alt"
         loading="lazy"
-      ></NuxtPicture>
+      />
     </div>
   </div>
 </template>

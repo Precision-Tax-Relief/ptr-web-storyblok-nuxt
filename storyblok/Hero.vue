@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HeroComponent from "~/components/HeroComponent.vue"
-import { HeroStoryblok } from "~/types/component-types-sb"
+import type { HeroStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: HeroStoryblok
@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <HeroComponent v-editable="props.blok" :image="props.blok?.image">
-    <template #title><div v-html="props.blok.title"></div></template>
+    <template #title><div v-html="props.blok.title"/></template>
     <template #big-text>{{ props.blok.bigText }}</template>
     <template #small-text>{{ props.blok.smallText }}</template>
     <template #ctas>

@@ -3,7 +3,7 @@ export default defineNuxtPlugin({
   enforce: "post", // Run after other plugins
   setup(nuxtApp) {
     // Only run on client
-    if (process.server || !nuxtApp.$config.public.useGtm) {
+    if (import.meta.server || !nuxtApp.$config.public.useGtm) {
       return
     }
 

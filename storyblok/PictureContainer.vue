@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PictureContainerStoryblok } from "~/types/component-types-sb"
+import type { PictureContainerStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: PictureContainerStoryblok
@@ -14,7 +14,7 @@ const props = defineProps<PropTypes>()
       :loading="props.blok.lazy ? 'lazy' : 'eager'"
       :modifiers="{ smart: true }"
       :src="props.blok.image.filename"
-      :imgAttrs="{ alt: props.blok.image.alt }"
-    ></NuxtPicture>
+      :img-attrs="{ alt: props.blok.image.alt }"
+    />
   </div>
 </template>

@@ -5,7 +5,7 @@
     <div class="section-head">
       <h2
         id="head_b_padding"
-        class="mb-12 px-24 text-center text-4xl font-bold leading-tight text-primary md:text-5xl lg:mb-20 lg:text-6xl"
+        class="mb-12 px-24 text-center text-4xl font-bold max-w-5xl leading-tight text-primary md:text-5xl lg:mb-20 lg:text-6xl"
       >
         What to expect during your free&nbsp;consultation
       </h2>

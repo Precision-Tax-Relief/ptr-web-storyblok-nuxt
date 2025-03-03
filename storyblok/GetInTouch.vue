@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GetInTouchStoryblok } from "~/types/component-types-sb"
+import type { GetInTouchStoryblok } from "~/types/component-types-sb"
 import GetInTouchComponent from "~/components/GetInTouchComponent.vue"
 
 interface PropTypes {
@@ -16,7 +16,7 @@ const props = defineProps<PropTypes>()
     <template #address>
       <a class="hover:text-gray-900" :href="props.blok.mapsLink.url">
         {{ props.blok.addressLineOne }}
-        <br />
+        <br >
         {{ props.blok.addressLineTwo }}
       </a>
     </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TabGroup, TabList, Tab, TabPanels, TabPanel, Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue"
 import { ref } from "vue"
-import { GalleryStoryblok } from "~/types/component-types-sb"
+import type { GalleryStoryblok } from "~/types/component-types-sb"
 interface PropTypes {
   blok: GalleryStoryblok
 }
@@ -28,7 +28,7 @@ const getSelectedTabHeading = computed(() =>
         <h2 class="text-4xl font-bold tracking-tight text-white">Gallery</h2>
         <div>
           <h3 class="mt-4 text-2xl tracking-tight text-white">{{ getSelectedTabHeading }}</h3>
-          <div class="mt-2 justify-center border-t-2 border-white"></div>
+          <div class="mt-2 justify-center border-t-2 border-white"/>
         </div>
       </div>
       <svg
@@ -47,11 +47,11 @@ const getSelectedTabHeading = computed(() =>
       </svg>
       <NuxtPicture
         :src="props.blok?.headingImage.filename"
-        :imgAttrs="{
+        :img-attrs="{
           class: 'opacity-25 absolute inset-0 w-full object-cover h-full',
           alt: props.blok?.headingImage.alt
         }"
-      ></NuxtPicture>
+      />
     </div>
     <div class="flex sm:hidden">
       <Menu as="div" class="relative mx-auto inline-block py-10 text-left">
@@ -97,7 +97,7 @@ const getSelectedTabHeading = computed(() =>
       </Menu>
     </div>
     <div class="mx-auto flex flex-col items-center px-3 sm:mt-16 lg:px-8">
-      <TabGroup :selectedIndex="selectedTab" @change="changeTab">
+      <TabGroup :selected-index="selectedTab" @change="changeTab">
         <TabList
           class="mb-4 hidden max-w-full space-x-1 overflow-y-scroll rounded-xl bg-charcoal-100/50 p-1 sm:flex md:mb-2 lg:overflow-hidden"
         >
@@ -111,7 +111,7 @@ const getSelectedTabHeading = computed(() =>
               {{ tab.heading }}
               <div
                 :class="['border-t-2 border-charcoal-600/50 transition-all duration-300', selected ? 'w-full' : 'w-0']"
-              ></div></button
+              /></button
           ></Tab>
         </TabList>
         <TabPanels>

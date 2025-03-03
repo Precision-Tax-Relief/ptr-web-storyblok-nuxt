@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeModelStoryblok } from "~/types/component-types-sb"
+import type { HomeModelStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: HomeModelStoryblok
@@ -62,7 +62,7 @@ const props = defineProps<PropTypes>()
         </div>
         <NuxtPicture
           :src="props.blok.featuredImage.filename"
-          :imgAttrs="{
+          :img-attrs="{
             class: 'absolute inset-0 object-cover h-full w-full',
             alt: props.blok.featuredImage.alt
           }"
@@ -90,12 +90,12 @@ const props = defineProps<PropTypes>()
         sizes="sm:100vw md:1920px lg:2560px"
         loading="lazy"
         :src="props.blok.matterPortImage?.filename"
-        :imgAttrs="{
+        :img-attrs="{
           class: 'opacity-30 absolute inset-0 object-cover h-full w-full',
           alt: props.blok.matterPortImage?.alt
         }"
-      ></NuxtPicture>
-      <div class="class absolute inset-0 -z-10 bg-black opacity-100"></div>
+      />
+      <div class="class absolute inset-0 -z-10 bg-black opacity-100"/>
     </NuxtLink>
     <div class="pt-20">
       <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />

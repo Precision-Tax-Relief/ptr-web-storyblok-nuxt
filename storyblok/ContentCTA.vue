@@ -2,14 +2,14 @@
 import ContentCTAComponent from "~/components/ContentCTAComponent.vue"
 
 interface PropTypes {
-  blok: Object
+  blok: object
 }
 
 const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <ContentCTAComponent v-editable="props.blok" :isDark="props.blok.dark">
+  <ContentCTAComponent v-editable="props.blok" :is-dark="props.blok.dark">
     <template #title>{{ props.blok.title }}</template>
     <template #text>{{ props.blok.text }}</template>
     <template #ctas>

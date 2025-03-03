@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DividerStoryblok } from "~/types/component-types-sb"
+import type { DividerStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: DividerStoryblok
@@ -40,6 +40,6 @@ const color = computed(() => {
 
 <template>
   <div v-editable="props.blok" :class="[padding]">
-    <hr v-if="props.blok.line_thickness !== 'none'" :class="[height, width, color, 'mx-auto rounded border-none']" />
+    <hr v-if="props.blok.line_thickness !== 'none'" :class="[height, width, color, 'mx-auto rounded border-none']" >
   </div>
 </template>

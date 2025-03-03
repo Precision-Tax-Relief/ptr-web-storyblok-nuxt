@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface PropTypes {
-  videoSrc: String
-  topLink: String
+  videoSrc: string
+  topLink: string
 }
 
 const props = defineProps<PropTypes>()
@@ -10,7 +10,7 @@ const props = defineProps<PropTypes>()
 <template>
   <div class="relative isolate flex min-h-screen flex-col overflow-hidden bg-neutral-900 pt-14 lg:flex-col-reverse">
     <video autoplay loop playsinline muted class="absolute inset-0 z-0 h-full w-full object-cover">
-      <source :src="props.videoSrc" />
+      <source :src="props.videoSrc" >
     </video>
     <!--    <div class="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">-->
     <!--      <div-->
@@ -53,13 +53,13 @@ const props = defineProps<PropTypes>()
       <!--      </div>-->
       <div class="">
         <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          <slot name="big-text"></slot>
+          <slot name="big-text"/>
         </h1>
         <p class="mt-6 text-xl leading-8 text-charcoal-50">
-          <slot name="small-text"></slot>
+          <slot name="small-text"/>
         </p>
         <div class="mt-10 flex gap-x-6">
-          <slot name="ctas"></slot>
+          <slot name="ctas"/>
         </div>
       </div>
     </div>

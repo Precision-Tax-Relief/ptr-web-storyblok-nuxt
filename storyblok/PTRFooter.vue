@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type PTRFooterStoryblok } from "~/types/component-types-sb"
+import type { PTRFooterStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: PTRFooterStoryblok
@@ -21,7 +21,7 @@ const props = defineProps<PropTypes>()
                 :src="blok.groupPhoto.filename"
                 :alt="blok.groupPhoto.alt"
                 loading="lazy"
-                :imgAttrs="{
+                :img-attrs="{
                   class: 'mx-auto'
                 }"
               />
@@ -64,15 +64,15 @@ const props = defineProps<PropTypes>()
                   ><source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/aicpa.webp"
                     type="image/webp"
-                  />
+                  >
                   <source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/aicpa.png"
                     type="image/png"
-                  />
+                  >
                   <img
                     src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/aicpa.png"
                     alt="aicpa logo"
-                  />
+                  >
                 </picture>
               </div>
             </li>
@@ -85,12 +85,12 @@ const props = defineProps<PropTypes>()
                   ><source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.webp"
                     type="image/webp"
-                  />
+                  >
                   <source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.png"
                     type="image/png"
-                  />
-                  <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.png" alt="naea" />
+                  >
+                  <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.png" alt="naea" >
                 </picture>
               </div>
             </li>
@@ -103,12 +103,12 @@ const props = defineProps<PropTypes>()
                   ><source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.webp"
                     type="image/webp"
-                  />
+                  >
                   <source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.png"
                     type="image/png"
-                  />
-                  <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.png" alt="astps" />
+                  >
+                  <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.png" alt="astps" >
                 </picture>
               </div>
             </li>
@@ -123,7 +123,7 @@ const props = defineProps<PropTypes>()
         <div class="text-center text-[#65707f] leading-[24px] text-[1.4rem]">
           <p>Copyright 2025 Precision Tax Relief, LLC | All Rights Reserved</p>
         </div>
-        <div class="text-white text-[1.1rem] py-10" id="disclaimers">
+        <div id="disclaimers" class="text-white text-[1.1rem] py-10">
           <p class="mb-5">
             [1] Precision Tax Relief is a registered trademark of Precision Tax Relief, LLC. All other trademarks, trade
             names, product names, logos, and brands are property of their respective owners. Use of these trademarks,

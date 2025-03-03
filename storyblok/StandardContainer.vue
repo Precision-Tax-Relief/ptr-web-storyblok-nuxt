@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { StandardContainerStoryblok } from "~/types/component-types-sb"
+import type { StandardContainerStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: StandardContainerStoryblok

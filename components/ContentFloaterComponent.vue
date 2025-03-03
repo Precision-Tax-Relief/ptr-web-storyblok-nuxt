@@ -22,10 +22,10 @@ const slots = useSlots()
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-3xl lg:mx-0">
             <h1 class="mt-2 text-3xl font-bold tracking-tight text-charcoal-800 sm:text-4xl">
-              <slot name="title"></slot>
+              <slot name="title"/>
             </h1>
             <p class="mt-6 whitespace-pre-wrap text-lg leading-8 text-charcoal-600">
-              <slot name="big-text"></slot>
+              <slot name="big-text"/>
             </p>
           </div>
           <div
@@ -33,12 +33,12 @@ const slots = useSlots()
           >
             <div v-if="!!slots['content-floater-figures']" class="relative lg:order-last lg:col-span-5">
               <dl class="flex flex-row items-stretch justify-evenly border-l border-sand-700 py-6 pl-3">
-                <slot name="content-floater-figures"></slot>
+                <slot name="content-floater-figures"/>
               </dl>
             </div>
             <div class="max-w-xl text-base leading-7 text-gray-700 lg:col-span-7">
               <p class="whitespace-pre-wrap">
-                <slot name="small-text"></slot>
+                <slot name="small-text"/>
               </p>
             </div>
           </div>

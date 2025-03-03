@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ContentFloaterComponent from "~/components/ContentFloaterComponent.vue"
-import { ContentFloaterStoryblok } from "~/types/component-types-sb"
+import type { ContentFloaterStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: ContentFloaterStoryblok

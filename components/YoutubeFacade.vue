@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type YoutubeEmbedStoryblok } from "~/types/component-types-sb"
+import type { YoutubeEmbedStoryblok } from "~/types/component-types-sb"
 import { ref } from "vue"
 
 interface PropTypes {
@@ -40,12 +40,12 @@ const loadYouTube = () => {
     <div v-if="showFacade" class="youtube-facade aspect-video w-full cursor-pointer relative" @click="loadYouTube">
       <img
         :src="thumbnailUrl"
-        @error="handleImgError"
         alt="YouTube video thumbnail"
         class="w-full h-full object-cover"
         loading="lazy"
         fetchpriority="low"
-      />
+        @error="handleImgError"
+      >
       <div class="play-button absolute inset-0 flex items-center justify-center">
         <div class="bg-stone-800 bg-opacity-70 rounded-full flex items-center justify-center shadow-lg">
           <Icon name="ic:baseline-play-arrow" class="h-16 w-16 text-white" />
@@ -67,7 +67,7 @@ const loadYouTube = () => {
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
-      ></iframe>
+      />
     </div>
   </div>
 </template>

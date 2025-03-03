@@ -9,8 +9,8 @@ const story = await useAsyncStoryblok("layouts/default", {
 <template>
   <div>
     <StoryblokComponent
-      ref="headerWrapper"
       v-for="blok in story?.content?.header"
+      ref="headerWrapper"
       :key="blok._uid"
       :blok="blok"
       class="sticky inset-x-0 top-0 z-50"

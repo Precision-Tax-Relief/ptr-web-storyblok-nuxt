@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IframeBlokStoryblok } from "~/types/component-types-sb"
+import type { IframeBlokStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: IframeBlokStoryblok
@@ -16,5 +16,5 @@ const props = defineProps<PropTypes>()
     frameborder="0"
     loading="lazy"
     allowfullscreen
-  ></iframe>
+  />
 </template>

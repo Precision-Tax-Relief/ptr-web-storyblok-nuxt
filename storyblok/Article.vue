@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface PropTypes {
-  blok: Object
+  blok: object
 }
 const props = defineProps<PropTypes>()
 </script>
@@ -19,7 +19,7 @@ const props = defineProps<PropTypes>()
   </Head>
   <div v-editable="props.blok" class="mx-auto mb-32 px-6 sm:px-0">
     <div class="prose mx-auto lg:prose-xl">
-      <NuxtPicture :imgAttrs="{ alt: props.blok.image.alt }" :src="props.blok.image.filename"></NuxtPicture>
+      <NuxtPicture :img-attrs="{ alt: props.blok.image.alt }" :src="props.blok.image.filename"/>
       <h1>
         {{ props.blok.title }}
       </h1>

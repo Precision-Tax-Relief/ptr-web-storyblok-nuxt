@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FooterComponent from "~/components/FooterComponent.vue"
 interface PropTypes {
-  blok: Object
+  blok: object
 }
 const props = defineProps<PropTypes>()
 </script>

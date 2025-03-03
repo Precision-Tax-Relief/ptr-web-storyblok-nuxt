@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeFeaturesPanelStoryblok } from "~/types/component-types-sb"
+import type { HomeFeaturesPanelStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: HomeFeaturesPanelStoryblok
@@ -13,7 +13,7 @@ const props = defineProps<PropTypes>()
     <div class="px-6 lg:pr-2 lg:pt-4">
       <div class="prose prose-charcoal mx-auto max-w-xl overflow-hidden lg:prose-xl prose-li:-my-2 lg:mx-0">
         <h2>{{ props.blok.heading }}</h2>
-        <div v-html="renderRichText(props.blok.content)"></div>
+        <div v-html="renderRichText(props.blok.content)"/>
       </div>
     </div>
     <div class="mx-auto max-w-full sm:mx-0 md:block" style="min-width: 1em">
@@ -35,8 +35,8 @@ const props = defineProps<PropTypes>()
             loading="lazy"
             :modifiers="{ smart: true }"
             :src="image.filename"
-            :imgAttrs="{ class: 'max-h-full absolute inset-0 object-cover', alt: image.alt }"
-          ></NuxtPicture>
+            :img-attrs="{ class: 'max-h-full absolute inset-0 object-cover', alt: image.alt }"
+          />
         </SwiperSlide>
       </Swiper>
     </div>

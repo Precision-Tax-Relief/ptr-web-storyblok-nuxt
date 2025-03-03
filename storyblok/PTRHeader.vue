@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type PTRHeaderStoryblok } from "~/types/component-types-sb"
+import type { PTRHeaderStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: PTRHeaderStoryblok

@@ -26,9 +26,8 @@ const props = defineProps<PropTypes>()
           :sizes="styles.imgSizes[index % 5]"
           :src="image?.filename"
           loading="lazy"
-          :imgAttrs="{ class: 'object-cover h-full w-full', alt: image?.alt }"
-        >
-        </NuxtPicture>
+          :img-attrs="{ class: 'object-cover h-full w-full', alt: image?.alt }"
+        />
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ImageCardStoryblok } from "~/types/component-types-sb"
+import type { ImageCardStoryblok } from "~/types/component-types-sb"
 import ImageCardComponent from "~/components/ImageCardComponent.vue"
 interface PropTypes {
   blok: ImageCardStoryblok

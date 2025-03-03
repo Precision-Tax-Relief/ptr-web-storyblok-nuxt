@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type TestimonialSliderStoryblok } from "~/types/component-types-sb"
+import type { TestimonialSliderStoryblok } from "~/types/component-types-sb"
 import { defineAsyncComponent } from "vue"
 
 interface PropTypes {
@@ -33,9 +33,9 @@ const props = defineProps<PropTypes>()
         class="flex flex-row px-12 py-6 bg-white gap-6"
       >
         <LazyYoutubeFacade
-          class="basis-1/2"
           v-for="child_block in tm.youtube"
           :key="child_block._uid"
+          class="basis-1/2"
           :blok="child_block"
         />
         <div class="basis-2/3 grow">

@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <NavBarPopover v-editable="blok" :isOverlay="isOverlay">
+  <NavBarPopover v-editable="blok" :is-overlay="isOverlay">
     <template #link>{{ blok.text }}</template>
     <template #panel>
       <div class="relative z-20 rounded-b-3xl bg-white p-4 shadow-sm">

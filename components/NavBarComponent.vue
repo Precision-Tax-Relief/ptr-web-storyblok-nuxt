@@ -101,10 +101,10 @@ watch(route, () => {
         <TRLogo :styles="styles.svg" />
       </nuxt-link>
       <PopoverGroup class="hidden lg:flex lg:gap-x-4">
-        <slot name="desktop-nav" :isOverlay="isOverlay"></slot>
+        <slot name="desktop-nav" :is-overlay="isOverlay"/>
       </PopoverGroup>
       <div class="hidden items-center lg:flex lg:flex-1 lg:justify-end">
-        <slot name="desktop-social" :isOverlay="isOverlay"></slot>
+        <slot name="desktop-social" :is-overlay="isOverlay"/>
 
         <NuxtLink to="#contact" :class="styles.button"> Contact Our Team </NuxtLink>
       </div>

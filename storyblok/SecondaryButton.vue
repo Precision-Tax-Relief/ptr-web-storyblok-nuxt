@@ -2,7 +2,7 @@
 import { computed } from "vue"
 
 interface PropTypes {
-  blok: Object
+  blok: object
 }
 
 const props = defineProps<PropTypes>()

@@ -29,9 +29,8 @@ function getArticleStyles(index) {
         class="h-full w-full py-1 md:col-span-2 md:row-span-1"
         :src="articles[0].content.image.filename"
         loading="lazy"
-        :imgAttrs="{ class: 'object-cover h-full w-full', alt: articles[0].content.image.alt }"
-      >
-      </NuxtPicture>
+        :img-attrs="{ class: 'object-cover h-full w-full', alt: articles[0].content.image.alt }"
+      />
       <ArticleCardComponent
         v-for="(article, index) in articles"
         :key="article.uuid"

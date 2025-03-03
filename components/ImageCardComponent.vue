@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useSlots } from "vue"
-import { AssetStoryblok } from "~/types/component-types-sb"
+import type { AssetStoryblok } from "~/types/component-types-sb"
 
 interface Props {
   img: AssetStoryblok
-  link: String
+  link: string
 }
 const props = defineProps<Props>()
 const slots = useSlots()
@@ -14,7 +14,7 @@ const slots = useSlots()
     class="group relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-80 hover:shadow-xl motion-safe:transition-shadow motion-safe:duration-300 sm:pt-48 lg:pt-80"
   >
     <NuxtPicture
-      :imgAttrs="{
+      :img-attrs="{
         class:
           'absolute inset-0 -z-10 h-full w-full object-cover origin-center motion-safe:transition-all group-hover:scale-110 motion-safe:duration-1000 ease-in-out brightness-90 group-hover:brightness-100'
       }"

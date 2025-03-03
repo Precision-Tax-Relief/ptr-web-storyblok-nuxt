@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ColumnTwoDividerStoryblok } from "~/types/component-types-sb"
+import type { ColumnTwoDividerStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: ColumnTwoDividerStoryblok
@@ -10,7 +10,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div v-editable="props.blok" class="mx-auto my-16 max-w-7xl px-6 sm:my-24 lg:px-8">
-    <h2 class="mb-12 text-center text-3xl font-bold text-charcoal-900 md:text-5xl" v-html="props.blok.header"></h2>
+    <h2 class="mb-12 text-center text-3xl font-bold text-charcoal-900 md:text-5xl" v-html="props.blok.header"/>
     <div class="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-2">
       <div class="flex flex-col pb-10 sm:pb-16 lg:pb-10 lg:pr-8 xl:pr-20">
         <figure class="mt-10 flex flex-auto flex-col">

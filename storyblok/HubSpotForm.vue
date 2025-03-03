@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HubSpotFormStoryblok } from "~/types/component-types-sb"
+import type { HubSpotFormStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: HubSpotFormStoryblok
@@ -34,5 +34,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :id="`form-${props.blok.formId}`" v-editable="props.blok" class="mx-auto max-w-xl"></div>
+  <div :id="`form-${props.blok.formId}`" v-editable="props.blok" class="mx-auto max-w-xl"/>
 </template>

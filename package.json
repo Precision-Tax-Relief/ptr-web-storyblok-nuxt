@@ -10,10 +10,10 @@
     "typecheck": "nuxt typecheck",
     "preview": "nuxt generate && npx serve dist -p 3010",
     "postinstall": "npx nuxt prepare",
-    "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "lint:js": "eslint --ext \".ts,.vue\" --fix .",
     "lint:prettier": "prettier --check .",
     "lint": "npm lint:js && npm lint:prettier",
-    "lintfix": "prettier --write --list-different . && npm lint:js --fix",
+    "lintfix": "prettier --write --list-different . && npm run lint:js",
     "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 3010 --cert localhost.pem --key localhost-key.pem",
     "pull-components": "node scripts/pull-components.mjs"
   },

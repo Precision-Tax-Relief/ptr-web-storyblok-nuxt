@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <NavBarLinkComponent v-editable="blok" :href="blok.link.url" :isOverlay="isOverlay"
+  <NavBarLinkComponent v-editable="blok" :href="blok.link.url" :is-overlay="isOverlay"
     >{{ blok.text }}
   </NavBarLinkComponent>
 </template>

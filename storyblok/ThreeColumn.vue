@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ThreeColumnComponent from "~/components/ThreeColumnComponent.vue"
-import { ThreeColumnStoryblok } from "~/types/component-types-sb"
+import type { ThreeColumnStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: ThreeColumnStoryblok

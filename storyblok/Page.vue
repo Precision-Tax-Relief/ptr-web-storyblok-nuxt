@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PageStoryblok } from "~/types/component-types-sb"
+import type { PageStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: PageStoryblok

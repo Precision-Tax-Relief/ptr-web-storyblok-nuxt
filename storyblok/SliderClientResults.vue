@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type TestimonialSliderStoryblok } from "~/types/component-types-sb"
+import type { TestimonialSliderStoryblok } from "~/types/component-types-sb"
 import "swiper/css"
 
 const containerRef = ref(null)
@@ -32,9 +32,9 @@ const props = defineProps<PropTypes>()
         class="flex flex-row px-12 py-6 bg-white gap-6"
       >
         <StoryblokComponent
-          class="basis-1/2"
           v-for="child_block in tm.youtube"
           :key="child_block._uid"
+          class="basis-1/2"
           :blok="child_block"
         />
         <div class="basis-2/3 grow">
@@ -46,7 +46,7 @@ const props = defineProps<PropTypes>()
             </li>
             <li class="lg:ml-0">
               <strong class="text-3xl text-rose-950"><span class="text-rose-600">Owed: </span>{{ tm.owed }}</strong>
-              <p></p>
+              <p/>
             </li>
             <li>
               <strong class="text-3xl text-emerald-950">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FullPageHeroStoryblok } from "~/types/component-types-sb"
+import type { FullPageHeroStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
   blok: FullPageHeroStoryblok
@@ -14,7 +14,7 @@ const props = defineProps<PropTypes>()
       sizes="sm:100vw md:100vw lg:100vw"
       loading="lazy"
       :src="props.blok.image?.filename"
-      :imgAttrs="{
+      :img-attrs="{
         class: 'brightness-50 absolute inset-0 object-cover h-full w-full z-0',
         alt: props.blok.matterPortImage?.alt
       }"
