@@ -42,19 +42,19 @@ const props = defineProps<PropTypes>()
           <ul class="flex lg:gap-8 gap-4 flex-wrap justify-between mb-2">
             <li class="lg:ml-0 w-full lg:w-auto">
               <div class="user_title">
-                <p class="text-4xl font-bold">{{ tm.name }}</p>
+                <p class="text-4xl text-primaryDark font-bold">{{ tm.name }}</p>
               </div>
             </li>
             <li class="lg:ml-0">
-              <strong class="text-3xl text-rose-950"><span class="text-rose-600">Owed: </span>{{ tm.owed }}</strong>
+              <strong class="text-3xl text-rose-900"><span class="text-rose-600">Owed: </span>{{ tm.owed }}</strong>
             </li>
             <li>
-              <strong class="text-3xl text-emerald-950">
+              <strong class="text-3xl text-emerald-900">
                 <span class="text-emerald-600">Paid: </span>{{ tm.paid }}</strong
               >
             </li>
           </ul>
-          <p class="mt-1 text-2xl lg:text-2xl/8 text-stone-800">{{ tm.text }}</p>
+          <p class="mt-1 text-2xl lg:text-xl text-stone-800">{{ tm.text }}</p>
         </div>
       </swiper-slide>
     </swiper-container>

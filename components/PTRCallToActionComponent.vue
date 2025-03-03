@@ -5,7 +5,7 @@
     <div class="section-head">
       <h2
         id="head_b_padding"
-        class="mb-12 px-24 text-center text-4xl font-bold max-w-5xl leading-tight text-primary md:text-5xl lg:mb-20 lg:text-6xl"
+        class="mb-12 px-24 text-center text-4xl font-bold max-w-5xl mx-auto leading-tight text-primary md:text-5xl lg:mb-20 lg:text-6xl"
       >
         What to expect during your free&nbsp;consultation
       </h2>
@@ -22,7 +22,7 @@
           <PTRArrow class="grow pl-4" />
         </div>
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
-          Speak to a licensed <br />
+          Speak to a licensed <br >
           tax expert
         </h4>
         <p class="text-2xl leading-normal text-stone-800">
@@ -41,7 +41,7 @@
           <PTRArrow class="grow pl-4" />
         </div>
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
-          Get an honest assessment <br />of your situation
+          Get an honest assessment <br >of your situation
         </h4>
         <p class="text-2xl leading-normal text-stone-800">
           Our tax professionals will assess your <strong>options for reaching a favorable solution</strong> to your tax
@@ -60,7 +60,7 @@
           <Icon name="material-symbols-light:check-circle" class="-my-4 -ml-4 -mr-1 text-green-500" size="69px" />
         </div>
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
-          Get a transparent quote <br />with affordable payments
+          Get a transparent quote <br >with affordable payments
         </h4>
         <p class="text-2xl leading-normal text-stone-800">
           If your situation requires professional assistance, we'll provide you a transparent quote for our services
