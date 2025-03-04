@@ -22,7 +22,7 @@
           <PTRArrow class="grow pl-4" />
         </div>
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
-          Speak to a licensed <br >
+          Speak to a licensed <br />
           tax expert
         </h4>
         <p class="text-2xl leading-normal text-stone-800">
@@ -41,7 +41,7 @@
           <PTRArrow class="grow pl-4" />
         </div>
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
-          Get an honest assessment <br >of your situation
+          Get an honest assessment <br />of your situation
         </h4>
         <p class="text-2xl leading-normal text-stone-800">
           Our tax professionals will assess your <strong>options for reaching a favorable solution</strong> to your tax
@@ -60,7 +60,7 @@
           <Icon name="material-symbols-light:check-circle" class="-my-4 -ml-4 -mr-1 text-green-500" size="69px" />
         </div>
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
-          Get a transparent quote <br >with affordable payments
+          Get a transparent quote <br />with affordable payments
         </h4>
         <p class="text-2xl leading-normal text-stone-800">
           If your situation requires professional assistance, we'll provide you a transparent quote for our services
@@ -75,7 +75,6 @@
         data-click-name="ClickBody - Form Scroll  Below What To Expect"
         class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-6 py-3 hover:bg-green-600 lg:px-10 lg:py-6"
       >
-        <!--        <i class="fa-solid fa-phone text-[3rem] text-white lg:text-[4rem]"></i>-->
         <Icon name="fa-solid:phone-alt" class="text-5xl text-white lg:text-6xl" />
         <div class="col-span-3 flex flex-col justify-center text-left text-white">
           <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
@@ -84,7 +83,7 @@
       >
       <div>
         <a
-          class="activate-form text-[#9b9b9b] underline"
+          class="activate-form text-neutral-500 underline"
           href="#"
           data-modal-open=""
           data-click-name="ClickBodyM - Callback Form Modal Below What To Expect"
