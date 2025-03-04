@@ -9,16 +9,18 @@ interface PropTypes {
 defineProps<PropTypes>()
 
 // Animation enter/leave functions
-function beforeEnter(el) {
-  el.style.height = "0"
-  el.style.overflow = "hidden"
+function beforeEnter(el: Element) {
+  const element = el as HTMLElement
+  element.style.height = "0"
+  element.style.overflow = "hidden"
 }
 
-function enter(el, done) {
-  const targetHeight = el.scrollHeight
+function enter(el: Element, done: () => void): void {
+  const element = el as HTMLElement
+  const targetHeight = element.scrollHeight
 
   // Start animation with easing
-  const animation = el.animate([{ height: "0px" }, { height: targetHeight + "px" }], {
+  const animation = element.animate([{ height: "0px" }, { height: targetHeight + "px" }], {
     duration: 300,
     easing: "cubic-bezier(0.25, 0.1, 0.25, 1.0)", // Use ease-out cubic
     fill: "forwards"
@@ -29,23 +31,26 @@ function enter(el, done) {
   }
 }
 
-function afterEnter(el) {
-  el.style.height = "auto"
-  el.style.overflow = "visible"
+function afterEnter(el: Element): void {
+  const element = el as HTMLElement
+  element.style.height = "auto"
+  element.style.overflow = "visible"
 }
 
-function beforeLeave(el) {
+function beforeLeave(el: Element): void {
+  const element = el as HTMLElement
   // Set height to current height before animating
-  el.style.height = el.scrollHeight + "px"
-  el.style.overflow = "hidden"
+  element.style.height = element.scrollHeight + "px"
+  element.style.overflow = "hidden"
 
   // Force a repaint to make sure the height is applied
-  el.offsetHeight
+  element.offsetHeight
 }
 
-function leave(el, done) {
+function leave(el: Element, done: () => void): void {
+  const element = el as HTMLElement
   // Animate to height 0 with easing
-  const animation = el.animate([{ height: el.scrollHeight + "px" }, { height: "0px" }], {
+  const animation = element.animate([{ height: element.scrollHeight + "px" }, { height: "0px" }], {
     duration: 300,
     easing: "cubic-bezier(0.4, 0.0, 0.2, 1)", // Use ease-in-out cubic
     fill: "forwards"
