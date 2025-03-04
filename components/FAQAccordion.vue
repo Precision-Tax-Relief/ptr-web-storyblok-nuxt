@@ -65,14 +65,10 @@ function leave(el: Element, done: () => void): void {
 <template>
   <div class="container mx-auto pt-8">
     <header class="section-head">
-      <h2 id="head_b_padding" class="mb-8 text-5xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
+      <h2 class="mb-8 text-5xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
         {{ title }}
       </h2>
-      <h5
-        v-if="subtitle"
-        id="head_b_padding"
-        class="text-center hidden md:block mb-6 text-xl max-w-3xl mx-auto px-4 lg:px-0"
-      >
+      <h5 v-if="subtitle" class="text-center hidden md:block mb-6 text-xl max-w-3xl mx-auto px-4 lg:px-0">
         {{ subtitle }}
       </h5>
     </header>
