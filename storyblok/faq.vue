@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { faqStoryblok } from "~/types/component-types-sb"
+import type { FaqStoryblok } from "~/types/component-types-sb"
 
 interface PropTypes {
-  blok: faqStoryblok
+  blok: FaqStoryblok
 }
 
 const props = defineProps<PropTypes>()
@@ -21,6 +21,6 @@ const faqItems = computed(() => {
 
 <template>
   <div v-editable="blok">
-    <LazyFAQAccordion v-if="blok" :title="blok.title" :subtitle="blok.subtitle" :items="faqItems" />
+    <FAQAccordion v-if="blok" :title="blok.title" :subtitle="blok.subtitle" :items="faqItems" />
   </div>
 </template>

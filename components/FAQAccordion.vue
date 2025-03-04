@@ -1,35 +1,23 @@
 <script setup lang="ts">
-defineProps({
-  title: {
-    type: String,
-    required: true,
-    default: "Key Questions When Selecting a Tax Relief Company"
-  },
-  subtitle: {
-    type: String,
-    default:
-      'Many tax relief firms "gloss over" very important details that you need to consider. Make sure you ask the right questions.'
-  },
-  items: {
-    type: Array,
-    required: true
-  }
-})
+import type { FaqItemStoryblok } from "~/types/component-types-sb"
+interface PropTypes {
+  title: string
+  subtitle?: string
+  items?: [FaqItemStoryblok]
+}
+defineProps<PropTypes>()
 </script>
 
 <template>
   <div class="container mx-auto pt-8">
     <header class="section-head">
-      <h2
-        id="head_b_padding"
-        class="mb-12 text-4xl lg:text-[4.1rem] font-bold text-primary text-center max-w-6xl mx-auto leading-tight"
-      >
+      <h2 id="head_b_padding" class="mb-8 text-5xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
         {{ title }}
       </h2>
       <h5
         v-if="subtitle"
         id="head_b_padding"
-        class="text-center hidden md:block mb-12 text-[1.8rem] leading-[1.4] max-w-4xl mx-auto px-4 lg:px-0"
+        class="text-center hidden md:block mb-6 text-xl max-w-3xl mx-auto px-4 lg:px-0"
       >
         {{ subtitle }}
       </h5>
@@ -52,7 +40,7 @@ defineProps({
             <span class="">
               <span v-if="!open" class="flex items-center justify-center icon-faq-add">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22" cy="22" r="22" fill="#173F85"/>
+                  <circle cx="22" cy="22" r="22" fill="#173F85" />
                   <path
                     d="M30.75 23.25H23.25V30.75H20.75V23.25H13.25V20.75H20.75V13.25H23.25V20.75H30.75V23.25Z"
                     fill="white"
@@ -61,12 +49,12 @@ defineProps({
               </span>
               <span v-else class="flex items-center justify-center icon-faq-subtract">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="22" cy="22" r="22" fill="#173F85"/>
-                  <path d="M30.75 23.25H13.25V20.75H30.75V23.25Z" fill="white"/>
+                  <circle cx="22" cy="22" r="22" fill="#173F85" />
+                  <path d="M30.75 23.25H13.25V20.75H30.75V23.25Z" fill="white" />
                 </svg>
               </span>
             </span>
-            <h3 :id="`tab-${index}`" class="font-bold md:text-3xl text-[1.6rem] leading-normal text-primary text-left">
+            <h3 :id="`tab-${index}`" class="font-bold text-2xl leading-normal text-primary text-left">
               {{ item.question }}
             </h3>
           </HeadlessDisclosureButton>
@@ -77,7 +65,7 @@ defineProps({
             role="tabpanel"
             :aria-labelledby="`tab-${index}`"
           >
-            <div class="accordion__content-inner pb-4 text-[1.5rem] md:text-md" v-html="item.answer"/>
+            <div class="accordion__content-inner pb-4 text-[1.5rem] md:text-md" v-html="item.answer" />
           </HeadlessDisclosurePanel>
         </div>
       </HeadlessDisclosure>
