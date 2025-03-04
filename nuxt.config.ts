@@ -68,8 +68,7 @@ const config: NuxtConfig = {
       postcssOptions: {
         plugins: {
           tailwindcss: {},
-          autoprefixer: {},
-          ...(process.env.NODE_ENV === "production" ? { cssnano: {} } : {})
+          autoprefixer: {}
         }
       }
     }
@@ -95,10 +94,6 @@ const config: NuxtConfig = {
       hmr: {
         protocol: process.env.WS_PROTOCOL ? process.env.WS_PROTOCOL : "wss" // Use with proxy
       }
-    },
-    build: {
-      cssMinify: "esbuild", // or 'esbuild'
-      minify: true
     }
   },
   swiper: {

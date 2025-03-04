@@ -63,12 +63,8 @@ module.exports = {
       }
     }
   },
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true
-  },
   purge: {
-    enabled: process.env.NODE_ENV === "production",
+    enabled: process.env.NODE_ENV !== "production",
     content: [
       "./components/**/*.{js,vue,ts}",
       "./layouts/**/*.vue",
