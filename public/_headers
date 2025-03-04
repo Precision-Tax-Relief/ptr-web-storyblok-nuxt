@@ -1,5 +1,0 @@
-# Allow Microsoft Clarity on all pages
-/*
-  Access-Control-Allow-Origin: https://u.clarity.ms
-  Access-Control-Allow-Methods: GET, POST, OPTIONS
-  Access-Control-Allow-Headers: Content-Type
