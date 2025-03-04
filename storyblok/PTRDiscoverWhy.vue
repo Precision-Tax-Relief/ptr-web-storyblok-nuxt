@@ -11,10 +11,8 @@ const props = defineProps<PropTypes>()
 <template>
   <div v-editable="props.blok" class="bg-slate-100 md:py-28 py-20">
     <div class="container">
-      <div class="section-head">
-        <h2
-          class="mb-10 text-4xl font-bold text-primary text-center max-w-5xl mx-auto leading-tight md:text-5xl lg:text-6xl"
-        >
+      <div class="section-head max-w-3xl mx-auto">
+        <h2 class="mb-10 text-4xl font-bold text-primary text-center max-w-5xl mx-auto leading-tight md:text-5xl">
           Discover Why Precision Tax Earns Top BBB Endorsement
         </h2>
       </div>

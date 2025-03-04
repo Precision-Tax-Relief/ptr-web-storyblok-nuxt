@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import type { TestimonialSliderStoryblok } from "~/types/component-types-sb"
-import "swiper/css"
-
-const containerRef = ref(null)
 
 interface PropTypes {
   blok: TestimonialSliderStoryblok
 }
-
-const swiper = useSwiper(containerRef, {})
 
 const props = defineProps<PropTypes>()
 </script>
@@ -16,9 +11,7 @@ const props = defineProps<PropTypes>()
 <template>
   <ClientOnly>
     <swiper-container
-      ref="containerRef"
-      :init="false"
-      :navigation="true"
+      :init="true"
       :loop="true"
       :autoplay="{
         delay: 75000,
@@ -46,7 +39,7 @@ const props = defineProps<PropTypes>()
             </li>
             <li class="lg:ml-0">
               <strong class="text-3xl text-rose-950"><span class="text-rose-600">Owed: </span>{{ tm.owed }}</strong>
-              <p/>
+              <p />
             </li>
             <li>
               <strong class="text-3xl text-emerald-950">

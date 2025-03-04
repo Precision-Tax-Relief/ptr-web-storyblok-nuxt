@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { TestimonialSliderStoryblok } from "~/types/component-types-sb"
-import { defineAsyncComponent } from "vue"
 
 interface PropTypes {
   blok: TestimonialSliderStoryblok
@@ -12,19 +11,21 @@ const props = defineProps<PropTypes>()
 <template>
   <ClientOnly>
     <swiper-container
-      ref="containerRef"
       :init="true"
-      :navigation="true"
-      :loop="true"
       :pagination="{ type: 'progressbar' }"
+      :navigation="true"
+      slides-per-view="auto"
       :style="{
         '--swiper-navigation-color': '#46aaac',
         '--swiper-pagination-color': '#46aaac'
       }"
+      :space-between="20"
+      :speed="1500"
       :autoplay="{
-        delay: 75000,
-        disableOnInteraction: true
+        delay: 7500,
+        disableOnInteraction: false
       }"
+      loop
     >
       <swiper-slide
         v-for="tm in blok.testimonials"
@@ -35,7 +36,7 @@ const props = defineProps<PropTypes>()
         <LazyYoutubeFacade
           v-for="child_block in tm.youtube"
           :key="child_block._uid"
-          class="basis-1/2"
+          class="basis-1/3"
           :blok="child_block"
         />
         <div class="basis-2/3 grow">
@@ -54,7 +55,7 @@ const props = defineProps<PropTypes>()
               >
             </li>
           </ul>
-          <p class="mt-1 text-2xl lg:text-xl text-stone-800">{{ tm.text }}</p>
+          <p class="mt-1 text-lg text-stone-800">{{ tm.text }}</p>
         </div>
       </swiper-slide>
     </swiper-container>

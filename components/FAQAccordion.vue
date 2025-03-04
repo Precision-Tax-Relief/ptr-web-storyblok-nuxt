@@ -63,12 +63,12 @@ function leave(el: Element, done: () => void): void {
 </script>
 
 <template>
-  <div class="container pt-8">
+  <div class="container py-12">
     <header class="section-head">
-      <h2 class="mb-8 text-5xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
+      <h2 class="mb-8 text-4xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
         {{ title }}
       </h2>
-      <h5 v-if="subtitle" class="text-center hidden md:block mb-6 text-xl max-w-3xl mx-auto px-4 lg:px-0">
+      <h5 v-if="subtitle" class="text-center hidden md:block mb-6 text-lg max-w-3xl mx-auto px-4 lg:px-0">
         {{ subtitle }}
       </h5>
     </header>
@@ -79,22 +79,22 @@ function leave(el: Element, done: () => void): void {
         :key="index"
         v-slot="{ open }"
         as="article"
-        class="bg-white mx-4 lg:mx-0 mb-4 overflow-hidden"
+        class="bg-white mx-4 lg:mx-0 mb-3 overflow-hidden"
       >
         <div class="content">
           <HeadlessDisclosureButton
-            class="relative rounded-xl flex gap-8 items-center p-2 w-full transition-colors duration-300 hover:bg-neutralLight"
+            class="relative rounded-xl flex gap-8 items-center p-1 w-full transition-colors duration-300 hover:bg-neutralLight"
             :aria-controls="`panel-${index}`"
             :aria-expanded="open"
           >
             <span class="flex items-center justify-center icon-faq">
               <Icon
                 name="mdi:add-circle"
-                class="transform transition-transform duration-300 ease-in-out w-12 h-12 text-primaryDark"
+                class="transform transition-transform duration-300 ease-in-out w-10 h-10 text-primaryDark"
                 :class="{ 'rotate-45': open }"
               />
             </span>
-            <h3 :id="`tab-${index}`" class="font-bold text-2xl leading-normal text-primary text-left">
+            <h3 :id="`tab-${index}`" class="font-bold text-xl leading-normal text-primary text-left">
               {{ item.question }}
             </h3>
           </HeadlessDisclosureButton>
@@ -108,7 +108,7 @@ function leave(el: Element, done: () => void): void {
             :css="false"
           >
             <HeadlessDisclosurePanel :id="`panel-${index}`" role="tabpanel" :aria-labelledby="`tab-${index}`">
-              <div class="prose prose-lg max-w-full px-24" v-html="item.answer" />
+              <div class="prose max-w-full px-24" v-html="item.answer" />
             </HeadlessDisclosurePanel>
           </transition>
         </div>

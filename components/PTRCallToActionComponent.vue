@@ -1,19 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container py-20 lg:py-28">
+  <div class="container max-w-7xl py-20 lg:py-28">
     <div class="section-head">
-      <h2
-        id="head_b_padding"
-        class="mb-12 px-24 text-center text-4xl font-bold max-w-5xl mx-auto leading-tight text-primary md:text-5xl lg:mb-20 lg:text-6xl"
-      >
+      <h2 class="mb-12 px-24 text-center text-4xl font-bold max-w-5xl mx-auto leading-tight text-primary lg:mb-20">
         What to expect during your free&nbsp;consultation
       </h2>
     </div>
     <div class="my-10 flex flex-col justify-between gap-12 lg:flex-row">
-      <div
-        class="basis-1/3 rounded border border-[#e9e9e9] px-20 py-16 shadow-sm lg:rounded-none lg:border-0 lg:px-0 lg:py-0 lg:shadow-none"
-      >
+      <div class="basis-1/3 rounded px-20 py-16 shadow-sm lg:rounded-none lg:border-0 lg:px-0 lg:py-0 lg:shadow-none">
         <div class="relative flex items-center justify-between">
           <span
             class="absolute -top-[60px] left-1/2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-blue-400 text-center text-3xl font-bold text-white lg:relative lg:left-0 lg:top-0 lg:translate-x-0"
@@ -25,14 +20,12 @@
           Speak to a licensed <br />
           tax expert
         </h4>
-        <p class="text-2xl leading-normal text-stone-800">
+        <p class="text-lg leading-normal text-stone-800">
           Share details about your situation in a <strong>free, confidential consultation,</strong> and ask our tax
           professional any questions you have.
         </p>
       </div>
-      <div
-        class="basis-1/3 rounded border border-[#e9e9e9] px-20 py-16 shadow-sm lg:rounded-none lg:border-0 lg:px-0 lg:py-0 lg:shadow-none"
-      >
+      <div class="basis-1/3 rounded px-20 py-16 shadow-sm lg:rounded-none lg:border-0 lg:px-0 lg:py-0 lg:shadow-none">
         <div class="flex flex-row items-center justify-between">
           <span
             class="absolute -top-[60px] left-1/2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-blue-400 text-center text-3xl font-bold text-white lg:relative lg:left-0 lg:top-0 lg:translate-x-0"
@@ -43,14 +36,12 @@
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
           Get an honest assessment <br />of your situation
         </h4>
-        <p class="text-2xl leading-normal text-stone-800">
+        <p class="text-lg leading-normal text-stone-800">
           Our tax professionals will assess your <strong>options for reaching a favorable solution</strong> to your tax
           problem. We may even be able to <strong>help you resolve your issue for free.</strong>
         </p>
       </div>
-      <div
-        class="basis-1/3 rounded border border-[#e9e9e9] px-20 py-16 shadow-sm lg:rounded-none lg:border-0 lg:px-0 lg:py-0 lg:shadow-none"
-      >
+      <div class="basis-1/3 rounded px-20 py-16 shadow-sm lg:rounded-none lg:border-0 lg:px-0 lg:py-0 lg:shadow-none">
         <div class="relative flex items-center justify-between">
           <span
             class="absolute -top-[60px] left-1/2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-blue-400 text-center text-3xl font-bold text-white lg:relative lg:left-0 lg:top-0 lg:translate-x-0"
@@ -62,7 +53,7 @@
         <h4 class="mb-8 text-3xl leading-10 font-bold text-primary mt-3">
           Get a transparent quote <br />with affordable payments
         </h4>
-        <p class="text-2xl leading-normal text-stone-800">
+        <p class="text-lg leading-normal text-stone-800">
           If your situation requires professional assistance, we'll provide you a transparent quote for our services
           with <strong>flexible payment options based on what you can afford.</strong> We NEVER request full payment up
           front.

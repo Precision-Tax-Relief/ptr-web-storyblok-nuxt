@@ -10,12 +10,12 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div class="bg-slate-100 pb-10 md:py-20">
+  <div class="bg-slate-100 py-16">
     <div class="container">
       <div class="lg:flex lg:flex-row gap-16 lg:items-start lg:justify-between">
         <div>
           <div class="mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
-            <h1 class="mb-12 text-7xl font-bold tracking-wider lg:mb-10">BBB Approved Tax&nbsp;Attourney</h1>
+            <h1 class="mb-12 text-6xl font-bold tracking-wider lg:mb-10">BBB Approved Tax&nbsp;Attourney</h1>
             <h3 class="text-3xl/8 font-normal">
               <span>
                 Get <strong class="font-bold">Immediate</strong> Help with a
@@ -43,7 +43,7 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div class="shrink-0 basis-auto lg:grow-0">
+        <div class="shrink-0 basis-auto lg:grow-0 shadow-lg shadow-slate-300">
           <div id="main-form-slide" class="mx-auto">
             <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
               <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl">Set up your FREE Consultation</h3>

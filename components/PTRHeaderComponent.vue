@@ -22,11 +22,11 @@
           </div>
         </div>
         <div class="action-block">
-          <span class="block border-0 border-solid border-gray-200 text-right text-2xl uppercase text-slate-200"
+          <span class="block border-0 border-solid border-gray-200 text-right text-lg uppercase text-slate-200"
             >Get your FREE consultation now:</span
           >
           <strong class="phone"
-            ><p class="border-0 border-solid border-gray-200 text-right font-bold text-white lg:text-6xl">
+            ><p class="border-0 border-solid border-gray-200 text-right font-bold text-white lg:text-5xl">
               877-635-2025
             </p></strong
           >
