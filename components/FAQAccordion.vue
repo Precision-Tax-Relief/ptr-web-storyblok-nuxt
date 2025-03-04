@@ -106,13 +106,8 @@ function leave(el, done) {
             @leave="leave"
             :css="false"
           >
-            <HeadlessDisclosurePanel
-              :id="`panel-${index}`"
-              class="md:pl-[5rem] pl-5 pr-6 leading-[24px] text-[#333]"
-              role="tabpanel"
-              :aria-labelledby="`tab-${index}`"
-            >
-              <div class="py-4 text-[1.5rem] md:text-md" v-html="item.answer" />
+            <HeadlessDisclosurePanel :id="`panel-${index}`" role="tabpanel" :aria-labelledby="`tab-${index}`">
+              <div class="prose prose-lg max-w-full px-24" v-html="item.answer" />
             </HeadlessDisclosurePanel>
           </transition>
         </div>
