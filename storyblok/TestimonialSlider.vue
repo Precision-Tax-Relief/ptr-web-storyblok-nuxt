@@ -14,7 +14,6 @@ const props = defineProps<PropTypes>()
       :init="true"
       :pagination="{ type: 'progressbar' }"
       :navigation="true"
-      slides-per-view="auto"
       :style="{
         '--swiper-navigation-color': '#46aaac',
         '--swiper-pagination-color': '#46aaac'
@@ -23,7 +22,7 @@ const props = defineProps<PropTypes>()
       :speed="1500"
       :autoplay="{
         delay: 7500,
-        disableOnInteraction: false
+        disableOnInteraction: true
       }"
       loop
     >
@@ -36,10 +35,10 @@ const props = defineProps<PropTypes>()
         <LazyYoutubeFacade
           v-for="child_block in tm.youtube"
           :key="child_block._uid"
-          class="basis-1/3"
+          class="basis-1/3 grow-0"
           :blok="child_block"
         />
-        <div class="basis-2/3 grow">
+        <div class="basis-2/3">
           <ul class="flex lg:gap-8 gap-4 flex-wrap justify-between mb-2">
             <li class="lg:ml-0 w-full lg:w-auto">
               <div class="user_title">
