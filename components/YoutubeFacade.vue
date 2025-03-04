@@ -45,10 +45,10 @@ const loadYouTube = () => {
         loading="lazy"
         fetchpriority="low"
         @error="handleImgError"
-      >
+      />
       <div class="play-button absolute inset-0 flex items-center justify-center">
-        <div class="bg-stone-800 bg-opacity-70 rounded-full flex items-center justify-center shadow-lg">
-          <Icon name="ic:baseline-play-arrow" class="h-16 w-16 text-white" />
+        <div class="bg-white flex items-center justify-center">
+          <Icon name="mdi:youtube-play" class="h-16 w-16 text-[#F00] -m-6" />
         </div>
         <div
           class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 py-2 text-white text-sm md:text-base text-center"
