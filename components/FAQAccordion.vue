@@ -7,6 +7,54 @@ interface PropTypes {
   items?: [FaqItemStoryblok]
 }
 defineProps<PropTypes>()
+
+// Animation enter/leave functions
+function beforeEnter(el) {
+  el.style.height = "0"
+  el.style.overflow = "hidden"
+}
+
+function enter(el, done) {
+  const targetHeight = el.scrollHeight
+
+  // Start animation with easing
+  const animation = el.animate([{ height: "0px" }, { height: targetHeight + "px" }], {
+    duration: 300,
+    easing: "cubic-bezier(0.25, 0.1, 0.25, 1.0)", // Use ease-out cubic
+    fill: "forwards"
+  })
+
+  animation.onfinish = () => {
+    done()
+  }
+}
+
+function afterEnter(el) {
+  el.style.height = "auto"
+  el.style.overflow = "visible"
+}
+
+function beforeLeave(el) {
+  // Set height to current height before animating
+  el.style.height = el.scrollHeight + "px"
+  el.style.overflow = "hidden"
+
+  // Force a repaint to make sure the height is applied
+  el.offsetHeight
+}
+
+function leave(el, done) {
+  // Animate to height 0 with easing
+  const animation = el.animate([{ height: el.scrollHeight + "px" }, { height: "0px" }], {
+    duration: 300,
+    easing: "cubic-bezier(0.4, 0.0, 0.2, 1)", // Use ease-in-out cubic
+    fill: "forwards"
+  })
+
+  animation.onfinish = () => {
+    done()
+  }
+}
 </script>
 
 <template>
@@ -50,15 +98,23 @@ defineProps<PropTypes>()
             </h3>
           </HeadlessDisclosureButton>
 
-          <HeadlessDisclosurePanel
-            :id="`panel-${index}`"
-            class="md:pl-[5rem] pl-5 pr-6 leading-[24px] text-[#333] overflow-hidden transition-all duration-300 ease-out origin-top"
-            :class="open ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'"
-            role="tabpanel"
-            :aria-labelledby="`tab-${index}`"
+          <transition
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @after-enter="afterEnter"
+            @before-leave="beforeLeave"
+            @leave="leave"
+            :css="false"
           >
-            <div class="py-4 text-[1.5rem] md:text-md" v-html="item.answer" />
-          </HeadlessDisclosurePanel>
+            <HeadlessDisclosurePanel
+              :id="`panel-${index}`"
+              class="md:pl-[5rem] pl-5 pr-6 leading-[24px] text-[#333]"
+              role="tabpanel"
+              :aria-labelledby="`tab-${index}`"
+            >
+              <div class="py-4 text-[1.5rem] md:text-md" v-html="item.answer" />
+            </HeadlessDisclosurePanel>
+          </transition>
         </div>
       </HeadlessDisclosure>
     </div>
