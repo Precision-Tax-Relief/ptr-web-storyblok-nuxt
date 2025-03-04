@@ -9,7 +9,7 @@ const props = defineProps<PropTypes>()
 <template>
   <div v-editable="props.blok" class="mb-12">
     <h2 class="mx-auto pb-20 text-center text-3xl font-bold tracking-tight text-charcoal-900 sm:text-5xl">Gallery</h2>
-    <div class="container mx-auto grid grid-cols-2 gap-2 md:grid-cols-3">
+    <div class="container grid grid-cols-2 gap-2 md:grid-cols-3">
       <NuxtPicture
         v-for="image in props.blok?.images"
         :key="image.id"

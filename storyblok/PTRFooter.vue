@@ -10,7 +10,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <footer v-editable="props.blok" class="bg-primaryDark pt-12 sm:pt-18">
-    <div class="container mx-auto">
+    <div class="container">
       <div class="lg:px-10">
         <div class="">
           <div class="mx-auto text-center">

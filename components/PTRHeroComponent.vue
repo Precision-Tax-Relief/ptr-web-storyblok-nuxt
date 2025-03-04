@@ -4,7 +4,7 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
 
 <template>
   <div class="lg:pt-30 bg-slate-100 pb-10 pt-20 md:py-20 lg:mt-0">
-    <div class="container mx-auto mt-28 pt-20">
+    <div class="container mt-28 pt-20">
       <div class="text-left leading-6 text-black lg:flex lg:flex-row lg:items-start lg:justify-between">
         <div class="px-0 pb-12 pt-0 text-left text-4xl text-black lg:py-0 lg:pl-0 lg:pr-[4.8rem] xl:pr-[6rem]">
           <div class="mb-8 lg:mx-auto lg:max-w-[82rem]">
@@ -25,12 +25,12 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
             <picture class="lozad" data-loaded="true">
               <source
                 srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/Precision-group-new-2025.webp"
-                type="image/webp" >
+                type="image/webp" />
               <img
                 class="m-2 w-full"
                 src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/Precision-group-new-2025.webp"
                 alt="Precision Tax Team"
-            ></picture>
+            /></picture>
             <figcaption
               class="text-pretty lg:leading-1 mx-5 block px-0 pb-0 pt-6 text-center text-[1.2rem] leading-normal text-[#666] md:mx-0 lg:px-0 lg:pb-0 lg:pt-2 lg:text-left xl:text-[1.6rem]"
             >
@@ -52,26 +52,26 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
             <div class="bg-white p-8 text-left leading-6 text-black sm:p-8 lg:p-6 xl:p-8">
               <div id="main-form" class="main-form">
                 <form id="callbackForm" class="validate" method="post" action="/api/v2/lead">
-                  <input id="abid_1" type="hidden" name="AbId1" value="763202" >
-                  <input id="abid_2" type="hidden" name="AbId2" value="192811" >
-                  <input id="abid_type" type="hidden" name="AbIdType" value="875839" >
-                  <input id="abid_r" type="hidden" name="AbIdR" value="363831526" >
-                  <input id="referrer" type="hidden" name="Referrer" value="" >
+                  <input id="abid_1" type="hidden" name="AbId1" value="763202" />
+                  <input id="abid_2" type="hidden" name="AbId2" value="192811" />
+                  <input id="abid_type" type="hidden" name="AbIdType" value="875839" />
+                  <input id="abid_r" type="hidden" name="AbIdR" value="363831526" />
+                  <input id="referrer" type="hidden" name="Referrer" value="" />
                   <input
                     id="request_url"
                     type="hidden"
                     name="RequestUrl"
                     value="https://taxattorney-bbb.org/kp1?device=c&amp;onhours=1"
-                  >
-                  <input type="hidden" name="TaxAmountId" value="14" >
+                  />
+                  <input type="hidden" name="TaxAmountId" value="14" />
                   <input
                     id="anonymous_id"
                     type="hidden"
                     name="AnonymousId"
                     value="755f4392-45bb-4569-9324-6489f888f56c"
-                  >
-                  <input id="ga_client_id" type="hidden" name="GaClientId" value="78236266.1740001216" >
-                  <input id="iis_id" type="hidden" name="IisId" value="1a9430ec-ab96-2ba8-3500-2e2feb5a15fe.dd44e611" >
+                  />
+                  <input id="ga_client_id" type="hidden" name="GaClientId" value="78236266.1740001216" />
+                  <input id="iis_id" type="hidden" name="IisId" value="1a9430ec-ab96-2ba8-3500-2e2feb5a15fe.dd44e611" />
                   <h4
                     class="desktop mb-10 mt-2 text-center text-[1.3rem] font-bold leading-5 text-black lg:text-[1.3rem] xl:text-[1.6rem]"
                   >
@@ -88,7 +88,7 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                         class="form-control lg:h-lg h-16 w-full bg-slate-200 pl-16"
                         name="Name"
                         placeholder="Full Name"
-                      >
+                      />
                       <div
                         class="error-message rounded-bl-1 absolute right-0 top-0 z-10 hidden bg-red-500 p-1 text-lg leading-5 text-white"
                       >
@@ -108,7 +108,7 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                         minlength="14"
                         name="Phone"
                         placeholder="Phone Number"
-                      >
+                      />
                       <div
                         class="error-message rounded-bl-1 absolute right-0 top-0 z-10 hidden bg-red-500 p-1 text-lg leading-5 text-white"
                       >
@@ -129,7 +129,7 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                         name="Email"
                         type="email"
                         placeholder="Example@email.com"
-                      >
+                      />
                       <div
                         class="error-message rounded-bl-1 absolute right-0 top-0 z-10 hidden bg-red-500 p-1 text-lg leading-5 text-white"
                       >
@@ -180,9 +180,9 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                 >
                   <source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2023.png"
-                    type="image/png" >
+                    type="image/png" />
                   <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2023.png" alt="Torch"
-                ></picture>
+                /></picture>
               </a>
             </div>
           </li>
@@ -201,9 +201,9 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                 >
                   <source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2019.png"
-                    type="image/png" >
+                    type="image/png" />
                   <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2019.png" alt="Torch"
-                ></picture>
+                /></picture>
               </a>
             </div>
           </li>
@@ -218,12 +218,12 @@ import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
                 <source
                   srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/bbb-mobile.png"
                   type="image/png"
-                >
+                />
                 <img
                   class="m-0 h-auto w-[140px] lg:w-[200px]"
                   src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/bbb-mobile.png"
                   alt="Torch"
-                >
+                />
               </picture>
             </div>
           </li>

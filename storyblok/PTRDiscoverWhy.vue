@@ -10,7 +10,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div v-editable="props.blok" class="bg-slate-100 md:py-28 py-20">
-    <div class="container mx-auto">
+    <div class="container">
       <div class="section-head">
         <h2
           class="mb-10 text-4xl font-bold text-primary text-center max-w-5xl mx-auto leading-tight md:text-5xl lg:text-6xl"

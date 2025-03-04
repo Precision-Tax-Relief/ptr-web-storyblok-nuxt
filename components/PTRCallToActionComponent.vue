@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container mx-auto py-20 lg:py-28">
+  <div class="container py-20 lg:py-28">
     <div class="section-head">
       <h2
         id="head_b_padding"

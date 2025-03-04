@@ -10,6 +10,10 @@ module.exports = {
   ],
   plugins: [require("@tailwindcss/typography")],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem"
+    },
     extend: {
       colors: {
         primary: "#078082", // Main teal color

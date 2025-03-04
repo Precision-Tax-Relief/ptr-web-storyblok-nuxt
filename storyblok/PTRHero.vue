@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="bg-slate-100 pb-10 md:py-20">
-    <div class="container mx-auto">
+    <div class="container">
       <div class="lg:flex lg:flex-row gap-16 lg:items-start lg:justify-between">
         <div>
           <div class="mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
@@ -51,26 +51,16 @@ const props = defineProps<PropTypes>()
             <div class="bg-white p-6">
               <div id="main-form" class="main-form">
                 <form id="callbackForm" class="validate" method="post" action="/api/v2/lead">
-                  <input id="abid_1" type="hidden" name="AbId1" value="763202" >
-                  <input id="abid_2" type="hidden" name="AbId2" value="192811" >
-                  <input id="abid_type" type="hidden" name="AbIdType" value="875839" >
-                  <input id="abid_r" type="hidden" name="AbIdR" value="363831526" >
-                  <input id="referrer" type="hidden" name="Referrer" value="" >
-                  <input
-                    id="request_url"
-                    type="hidden"
-                    name="RequestUrl"
-                    value="https://taxattorney-bbb.org/kp1?device=c&amp;onhours=1"
-                  >
-                  <input type="hidden" name="TaxAmountId" value="14" >
-                  <input
-                    id="anonymous_id"
-                    type="hidden"
-                    name="AnonymousId"
-                    value="755f4392-45bb-4569-9324-6489f888f56c"
-                  >
-                  <input id="ga_client_id" type="hidden" name="GaClientId" value="78236266.1740001216" >
-                  <input id="iis_id" type="hidden" name="IisId" value="1a9430ec-ab96-2ba8-3500-2e2feb5a15fe.dd44e611" >
+                  <input id="abid_1" type="hidden" name="AbId1" />
+                  <input id="abid_2" type="hidden" name="AbId2" />
+                  <input id="abid_type" type="hidden" name="AbIdType" />
+                  <input id="abid_r" type="hidden" name="AbIdR" />
+                  <input id="referrer" type="hidden" name="Referrer" />
+                  <input id="request_url" type="hidden" name="RequestUrl" />
+                  <input type="hidden" name="TaxAmountId" value="14" />
+                  <input id="anonymous_id" type="hidden" name="AnonymousId" />
+                  <input id="ga_client_id" type="hidden" name="GaClientId" />
+                  <input id="iis_id" type="hidden" name="IisId" />
                   <h4 class="mb-6 text-center text-base font-bold lg:text-lg">Let us know how we can reach you.</h4>
                   <div class="form-group mb-4">
                     <div class="relative">
@@ -83,7 +73,7 @@ const props = defineProps<PropTypes>()
                         class="form-control h-12 w-full bg-slate-200 pl-14"
                         name="Name"
                         placeholder="Full Name"
-                      >
+                      />
                       <div
                         class="error-message rounded-bl-1 absolute right-0 top-0 z-10 hidden bg-red-500 p-1 text-lg leading-5 text-white"
                       >
@@ -103,7 +93,7 @@ const props = defineProps<PropTypes>()
                         minlength="14"
                         name="Phone"
                         placeholder="Phone Number"
-                      >
+                      />
                       <div
                         class="error-message rounded-bl-1 absolute right-0 top-0 z-10 hidden bg-red-500 p-1 text-lg leading-5 text-white"
                       >
@@ -124,7 +114,7 @@ const props = defineProps<PropTypes>()
                         name="Email"
                         type="email"
                         placeholder="Example@email.com"
-                      >
+                      />
                       <div
                         class="error-message rounded-bl-1 absolute right-0 top-0 z-10 hidden bg-red-500 p-1 text-lg leading-5 text-white"
                       >
@@ -173,9 +163,9 @@ const props = defineProps<PropTypes>()
                 >
                   <source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2023.png"
-                    type="image/png" >
+                    type="image/png" />
                   <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2023.png" alt="Torch"
-                ></picture>
+                /></picture>
               </a>
             </div>
           </li>
@@ -194,9 +184,9 @@ const props = defineProps<PropTypes>()
                 >
                   <source
                     srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2019.png"
-                    type="image/png" >
+                    type="image/png" />
                   <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2019.png" alt="Torch"
-                ></picture>
+                /></picture>
               </a>
             </div>
           </li>
@@ -211,12 +201,12 @@ const props = defineProps<PropTypes>()
                 <source
                   srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/bbb-mobile.png"
                   type="image/png"
-                >
+                />
                 <img
                   class="m-0 h-auto w-[140px] lg:w-[200px]"
                   src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/bbb-mobile.png"
                   alt="Torch"
-                >
+                />
               </picture>
             </div>
           </li>

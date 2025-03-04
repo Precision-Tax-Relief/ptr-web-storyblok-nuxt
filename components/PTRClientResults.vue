@@ -1,7 +1,7 @@
 <template>
   <div class="mt-20">
     <h4 class="font-bold text-primary text-center md:text-left text-3xl px-4 lg:px-0">Our Recent Client Results:</h4>
-    <div class="container mx-auto overflow-hidden lg:px-0 px-2">
+    <div class="container overflow-hidden lg:px-0 px-2">
       <ClientOnly>
         <swiper-container
           :init="true"
