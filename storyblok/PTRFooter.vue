@@ -9,10 +9,10 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <footer v-editable="props.blok" class="bg-primaryDark pt-16">
-    <div class="container">
+  <footer v-editable="props.blok" class="bg-primaryDark pt-8 sm:pt-16">
+    <div class="container px-2 sm:px-8">
       <div class="lg:px-10">
-        <div class="">
+        <div>
           <div class="mx-auto text-center">
             <figure class="flex items-center justify-center flex-col">
               <NuxtPicture
@@ -32,8 +32,8 @@ const props = defineProps<PropTypes>()
             </figure>
           </div>
           <aside class="text-center text-white my-8">
-            <h4 class="font-bold text-4xl pb-3">If you have a tax problem, the time to act is now.</h4>
-            <p class="text-white text-xl pb-4">
+            <h4 class="font-bold text-3xl sm:text-4xl pb-3">If you have a tax problem, the time to act is now.</h4>
+            <p class="text-white text-lg sm:text-xl pb-4">
               Trust the experts at Precision Tax Relief to put it behind you for good.
             </p>
             <a
@@ -49,50 +49,26 @@ const props = defineProps<PropTypes>()
             </a>
           </aside>
         </div>
-        <div class="py-16 flex justify-between items-center gap-20">
-          <span class="text-slate-300 uppercase">Proud members of:</span>
-          <picture
-            class="lozad"
-            data-iesrc="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/aicpa.png"
-            data-loaded="true"
-            ><source
-              srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/aicpa.webp"
-              type="image/webp"
-            />
-            <source
-              srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/aicpa.png"
-              type="image/png"
-            />
-            <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/aicpa.png" alt="aicpa logo" />
-          </picture>
-          <picture
-            class="lozad"
-            data-iesrc="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.png"
-            data-loaded="true"
-            ><source
-              srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.webp"
-              type="image/webp"
-            />
-            <source
-              srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.png"
-              type="image/png"
-            />
-            <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/naea.png" alt="naea" />
-          </picture>
-          <picture
-            class="lozad"
-            data-iesrc="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.png"
-            data-loaded="true"
-            ><source
-              srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.webp"
-              type="image/webp"
-            />
-            <source
-              srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.png"
-              type="image/png"
-            />
-            <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/logos/astps.png" alt="astps" />
-          </picture>
+        <div class="pb-16 sm:py-16 flex flex-wrap justify-center items-center gap-8">
+          <span class="text-slate-300 uppercase shrink-0">Proud members of:</span>
+          <NuxtPicture
+            loading="lazy"
+            src="https://a-us.storyblok.com/f/1023258/120x58/71e700f6c8/naea.webp"
+            width="120"
+            height="58"
+          />
+          <NuxtPicture
+            loading="lazy"
+            src="https://a-us.storyblok.com/f/1023258/184x58/f890c5ffb6/aicpa.webp"
+            width="184"
+            height="58"
+          />
+          <NuxtPicture
+            loading="lazy"
+            src="https://a-us.storyblok.com/f/1023258/483x58/03376c781c/astps.webp"
+            width="483"
+            height="58"
+          />
         </div>
         <div class="text-center text-slate-400 text-sm mb-1">
           <p>

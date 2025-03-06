@@ -4,6 +4,7 @@
   "scripts": {
     "build": "nuxt build",
     "windev": "nuxt dev --port=3010",
+    "test": "nuxt dev --port=8080",
     "dev": "nuxt dev",
     "dev-ssl": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",

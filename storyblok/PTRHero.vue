@@ -11,12 +11,14 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="bg-slate-100 py-16">
-    <div class="container">
+    <div class="px-0 sm:px-4 md:px-8 container">
       <div class="lg:flex lg:flex-row gap-16 lg:items-start lg:justify-between">
         <div>
-          <div class="mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
-            <h1 class="mb-12 text-6xl font-bold tracking-wider lg:mb-10">BBB Approved Tax&nbsp;Attourney</h1>
-            <h3 class="text-3xl/8 font-normal">
+          <div class="px-2 sm:px-0 mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
+            <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10">
+              BBB Approved <span class="md:whitespace-nowrap">Tax Attourney</span>
+            </h1>
+            <h3 class="text-xl md:text-3xl/8 font-normal">
               <span>
                 Get <strong class="font-bold">Immediate</strong> Help with a
                 <strong class="font-bold">FREE</strong> Confidential Consultation from the BBB's
@@ -29,11 +31,11 @@ const props = defineProps<PropTypes>()
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
               :img-attrs="{
-                class: 'm-2 w-full'
+                class: 'sm:m-2 w-full'
               }"
             />
             <figcaption
-              class="text-pretty lg:leading-1 px-0 pb-0 pt-6 text-center text-sm leading-normal text-[#666] lg:pt-2 lg:text-left xl:text-xl"
+              class="text-pretty lg:leading-1 px-2 pb-0 pt-6 sm:px-0 text-center text-sm leading-normal text-[#666] lg:pt-2 lg:text-left xl:text-xl"
             >
               <p>
                 <strong>Precision Tax</strong>, under the leadership of Scott Gettis, Michele Mulkey, and Gene Haag,
@@ -43,7 +45,7 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div class="shrink-0 basis-auto lg:grow-0 shadow-lg shadow-slate-300">
+        <div class="shrink-0 basis-auto hidden md:block lg:grow-0 shadow-lg shadow-slate-300">
           <div id="main-form-slide" class="mx-auto">
             <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
               <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl">Set up your FREE Consultation</h3>
@@ -141,8 +143,8 @@ const props = defineProps<PropTypes>()
           </div>
         </div>
       </div>
-      <div class="py-20 lg:py-12">
-        <ul class="grid grid-cols-2 items-center justify-between lg:flex">
+      <div class="px-3 sm:px-0 py-12">
+        <ul class="grid grid-cols-2 items-center justify-between max-w-xl mx-auto lg:max-w-full lg:flex">
           <li class="flex flex-col items-center">
             <span class="text-center">
               <BBBTorchAwards />
@@ -212,8 +214,8 @@ const props = defineProps<PropTypes>()
           </li>
         </ul>
       </div>
-      <div class="pt-5 text-xl md:text-center xl:text-2xl">
-        <h5 class="mb-5 text-center text-3xl font-bold text-primary underline lg:hidden">Our promise:</h5>
+      <div class="pt-5 px-3 md:px-0 text-xl md:text-center xl:text-2xl">
+        <h5 class="mb-5 text-center text-xl font-bold text-primary underline lg:hidden">Our promise:</h5>
         <p>
           <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax Relief
           <strong>will never share or sell</strong> your information. Everything you discuss with us is

@@ -63,9 +63,9 @@ function leave(el: Element, done: () => void): void {
 </script>
 
 <template>
-  <div class="container py-12">
-    <header class="section-head">
-      <h2 class="mb-8 text-4xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
+  <div class="container px-0 sm:px-2 md:py-12 pt-8">
+    <header class="px-2 sm:px-0">
+      <h2 class="mb-8 text-3xl md:text-4xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
         {{ title }}
       </h2>
       <h5 v-if="subtitle" class="text-center hidden md:block mb-6 text-lg max-w-3xl mx-auto px-4 lg:px-0">
@@ -79,11 +79,11 @@ function leave(el: Element, done: () => void): void {
         :key="index"
         v-slot="{ open }"
         as="article"
-        class="bg-white mx-4 lg:mx-0 mb-3 overflow-hidden"
+        class="bg-white mb-3 overflow-hidden"
       >
         <div class="content">
           <HeadlessDisclosureButton
-            class="relative rounded-xl flex gap-8 items-center p-1 w-full transition-colors duration-300 hover:bg-neutralLight"
+            class="relative rounded-xl flex gap-4 md:gap-8 items-center p-1 w-full transition-colors duration-300 hover:bg-neutralLight"
             :aria-controls="`panel-${index}`"
             :aria-expanded="open"
           >
@@ -94,7 +94,7 @@ function leave(el: Element, done: () => void): void {
                 :class="{ 'rotate-45': open }"
               />
             </span>
-            <h3 :id="`tab-${index}`" class="font-bold text-xl leading-normal text-primary text-left">
+            <h3 :id="`tab-${index}`" class="font-bold text-lg md:text-xl leading-normal text-primary text-left">
               {{ item.question }}
             </h3>
           </HeadlessDisclosureButton>
@@ -108,7 +108,7 @@ function leave(el: Element, done: () => void): void {
             :css="false"
           >
             <HeadlessDisclosurePanel :id="`panel-${index}`" role="tabpanel" :aria-labelledby="`tab-${index}`">
-              <div class="prose max-w-full px-24" v-html="item.answer" />
+              <div class="prose px-4 sm:px-8 md:max-w-full md:px-24" v-html="item.answer" />
             </HeadlessDisclosurePanel>
           </transition>
         </div>

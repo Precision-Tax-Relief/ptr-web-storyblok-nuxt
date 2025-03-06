@@ -31,30 +31,25 @@ const props = defineProps<PropTypes>()
             class="w-auto max-w-md md:max-w-3xl border bg-white border-slate-200 rounded-lg"
           >
             <div class="flex items-center">
-              <div class="flex md:items-center w-full justify-between py-4 px-6 md:flex-row flex-col gap-10 md:gap-6">
-                <div class="flex">
-                  <figure>
-                    <NuxtPicture :src="client.profile.filename" loading="lazy" :img-attrs="{ class: 'h-12 w-12' }" />
-                  </figure>
-                  <div class="user_title ml-5 flex flex-col justify-center">
+              <div class="flex md:items-center w-full justify-between py-4 px-6 flex-wrap flex-row gap-3 md:gap-6">
+                <figure>
+                  <NuxtPicture :src="client.profile.filename" loading="lazy" :img-attrs="{ class: 'h-12 w-12' }" />
+                </figure>
+                <div class="flex flex-col md:flex-row gap-x-8 gap-y-3">
+                  <div class="user_title flex flex-col justify-center">
                     <h4 class="font-bold text-lg leading-tight">{{ client.name }}</h4>
                     <p class="text-neutral-400 font-normal">{{ client.location }}</p>
                   </div>
+                  <ul class="flex flex-col gap-x-4 gap-y-1 md:flex-row md:items-center justify-between font-bold">
+                    <li><span class="text-rose-600">Owed:</span> ${{ parseInt(client.owed).toLocaleString() }}</li>
+                    <li><span class="text-[#49924d]">Paid:</span> ${{ parseInt(client.paid).toLocaleString() }}</li>
+                    <li>
+                      <span class="text-[#174887]">Saved:</span> ${{
+                        (parseInt(client.owed) - parseInt(client.paid)).toLocaleString()
+                      }}
+                    </li>
+                  </ul>
                 </div>
-                <ul class="flex flex-col md:flex-row md:items-center justify-between gap-4 font-bold ml-24 md:ml-0">
-                  <li class="flex sm:ml-16 lg:ml-0 gap-2">
-                    <p class="text-rose-600">Owed:</p>
-                    <p>${{ parseInt(client.owed).toLocaleString() }}</p>
-                  </li>
-                  <li class="flex gap-2">
-                    <p class="text-[#49924d]">Paid:</p>
-                    <p>${{ parseInt(client.paid).toLocaleString() }}</p>
-                  </li>
-                  <li class="flex gap-2">
-                    <p class="text-[#174887]">Saved:</p>
-                    <p>${{ (parseInt(client.owed) - parseInt(client.paid)).toLocaleString() }}</p>
-                  </li>
-                </ul>
               </div>
             </div>
           </swiper-slide>

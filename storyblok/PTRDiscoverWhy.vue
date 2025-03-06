@@ -10,16 +10,17 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div v-editable="props.blok" class="bg-slate-100 md:py-28 py-20">
-    <div class="container">
-      <div class="section-head max-w-3xl mx-auto">
-        <h2 class="mb-10 text-4xl font-bold text-primary text-center max-w-5xl mx-auto leading-tight md:text-5xl">
+    <div class="px-0 sm:px-4 container">
+      <div class="max-w-3xl mx-auto">
+        <h2
+          class="mb-10 text-3xl sm:text-4xl font-bold text-primary text-center max-w-5xl mx-auto leading-tight md:text-5xl"
+        >
           Discover Why Precision Tax Earns Top BBB Endorsement
         </h2>
       </div>
-      <ul class="justify-center flex flex-row flex-wrap items-center gap-24 mx-10 md:mx-auto my-8">
+      <ul class="justify-center flex flex-row flex-wrap items-center gap-x-20 gap-y-10 md:mx-auto my-8">
         <li>
           <div>
-            <!--            <svg class="w-[100px] lg:w-[120px] h-[60px] lg:h-[80px] mx-auto"><use xlink:href="#google"></use></svg>-->
             <NuxtPicture width="240" :src="blok.googleImg?.filename" :alt="blok.googleImg?.alt" loading="lazy" />
             <div class="text-center mt-2">
               <!-- TODO fix broken link -->
@@ -73,9 +74,9 @@ const props = defineProps<PropTypes>()
             </div>
           </div>
         </li>
-        <li class="mt-10 lg:mt-0 mx-auto lg:mx-0">
-          <div class="">
-            <svg class="mx-auto" width="300" viewbox="0 0 574.04 89.64">
+        <li class="mx-auto lg:mx-0">
+          <div>
+            <svg class="mx-auto w-full" viewbox="0 0 574.04 89.64">
               <path fill="#323a56" d="M33.6 24.8l6.33 4-2.42 22.87L71.57 30.9a36 36 0 10-70.5 13.77z" />
               <path fill="#323a56" d="M34.64 63.21l-6.33-4 2.42-22.86L4.09 52.61a36 36 0 0067.53-12z" />
               <circle fill="#f64e00" cx="37.81" cy="16.42" r="5.09" />
@@ -96,22 +97,26 @@ const props = defineProps<PropTypes>()
           </div>
         </li>
       </ul>
-      <div class="my-28">
+
+      <div class="my-20">
+        <h3 class="font-bold text-primary mb-8 text-center lg:text-left text-4xl px-4">Featured client stories</h3>
         <StoryblokComponent v-for="child_block in blok.slider" :key="child_block._uid" :blok="child_block" />
       </div>
+
       <PTRChoiceTable />
+
       <PTRClientResults :bloks="blok.resultSlides" />
 
-      <div class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
+      <div class="px-2 mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
         <a
           href="#page"
           data-click-name="ClickBody - Form Scroll  Below What To Expect"
           class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-6 py-3 hover:bg-green-600 lg:px-10 lg:py-6"
         >
-          <Icon name="fa-solid:phone-alt" class="text-5xl text-white lg:text-6xl" />
+          <Icon name="fa-solid:phone-alt" class="text-4xl sm:text-5xl text-white lg:text-6xl" />
           <div class="col-span-3 flex flex-col justify-center text-left text-white">
             <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
-            <p class="text-3xl font-bold md:text-4xl">(877) 635-2025</p>
+            <p class="text-2xl sm:text-3xl font-bold md:text-4xl">(877) 635-2025</p>
           </div></a
         >
         <div>

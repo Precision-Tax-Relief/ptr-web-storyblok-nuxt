@@ -50,16 +50,10 @@ module.exports = {
           1000: "#47423E"
         }
       },
-      screens: {
-        xl: "1300px"
-      },
       transitionDelay: {
         50: "50ms",
         250: "250ms",
         400: "400ms"
-      },
-      aspectRatio: {
-        "22/11": "22 / 11"
       }
     }
   },
