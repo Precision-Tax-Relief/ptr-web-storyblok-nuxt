@@ -1,6 +1,6 @@
 import { Analytics, Context } from "@segment/analytics-node"
 
-const analytics = new Analytics({ writeKey: process.env.ANALYTICS_KEY ? process.env.ANALYTICS_KEY : "" }).on(
+const analytics = new Analytics({ writeKey: contex?.env?.ANALYTICS_KEY ? contex?.env?.ANALYTICS_KEY : "" }).on(
   "error",
   console.error
 )
