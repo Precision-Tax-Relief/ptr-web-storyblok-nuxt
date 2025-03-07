@@ -1,4 +1,10 @@
 import { defineEventHandler, readBody, createError } from "h3"
+import { Analytics, Context } from "@segment/analytics-node"
+
+const analytics = new Analytics({ writeKey: process.env.ANALYTICS_KEY ? process.env.ANALYTICS_KEY : "" }).on(
+  "error",
+  console.error
+)
 
 interface ContactForm {
   name: string
@@ -52,18 +58,24 @@ export default defineEventHandler(async (event) => {
     // 2. Store in a database
     // 3. Call a third-party API
     console.log("Contact form submission:", body)
+    analytics.track({
+      anonymousId: "test",
+      event: "Contact Form Filled",
+      properties: body
+    })
 
     // TODO: Implement your actual form handling logic here
     // Example: await sendEmail(body)
     // Example: await saveToDatabase(body)
 
+    await analytics.flush({ close: true })
     // Return success response
     return {
       success: true,
       message: "Form submitted successfully"
     }
   } catch (error: any) {
-    // If it's an h3 error, it will be automatically handled
+    // If it's a h3 error, it will be automatically handled
     if (error.statusCode) {
       throw error
     }

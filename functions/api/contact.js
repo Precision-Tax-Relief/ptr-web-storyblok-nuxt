@@ -1,3 +1,9 @@
+import { Analytics, Context } from "@segment/analytics-node"
+
+const analytics = new Analytics({ writeKey: process.env.ANALYTICS_KEY ? process.env.ANALYTICS_KEY : "" }).on(
+  "error",
+  console.error
+)
 /**
  * Handles form submission via Cloudflare Pages Functions
  * POST /api/contact
@@ -73,6 +79,15 @@ export async function onRequestPost(context) {
     // Log form submission (for debugging purposes)
     console.log("Form submission received:", body)
 
+    analytics.track({
+      anonymousId: "test",
+      event: "Contact Form Filled",
+      properties: {
+        source: "cloudflare",
+        ...body
+      }
+    })
+
     // Here you would typically:
     // 1. Send an email notification
     // 2. Store the submission in a database
@@ -100,6 +115,8 @@ export async function onRequestPost(context) {
     // Send email using your preferred email service
     await sendEmail(emailData);
     */
+
+    await analytics.flush({ close: true })
 
     // Return success response
     return new Response(

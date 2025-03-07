@@ -27,6 +27,7 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/sitemap": "^7.2.6",
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "@segment/analytics-node": "^2.2.1",
     "@storyblok/nuxt": "^6.0.4",
     "@tailwindcss/typography": "^0.5.16",
     "@typescript-eslint/parser": "^8.24.1",
