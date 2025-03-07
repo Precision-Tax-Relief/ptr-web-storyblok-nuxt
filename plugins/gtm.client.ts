@@ -15,7 +15,7 @@ export default defineNuxtPlugin({
         if (gtm) {
           gtm.enable(true)
         }
-      }, 50) // 2-second delay for better TBT - adjust as needed
+      }, 150) // 2-second delay for better TBT - adjust as needed
     })
   }
 })
