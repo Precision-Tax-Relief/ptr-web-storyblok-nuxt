@@ -1,14 +1,15 @@
-import { Analytics, Context } from "@segment/analytics-node"
+import { Analytics } from "@segment/analytics-node"
 
-const analytics = new Analytics({ writeKey: context?.env?.ANALYTICS_KEY ? context?.env?.ANALYTICS_KEY : "" }).on(
-  "error",
-  console.error
-)
 /**
  * Handles form submission via Cloudflare Pages Functions
  * POST /api/contact
  */
 export async function onRequestPost(context) {
+  // Initialize analytics inside the handler function
+  const analytics = new Analytics({
+    writeKey: context?.env?.ANALYTICS_KEY || ""
+  }).on("error", console.error)
+
   try {
     // Get request body as JSON
     const body = await context.request.json()
@@ -98,11 +99,12 @@ export async function onRequestPost(context) {
     // ========================================
     /*
     // This is just a placeholder - replace with your actual email service integration
-    // You would need to set up environment variables in Cloudflare Pages for API keys
+    // Access API keys and config from environment variables
+    const API_KEY = context.env.EMAIL_API_KEY;
 
     const emailData = {
-      to: "your-email@example.com",
-      from: "website-forms@yourdomain.com",
+      to: context.env.ADMIN_EMAIL || "your-email@example.com",
+      from: context.env.FROM_EMAIL || "website-forms@yourdomain.com",
       subject: `New Contact Form Submission from ${body.name}`,
       text: `
         Name: ${body.name}
