@@ -12,6 +12,9 @@ dist
 .netlify
 *.pem*
 
+# Cloudflare Wrangler
+.wrangler
+
 # Jetbrains Settings
 .idea/*
 !.idea/

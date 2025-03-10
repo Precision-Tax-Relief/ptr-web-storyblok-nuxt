@@ -6,7 +6,8 @@
     "windev": "nuxt dev --port=3010",
     "test": "nuxt dev --port=8080",
     "dev": "nuxt dev",
-    "dev:cf": "wrangler pages dev ./public --proxy 8788",
+    "dev:cf": "wrangler pages dev ./dist --proxy 8788 -b",
+    "wrangler:proxy": "wrangler pages dev --proxy 3010 -b",
     "dev:full": "concurrently \"npm run dev\" \"wrangler pages dev ./public --functions-dir ./functions --proxy=3000\"",
     "dev:ssl": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
@@ -18,6 +19,7 @@
     "lint": "npm lint:js && npm lint:prettier",
     "lintfix": "prettier --write --list-different . && npm run lint:js",
     "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 3010 --cert localhost.pem --key localhost-key.pem",
+    "proxy:wrangler": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 8788 --cert localhost.pem --key localhost-key.pem",
     "pull-components": "node scripts/pull-components.mjs"
   },
   "devDependencies": {
