@@ -18,8 +18,7 @@
     "lint:prettier": "prettier --check .",
     "lint": "npm lint:js && npm lint:prettier",
     "lintfix": "prettier --write --list-different . && npm run lint:js",
-    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 3010 --cert localhost.pem --key localhost-key.pem",
-    "proxy:wrangler": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 8788 --cert localhost.pem --key localhost-key.pem",
+    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3000 --target 8788 --cert localhost.pem --key localhost-key.pem",
     "pull-components": "node scripts/pull-components.mjs"
   },
   "devDependencies": {

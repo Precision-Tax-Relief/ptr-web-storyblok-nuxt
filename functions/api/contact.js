@@ -45,11 +45,11 @@ export async function onRequestPost(context) {
       )
     }
 
-    if (!body.message || !body.message.trim()) {
+    if (!body.phone || !body.phone.trim()) {
       return new Response(
         JSON.stringify({
           success: false,
-          message: "Message is required"
+          message: "Phone Number is required"
         }),
         {
           status: 400,
