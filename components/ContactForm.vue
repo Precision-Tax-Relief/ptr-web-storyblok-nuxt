@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
-const gtm = useGtm()
 
 // Form fields type definition
 interface FormData {
@@ -85,7 +84,27 @@ const validateForm = (): boolean => {
 
 // Form submission
 const submitForm = async () => {
-  console.log(window.dataLayer)
+  const anonymousId = window?.analytics?.user()?.anonymousId()
+  const ga_client_id = useCookie("_ga")
+  const route = useRoute()
+  const wdata = {
+    anonymousId: anonymousId,
+    ga_client_id: ga_client_id.value,
+    page_url: document.URL,
+    referrer: document.referrer,
+    path: route.path,
+    tax_amount_id: 14,
+    gclid: route.query.gclid,
+    msclkid: route.query.msclkid,
+    gbraid: route.query.gbraid,
+    utm_source: route.query.utm_source,
+    utm_medium: route.query.utm_medium,
+    utm_campaign: route.query.utm_campaign,
+    utm_content: route.query.utm_content,
+    bad_data: "badddddd"
+  }
+  console.log("wdata", wdata)
+
   if (!validateForm()) return
 
   isSubmitting.value = true
@@ -99,7 +118,10 @@ const submitForm = async () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify({
+        form: formData,
+        ...wdata
+      })
     })
 
     if (!response.ok) {
@@ -107,6 +129,11 @@ const submitForm = async () => {
       throw new Error(errorData.message || "Something went wrong")
     }
 
+    let resp = await response.json()
+    console.log(resp)
+
+    const router = useRouter()
+    router.push({ path: "form/" + resp?.lead_id + "/" })
     // Reset form on success
     formData.name = ""
     formData.phone = ""
@@ -138,7 +165,7 @@ const submitForm = async () => {
         <div v-if="isError" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form @submit.prevent="submitForm" class="validate" method="post" :action="apiEndpoint">
+        <form onsubmit="return false;">
           <input id="abid_1" type="hidden" name="AbId1" />
           <input id="abid_2" type="hidden" name="AbId2" />
           <input id="abid_type" type="hidden" name="AbIdType" />
@@ -181,7 +208,6 @@ const submitForm = async () => {
                 v-model="formData.phone"
                 class="form-control h-12 w-full bg-slate-200 pl-14"
                 :class="{ 'border-2 border-red-500': errors.phone }"
-                minlength="14"
                 name="Phone"
                 placeholder="Phone Number"
               />
@@ -219,7 +245,7 @@ const submitForm = async () => {
           <!-- Submit button -->
           <button
             id="btn-submit"
-            type="submit"
+            @click.prevent="submitForm"
             class="w-full cursor-pointer rounded-sm bg-green-500 px-4 py-4 text-center font-sans text-xl font-bold tracking-wider text-white hover:bg-green-600 lg:rounded-md"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"

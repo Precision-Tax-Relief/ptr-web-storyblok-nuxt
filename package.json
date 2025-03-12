@@ -49,6 +49,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "storyblok-generate-ts": "^2.2.0",
     "typescript": "^5.7.3",
+    "uuid": "^11.1.0",
     "vue-tsc": "^2.1.10",
     "wrangler": "^3.114.0"
   },
