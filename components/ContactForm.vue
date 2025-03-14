@@ -100,10 +100,8 @@ const submitForm = async () => {
     utm_source: route.query.utm_source,
     utm_medium: route.query.utm_medium,
     utm_campaign: route.query.utm_campaign,
-    utm_content: route.query.utm_content,
-    bad_data: "badddddd"
+    utm_content: route.query.utm_content
   }
-  console.log("wdata", wdata)
 
   if (!validateForm()) return
 

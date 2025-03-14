@@ -18,11 +18,11 @@ const questions = [
     type: "single_select",
     answers: [
       {
-        id: "yes",
+        id: "true",
         text: "Yes"
       },
       {
-        id: "no",
+        id: "false",
         text: "No"
       },
       {
@@ -100,11 +100,30 @@ const props = defineProps<PropTypes>()
 
 // Questionnaire state management
 const currentStep = ref(0)
-const userAnswers = ref<Record<string, string | string[]>>({})
+const userAnswers = ref<Record<string, any>>({})
 const isCompleted = ref(false)
+const isSubmitting = ref(false)
+const hasError = ref(false)
+const errorMessage = ref("")
 
 // Track selected answers for multi-select questions
 const selectedMultiAnswers = ref<Record<string, boolean>>({})
+
+// Initialize each multi-select question's answers to false
+const initializeMultiSelectAnswers = () => {
+  questions.forEach((question) => {
+    if (question.type === "multi_select") {
+      question.answers.forEach((answer) => {
+        if (answer.id !== "no_answer") {
+          userAnswers.value[answer.id as string] = false
+        }
+      })
+    }
+  })
+}
+
+// Call initialization when component is mounted
+initializeMultiSelectAnswers()
 
 // Computed properties
 const currentQuestion = computed(() => {
@@ -112,30 +131,33 @@ const currentQuestion = computed(() => {
 })
 
 // Method to select an answer for single-select questions
-const selectSingleAnswer = (questionId: string, answerId: string, answerText: string) => {
-  userAnswers.value[questionId] = answerText
+const selectSingleAnswer = (questionId: string, answerId: string | number) => {
+  userAnswers.value[questionId] = answerId
   moveToNextStep()
 }
 
 // Method to handle multi-select questions
 const toggleMultiAnswer = (questionId: string, answerId: string, answerText: string) => {
-  // Initialize array if not exists
-  if (!userAnswers.value[questionId]) {
-    userAnswers.value[questionId] = []
+  // If "no_answer" is selected, deselect all other options
+  if (answerId === "no_answer") {
+    // Set all options to false
+    currentQuestion.value?.answers.forEach((answer) => {
+      if (answer.id !== "no_answer") {
+        userAnswers.value[answer.id as string] = false
+        selectedMultiAnswers.value[`${questionId}-${answer.id}`] = false
+      }
+    })
+    // Toggle the no_answer visual selection for UI purposes only
+    selectedMultiAnswers.value[`${questionId}-${answerId}`] = !selectedMultiAnswers.value[`${questionId}-${answerId}`]
+    return
   }
 
-  // Toggle selection
-  const answerArray = userAnswers.value[questionId] as string[]
-  const index = answerArray.indexOf(answerText)
+  // Deselect "no_answer" if any other option is selected
+  selectedMultiAnswers.value[`${questionId}-no_answer`] = false
 
-  if (index === -1) {
-    answerArray.push(answerText)
-  } else {
-    answerArray.splice(index, 1)
-  }
-
-  // Update the tracking object for UI
-  selectedMultiAnswers.value[`${questionId}-${answerId}`] = index === -1
+  // Toggle the current answer
+  userAnswers.value[answerId] = !userAnswers.value[answerId]
+  selectedMultiAnswers.value[`${questionId}-${answerId}`] = userAnswers.value[answerId]
 }
 
 // Method to submit multi-select answers and move to next step
@@ -158,9 +180,55 @@ const moveToPrevStep = () => {
   }
 }
 
-const completeQuestionnaire = () => {
+const completeQuestionnaire = async () => {
   isCompleted.value = true
+  const anonymousId = window?.analytics?.user()?.anonymousId()
+  const ga_client_id = useCookie("_ga")
+  const route = useRoute()
+  const data = {
+    anonymousId: anonymousId,
+    ga_client_id: ga_client_id.value,
+    page_url: document.URL,
+    referrer: document.referrer,
+    path: route.path,
+    tax_amount_id: 14,
+    gclid: route.query.gclid,
+    msclkid: route.query.msclkid,
+    gbraid: route.query.gbraid,
+    utm_source: route.query.utm_source,
+    utm_medium: route.query.utm_medium,
+    utm_campaign: route.query.utm_campaign,
+    utm_content: route.query.utm_content,
+    form: userAnswers.value
+  }
   // Here you could add API calls to submit the data
+  isSubmitting.value = true
+  hasError.value = false
+  errorMessage.value = ""
+
+  try {
+    const response = await fetch("/api/questionnaire", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.message || "Something went wrong")
+    }
+
+    let resp = await response.json()
+    console.log(resp)
+  } catch (error: any) {
+    hasError.value = true
+    errorMessage.value = error.message || "Failed to submit form"
+    console.error("Form submission error:", error)
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -191,9 +259,8 @@ const completeQuestionnaire = () => {
             </h3>
           </div>
 
-          <div class="bg-slate-200 text-center">
-            <!-- Questions Area -->
-
+          <!-- Questions Area -->
+          <div class="bg-slate-200 text-center text-neutral-800">
             <div v-if="!isCompleted" :key="currentStep">
               <div class="flex justify-center items-center relative text-slate-900">
                 <h4 class="text-2xl font-bold px-2 py-10">{{ currentQuestion?.text }}</h4>
@@ -238,7 +305,7 @@ const completeQuestionnaire = () => {
                         )
                       }
                     ]"
-                    @click="selectSingleAnswer(currentQuestion.id, answer.id, answer.text)"
+                    @click="selectSingleAnswer(currentQuestion.id, answer.id)"
                   >
                     {{ answer.text }}
                   </button>
@@ -291,21 +358,38 @@ const completeQuestionnaire = () => {
               <!-- Navigation buttons -->
               <div class="flex justify-between px-8 py-4" v-if="currentStep > 0">
                 <button class="text-primary underline" @click="moveToPrevStep">Back</button>
-                <div></div>
-                <!-- Spacer -->
+              </div>
+            </div>
+
+            <!-- Submitting Screen-->
+            <div v-else-if="isSubmitting" class="py-8">
+              <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
+                <div class="flex justify-center mt-4">
+                  <Icon name="eos-icons:three-dots-loading" class="h-24 w-24 py-32 text-slate-500" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Error Screen-->
+            <div v-else-if="hasError" class="py-8">
+              <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
+                <div class="flex justify-center mt-4">
+                  <Icon name="ix:cloud-fail" class="h-20 w-20 text-black" />
+                </div>
+                <h4 class="text-2xl leading-8 my-8 font-bold">Oops! Sorry something went wrong.</h4>
+                <p class="text-lg lg:text-xl leading-7 lg:leading-8">
+                  We were unable to process your submission due to a technical issue. For immediate assistance, please
+                  <b>call us directly at <b>(877) 686-6539</b></b> to speak with a tax specialist who can help with your
+                  situation. We apologize for the inconvenience.
+                </p>
               </div>
             </div>
 
             <!-- Thank You / Completion Screen -->
             <div v-else class="py-8">
-              <div class="w-[90%] md:w-auto mx-auto text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
+              <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
                 <div class="flex justify-center mt-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" viewBox="0 0 66 66" fill="none">
-                    <path
-                      d="M63.7272 2.27313C63.0202 1.56601 62.1376 1.06009 61.1702 0.807478C60.2028 0.554867 59.1855 0.564693 58.2231 0.835944L58.1612 0.855631L4.18653 17.2188C3.09021 17.5366 2.11655 18.1805 1.39486 19.0649C0.67317 19.9493 0.237619 21.0323 0.146059 22.1701C0.0544981 23.3079 0.311261 24.4466 0.882243 25.435C1.45323 26.4234 2.3114 27.2147 3.34278 27.7038L27.0578 38.9538L38.3078 62.6688C38.7568 63.6321 39.4721 64.4468 40.3691 65.0169C41.2661 65.587 42.3074 65.8887 43.3703 65.8863C43.5306 65.8863 43.6937 65.8863 43.8568 65.8666C44.9937 65.7759 46.0755 65.3388 46.9561 64.6141C47.8367 63.8893 48.4738 62.9119 48.7815 61.8138L65.1447 7.83907C65.1529 7.81901 65.1595 7.79832 65.1643 7.77719C65.4356 6.81482 65.4454 5.79753 65.1928 4.83009C64.9402 3.86266 64.4343 2.98004 63.7272 2.27313ZM43.1565 57.1338L33.6728 37.1116L46.3993 24.385C47.0334 23.751 47.3896 22.891 47.3896 21.9944C47.3896 21.0977 47.0334 20.2378 46.3993 19.6038C45.7653 18.9697 44.9054 18.6135 44.0087 18.6135C43.1121 18.6135 42.2521 18.9697 41.6181 19.6038L28.8915 32.3303L8.86653 22.8438L58.0628 7.93751L43.1565 57.1338Z"
-                      fill="#093E8A"
-                    ></path>
-                  </svg>
+                  <Icon name="line-md:email-check" class="h-20 w-20 text-blue-700" />
                 </div>
                 <h4 class="text-2xl leading-8 my-8 font-bold">Thank you for answering.</h4>
                 <p class="text-lg lg:text-xl leading-7 lg:leading-8">
