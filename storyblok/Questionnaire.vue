@@ -8,7 +8,7 @@ interface PropTypes {
 
 const questions = [
   {
-    id: "Q1",
+    id: "self-employed",
     text: "Are you currently self-employed?",
     tooltip: {
       title: "Why are we asking?",
@@ -18,21 +18,21 @@ const questions = [
     type: "single_select",
     answers: [
       {
-        id: "A1",
+        id: "yes",
         text: "Yes"
       },
       {
-        id: "A2",
+        id: "no",
         text: "No"
       },
       {
-        id: "A3",
+        id: "no_answer",
         text: "I prefer not to say"
       }
     ]
   },
   {
-    id: "Q2",
+    id: "owe_irs",
     text: "How much do you owe to the IRS?",
     tooltip: {
       title: "Why are we asking?",
@@ -42,33 +42,33 @@ const questions = [
     type: "single_select",
     answers: [
       {
-        id: "A1",
+        id: "1",
         text: "$0 – $9,999"
       },
       {
-        id: "A2",
+        id: "2",
         text: "$10,000 – $49,999"
       },
       {
-        id: "A3",
+        id: "3",
         text: "$50,000 – $99,999"
       },
       {
-        id: "A4",
+        id: "4",
         text: "$100,000 or more"
       },
       {
-        id: "A5",
+        id: "unknown",
         text: "I don't know"
       },
       {
-        id: "A6",
+        id: "no_answer",
         text: "I prefer not to say"
       }
     ]
   },
   {
-    id: "Q3",
+    id: "your_situation",
     text: "Do any of the following apply to your situation?",
     tooltip: {
       content:
@@ -77,19 +77,19 @@ const questions = [
     type: "multi_select",
     answers: [
       {
-        id: "A1",
-        text: "I have more than 3+ years of unfilled taxes"
+        id: "3_plus_unfiled",
+        text: "I have more than 3+ years of unfiled taxes"
       },
       {
-        id: "A2",
+        id: "levied",
         text: "My wages or bank account is being levied"
       },
       {
-        id: "A3",
+        id: "contacted_by_ro",
         text: "I've been contacted by a Revenue Officer"
       },
       {
-        id: "A4",
+        id: "no_answer",
         text: "I prefer not to say or none of these"
       }
     ]
@@ -165,8 +165,8 @@ const completeQuestionnaire = () => {
 </script>
 
 <template>
-  <div v-editable="props.blok">
-    <div class="px-0 sm:px-4 md:px-8 py-16 mx-auto container text-center">
+  <div v-editable="props.blok" class="py-16">
+    <div class="px-0 sm:px-4 md:px-8 pb-16 mx-auto container text-center">
       <h1 class="text-3xl md:text-4xl text-primary font-bold">Thank you for trusting Precision Tax Relief!</h1>
       <p class="mt-4 text-xl md:text-2xl">
         In the next 2 minutes, you'll receive a text from us.<br />Please respond with the best time for us to reach
