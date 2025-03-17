@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type QuestionnaireStoryblok } from "~/types/component-types-sb"
 import { ref, computed } from "vue"
+import type { QuestionnairePayloadInput } from "~/functions/_validators/_payload"
 
 interface PropTypes {
   blok: QuestionnaireStoryblok
@@ -95,7 +96,6 @@ const questions = [
     ]
   }
 ]
-
 const props = defineProps<PropTypes>()
 
 // Questionnaire state management
@@ -180,32 +180,11 @@ const moveToPrevStep = () => {
   }
 }
 
-const completeQuestionnaire = async () => {
-  isCompleted.value = true
-  const anonymousId = window?.analytics?.user()?.anonymousId()
-  const ga_client_id = useCookie("_ga")
-  const route = useRoute()
-  const data = {
-    anonymousId: anonymousId,
-    ga_client_id: ga_client_id.value,
-    page_url: document.URL,
-    referrer: document.referrer,
-    path: route.path,
-    tax_amount_id: 14,
-    gclid: route.query.gclid,
-    msclkid: route.query.msclkid,
-    gbraid: route.query.gbraid,
-    utm_source: route.query.utm_source,
-    utm_medium: route.query.utm_medium,
-    utm_campaign: route.query.utm_campaign,
-    utm_content: route.query.utm_content,
-    form: userAnswers.value
-  }
+const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
   // Here you could add API calls to submit the data
   isSubmitting.value = true
   hasError.value = false
   errorMessage.value = ""
-
   try {
     const response = await fetch("/api/questionnaire", {
       method: "POST",
@@ -229,6 +208,30 @@ const completeQuestionnaire = async () => {
   } finally {
     isSubmitting.value = false
   }
+}
+
+const completeQuestionnaire = async () => {
+  isCompleted.value = true
+  const anonymousId = window?.analytics?.user()?.anonymousId()
+  const ga_client_id = useCookie("_ga")
+  const route = useRoute()
+  const data = {
+    anonymousId: anonymousId,
+    ga_client_id: ga_client_id.value,
+    page_url: document.URL,
+    referrer: document.referrer,
+    path: route.path,
+    tax_amount_id: 14,
+    gclid: route.query.gclid,
+    msclkid: route.query.msclkid,
+    gbraid: route.query.gbraid,
+    utm_source: route.query.utm_source,
+    utm_medium: route.query.utm_medium,
+    utm_campaign: route.query.utm_campaign,
+    utm_content: route.query.utm_content,
+    form: userAnswers.value
+  }
+  submitQuestionnaire(data)
 }
 </script>
 

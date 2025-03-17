@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid"
  * Handles form submission via Cloudflare Pages Functions
  * POST /api/contact
  */
-export async function onRequestPost(context) {
+export async function onRequestPost(context: any) {
   // Initialize analytics inside the handler function
   const analytics = new Analytics({
     writeKey: context?.env?.ANALYTICS_KEY || ""
@@ -77,7 +77,7 @@ export async function onRequestPost(context) {
       )
     }
 
-    // Email validation using a simple regex
+    // Email validation using regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(form.email)) {
       return new Response(
