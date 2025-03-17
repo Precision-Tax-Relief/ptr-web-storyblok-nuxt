@@ -51,6 +51,7 @@ const config: NuxtConfig = {
     "@nuxtjs/google-fonts",
     "@nuxtjs/sitemap",
     "@zadigetvoltaire/nuxt-gtm",
+    "nuxt-delay-hydration",
     [
       "@storyblok/nuxt",
       {
@@ -167,6 +168,10 @@ const config: NuxtConfig = {
   future: {
     // Enable auto-imports in shared/utils/ and shared/types/
     compatibilityVersion: 4
+  },
+  delayHydration: {
+    mode: "init",
+    debug: true
   }
 }
 // sitemap: {
