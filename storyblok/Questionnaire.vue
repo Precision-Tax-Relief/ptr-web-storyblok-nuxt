@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { type QuestionnaireStoryblok } from "~/types/component-types-sb"
 import { ref, computed } from "vue"
 import type { QuestionnairePayloadInput } from "~/functions/_validators/_payload"
 

@@ -5,6 +5,7 @@ import type { QuestionnaireAnswerInput } from "~/functions/_validators/_question
 import type { FormAnswerInput } from "~/functions/_validators/_contact.ts"
 import type { ContextInput } from "~/functions/_validators/_context.ts"
 
+// TODO: This function need to be refactored into a composable or plugin
 declare global {
   function renderRichText(
     data: RichtextStoryblok,

@@ -13,5 +13,5 @@ if (!spaceId) {
 
 global.fetch = fetch
 
-let output = execSync(`storyblok pull-components --space ${spaceId} --path ./types/`, { stdio: "inherit" })
-output += execSync(`storyblok-generate-ts source=./types/components.${spaceId}.json target=./types/component-types-sb`)
+let output = execSync(`storyblok pull-components --space ${spaceId}`, { stdio: "inherit" })
+output += execSync(`storyblok-generate-ts source=./components.${spaceId}.json target=./shared/types/component-types-sb`)

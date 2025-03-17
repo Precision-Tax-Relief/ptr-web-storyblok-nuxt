@@ -163,6 +163,10 @@ const config: NuxtConfig = {
     loadScript: true
 
     // enableRouterSync: true, // Track page views automatically
+  },
+  future: {
+    // Enable auto-imports in shared/utils/ and shared/types/
+    compatibilityVersion: 4
   }
 }
 // sitemap: {

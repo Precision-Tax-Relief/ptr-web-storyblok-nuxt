@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface PropTypes {
-  blok: object
+  blok: ButtonOutlineStoryblok
 }
 
 const props = defineProps<PropTypes>()

@@ -1,4 +1,3 @@
-import type { CloudflareContext } from "~/types/cloudflare"
 import { Analytics } from "@segment/analytics-node"
 import { v4 as uuidv4 } from "uuid"
 import { type QuestionnairePayloadOutput, validateQuestionnairePayload } from "~/functions/_validators/_payload"
