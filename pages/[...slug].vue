@@ -15,4 +15,6 @@ const story = await useAsyncStoryblok(slug && slug.length > 0 ? slug.join("/").r
 
 <template>
   <StoryblokComponent v-if="story?.content" :blok="story.content" />
+  <ClientOnly />
+  <!--  <NuxtIsland name="StoryblokIsland" />-->
 </template>
