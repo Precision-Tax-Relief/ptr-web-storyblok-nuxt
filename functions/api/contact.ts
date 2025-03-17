@@ -1,5 +1,8 @@
 import { Analytics } from "@segment/analytics-node"
 import { v4 as uuidv4 } from "uuid"
+import type { ContactPayloadOutput } from "#shared/types/api"
+import { validateContactPayload } from "#shared/utils/validators/contact"
+import jsonResponse from "#shared/utils/api/jsonResponse"
 
 /**
  * Handles form submission via Cloudflare Pages Functions
@@ -12,124 +15,38 @@ export async function onRequestPost(context: any) {
   }).on("error", console.error)
 
   try {
-    // Get request body as JSON
-    const body = await context.request.json()
+    const rawBody = await context.request.json()
 
-    const form = body?.form
-    if (form === undefined) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: "Form data was malformed."
-        }),
-        {
-          status: 406,
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      )
-    }
+    let validatedPayload: ContactPayloadOutput
 
-    // Basic validation
-    if (!form.name || !form.name.trim()) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: "Name is required"
-        }),
+    try {
+      validatedPayload = validateContactPayload(rawBody)
+    } catch (error) {
+      return jsonResponse(
         {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      )
-    }
-
-    if (!form.email || !form.email.trim()) {
-      return new Response(
-        JSON.stringify({
           success: false,
-          message: "Email is required"
-        }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      )
-    }
-
-    if (!form.phone || !form.phone.trim()) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: "Phone Number is required"
-        }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      )
-    }
-
-    // Email validation using regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(form.email)) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: "Please provide a valid email address"
-        }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
+          message: "Validation failed",
+          errors: error instanceof Error ? error.message : "Unknown validation error"
+        },
+        400
       )
     }
 
     // Log form submission (for debugging purposes)
-    console.log("Form submission received:", body)
+    console.log("Validated Payload received:", validatedPayload)
 
-    // Serialize Inputs
-    const form_keys = ["name", "email", "phone"]
-    const data_keys = [
-      "ga_client_id",
-      "page_url",
-      "referrer",
-      "path",
-      "tax_amount_id",
-      "gclid",
-      "msclkid",
-      "gbraid",
-      "utm_source",
-      "utm_medium",
-      "utm_campaign",
-      "utm_content"
-    ]
-
-    const properties = {}
-    for (const key in form_keys) {
-      properties[key] = body.form[key]
-    }
-    for (const key in data_keys) {
-      properties[key] = body[key]
-    }
-
-    let anonymousId = body?.anonymousId
+    let anonymousId = validatedPayload?.anonymousId
     if (anonymousId === undefined) {
       anonymousId = uuidv4()
     }
+
     analytics.track({
       anonymousId: anonymousId,
       event: "Contact Form Filled",
-      properties: properties,
+      properties: {
+        ...validatedPayload.form,
+        ...validatedPayload.context
+      },
       context: {
         source: "cloudflare"
       }

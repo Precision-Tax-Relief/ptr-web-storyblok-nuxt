@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
-
-// Form fields type definition
-interface FormData {
-  name: string
-  email: string
-  phone: string
-}
+import type { ContactAnswerInput } from "#shared/types/api"
 
 // Props for the component
 interface Props {
@@ -26,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // Form state
-const formData = reactive<FormData>({
+const formData = reactive<ContactAnswerInput>({
   name: "",
   email: "",
   phone: ""

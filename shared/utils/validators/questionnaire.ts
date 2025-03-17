@@ -1,7 +1,9 @@
 import { z } from "zod"
+import { ContextSchema } from "#shared/utils/validators/context"
+import type { QuestionnairePayloadOutput } from "#shared/types/api"
+import { formatZodErrors } from "#shared/utils/validators/errorFormaters"
 
-// Define the schema
-const AnswerSchema = z.object({
+export const QuestionnaireSchema = z.object({
   "self-employed": z.enum(["true", "false", "undefined"]).transform((val) => {
     if (val === "true") return true
     if (val === "false") return false
@@ -35,28 +37,18 @@ const AnswerSchema = z.object({
   ])
 })
 
-// Input type (before transformation)
-export type QuestionnaireAnswerInput = z.input<typeof AnswerSchema>
+// Define a schema for the request payload
+export const QuestionnairePayloadSchema = z.object({
+  form: QuestionnaireSchema,
+  context: ContextSchema,
+  anonymousId: z.string().uuid().optional()
+})
 
-// Output type (after transformation)
-export type QuestionnaireAnswerOutput = z.output<typeof AnswerSchema>
-
-/**
- * Validates and transforms answer data
- * @param {QuestionnaireAnswerInput} data - Raw form data
- * @returns {QuestionnaireAnswerOutput} Validated and transformed data or throws error
- */
-export function validateQuestionnaireAnswer(data: QuestionnaireAnswerInput): QuestionnaireAnswerOutput {
-  // Validate, Strip Extra kwargs, and transform
-  const result = AnswerSchema.strip().safeParse(data)
+export function validateQuestionnairePayload(data: unknown): QuestionnairePayloadOutput {
+  const result = QuestionnairePayloadSchema.safeParse(data)
 
   if (!result.success) {
-    // Format validation errors
-    const formattedErrors = result.error.errors.map((err) => ({
-      path: err.path.join("."),
-      message: err.message
-    }))
-
+    const formattedErrors = formatZodErrors(result.error)
     throw new Error(`Validation failed: ${JSON.stringify(formattedErrors)}`)
   }
 

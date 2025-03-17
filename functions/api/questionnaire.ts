@@ -1,16 +1,8 @@
-import { Analytics } from "@segment/analytics-node"
 import { v4 as uuidv4 } from "uuid"
-import { type QuestionnairePayloadOutput, validateQuestionnairePayload } from "~/functions/_validators/_payload"
-
-/**
- * Creates a JSON response with appropriate headers
- */
-function jsonResponse<T>(data: T, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { "Content-Type": "application/json" }
-  })
-}
+import { Analytics } from "@segment/analytics-node"
+import jsonResponse from "#shared/utils/api/jsonResponse"
+import type { QuestionnairePayloadOutput } from "#shared/types/api"
+import { validateQuestionnairePayload } from "#shared/utils/validators/questionnaire"
 
 /**
  * Handles questionnaire submission via Cloudflare Pages Functions
