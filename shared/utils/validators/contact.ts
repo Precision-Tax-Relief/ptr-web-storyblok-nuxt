@@ -25,5 +25,5 @@ export function validateContactPayload(data: unknown): ContactPayloadOutput {
     throw new Error(`Validation failed: ${JSON.stringify(formattedErrors)}`)
   }
 
-  return result.data as ContactPayloadOutput
+  return result.data
 }

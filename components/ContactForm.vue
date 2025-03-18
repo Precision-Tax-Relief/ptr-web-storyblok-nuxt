@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
 import type { ContactAnswerInput } from "#shared/types/api"
+import { ContactFormSchema } from "#shared/utils/validators/contact"
 
 // Props for the component
 interface Props {
@@ -47,31 +48,39 @@ const validateForm = (): boolean => {
   errors.email = ""
   errors.phone = ""
 
-  // Validate name
-  if (!formData.name.trim()) {
-    errors.name = "Name is required"
-    isValid = false
-  }
+  const result = ContactFormSchema.safeParse(formData)
 
-  // Validate phone
-  const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/
-  if (!formData.phone.trim()) {
-    errors.phone = "Phone number is required"
-    isValid = false
-  } else if (!phoneRegex.test(formData.phone)) {
-    errors.phone = "Please enter a valid phone number"
-    isValid = false
+  if (!result.success) {
+    console.log(result.error)
+    return false
   }
+  console.log(result.data)
 
-  // Validate email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if (!formData.email.trim()) {
-    errors.email = "Email is required"
-    isValid = false
-  } else if (!emailRegex.test(formData.email)) {
-    errors.email = "Please enter a valid email address"
-    isValid = false
-  }
+  // // Validate name
+  // if (!formData.name.trim()) {
+  //   errors.name = "Name is required"
+  //   isValid = false
+  // }
+  //
+  // // Validate phone
+  // const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/
+  // if (!formData.phone.trim()) {
+  //   errors.phone = "Phone number is required"
+  //   isValid = false
+  // } else if (!phoneRegex.test(formData.phone)) {
+  //   errors.phone = "Please enter a valid phone number"
+  //   isValid = false
+  // }
+  //
+  // // Validate email
+  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  // if (!formData.email.trim()) {
+  //   errors.email = "Email is required"
+  //   isValid = false
+  // } else if (!emailRegex.test(formData.email)) {
+  //   errors.email = "Please enter a valid email address"
+  //   isValid = false
+  // }
 
   return isValid
 }

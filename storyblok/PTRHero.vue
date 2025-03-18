@@ -33,7 +33,7 @@ const props = defineProps<PropTypes>()
               :img-attrs="{
                 class: 'sm:m-2 w-full'
               }"
-              quality="50"
+              quality="75"
             />
             <figcaption
               class="text-pretty lg:leading-1 px-2 pb-0 pt-6 sm:px-0 text-center text-sm leading-normal text-[#666] lg:pt-2 lg:text-left xl:text-xl"

@@ -1,5 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const config = useRuntimeConfig()
+const { slug } = useRoute().params
 
-<template></template>
+const story = await useAsyncStoryblok(slug && slug.length > 0 ? slug.join("/").replace(/\/$/, "") : "index", {
+  version: config.public.storyblokVersion
+})
+</script>
 
-<style scoped></style>
+<template>
+  <StoryblokComponent v-if="story?.content" :blok="story.content" />
+</template>
