@@ -107,6 +107,7 @@ const config: NuxtConfig = {
   },
   image: {
     provider: "storyblok",
+    quality: 75,
     storyblok: {
       baseURL: "https://a-us.storyblok.com"
     }
