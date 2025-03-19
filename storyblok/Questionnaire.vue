@@ -97,10 +97,11 @@ const questions = [
 const props = defineProps<PropTypes>()
 
 // Questionnaire state management
+const isValid = ref(true)
 const currentStep = ref(0)
 const userAnswers = ref<Record<string, any>>({})
 const isCompleted = ref(false)
-const isSubmitting = ref(false)
+const isLoading = ref(false)
 const hasError = ref(false)
 const errorMessage = ref("")
 
@@ -180,7 +181,7 @@ const moveToPrevStep = () => {
 
 const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
   // Here you could add API calls to submit the data
-  isSubmitting.value = true
+  isLoading.value = true
   hasError.value = false
   errorMessage.value = ""
   try {
@@ -204,7 +205,7 @@ const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
     errorMessage.value = error.message || "Failed to submit form"
     console.error("Form submission error:", error)
   } finally {
-    isSubmitting.value = false
+    isLoading.value = false
   }
 }
 
@@ -216,6 +217,14 @@ const completeQuestionnaire = async () => {
     context: useContextData()
   })
 }
+
+onMounted(() => {
+  let lead_id = localStorage.getItem("lead_id")
+  console.log("lead_id:", lead_id)
+  const route = useRoute()
+  let q_lead_id = route.query.form_id
+  console.log("ql", q_lead_id)
+})
 </script>
 
 <template>
@@ -348,7 +357,7 @@ const completeQuestionnaire = async () => {
             </div>
 
             <!-- Submitting Screen-->
-            <div v-else-if="isSubmitting" class="py-8">
+            <div v-else-if="isLoading" class="py-8">
               <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
                 <div class="flex justify-center mt-4">
                   <Icon name="eos-icons:three-dots-loading" class="h-24 w-24 py-32 text-slate-500" />

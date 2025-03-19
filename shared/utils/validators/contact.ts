@@ -7,7 +7,7 @@ import { ServerErrorResponseSchema } from "#shared/utils/validators/apiResponse"
 
 export const ContactFormSchema = z.object({
   name: z.string().trim().min(1, "Required"),
-  email: z.string().trim().email("Please provide a valid email address"),
+  email: z.string().trim().email("Invalid Email Address"),
   phone: phoneValidator
 })
 

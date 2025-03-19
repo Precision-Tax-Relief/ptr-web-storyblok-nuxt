@@ -1,40 +1,48 @@
 // composables/useContextData.ts
-import { useRoute } from "vue-router"
-import { useCookie } from "nuxt/app"
+import { useRoute } from "#app"
+import { useCookie } from "#app"
 
-/**
- * Safe query parameter retrieval function
- */
-function getSafeQueryParam(query: string): string | undefined {
-  const route = useRoute()
-  let value = route.query?.[query]
-  if (value === null) return ""
-  if (Array.isArray(value)) return value.join(",")
-  return value
-}
+export function useContextData() {
+  // Return a function that gets context data when called
+  return () => {
+    // These calls are now deferred until the function is actually called
+    let route
+    let gaCookie
 
-/**
- * Composable to get context data for tracking and submissions
- * @returns Context data object
- */
-export function useContextData(): ContextInput {
-  const route = useRoute()
-  const anonymousId = process.client ? window?.analytics?.user()?.anonymousId() : undefined
-  const ga_client_id = useCookie("_ga").value ?? undefined
+    try {
+      route = useRoute()
+      gaCookie = useCookie("_ga")
+    } catch (e) {
+      console.warn("Context data could not access route or cookies")
+      return {
+        tax_amount_id: 14,
+        path: "/"
+        // Default empty values for other fields
+      }
+    }
 
-  return {
-    anonymousId,
-    ga_client_id,
-    page_url: process.client ? document.URL : undefined,
-    referrer: process.client ? document.referrer : undefined,
-    path: route.path,
-    tax_amount_id: 14,
-    gclid: getSafeQueryParam("gclid"),
-    msclkid: getSafeQueryParam("msclkid"),
-    gbraid: getSafeQueryParam("gbraid"),
-    utm_source: getSafeQueryParam("utm_source"),
-    utm_medium: getSafeQueryParam("utm_medium"),
-    utm_campaign: getSafeQueryParam("utm_campaign"),
-    utm_content: getSafeQueryParam("utm_content")
+    // Safe query parameter function
+    function getSafeQueryParam(query: string): string | undefined {
+      let value = route.query?.[query]
+      if (value === null) return ""
+      if (Array.isArray(value)) return value.join(",")
+      return value
+    }
+
+    return {
+      anonymous_id: process.client ? window?.analytics?.user?.()?.anonymousId?.() : undefined,
+      ga_client_id: gaCookie.value ?? undefined,
+      page_url: process.client ? window.location.href : undefined,
+      referrer: process.client ? document.referrer : undefined,
+      path: route.path,
+      tax_amount_id: 14,
+      gclid: getSafeQueryParam("gclid"),
+      msclkid: getSafeQueryParam("msclkid"),
+      gbraid: getSafeQueryParam("gbraid"),
+      utm_source: getSafeQueryParam("utm_source"),
+      utm_medium: getSafeQueryParam("utm_medium"),
+      utm_campaign: getSafeQueryParam("utm_campaign"),
+      utm_content: getSafeQueryParam("utm_content")
+    }
   }
 }

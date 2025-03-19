@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
-import type { ContactAnswerInput, ContactApiResponse, ContactPayload, ContactPayloadOutput } from "#shared/types/api"
+import type {
+  ContactAnswerInput,
+  ContactApiResponse,
+  ContactPayload,
+  ContactPayloadOutput,
+  ServerErrorResponse
+} from "#shared/types/api"
 import { ContactApiResponseSchema, ContactFormSchema } from "#shared/utils/validators/contact"
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput"
 import { formatZodErrors } from "#shared/utils/validators/errorFormaters"
@@ -46,6 +52,7 @@ const validateForm = (): boolean => {
 
   if (!result.success) {
     let zodErrors = formatZodErrors<typeof errors>(result.error)
+    console.log(zodErrors)
     errors.name = zodErrors?.name
     errors.email = zodErrors?.email
     errors.phone = zodErrors?.phone
@@ -55,18 +62,30 @@ const validateForm = (): boolean => {
 }
 
 async function submitContactForm(data: ContactPayload): Promise<ContactApiResponse> {
-  const response = await fetch(props.apiEndpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
+  try {
+    const response = await fetch(props.apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
 
-  const jsonResponse = await response.json()
+    const jsonResponse = await response.json()
 
-  // Validate and type-check the response
-  return ContactApiResponseSchema.parse(jsonResponse)
+    // Use safeParse instead of parse
+    const result = ContactApiResponseSchema.safeParse(jsonResponse)
+
+    if (result.data === undefined) throw new Error("Server returned empty response")
+
+    return result.data
+  } catch (error) {
+    // Handle any other errors (network errors, etc.)
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : "Unknown error occurred"
+    } satisfies ServerErrorResponse
+  }
 }
 
 // Form submission
@@ -77,18 +96,24 @@ const submitForm = async () => {
   isSuccess.value = false
   errorMessage.value = ""
 
-  const resp = await submitContactForm({ form: formData, context: useContextData() })
+  const contextData = useContextData()
+  const resp = await submitContactForm({ form: formData, context: contextData() })
 
   if (!resp.success) {
-    errors = resp?.errors ?? {}
-    if (!errors) errorMessage.value = resp.message
+    if (resp?.errors?.form && typeof resp.errors.form !== "string") {
+      errors = resp.errors.form
+    } else {
+      errorMessage.value = resp.message
+    }
+    isSubmitting.value = false
     return
   }
 
   isSuccess.value = true
 
   const router = useRouter()
-  await router.push({ path: "form/", query: { form_id: resp.lead_id } })
+  localStorage.setItem("lead_id", resp.lead_id)
+  await router.push({ path: "questionnaire", query: { form_id: resp.lead_id } })
 }
 </script>
 
@@ -141,8 +166,8 @@ const submitForm = async () => {
                 v-model="formData.email"
                 label="Email"
                 block
-                :assistive-text="errors.phone"
-                :error="!!errors.phone"
+                :assistive-text="errors.email"
+                :error="!!errors.email"
                 ><template #left-icon>
                   <Icon name="fa-solid:envelope" class="h-6 w-6 text-gray-300" />
                 </template>
