@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
-import type {
-  ContactAnswerInput,
-  ContactApiResponse,
-  ContactPayload,
-  ContactPayloadOutput,
-  ServerErrorResponse
-} from "#shared/types/api"
+import type { ContactAnswerInput, ContactApiResponse, ContactPayload, ServerErrorResponse } from "#shared/types/api"
 import { ContactApiResponseSchema, ContactFormSchema } from "#shared/utils/validators/contact"
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput"
 import { formatZodErrors } from "#shared/utils/validators/errorFormaters"

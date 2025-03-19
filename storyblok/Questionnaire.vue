@@ -2,6 +2,7 @@
 import { ref, computed, onMounted, watch } from "vue"
 import { TransitionRoot, TransitionChild } from "@headlessui/vue"
 
+import type { QuestionnairePayloadInput, QuestionnaireAnswerInput } from "#shared/types/api"
 interface PropTypes {
   blok: QuestionnaireStoryblok
 }
@@ -11,11 +12,12 @@ const props = defineProps<PropTypes>()
 // Questionnaire state management
 const isValid = ref(false) // Default to false until validated
 const currentStep = ref(0)
-const userAnswers = ref<Record<string, any>>({
-  // Initialize multi-select answers
+const userAnswers = ref<QuestionnaireAnswerInput>({
   "3_plus_unfiled": false,
   levied: false,
-  contacted_by_ro: false
+  contacted_by_ro: false,
+  "self-employed": "undefined",
+  owe_irs: "undefined"
 })
 const isCompleted = ref(false)
 const isLoading = ref(true) // Start with loading state
@@ -93,7 +95,7 @@ const moveToPrevStep = () => {
   }
 }
 
-const submitQuestionnaire = async (data: any) => {
+const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
   isLoading.value = true
   hasError.value = false
   errorMessage.value = ""
@@ -119,7 +121,9 @@ const submitQuestionnaire = async (data: any) => {
     errorMessage.value = error.message || "Failed to submit form"
     console.error("Form submission error:", error)
   } finally {
-    isLoading.value = false
+    setTimeout(() => {
+      isLoading.value = false
+    }, 1000)
   }
 }
 
@@ -215,7 +219,10 @@ onMounted(() => {
           enter-from="opacity-0"
           enter-to="opacity-100"
         >
-          <div class="text-left relative" :style="{ height: `${containerHeight}px`, transition: 'height 0.3s ease' }">
+          <div
+            class="bg-slate-200 text-left relative"
+            :style="{ height: `${containerHeight}px`, transition: 'height 0.3s ease' }"
+          >
             <!-- Loading state -->
             <TransitionRoot :show="isLoading">
               <div class="bg-primary p-3">
