@@ -5,7 +5,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js"
 export const phoneValidator = z
   .string()
   .trim()
-  .min(1, "Phone Number is required")
+  .min(1, "Required")
   .refine(
     (value) => {
       try {
@@ -16,6 +16,6 @@ export const phoneValidator = z
       }
     },
     {
-      message: "Please provide a valid phone number"
+      message: "Invalid phone number"
     }
   )

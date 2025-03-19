@@ -1,6 +1,5 @@
 import { Analytics } from "@segment/analytics-node"
 import { v4 as uuidv4 } from "uuid"
-import type { ContactPayloadOutput } from "#shared/types/api"
 import { validateContactPayload } from "#shared/utils/validators/contact"
 import jsonResponse from "#shared/utils/api/jsonResponse"
 
@@ -17,16 +16,14 @@ export async function onRequestPost(context: any) {
   try {
     const rawBody = await context.request.json()
 
-    let validatedPayload: ContactPayloadOutput
+    let { validatedPayload, errors } = validateContactPayload(rawBody)
 
-    try {
-      validatedPayload = validateContactPayload(rawBody)
-    } catch (error) {
+    if (errors !== false) {
       return jsonResponse(
         {
           success: false,
           message: "Validation failed",
-          errors: error instanceof Error ? error.message : "Unknown validation error"
+          errors: errors
         },
         400
       )
@@ -34,16 +31,19 @@ export async function onRequestPost(context: any) {
 
     // Log form submission (for debugging purposes)
     console.log("Validated Payload received:", validatedPayload)
+    const lead_id = uuidv4()
+    console.log("Lead ID Set to:", lead_id)
 
     let anonymousId = validatedPayload?.anonymousId
     if (anonymousId === undefined) {
-      anonymousId = uuidv4()
+      anonymousId = lead_id
     }
 
     analytics.track({
       anonymousId: anonymousId,
       event: "Contact Form Filled",
       properties: {
+        lead_id: lead_id,
         ...validatedPayload.form,
         ...validatedPayload.context
       },
@@ -54,34 +54,20 @@ export async function onRequestPost(context: any) {
 
     await analytics.flush({ close: true })
 
-    // Return success response
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: "Form submitted successfully",
-        lead_id: 1
-      }),
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    )
+    return jsonResponse({
+      success: true,
+      message: "Form submitted successfully",
+      lead_id: lead_id
+    })
   } catch (error) {
     console.error("Error processing form submission:", error)
 
-    // Return error response
-    return new Response(
-      JSON.stringify({
+    return jsonResponse(
+      {
         success: false,
         message: "Failed to process form submission"
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
+      },
+      500
     )
   }
 }

@@ -3,9 +3,10 @@ import { phoneValidator } from "#shared/utils/validators/phone"
 import { ContextSchema } from "#shared/utils/validators/context"
 import { formatZodErrors } from "#shared/utils/validators/errorFormaters"
 import type { ContactPayloadOutput } from "#shared/types/api"
+import { ServerErrorResponseSchema } from "#shared/utils/validators/apiResponse"
 
 export const ContactFormSchema = z.object({
-  name: z.string().trim().min(1, "Name is required"),
+  name: z.string().trim().min(1, "Required"),
   email: z.string().trim().email("Please provide a valid email address"),
   phone: phoneValidator
 })
@@ -17,13 +18,29 @@ export const ContactPayloadSchema = z.object({
   anonymousId: z.string().uuid().optional()
 })
 
-export function validateContactPayload(data: unknown): ContactPayloadOutput {
+const ContactSuccessResponseSchema = z.object({
+  success: z.literal(true),
+  message: z.string(),
+  lead_id: z.string().uuid()
+})
+
+// Combined response schema
+export const ContactApiResponseSchema = z.discriminatedUnion("success", [
+  ContactSuccessResponseSchema,
+  ServerErrorResponseSchema
+])
+
+export function validateContactPayload(data: unknown): { validatedPayload: ContactPayloadOutput; errors: any } {
   const result = ContactPayloadSchema.safeParse(data)
 
+  let errors: false | object = false
   if (!result.success) {
-    const formattedErrors = formatZodErrors(result.error)
-    throw new Error(`Validation failed: ${JSON.stringify(formattedErrors)}`)
+    errors = formatZodErrors(result.error)
+    console.error(`Validation failed: ${JSON.stringify(errors)}`)
   }
 
-  return result.data
+  return {
+    validatedPayload: result.data as ContactPayloadOutput,
+    errors: errors
+  }
 }

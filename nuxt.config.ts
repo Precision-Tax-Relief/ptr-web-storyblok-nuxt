@@ -51,6 +51,7 @@ const config: NuxtConfig = {
     "@nuxtjs/google-fonts",
     "@nuxtjs/sitemap",
     "@zadigetvoltaire/nuxt-gtm",
+    "maz-ui/nuxt",
     "nuxt-delay-hydration",
     [
       "@storyblok/nuxt",

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
-import type { ContactAnswerInput } from "#shared/types/api"
-import { ContactFormSchema } from "#shared/utils/validators/contact"
+import type { ContactAnswerInput, ContactApiResponse, ContactPayload, ContactPayloadOutput } from "#shared/types/api"
+import { ContactApiResponseSchema, ContactFormSchema } from "#shared/utils/validators/contact"
+import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput"
+import { formatZodErrors } from "#shared/utils/validators/errorFormaters"
 
 // Props for the component
 interface Props {
@@ -30,123 +32,63 @@ const formData = reactive<ContactAnswerInput>({
 // Form state management
 const isSubmitting = ref(false)
 const isSuccess = ref(false)
-const isError = ref(false)
 const errorMessage = ref("")
 
 // Form validation
-const errors = reactive({
-  name: "",
-  email: "",
-  phone: ""
-})
+let errors: { [key: string]: string | undefined } = reactive({})
 
 const validateForm = (): boolean => {
-  let isValid = true
-
-  // Reset errors
-  errors.name = ""
-  errors.email = ""
-  errors.phone = ""
+  errors.name = undefined
+  errors.email = undefined
+  errors.phone = undefined
 
   const result = ContactFormSchema.safeParse(formData)
 
   if (!result.success) {
-    console.log(result.error)
+    let zodErrors = formatZodErrors<typeof errors>(result.error)
+    errors.name = zodErrors?.name
+    errors.email = zodErrors?.email
+    errors.phone = zodErrors?.phone
     return false
   }
-  console.log(result.data)
+  return true
+}
 
-  // // Validate name
-  // if (!formData.name.trim()) {
-  //   errors.name = "Name is required"
-  //   isValid = false
-  // }
-  //
-  // // Validate phone
-  // const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/
-  // if (!formData.phone.trim()) {
-  //   errors.phone = "Phone number is required"
-  //   isValid = false
-  // } else if (!phoneRegex.test(formData.phone)) {
-  //   errors.phone = "Please enter a valid phone number"
-  //   isValid = false
-  // }
-  //
-  // // Validate email
-  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  // if (!formData.email.trim()) {
-  //   errors.email = "Email is required"
-  //   isValid = false
-  // } else if (!emailRegex.test(formData.email)) {
-  //   errors.email = "Please enter a valid email address"
-  //   isValid = false
-  // }
+async function submitContactForm(data: ContactPayload): Promise<ContactApiResponse> {
+  const response = await fetch(props.apiEndpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
 
-  return isValid
+  const jsonResponse = await response.json()
+
+  // Validate and type-check the response
+  return ContactApiResponseSchema.parse(jsonResponse)
 }
 
 // Form submission
 const submitForm = async () => {
-  const anonymousId = window?.analytics?.user()?.anonymousId()
-  const ga_client_id = useCookie("_ga")
-  const route = useRoute()
-  const wdata = {
-    anonymousId: anonymousId,
-    ga_client_id: ga_client_id.value,
-    page_url: document.URL,
-    referrer: document.referrer,
-    path: route.path,
-    tax_amount_id: 14,
-    gclid: route.query.gclid,
-    msclkid: route.query.msclkid,
-    gbraid: route.query.gbraid,
-    utm_source: route.query.utm_source,
-    utm_medium: route.query.utm_medium,
-    utm_campaign: route.query.utm_campaign,
-    utm_content: route.query.utm_content
-  }
-
   if (!validateForm()) return
 
   isSubmitting.value = true
   isSuccess.value = false
-  isError.value = false
   errorMessage.value = ""
 
-  try {
-    const response = await fetch(props.apiEndpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        form: formData,
-        ...wdata
-      })
-    })
+  const resp = await submitContactForm({ form: formData, context: useContextData() })
 
-    if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(errorData.message || "Something went wrong")
-    }
-
-    let resp = await response.json()
-    console.log(resp)
-
-    const router = useRouter()
-    router.push({ path: "form/" + resp?.lead_id + "/" })
-    // Reset form on success
-    formData.name = ""
-    formData.phone = ""
-    formData.email = ""
-    isSuccess.value = true
-  } catch (error: any) {
-    isError.value = true
-    errorMessage.value = error.message || "Failed to submit form"
-    console.error("Form submission error:", error)
-  } finally {
-    isSubmitting.value = false
+  if (!resp.success) {
+    errors = resp?.errors ?? {}
+    if (!errors) errorMessage.value = resp.message
+    return
   }
+
+  isSuccess.value = true
+
+  const router = useRouter()
+  await router.push({ path: "form/", query: { form_id: resp.lead_id } })
 }
 </script>
 
@@ -163,83 +105,48 @@ const submitForm = async () => {
         </div>
 
         <!-- Error message -->
-        <div v-if="isError" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
+        <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
         <form onsubmit="return false;">
-          <input id="abid_1" type="hidden" name="AbId1" />
-          <input id="abid_2" type="hidden" name="AbId2" />
-          <input id="abid_type" type="hidden" name="AbIdType" />
-          <input id="abid_r" type="hidden" name="AbIdR" />
-          <input id="referrer" type="hidden" name="Referrer" />
-          <input id="request_url" type="hidden" name="RequestUrl" />
-          <input type="hidden" name="TaxAmountId" value="14" />
-          <input id="anonymous_id" type="hidden" name="AnonymousId" />
-          <input id="ga_client_id" type="hidden" name="GaClientId" />
-          <input id="iis_id" type="hidden" name="IisId" />
-          <h4 class="mb-6 text-center text-base font-bold lg:text-lg">Let us know how we can reach you.</h4>
-
           <!-- Name field -->
           <div class="form-group mb-4">
             <div class="relative">
-              <Icon name="fa-solid:user-alt" class="absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400" />
-              <input
-                id="form-name"
-                v-model="formData.name"
-                class="form-control h-12 w-full bg-slate-200 pl-14"
-                :class="{ 'border-2 border-red-500': errors.name }"
-                name="Name"
-                placeholder="Full Name"
-              />
-              <div
-                v-if="errors.name"
-                class="error-message absolute right-0 top-0 z-10 bg-red-500 p-1 text-lg leading-5 text-white"
-              >
-                {{ errors.name }}
-              </div>
+              <MazInput v-model="formData.name" label="Name" block :assistive-text="errors.name" :error="!!errors.name"
+                ><template #left-icon>
+                  <Icon name="fa-solid:user-alt" class="h-6 w-6 text-gray-300" />
+                </template>
+              </MazInput>
             </div>
           </div>
 
           <!-- Phone field -->
           <div class="form-group mb-4">
             <div class="input-group_icon input-group_icon-phone relative">
-              <Icon name="fa-solid:phone-alt" class="absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400" />
-              <input
-                id="PhoneNumber"
+              <MazPhoneNumberInput
                 v-model="formData.phone"
-                class="form-control h-12 w-full bg-slate-200 pl-14"
-                :class="{ 'border-2 border-red-500': errors.phone }"
-                name="Phone"
-                placeholder="Phone Number"
+                country-code="US"
+                show-code-on-list
+                :preferred-countries="['US']"
+                :ignored-countries="['AC']"
+                :error="!!errors.phone"
               />
-              <div
-                v-if="errors.phone"
-                class="error-message absolute right-0 top-0 z-10 bg-red-500 p-1 text-lg leading-5 text-white"
-              >
-                {{ errors.phone }}
-              </div>
             </div>
           </div>
 
           <!-- Email field -->
           <div class="form-group mb-6">
             <div class="input-group_icon input-group_icon-email relative">
-              <Icon name="fa-solid:envelope" class="absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400" />
-              <input
-                id="my-email"
+              <MazInput
                 v-model="formData.email"
-                class="form-control h-12 w-full bg-slate-200 pl-14"
-                :class="{ 'border-2 border-red-500': errors.email }"
-                name="Email"
-                type="email"
-                placeholder="Example@email.com"
-              />
-              <div
-                v-if="errors.email"
-                class="error-message absolute right-0 top-0 z-10 bg-red-500 p-1 text-lg leading-5 text-white"
-              >
-                {{ errors.email }}
-              </div>
+                label="Email"
+                block
+                :assistive-text="errors.phone"
+                :error="!!errors.phone"
+                ><template #left-icon>
+                  <Icon name="fa-solid:envelope" class="h-6 w-6 text-gray-300" />
+                </template>
+              </MazInput>
             </div>
           </div>
 

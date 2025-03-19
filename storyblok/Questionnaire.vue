@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import type { QuestionnairePayloadInput } from "~/functions/_validators/_payload"
 
 interface PropTypes {
   blok: QuestionnaireStoryblok
@@ -211,26 +210,11 @@ const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
 
 const completeQuestionnaire = async () => {
   isCompleted.value = true
-  const anonymousId = window?.analytics?.user()?.anonymousId()
-  const ga_client_id = useCookie("_ga")
-  const route = useRoute()
-  const data = {
-    anonymousId: anonymousId,
-    ga_client_id: ga_client_id.value,
-    page_url: document.URL,
-    referrer: document.referrer,
-    path: route.path,
-    tax_amount_id: 14,
-    gclid: route.query.gclid,
-    msclkid: route.query.msclkid,
-    gbraid: route.query.gbraid,
-    utm_source: route.query.utm_source,
-    utm_medium: route.query.utm_medium,
-    utm_campaign: route.query.utm_campaign,
-    utm_content: route.query.utm_content,
-    form: userAnswers.value
-  }
-  submitQuestionnaire(data)
+
+  submitQuestionnaire({
+    form: userAnswers.value,
+    context: useContextData()
+  })
 }
 </script>
 
