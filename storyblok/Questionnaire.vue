@@ -220,10 +220,9 @@ const completeQuestionnaire = async () => {
 
 onMounted(() => {
   let lead_id = localStorage.getItem("lead_id")
-  console.log("lead_id:", lead_id)
   const route = useRoute()
   let q_lead_id = route.query.form_id
-  console.log("ql", q_lead_id)
+  isValid.value = q_lead_id === lead_id
 })
 </script>
 

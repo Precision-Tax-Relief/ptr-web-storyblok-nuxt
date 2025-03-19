@@ -1,12 +1,13 @@
 // composables/useContextData.ts
 import { useRoute } from "#app"
 import { useCookie } from "#app"
+import type { RouteLocationNormalizedLoadedGeneric } from "vue-router"
 
 export function useContextData() {
   // Return a function that gets context data when called
   return () => {
     // These calls are now deferred until the function is actually called
-    let route
+    let route: RouteLocationNormalizedLoadedGeneric
     let gaCookie
 
     try {
