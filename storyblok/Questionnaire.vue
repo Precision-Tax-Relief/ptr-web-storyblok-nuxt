@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue"
+import { ref, computed, onMounted, watch } from "vue"
 import { TransitionRoot, TransitionChild } from "@headlessui/vue"
 
 interface PropTypes {
@@ -21,6 +21,16 @@ const isCompleted = ref(false)
 const isLoading = ref(true) // Start with loading state
 const hasError = ref(false)
 const errorMessage = ref("")
+
+// Height management for smooth transitions
+const containerHeight = ref(500) // Default minimum height
+const q1Ref = ref<HTMLElement | null>(null)
+const q2Ref = ref<HTMLElement | null>(null)
+const q3Ref = ref<HTMLElement | null>(null)
+const loadingRef = ref<HTMLElement | null>(null)
+const errorRef = ref<HTMLElement | null>(null)
+const completedRef = ref<HTMLElement | null>(null)
+const invalidRef = ref<HTMLElement | null>(null)
 
 // Track selected answers for multi-select questions
 const selectedMultiAnswers = ref<Record<string, boolean>>({
@@ -118,9 +128,44 @@ const completeQuestionnaire = async () => {
 
   submitQuestionnaire({
     form: userAnswers.value,
-    context: useContextData()
+    context: useContextData()()
   })
 }
+
+// Function to update container height based on current view
+const updateContainerHeight = () => {
+  let currentHeight = 500 // Default minimum height
+
+  if (isLoading.value && loadingRef.value) {
+    currentHeight = loadingRef.value.scrollHeight + 20
+  } else if (!isValid.value && invalidRef.value) {
+    currentHeight = invalidRef.value.scrollHeight + 20
+  } else if (hasError.value && errorRef.value) {
+    currentHeight = errorRef.value.scrollHeight + 20
+  } else if (isCompleted.value && completedRef.value) {
+    currentHeight = completedRef.value.scrollHeight + 20
+  } else if (currentStep.value === 0 && q1Ref.value) {
+    currentHeight = q1Ref.value.scrollHeight + 60 // Added extra padding for back button
+  } else if (currentStep.value === 1 && q2Ref.value) {
+    currentHeight = q2Ref.value.scrollHeight + 60 // Added extra padding for back button
+  } else if (currentStep.value === 2 && q3Ref.value) {
+    currentHeight = q3Ref.value.scrollHeight + 60 // Added extra padding for back button
+  }
+
+  containerHeight.value = Math.max(currentHeight, 500)
+}
+
+// Watch for changes that would affect container height
+watch([currentStep, isLoading, isValid, isCompleted, hasError], () => {
+  // Longer delay to ensure DOM has updated
+  setTimeout(updateContainerHeight, 200)
+})
+
+// Watch for changes that would affect container height
+watch([currentStep, isLoading, isValid, isCompleted, hasError], () => {
+  // Small delay to ensure DOM has updated
+  setTimeout(updateContainerHeight, 50)
+})
 
 onMounted(() => {
   let lead_id = localStorage.getItem("lead_id")
@@ -131,7 +176,16 @@ onMounted(() => {
   setTimeout(() => {
     isValid.value = q_lead_id === lead_id
     isLoading.value = false
+
+    // Update container height after state changes
+    setTimeout(updateContainerHeight, 300)
   }, 500)
+
+  // Initial height calculation
+  window.addEventListener("resize", updateContainerHeight)
+
+  // Run height calculation after initial render
+  setTimeout(updateContainerHeight, 300)
 })
 </script>
 
@@ -161,13 +215,13 @@ onMounted(() => {
           enter-from="opacity-0"
           enter-to="opacity-100"
         >
-          <div class="text-left relative min-h-[500px]">
+          <div class="text-left relative" :style="{ height: `${containerHeight}px`, transition: 'height 0.3s ease' }">
             <!-- Loading state -->
             <TransitionRoot :show="isLoading">
               <div class="bg-primary p-3">
                 <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Loading your questionnaire...</h3>
               </div>
-              <div class="bg-slate-200 text-center text-neutral-800 py-8">
+              <div ref="loadingRef" class="text-center text-neutral-800 py-8">
                 <div class="flex justify-center mt-4">
                   <Icon name="eos-icons:three-dots-loading" class="h-24 w-24 py-32 text-slate-500" />
                 </div>
@@ -184,7 +238,7 @@ onMounted(() => {
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="absolute w-full z-10 bg-primary p-3">
+              <div class="w-full z-10 bg-primary p-3">
                 <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Questionnaire Unavailable</h3>
               </div>
               <div class="bg-slate-200 text-center text-neutral-800 py-8">
@@ -210,7 +264,7 @@ onMounted(() => {
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="absolute w-full z-10 bg-primary p-3">
+              <div class="w-full z-10 bg-primary p-3">
                 <h3 class="text-white font-bold flex items-center gap-1 text-2xl">
                   Question
                   <span class="w-10 h-10 rounded-full bg-[#78A7E9] flex items-center justify-center">
@@ -221,7 +275,7 @@ onMounted(() => {
               </div>
 
               <!-- Questions Area -->
-              <div class="bg-slate-200 text-center text-neutral-800 relative min-h-[400px]">
+              <div class="text-center text-neutral-800 relative">
                 <!-- Question 1: Self-employed -->
                 <TransitionRoot
                   :show="currentStep === 0"
@@ -232,7 +286,7 @@ onMounted(() => {
                   leave-from="transform opacity-100 translate-y-0"
                   leave-to="transform opacity-0 translate-y-4"
                 >
-                  <div class="px-4 py-6 absolute inset-0">
+                  <div ref="q1Ref" class="px-4 py-6 absolute inset-0">
                     <div class="flex justify-center items-center relative text-slate-900">
                       <h4 class="text-2xl font-bold px-2 py-10">Are you currently self-employed?</h4>
                       <div class="flex justify-center">
@@ -291,7 +345,7 @@ onMounted(() => {
                   leave-from="transform opacity-100 translate-y-0"
                   leave-to="transform opacity-0 translate-y-4"
                 >
-                  <div class="px-4 py-6 absolute inset-0">
+                  <div ref="q2Ref" class="px-4 py-6 absolute inset-0">
                     <div class="flex justify-center items-center relative text-slate-900">
                       <h4 class="text-2xl font-bold px-2 py-10">How much do you owe to the IRS?</h4>
                       <div class="flex justify-center">
@@ -357,7 +411,7 @@ onMounted(() => {
                     </div>
 
                     <!-- Navigation buttons -->
-                    <div class="flex justify-between px-8 py-4">
+                    <div class="flex justify-between px-8 py-4 mt-auto">
                       <button class="text-primary underline" @click="moveToPrevStep">Back</button>
                     </div>
                   </div>
@@ -373,7 +427,7 @@ onMounted(() => {
                   leave-from="transform opacity-100 translate-y-0"
                   leave-to="transform opacity-0 translate-y-4"
                 >
-                  <div class="px-4 py-6 absolute inset-0">
+                  <div ref="q3Ref" class="px-4 py-6 absolute inset-0">
                     <div class="flex justify-center items-center relative text-slate-900">
                       <h4 class="text-2xl font-bold px-2 py-10">Do any of the following apply to your situation?</h4>
                       <div class="flex justify-center">
@@ -510,7 +564,7 @@ onMounted(() => {
                     </div>
 
                     <!-- Navigation buttons -->
-                    <div class="flex justify-between px-8 py-4">
+                    <div class="flex justify-between px-8 py-4 mt-auto">
                       <button class="text-primary underline" @click="moveToPrevStep">Back</button>
                     </div>
                   </div>
@@ -531,7 +585,7 @@ onMounted(() => {
               <div class="absolute w-full z-10 bg-primary p-3">
                 <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Submitting your responses...</h3>
               </div>
-              <div class="bg-slate-200 text-center text-neutral-800 py-8">
+              <div ref="loadingRef" class="text-center text-neutral-800 py-8">
                 <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
                   <div class="flex justify-center mt-4">
                     <Icon name="eos-icons:three-dots-loading" class="h-24 w-24 py-32 text-slate-500" />
@@ -553,7 +607,7 @@ onMounted(() => {
               <div class="absolute w-full z-10 bg-primary p-3">
                 <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Error</h3>
               </div>
-              <div class="bg-slate-200 text-center text-neutral-800 py-8">
+              <div ref="errorRef" class="text-center text-neutral-800 py-8">
                 <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
                   <div class="flex justify-center mt-4">
                     <Icon name="ix:cloud-fail" class="h-20 w-20 text-black" />
@@ -581,7 +635,7 @@ onMounted(() => {
               <div class="absolute w-full z-10 bg-primary p-3">
                 <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Thank You</h3>
               </div>
-              <div class="bg-slate-200 text-center text-neutral-800 py-8">
+              <div ref="completedRef" class="text-center text-neutral-800 py-8">
                 <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
                   <div class="flex justify-center mt-4">
                     <Icon name="line-md:email-check" class="h-20 w-20 text-blue-700" />
