@@ -16,9 +16,8 @@ const props = defineProps<PropTypes>()
         :init="true"
         :pagination="{ type: 'progressbar' }"
         :navigation="{
-          enabled: false
+          enabled: true
         }"
-        :modules="[SwiperNavigation]"
         :breakpoints="{
           768: {
             navigation: {

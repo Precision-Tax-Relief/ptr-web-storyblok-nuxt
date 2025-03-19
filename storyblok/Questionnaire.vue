@@ -116,6 +116,7 @@ const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
 
     let resp = await response.json()
     console.log(resp)
+    // TODO change local storage now that form is completed
   } catch (error: any) {
     hasError.value = true
     errorMessage.value = error.message || "Failed to submit form"
