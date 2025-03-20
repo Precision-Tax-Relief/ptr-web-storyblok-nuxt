@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { PtrFooterStoryblok } from "~/types/component-types-sb"
+import { useBusinessHours } from "@/composables/useBusinessHours"
+// const { isBusinessOpen } = useBusinessHours()
 
 interface PropTypes {
   blok: PtrFooterStoryblok
@@ -38,15 +40,22 @@ const props = defineProps<PropTypes>()
             </p>
             <a
               class="flex-col mx-auto bg-green-500 hover:bg-green-600 py-3 px-8 hidden sm:inline-flex items-center justify-center gap-1 select-none rounded-sm lg:rounded-md"
-              href="#"
+              href="#contact"
+              v-if="true"
             >
               <span class="text-xl">Call us today:</span><strong class="text-4xl">1-844-229-6966</strong>
               <span>
-                <span class="underline text-2xl" href="#" data-click-name="ClickFtr - Form Scroll"
+                <span class="underline text-2xl" href="#contact" data-click-name="ClickFtr - Form Scroll"
                   >or fill out the form above</span
                 >
               </span>
             </a>
+            <a
+              class="flex-col mx-auto font-medium text-3xl bg-green-500 hover:bg-green-600 py-3 px-8 hidden sm:inline-flex items-center justify-center gap-1 select-none rounded-sm lg:rounded-md"
+              href="#"
+              v-else
+              >Get a Free Consultation</a
+            >
           </aside>
         </div>
         <div class="pb-16 sm:py-16 flex flex-wrap justify-center items-center gap-8">

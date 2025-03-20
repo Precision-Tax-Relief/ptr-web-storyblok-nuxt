@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import type { PTRDiscoverWhyStoryblok } from "~/types/component-types-sb"
-
 interface PropTypes {
-  blok: PTRDiscoverWhyStoryblok
+  blok: PtrDiscoverWhyStoryblok
 }
 
 const props = defineProps<PropTypes>()
@@ -21,7 +19,12 @@ const props = defineProps<PropTypes>()
       <ul class="justify-center flex flex-row flex-wrap items-center gap-x-20 gap-y-10 md:mx-auto my-8">
         <li>
           <div>
-            <NuxtPicture width="240" :src="blok.googleImg?.filename" :alt="blok.googleImg?.alt" loading="lazy" />
+            <NuxtPicture
+              width="240"
+              :src="blok.googleImg?.filename"
+              :alt="blok.googleImg?.alt ?? undefined"
+              loading="lazy"
+            />
             <div class="text-center mt-2">
               <!-- TODO fix broken link -->
               <a
@@ -107,28 +110,7 @@ const props = defineProps<PropTypes>()
 
       <PTRClientResults :bloks="blok.resultSlides" />
 
-      <div class="px-2 mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
-        <a
-          href="#page"
-          data-click-name="ClickBody - Form Scroll  Below What To Expect"
-          class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-6 py-3 hover:bg-green-600 lg:px-10 lg:py-6"
-        >
-          <Icon name="fa-solid:phone-alt" class="text-4xl sm:text-5xl text-white lg:text-6xl" />
-          <div class="col-span-3 flex flex-col justify-center text-left text-white">
-            <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
-            <p class="text-2xl sm:text-3xl font-bold md:text-4xl">(877) 635-2025</p>
-          </div></a
-        >
-        <div>
-          <a
-            class="activate-form text-neutral-500 underline"
-            href="#"
-            data-modal-open=""
-            data-click-name="ClickBodyM - Callback Form Modal Below What To Expect"
-            >or click here to request a call back</a
-          >
-        </div>
-      </div>
+      <PTRCallConsultationButton />
     </div>
   </div>
 </template>
