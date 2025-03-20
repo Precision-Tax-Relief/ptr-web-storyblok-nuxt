@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { PtrHeroStoryblok } from "~/types/component-types-sb"
 import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
+const { isBusinessOpen } = useBusinessHours()
 
 interface PropTypes {
   blok: PtrHeroStoryblok
@@ -12,7 +13,7 @@ const props = defineProps<PropTypes>()
 <template>
   <div class="bg-slate-100 py-16">
     <div class="px-0 sm:px-4 md:px-8 container">
-      <div class="lg:flex lg:flex-row gap-16 lg:items-start lg:justify-between">
+      <div class="flex flex-col lg:flex-row gap-16 lg:items-start lg:justify-between">
         <div>
           <div class="px-2 sm:px-0 mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
             <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10">
@@ -46,7 +47,7 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div class="shrink-0 basis-auto hidden md:block lg:grow-0 shadow-lg shadow-slate-300">
+        <div class="shrink-0 basis-auto lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
           <ContactForm />
         </div>
       </div>

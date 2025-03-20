@@ -109,10 +109,15 @@ const submitForm = async () => {
   localStorage.setItem("lead_id", resp.lead_id)
   await router.push({ path: "questionnaire", query: { form_id: resp.lead_id } })
 }
+const route = useRoute()
 </script>
 
 <template>
-  <div class="mx-auto">
+  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem]" id="contact">
+    <div
+      class="absolute inset-0 mt-28 bg-primaryLight -z-10 shadow-lg shadow-slate-300"
+      :class="{ 'scale-[1.02]': route.hash === '#contact' }"
+    />
     <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
       <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl">{{ title }}</h3>
     </div>

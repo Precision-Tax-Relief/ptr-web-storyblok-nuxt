@@ -40,12 +40,12 @@ const props = defineProps<PropTypes>()
             </p>
             <a
               class="flex-col mx-auto bg-green-500 hover:bg-green-600 py-3 px-8 hidden sm:inline-flex items-center justify-center gap-1 select-none rounded-sm lg:rounded-md"
-              href="#"
+              href="#contact"
               v-if="true"
             >
               <span class="text-xl">Call us today:</span><strong class="text-4xl">1-844-229-6966</strong>
               <span>
-                <span class="underline text-2xl" href="#" data-click-name="ClickFtr - Form Scroll"
+                <span class="underline text-2xl" href="#contact" data-click-name="ClickFtr - Form Scroll"
                   >or fill out the form above</span
                 >
               </span>

@@ -6,7 +6,7 @@ const { isBusinessOpen } = useBusinessHours()
 <template>
   <div v-if="isBusinessOpen" class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
     <a
-      href="#page"
+      href="#contact"
       data-click-name="ClickBody - Form Scroll  Below What To Expect"
       class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-6 py-3 hover:bg-green-600 lg:px-10 lg:py-6"
     >
@@ -19,7 +19,7 @@ const { isBusinessOpen } = useBusinessHours()
     <div>
       <a
         class="activate-form text-neutral-500 underline"
-        href="#"
+        href="#contact"
         data-modal-open=""
         data-click-name="ClickBodyM - Callback Form Modal Below What To Expect"
         >or click here to request a call back</a
@@ -28,7 +28,7 @@ const { isBusinessOpen } = useBusinessHours()
   </div>
   <div v-else class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
     <a
-      href="#"
+      href="#contact"
       data-click-name="ClickBody - Form Scroll  Below What To Expect"
       class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-4 py-2 hover:bg-green-600 lg:px-8 lg:py-5"
     >
