@@ -1,7 +1,7 @@
 // useBusinessHours.ts
 import { ref, computed, type ComputedRef, type Ref, onUnmounted } from "vue"
 
-// Function to determine if business is open at a specific date
+// Function to determine if business is open at a specific date. Used in testing
 export function isBusinessOpenAt(date: Date): boolean {
   // Get the current date in Pacific Time
   const pacificDate: Date = new Date(date.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }))
@@ -39,7 +39,7 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   const currentTime: Ref<Date> = ref(new Date())
 
   // Update the current time every minute
-  const timer: number = setInterval(() => {
+  const timer = setInterval(() => {
     currentTime.value = new Date()
   }, 60000) // 60,000 milliseconds = 1 minute
 
@@ -130,7 +130,7 @@ function getThanksgivingDay(year: number): Date {
   let date: Date = new Date(year, 10, day) // November (0-indexed)
   let thursdayCount: number = 0
 
-  while (thursdayCount < 4) {
+  while (thursdayCount < 4 && day < 32) {
     if (date.getDay() === 4) {
       // 4 = Thursday
       thursdayCount++
