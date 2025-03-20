@@ -38,14 +38,22 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   // Create a reactive reference for the current time
   const currentTime: Ref<Date> = ref(new Date())
 
-  // Update the current time every minute
-  const timer = setInterval(() => {
-    currentTime.value = new Date()
-  }, 60000) // 60,000 milliseconds = 1 minute
+  // Store the timer reference
+  let timer: number | null = null
+
+  // Setup the timer only on client-side
+  onMounted(() => {
+    // Update the current time every minute
+    timer = window.setInterval(() => {
+      currentTime.value = new Date()
+    }, 60000) // 60,000 milliseconds = 1 minute
+  })
 
   // Clean up the interval when the component is unmounted
   onUnmounted(() => {
-    clearInterval(timer)
+    if (timer !== null) {
+      clearInterval(timer)
+    }
   })
 
   // Compute whether the business is open based on current time
