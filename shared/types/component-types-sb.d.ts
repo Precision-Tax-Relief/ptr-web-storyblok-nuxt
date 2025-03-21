@@ -283,6 +283,8 @@ export interface FullPageHeroStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -414,6 +416,8 @@ export interface GetInTouchStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -463,6 +467,96 @@ export interface GetInTouchStoryblok {
   [k: string]: any;
 }
 
+export interface GlobalStoryblok {
+  global?: (
+    | AllArticlesStoryblok
+    | ArticleStoryblok
+    | ArticleCardStoryblok
+    | BannerStoryblok
+    | ButtonOutlineStoryblok
+    | CalloutContainerStoryblok
+    | CalloutItemStoryblok
+    | ChipButtonStoryblok
+    | ColumnTwoDividerStoryblok
+    | ContactCtaStoryblok
+    | ContactCtaItemStoryblok
+    | ContentCtaStoryblok
+    | ContentFloaterStoryblok
+    | ContentFloaterFigureStoryblok
+    | ContentFloaterFigureAnimatedStoryblok
+    | ContentImageStoryblok
+    | DividerStoryblok
+    | FaqStoryblok
+    | FaqItemStoryblok
+    | FeatureStoryblok
+    | FeaturesStoryblok
+    | FooterBlokStoryblok
+    | FooterLinkStoryblok
+    | FullPageHeroStoryblok
+    | GalleryStoryblok
+    | GalleryCustomStoryblok
+    | GalleryPanelStoryblok
+    | GalleryPreviewStoryblok
+    | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
+    | GridStoryblok
+    | HeaderBannerStoryblok
+    | HeroStoryblok
+    | HeroVideoStoryblok
+    | HomeFeaturesStoryblok
+    | HomeFeaturesPanelStoryblok
+    | HomeModelStoryblok
+    | HubSpotFormStoryblok
+    | IconLinkStoryblok
+    | IframeBlokStoryblok
+    | ImageCardStoryblok
+    | LayoutStoryblok
+    | ModelStatStoryblok
+    | NavBarStoryblok
+    | NavBarDropdownStoryblok
+    | NavBarDropdownLinkStoryblok
+    | NavBarLinkStoryblok
+    | NavBarMobileDisclosureStoryblok
+    | NavBarMobileDisclosureLinkStoryblok
+    | NavBarMobileLinkStoryblok
+    | PageStoryblok
+    | PictureContainerStoryblok
+    | PopularArticlesStoryblok
+    | PrimaryButtonStoryblok
+    | PtrCallToActionStoryblok
+    | PtrDiscoverWhyStoryblok
+    | PtrFooterStoryblok
+    | PtrHeaderStoryblok
+    | PtrHeroStoryblok
+    | QuestionnaireStoryblok
+    | SecondaryButtonStoryblok
+    | SelectHomeModelStoryblok
+    | SlideClientResultsStoryblok
+    | StandardContainerStoryblok
+    | StatDataStoryblok
+    | TabsVerticleFloaterStoryblok
+    | TabsVerticleFloaterTabStoryblok
+    | TeaserStoryblok
+    | TestimonialStoryblok
+    | TestimonialSliderStoryblok
+    | ThreeColumnStoryblok
+    | TitleBlokStoryblok
+    | YoutubeEmbedStoryblok
+  )[];
+  _uid: string;
+  component: "global";
+  uuid?: string;
+  [k: string]: any;
+}
+
+export interface GlobalReferenceStoryblok {
+  references?: any[];
+  _uid: string;
+  component: "GlobalReference";
+  [k: string]: any;
+}
+
 export interface GridStoryblok {
   columns?: (
     | AllArticlesStoryblok
@@ -494,6 +588,8 @@ export interface GridStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -598,6 +694,8 @@ export interface HeroVideoStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -703,6 +801,8 @@ export interface HomeModelStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -828,6 +928,8 @@ export interface LayoutStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -902,6 +1004,8 @@ export interface LayoutStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -1058,6 +1162,8 @@ export interface PageStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -1170,6 +1276,8 @@ export interface PtrDiscoverWhyStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok
@@ -1305,6 +1413,8 @@ export interface StandardContainerStoryblok {
     | GalleryPanelStoryblok
     | GalleryPreviewStoryblok
     | GetInTouchStoryblok
+    | GlobalStoryblok
+    | GlobalReferenceStoryblok
     | GridStoryblok
     | HeaderBannerStoryblok
     | HeroStoryblok

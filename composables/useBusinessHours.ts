@@ -18,8 +18,8 @@ export function isBusinessOpenAt(date: Date): boolean {
 
   // Convert hours and minutes to minutes since midnight
   const currentMinutes: number = hour * 60 + minute
-  const openMinutes: number = 7 * 60 // 7 AM
-  const closeMinutes: number = 18 * 60 // 6 PM
+  const openMinutes: number = 7 * 60 + 1 // 7 AM
+  const closeMinutes: number = 18 * 60 - 1 // 6 PM
 
   if (currentMinutes < openMinutes || currentMinutes >= closeMinutes) {
     return false // Outside business hours
