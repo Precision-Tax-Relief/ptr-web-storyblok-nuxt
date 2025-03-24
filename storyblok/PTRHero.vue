@@ -16,16 +16,8 @@ const props = defineProps<PropTypes>()
       <div class="flex flex-col lg:flex-row gap-16 lg:items-start lg:justify-between">
         <div>
           <div class="px-2 sm:px-0 mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
-            <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10">
-              BBB Approved <span class="md:whitespace-nowrap">Tax Attourney</span>
-            </h1>
-            <h3 class="text-xl md:text-3xl/8 font-normal">
-              <span>
-                Get <strong class="font-bold">Immediate</strong> Help with a
-                <strong class="font-bold">FREE</strong> Confidential Consultation from the BBB's
-                <strong class="whitespace-nowrap font-bold">#1 Rated Tax Relief Attorney</strong> in the US
-              </span>
-            </h3>
+            <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10" v-html="blok.header"></h1>
+            <h3 class="text-xl md:text-3xl/8 font-normal" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
             <NuxtImg

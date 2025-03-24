@@ -1352,6 +1352,8 @@ export interface PtrHeaderStoryblok {
 }
 
 export interface PtrHeroStoryblok {
+  header?: string;
+  subheader?: string;
   image: AssetStoryblok;
   _uid: string;
   component: "PTRHero";
