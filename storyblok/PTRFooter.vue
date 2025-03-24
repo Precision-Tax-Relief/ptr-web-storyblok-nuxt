@@ -63,18 +63,21 @@ const props = defineProps<PropTypes>()
           <NuxtPicture
             loading="lazy"
             src="https://a-us.storyblok.com/f/1023258/120x58/71e700f6c8/naea.webp"
+            alt="National Association of Enrolled Agents"
             width="120"
             height="58"
           />
           <NuxtPicture
             loading="lazy"
             src="https://a-us.storyblok.com/f/1023258/184x58/f890c5ffb6/aicpa.webp"
+            alt="American Institute of CPAs"
             width="184"
             height="58"
           />
           <NuxtPicture
             loading="lazy"
             src="https://a-us.storyblok.com/f/1023258/483x58/03376c781c/astps.webp"
+            alt="American Society of Tax Problem Solvers, A Non-Profit Professional Association"
             width="483"
             height="58"
           />

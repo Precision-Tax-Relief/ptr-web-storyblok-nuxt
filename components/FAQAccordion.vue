@@ -73,28 +73,29 @@ function leave(el: Element, done: () => void): void {
       </h5>
     </header>
 
-    <div class="mb-10 lg:max-w-3xl xl:max-w-4xl mx-auto" role="tablist" aria-live="polite">
+    <div class="mb-10 lg:max-w-3xl xl:max-w-4xl mx-auto">
       <HeadlessDisclosure
         v-for="(item, index) in items"
         :key="index"
         v-slot="{ open }"
-        as="article"
+        as="div"
         class="bg-white mb-3 overflow-hidden"
       >
         <div class="content">
           <HeadlessDisclosureButton
             class="relative rounded-xl flex gap-4 md:gap-8 items-center p-1 w-full transition-colors duration-300 hover:bg-neutralLight"
-            :aria-controls="`panel-${index}`"
+            :id="`accordion-button-${index}`"
             :aria-expanded="open"
+            :aria-controls="`accordion-panel-${index}`"
           >
-            <span class="flex items-center justify-center icon-faq">
+            <span class="flex items-center justify-center icon-faq" aria-hidden="true">
               <Icon
                 name="mdi:add-circle"
                 class="transform transition-transform duration-300 ease-in-out w-10 h-10 text-primaryDark"
                 :class="{ 'rotate-45': open }"
               />
             </span>
-            <h3 :id="`tab-${index}`" class="font-bold text-lg md:text-xl leading-normal text-primary text-left">
+            <h3 class="font-bold text-lg md:text-xl leading-normal text-primary text-left">
               {{ item.question }}
             </h3>
           </HeadlessDisclosureButton>
@@ -107,9 +108,11 @@ function leave(el: Element, done: () => void): void {
             @leave="leave"
             :css="false"
           >
-            <HeadlessDisclosurePanel :id="`panel-${index}`" role="tabpanel" :aria-labelledby="`tab-${index}`">
-              <div class="prose px-4 sm:px-8 md:max-w-full md:px-24" v-html="item.answer" />
-            </HeadlessDisclosurePanel>
+            <HeadlessDisclosurePanel
+              :id="`accordion-panel-${index}`"
+              class="prose px-4 sm:px-8 md:max-w-full md:px-24"
+              v-html="item.answer"
+            />
           </transition>
         </div>
       </HeadlessDisclosure>

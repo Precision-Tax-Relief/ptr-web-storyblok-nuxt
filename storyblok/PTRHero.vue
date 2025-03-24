@@ -31,10 +31,11 @@ const props = defineProps<PropTypes>()
             <NuxtPicture
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
+              :alt="blok.image.alt"
               :img-attrs="{
                 class: 'sm:m-2 w-full'
               }"
-              quality="75"
+              quality="70"
               format="webp"
               loading="eager"
               fetchpriority="high"
