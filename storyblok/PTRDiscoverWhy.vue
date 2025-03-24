@@ -66,6 +66,7 @@ const props = defineProps<PropTypes>()
                   border="0"
                   style="border: none"
                   alt="Trustpilot Stars"
+                  loading="lazy"
                 />
               </a>
               <img
@@ -73,6 +74,7 @@ const props = defineProps<PropTypes>()
                 src="https://emailsignature.trustpilot.com/newsletter/en-US/2/51eca7db00006400055e8023/text@2x.png"
                 border="0"
                 alt="TrustScore"
+                loading="lazy"
               />
             </div>
           </div>
