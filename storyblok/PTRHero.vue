@@ -73,6 +73,7 @@ const props = defineProps<PropTypes>()
               >
                 <NuxtImg
                   src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
+                  alt="BBB Torch Awards for Ethics 2023 Winner"
                   format="webp"
                   loading="eager"
                   width="131"
@@ -92,6 +93,7 @@ const props = defineProps<PropTypes>()
               >
                 <NuxtImg
                   src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
+                  alt="BBB Torch Awards for Ethics 2019 Winner"
                   format="webp"
                   loading="eager"
                   width="131"
@@ -106,6 +108,7 @@ const props = defineProps<PropTypes>()
             <div class="badge badge_google">
               <NuxtImg
                 src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
+                alt="BBB A+ Accredited Business"
                 format="webp"
                 loading="eager"
                 fetchpriority="high"
