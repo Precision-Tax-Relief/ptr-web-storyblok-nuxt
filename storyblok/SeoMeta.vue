@@ -26,3 +26,7 @@ if (props.blok.canonical_url) {
   }))
 }
 </script>
+
+<template>
+  <client-only></client-only>
+</template>
