@@ -35,7 +35,7 @@ const props = defineProps<PropTypes>()
               :img-attrs="{
                 class: 'sm:m-2 w-full'
               }"
-              quality="1"
+              quality="85"
               format="webp"
               loading="eager"
               fetchpriority="high"
