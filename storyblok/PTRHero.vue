@@ -36,6 +36,7 @@ const props = defineProps<PropTypes>()
                 class: 'sm:m-2 w-full'
               }"
               quality="85"
+              :placeholder="[50, 10, 25, 5]"
               format="webp"
               loading="eager"
               fetchpriority="high"
