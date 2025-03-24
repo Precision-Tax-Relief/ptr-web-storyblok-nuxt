@@ -28,19 +28,30 @@ const props = defineProps<PropTypes>()
             </h3>
           </div>
           <figure class="splash-thumb">
-            <NuxtPicture
+            <NuxtImg
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
               :alt="blok.image.alt"
-              :img-attrs="{
-                class: 'sm:m-2 w-full'
-              }"
-              quality="85"
-              :placeholder="[50, 10, 25, 5]"
+              class="sm:m-2 w-full"
+              quality="100"
+              :placeholder="[40, 10, 25]"
               format="webp"
               loading="eager"
               fetchpriority="high"
             />
+            <!--            <NuxtPicture-->
+            <!--              :modifiers="{ smart: true }"-->
+            <!--              :src="blok.image.filename"-->
+            <!--              :alt="blok.image.alt"-->
+            <!--              :img-attrs="{-->
+            <!--                class: 'sm:m-2 w-full'-->
+            <!--              }"-->
+            <!--              quality="85"-->
+            <!--              :placeholder="[50, 10, 25, 5]"-->
+            <!--              format="webp"-->
+            <!--              loading="eager"-->
+            <!--              fetchpriority="high"-->
+            <!--            />-->
             <figcaption
               class="text-pretty lg:leading-1 px-2 pb-0 pt-6 sm:px-0 text-center text-sm leading-normal text-[#666] lg:pt-2 lg:text-left xl:text-xl"
             >
