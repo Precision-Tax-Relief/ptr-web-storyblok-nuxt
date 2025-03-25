@@ -21,7 +21,7 @@ const props = defineProps<PropTypes>()
                 height="380"
                 :modifiers="{ smart: true }"
                 :src="blok.groupPhoto.filename"
-                :alt="blok.groupPhoto.alt"
+                :alt="blok.groupPhoto.alt ?? undefined"
                 loading="lazy"
                 :img-attrs="{
                   class: 'mx-auto'
@@ -43,7 +43,7 @@ const props = defineProps<PropTypes>()
               href="#contact"
               v-if="true"
             >
-              <span class="text-xl">Call us today:</span><strong class="text-4xl">1-844-229-6966</strong>
+              <span class="text-xl">Call us today:</span><strong class="text-4xl">1-855-444-7551</strong>
               <span>
                 <span class="underline text-2xl" href="#contact" data-click-name="ClickFtr - Form Scroll"
                   >or fill out the form above</span
@@ -52,7 +52,7 @@ const props = defineProps<PropTypes>()
             </a>
             <a
               class="flex-col mx-auto font-medium text-3xl bg-green-500 hover:bg-green-600 py-3 px-8 hidden sm:inline-flex items-center justify-center gap-1 select-none rounded-sm lg:rounded-md"
-              href="#"
+              href="#contact"
               v-else
               >Get a Free Consultation</a
             >
@@ -86,7 +86,7 @@ const props = defineProps<PropTypes>()
           <p>
             We will not rent, share, or sell your information I <a id="open-privacy-modal" href="#">Privacy Policy</a>
           </p>
-          <p>Contact us: Precision Tax Relief 1-844-229-6966 I Address: 233 E Locust Ave, Coeur d' Alene, ID 83814</p>
+          <p>Contact us: Precision Tax Relief 1-855-444-7551 I Address: 233 E Locust Ave, Coeur d' Alene, ID 83814</p>
           <p>Copyright 2025 Precision Tax Relief, LLC | All Rights Reserved</p>
         </div>
         <div id="disclaimers" class="text-slate-300 gap-2 flex flex-col text-xs py-4">

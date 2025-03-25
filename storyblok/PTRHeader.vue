@@ -31,13 +31,13 @@ const props = defineProps<PropTypes>()
         <div class="hidden md:block ml-auto">
           <span class="block text-right lg:text-lg uppercase text-slate-200">Get your FREE consultation now:</span>
           <strong class="phone"
-            ><p class="text-right font-bold text-white text-3xl lg:text-5xl">877-635-2025</p></strong
+            ><p class="text-right font-bold text-white text-3xl lg:text-5xl">855-444-7551</p></strong
           >
         </div>
         <div class="block md:hidden ml-auto">
           <a
             class="flex items-center gap-2 bg-green-500 hover:bg-green-600 rounded-md font-bold text-white uppercase text-base/5 sm:text-lg px-4 py-1"
-            href="tel:+18779091449"
+            href="tel:+18554447551"
             data-click-name="ClickHdr - Call Button"
           >
             <Icon name="fa-solid:phone-alt" class="text-2xl sm:text-xl text-white" />

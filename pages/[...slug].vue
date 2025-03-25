@@ -12,6 +12,13 @@ const story = await useAsyncStoryblok(slug && slug.length > 0 ? slug.join("/").r
   version: config.public.storyblokVersion,
   resolve_relations: "GlobalReference.references"
 })
+
+onMounted(() => {
+  const invoca = window?.Invoca
+  if (invoca != undefined) {
+    invoca.PNAPI.run()
+  }
+})
 </script>
 
 <template>
