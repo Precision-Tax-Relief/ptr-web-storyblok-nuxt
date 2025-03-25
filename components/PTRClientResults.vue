@@ -33,7 +33,12 @@ const props = defineProps<PropTypes>()
             <div class="flex items-center">
               <div class="flex md:items-center w-full justify-between py-4 px-6 flex-wrap flex-row gap-3 md:gap-6">
                 <figure>
-                  <NuxtPicture :src="client.profile.filename" loading="lazy" :img-attrs="{ class: 'h-12 w-12' }" />
+                  <NuxtPicture
+                    :src="client.profile.filename"
+                    :alt="client.profile.alt"
+                    loading="lazy"
+                    :img-attrs="{ class: 'h-12 w-12' }"
+                  />
                 </figure>
                 <div class="flex flex-col md:flex-row gap-x-8 gap-y-3">
                   <div class="user_title flex flex-col justify-center">

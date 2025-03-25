@@ -16,25 +16,23 @@ const props = defineProps<PropTypes>()
       <div class="flex flex-col lg:flex-row gap-16 lg:items-start lg:justify-between">
         <div>
           <div class="px-2 sm:px-0 mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
-            <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10">
-              BBB Approved <span class="md:whitespace-nowrap">Tax Attourney</span>
-            </h1>
-            <h3 class="text-xl md:text-3xl/8 font-normal">
-              <span>
-                Get <strong class="font-bold">Immediate</strong> Help with a
-                <strong class="font-bold">FREE</strong> Confidential Consultation from the BBB's
-                <strong class="whitespace-nowrap font-bold">#1 Rated Tax Relief Attorney</strong> in the US
-              </span>
-            </h3>
+            <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10" v-html="blok.header"></h1>
+            <h3 class="text-xl md:text-3xl/8 font-normal" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
-            <NuxtPicture
+            <NuxtImg
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
-              :img-attrs="{
-                class: 'sm:m-2 w-full'
-              }"
-              quality="75"
+              :alt="blok.image.alt"
+              class="sm:m-2 w-full"
+              quality="100"
+              width="1010"
+              height="275"
+              :placeholder="[202, 55, 35, 10]"
+              format="webp"
+              loading="eager"
+              fetchpriority="high"
+              preload
             />
             <figcaption
               class="text-pretty lg:leading-1 px-2 pb-0 pt-6 sm:px-0 text-center text-sm leading-normal text-[#666] lg:pt-2 lg:text-left xl:text-xl"
@@ -61,63 +59,55 @@ const props = defineProps<PropTypes>()
           <li class="mt-5 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
               <a
-                href="/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
+                href="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
                 target="_blank"
                 data-click-name="ClickG2 TorchAwards_Certificate_2023"
               >
-                <picture
-                  class="lozad m-0 h-auto w-[141px] lg:w-[200px]"
-                  data-iesrc="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2023.png"
-                  data-alt="Torch"
-                  data-loaded="true"
-                >
-                  <source
-                    srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2023.png"
-                    type="image/png" />
-                  <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2023.png" alt="Torch"
-                /></picture>
+                <NuxtImg
+                  src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
+                  alt="BBB Torch Awards for Ethics 2023 Winner"
+                  format="webp"
+                  loading="eager"
+                  width="131"
+                  height="90"
+                  fetchpriority="high"
+                  preload
+                ></NuxtImg>
               </a>
             </div>
           </li>
           <li class="mt-5 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
               <a
-                href="/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
+                href="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
                 target="_blank"
                 data-click-name="ClickG2 TorchAwards_Certificate_2019"
               >
-                <picture
-                  class="lozad m-0 h-auto w-[141px] lg:w-[200px]"
-                  data-iesrc="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2019.png"
-                  data-alt="Torch"
-                  data-loaded="true"
-                >
-                  <source
-                    srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2019.png"
-                    type="image/png" />
-                  <img src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/TAFE2019.png" alt="Torch"
-                /></picture>
+                <NuxtImg
+                  src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
+                  alt="BBB Torch Awards for Ethics 2019 Winner"
+                  format="webp"
+                  loading="eager"
+                  width="131"
+                  height="90"
+                  fetchpriority="high"
+                  preload
+                ></NuxtImg>
               </a>
             </div>
           </li>
           <li class="mt-5 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
-              <picture
-                class="lozad m-0 h-auto w-[100px] lg:w-[140px]"
-                data-iesrc="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/bbb-mobile.png"
-                data-alt="Torch"
-                data-loaded="true"
-              >
-                <source
-                  srcset="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/bbb-mobile.png"
-                  type="image/png"
-                />
-                <img
-                  class="m-0 h-auto w-[140px] lg:w-[200px]"
-                  src="//prod-taxattorney-bbb.azureedge.net/assets/images/shared/bbb-mobile.png"
-                  alt="Torch"
-                />
-              </picture>
+              <NuxtImg
+                src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
+                alt="BBB A+ Accredited Business"
+                format="webp"
+                loading="eager"
+                fetchpriority="high"
+                width="240"
+                height="60"
+                preload
+              ></NuxtImg>
             </div>
           </li>
         </ul>

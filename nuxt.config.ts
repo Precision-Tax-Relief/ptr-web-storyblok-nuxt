@@ -174,6 +174,25 @@ const config: NuxtConfig = {
   delayHydration: {
     mode: "init",
     debug: true
+  },
+  mazUi: {
+    injectCss: true,
+    injectAos: false,
+    injectUseToast: false,
+    injectUseWait: false,
+    injectUseThemeHandler: false,
+    injectUseIdleTimeout: false,
+    injectUseUserVisibility: false,
+    injectUseTimer: false,
+    injectUseWindowSize: false,
+    injectUseBreakpoints: false,
+    installVZoomImg: false,
+    installVClickOutside: false,
+    installVFullscreenImg: false,
+    installVLazyImg: false,
+    installVTooltip: false,
+    injectComponents: false,
+    defaultMazIconPath: false
   }
 }
 // sitemap: {

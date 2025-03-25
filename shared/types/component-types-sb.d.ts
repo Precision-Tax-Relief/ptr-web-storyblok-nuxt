@@ -317,6 +317,7 @@ export interface FullPageHeroStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -450,6 +451,7 @@ export interface GetInTouchStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -532,6 +534,7 @@ export interface GlobalStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -545,13 +548,13 @@ export interface GlobalStoryblok {
     | YoutubeEmbedStoryblok
   )[];
   _uid: string;
-  component: "global";
-  uuid?: string;
+  component: "Global";
   [k: string]: any;
 }
 
 export interface GlobalReferenceStoryblok {
-  references?: any[];
+  blok_label?: string;
+  references?: (StoryblokStory<GlobalStoryblok> | string)[];
   _uid: string;
   component: "GlobalReference";
   [k: string]: any;
@@ -622,6 +625,7 @@ export interface GridStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -728,6 +732,7 @@ export interface HeroVideoStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -835,6 +840,7 @@ export interface HomeModelStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -962,6 +968,7 @@ export interface LayoutStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -1038,6 +1045,7 @@ export interface LayoutStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -1196,6 +1204,7 @@ export interface PageStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -1310,6 +1319,7 @@ export interface PtrDiscoverWhyStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok
@@ -1342,6 +1352,8 @@ export interface PtrHeaderStoryblok {
 }
 
 export interface PtrHeroStoryblok {
+  header?: string;
+  subheader?: string;
   image: AssetStoryblok;
   _uid: string;
   component: "PTRHero";
@@ -1368,6 +1380,17 @@ export interface SelectHomeModelStoryblok {
   homeModels?: (StoryblokStory<HomeModelStoryblok> | string)[];
   _uid: string;
   component: "SelectHomeModel";
+  [k: string]: any;
+}
+
+export interface SeoMetaStoryblok {
+  title: string;
+  description: string;
+  image?: AssetStoryblok;
+  canonical_url?: string;
+  site_name?: string;
+  _uid: string;
+  component: "SeoMeta";
   [k: string]: any;
 }
 
@@ -1447,6 +1470,7 @@ export interface StandardContainerStoryblok {
     | QuestionnaireStoryblok
     | SecondaryButtonStoryblok
     | SelectHomeModelStoryblok
+    | SeoMetaStoryblok
     | SlideClientResultsStoryblok
     | StandardContainerStoryblok
     | StatDataStoryblok

@@ -3,6 +3,8 @@ import { ref, reactive } from "vue"
 import type { ContactAnswerInput, ContactApiResponse, ContactPayload, ServerErrorResponse } from "#shared/types/api"
 import { ContactApiResponseSchema, ContactFormSchema } from "#shared/utils/validators/contact"
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput"
+import MazInput from "maz-ui/components/MazInput"
+
 import { formatZodErrors } from "#shared/utils/validators/errorFormaters"
 
 // Props for the component
