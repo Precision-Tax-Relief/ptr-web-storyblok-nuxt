@@ -115,7 +115,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem]" id="contact">
+  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem] " id="contact">
     <div
       class="absolute inset-0 mt-28 bg-primaryLight -z-10 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"

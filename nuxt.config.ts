@@ -80,7 +80,7 @@ const config: NuxtConfig = {
       siteUrl: process.env.URL || "https://localhost:3000",
       storyblokVersion: process.env.STORYBLOK_VERSION || "published",
       // useGtm: process.env.NODE_ENV === "production",
-      useGtm: false,
+      useGtm: true,
       gtmId: process.env.GTM_ID
     }
   },

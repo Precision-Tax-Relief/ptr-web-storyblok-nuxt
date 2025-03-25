@@ -4,6 +4,15 @@ interface PropTypes {
 }
 
 const props = defineProps<PropTypes>()
+const isGoogleModalOpen = ref(false);
+
+const openGoogleModal = () => {
+  isGoogleModalOpen.value = true;
+};
+
+const closeGoogleModal = () => {
+  isGoogleModalOpen.value = false;
+};
 </script>
 
 <template>
@@ -29,14 +38,44 @@ const props = defineProps<PropTypes>()
               <!-- TODO fix broken link -->
               <a
                 id="open-google-modal"
-                href="#modal-google"
-                data-modal-open=""
+                href="javascript:void(0);"
+                @click="openGoogleModal"
                 data-click-name="ClickG2 - Google Modal"
                 class="border-b font-light text-lg text-stone-400 hover:border-b-2 border-stone-400"
                 >See all 261 Reviews</a
               >
             </div>
+            <div
+  v-if="isGoogleModalOpen"
+  id="google-modal"
+  class="modal flex fixed top-0 left-0 bottom-0 right-0 bg-[#000] bg-opacity-75 overflow-hidden text-center z-[200]"
+  @click="closeGoogleModal" 
+>
+  <div 
+    class="modal-inner relative w-[320px] h-[450px] lg:w-[650px] lg:h-[500px] m-auto inline-block align-middle overflow-y-scroll overflow-x-hidden lg:pl-10 pt-15 md:pt-0 bg-white"
+    @click.stop >
+    <a
+      id="google-modal-close"
+      @click="closeGoogleModal"
+      class="absolute top-0 right-0 bg-white p-5 shadow-md text-4xl font-bold cursor-pointer"
+    >
+      ×
+    </a>
+    <div class="modal-content text-left text-xl overflow-scroll xl:text-2xl leading-[19px]" id="modal-google">
+      <div id="google-reviews">
+        <iframe
+          style="width: 1px; min-width: 100%; height: 4854px; border: none; overflow: hidden;"
+          scrolling="no"
+          title="Reviews"
+          src="https://reviewsonmywebsite.com/embed/v2/Rs2PIdoOtwhniJ41516eQgEUrOjaGPQTCDSLMv7h3dgbNvbMCx"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
           </div>
+
         </li>
         <li>
           <div class="flex flex-col items-center">
@@ -115,4 +154,5 @@ const props = defineProps<PropTypes>()
       <PTRCallConsultationButton />
     </div>
   </div>
+  
 </template>

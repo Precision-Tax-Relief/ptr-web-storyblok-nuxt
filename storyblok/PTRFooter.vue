@@ -12,7 +12,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <footer v-editable="props.blok" class="bg-primaryDark pt-8 sm:pt-16">
-    <div class="container px-2 sm:px-8">
+    <div class="container px-2 sm:px-8 pb-0">
       <div class="lg:px-10">
         <div>
           <div class="mx-auto text-center">
@@ -109,4 +109,5 @@ const props = defineProps<PropTypes>()
       </div>
     </div>
   </footer>
+
 </template>
