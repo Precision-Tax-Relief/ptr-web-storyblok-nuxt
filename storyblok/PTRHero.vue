@@ -92,7 +92,7 @@ const props = defineProps<PropTypes>()
                   height="90"
                   fetchpriority="high"
                   preload
-                ></NuxtImg>
+                />
               </SegmentExternalLink>
             </div>
           </li>
