@@ -36,7 +36,6 @@ export function useContextData() {
       page_url: process.client ? window.location.href : undefined,
       referrer: process.client ? document.referrer : undefined,
       path: route.path,
-      tax_amount_id: 14,
       gclid: getSafeQueryParam("gclid"),
       msclkid: getSafeQueryParam("msclkid"),
       gbraid: getSafeQueryParam("gbraid"),

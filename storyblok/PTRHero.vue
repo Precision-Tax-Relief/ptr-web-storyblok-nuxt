@@ -58,10 +58,9 @@ const props = defineProps<PropTypes>()
           </li>
           <li class="mt-5 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
-              <a
-                href="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
-                target="_blank"
-                data-click-name="ClickG2 TorchAwards_Certificate_2023"
+              <SegmentExternalLink
+                to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
+                label="Torch Awards 2023 PDF"
               >
                 <NuxtImg
                   src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
@@ -73,15 +72,14 @@ const props = defineProps<PropTypes>()
                   fetchpriority="high"
                   preload
                 ></NuxtImg>
-              </a>
+              </SegmentExternalLink>
             </div>
           </li>
           <li class="mt-5 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
-              <a
-                href="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
-                target="_blank"
-                data-click-name="ClickG2 TorchAwards_Certificate_2019"
+              <SegmentExternalLink
+                to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
+                label="Torch Awards 2019 PDF"
               >
                 <NuxtImg
                   src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
@@ -92,8 +90,8 @@ const props = defineProps<PropTypes>()
                   height="90"
                   fetchpriority="high"
                   preload
-                ></NuxtImg>
-              </a>
+                />
+              </SegmentExternalLink>
             </div>
           </li>
           <li class="mt-5 flex flex-col items-center lg:mt-0">

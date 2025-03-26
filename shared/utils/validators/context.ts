@@ -6,7 +6,6 @@ export const ContextSchema = z.object({
   page_url: z.string().optional(),
   referrer: z.string().optional(),
   path: z.string().optional(),
-  tax_amount_id: z.number().optional(),
   gclid: z.string().optional(),
   msclkid: z.string().optional(),
   gbraid: z.string().optional(),

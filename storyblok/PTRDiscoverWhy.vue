@@ -93,28 +93,23 @@ const closeGoogleModal = () => {
               <path d="M307.17 293.328l-11.273-35.008-81.288 59.038 92.562-24.03z" fill="#005128" fill-rule="nonzero" />
             </svg>
             <div class="flex flex-col items-center gap-3">
-              <a
-                href="https://www.trustpilot.com/review/www.precisiontaxrelief.com?utm_medium=Trustbox&amp;utm_source=EmailSignature3"
-                target="_blank"
-                rel="noopener noreferrer"
-                style="text-decoration: none; text-underline: none"
+              <SegmentExternalLink
+                to="https://www.trustpilot.com/review/www.precisiontaxrelief.com?utm_medium=Trustbox&amp;utm_source=EmailSignature3"
+                label="Trustpilot Reviews"
               >
                 <img
                   width="220"
                   src="https://emailsignature.trustpilot.com/signature/en-US/3/51eca7db00006400055e8023/stars.png"
-                  border="0"
-                  style="border: none"
                   alt="Trustpilot Stars"
                   loading="lazy"
                 />
-              </a>
-              <img
-                width="220"
-                src="https://emailsignature.trustpilot.com/newsletter/en-US/2/51eca7db00006400055e8023/text@2x.png"
-                border="0"
-                alt="TrustScore"
-                loading="lazy"
-              />
+                <img
+                  width="220"
+                  src="https://emailsignature.trustpilot.com/newsletter/en-US/2/51eca7db00006400055e8023/text@2x.png"
+                  alt="TrustScore"
+                  loading="lazy"
+                />
+              </SegmentExternalLink>
             </div>
           </div>
         </li>
@@ -130,13 +125,12 @@ const closeGoogleModal = () => {
               />
             </svg>
             <div class="text-center">
-              <a
-                href="https://www.investopedia.com/the-best-tax-relief-companies-8786238"
-                target="_blank"
-                data-click-name="ClickG2 - Investopedia Modal"
+              <SegmentExternalLink
+                to="https://www.trustpilot.com/review/www.precisiontaxrelief.com?utm_medium=Trustbox&amp;utm_source=EmailSignature3"
+                label="Investopedia"
                 class="border-b text-xl text-stone-500 hover:border-b-2 border-stone-400"
-                >Ranked #1 Overall<br />Best Tax Relief Company</a
-              >
+                >Ranked #1 Overall<br />Best Tax Relief Company
+              </SegmentExternalLink>
             </div>
           </div>
         </li>
