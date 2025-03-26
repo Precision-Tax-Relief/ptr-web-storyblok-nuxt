@@ -165,13 +165,13 @@
                 </td>
               </tr>
               <tr class="bg-white">
-                <td class="p-4 text-left">Trust Pilot Rating</td>
+                <td class="p-4 text-left">Trustpilot Rating</td>
                 <td class="p-4 flex items-center gap-3 justify-center">
                   <Icon name="material-symbols:check" class="h-8 w-8 -m-1 text-[#5D9E61]" />
                   <span class="min-w-10">
                     <SegmentExternalLink
                       to="https://www.trustpilot.com/review/www.precisiontaxrelief.com"
-                      label="Chart Reference - Trust Pilot Rating"
+                      label="Chart Reference - Trustpilot Rating"
                       class="border-b-2 border-gray-300"
                       >5.0
                     </SegmentExternalLink>
@@ -180,7 +180,7 @@
                 <td class="p-4">
                   <SegmentExternalLink
                     to="https://www.trustpilot.com/review/optimataxrelief.com"
-                    label="Chart Reference - Trust Pilot Rating"
+                    label="Chart Reference - Trustpilot Rating"
                     class="border-b-2 border-gray-300"
                     >4.3
                   </SegmentExternalLink>
@@ -188,7 +188,7 @@
                 <td class="p-4">
                   <SegmentExternalLink
                     to="https://www.trustpilot.com/review/taxdefensenetwork.com"
-                    label="Chart Reference - Trust Pilot Rating"
+                    label="Chart Reference - Trustpilot Rating"
                     class="border-b-2 border-gray-300"
                     >3.4
                   </SegmentExternalLink>
@@ -196,7 +196,7 @@
                 <td class="p-4">
                   <SegmentExternalLink
                     to="https://www.trustpilot.com/review/anthemtaxservices.com"
-                    label="Chart Reference - Trust Pilot Rating"
+                    label="Chart Reference - Trustpilot Rating"
                     class="border-b-2 border-gray-300"
                     >4.1
                   </SegmentExternalLink>
