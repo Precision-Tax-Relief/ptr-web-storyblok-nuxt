@@ -200,6 +200,51 @@ const handleVisibilityChange = () => {
   }
 }
 
+// Track scroll position and direction
+const lastScrollTop = ref(0)
+const scrollingUp = ref(false)
+const scrollUpThreshold = 800
+const scrollUpDistance = ref(0)
+
+// Detect rapid upward scrolling (could indicate user is going to close tab)
+const handleScroll = () => {
+  if (hasShownPopup || hasCookie()) return
+
+  const st = window.pageYOffset || document.documentElement.scrollTop
+
+  // Check if we're scrolling up
+  if (st < lastScrollTop.value) {
+    scrollingUp.value = true
+    scrollUpDistance.value += lastScrollTop.value - st
+
+    // If user has scrolled up significantly and we're near the top
+    if (scrollUpDistance.value > scrollUpThreshold && st < 600) {
+      showPopup.value = true
+      hasShownPopup = true
+    }
+  } else {
+    // Reset when scrolling down
+    scrollingUp.value = false
+    scrollUpDistance.value = 0
+  }
+
+  lastScrollTop.value = st <= 0 ? 0 : st
+}
+
+// Detect back/forward button press or page unload
+const handleBeforeUnload = (e) => {
+  if (hasShownPopup || hasCookie()) return
+
+  // Show popup
+  showPopup.value = true
+  hasShownPopup = true
+
+  // Standard way to ask for confirmation before leaving
+  const message = "Are you sure you want to leave?"
+  e.returnValue = message // Standard for most browsers
+  return message // For older browsers
+}
+
 onMounted(() => {
   if (process.server) return
 
@@ -221,6 +266,10 @@ onMounted(() => {
       // Desktop exit intent detection
       document.addEventListener("mouseout", detectDesktopExitIntent)
     }
+
+    // Common handlers for both desktop and mobile
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    // window.addEventListener("beforeunload", handleBeforeUnload)
   }, props.initialDelay)
 })
 
