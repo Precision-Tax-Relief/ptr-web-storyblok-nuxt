@@ -36,10 +36,10 @@ const props = defineProps<PropTypes>()
           problem. We may even be able to <strong>help you resolve your issue for free.</strong>
         </template>
       </PTRCallToActionStep>
-      <PTRCallToActionStep hasCheck>
+      <PTRCallToActionStep hasCheck class="lg:translate-y-[-6px] ">
         <template v-slot:number> 3 </template>
         <template v-slot:header>
-          Get a transparent quote <br class="hidden sm:inline" />with affordable payments
+          Get a transparent quote <br class="hidden sm:inline"  />with affordable payments
         </template>
         <template v-slot:default>
           If your situation requires professional assistance, we'll provide you a transparent quote for our services
