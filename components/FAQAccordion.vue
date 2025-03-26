@@ -88,7 +88,7 @@ function leave(el: Element, done: () => void): void {
             :aria-expanded="open"
             :aria-controls="`accordion-panel-${index}`"
           >
-            <span class="flex items-center justify-center icon-faq" aria-hidden="true">
+            <span class="flex items-center justify-center" aria-hidden="true">
               <Icon
                 name="mdi:add-circle"
                 class="transform transition-transform duration-300 ease-in-out w-10 h-10 text-primaryDark"
