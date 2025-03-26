@@ -115,7 +115,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem] " id="contact">
+  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem]" id="contact">
     <div
       class="absolute inset-0 mt-28 bg-primaryLight -z-10 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
@@ -123,7 +123,7 @@ const route = useRoute()
     <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
       <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl">{{ title }}</h3>
     </div>
-    <div class="bg-white p-6">
+    <div class="bg-white px-4 py-6"> 
       <div id="main-form" class="main-form">
         <!-- Success message -->
         <div v-if="isSuccess" class="mb-6 rounded border-l-4 border-green-500 bg-green-100 p-4 text-green-700">
@@ -134,66 +134,68 @@ const route = useRoute()
         <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form onsubmit="return false;">
-          <!-- Name field -->
-          <div class="form-group mb-4">
-            <div class="relative">
-              <MazInput v-model="formData.name" label="Name" block :assistive-text="errors.name" :error="!!errors.name"
-                ><template #left-icon>
-                  <Icon name="fa-solid:user-alt" class="h-6 w-6 text-gray-300" />
-                </template>
-              </MazInput>
-            </div>
+        <form onsubmit="return false" class="space-y-2" > 
+          <!-- Name -->
+          <div class="form-group mb-2 ">
+            <MazInput
+              v-model="formData.name"
+              label="Name"
+              :assistive-text="errors.name"
+              :block="true"
+              :error="!!errors.name"
+              class="w-full mr-0" 
+            >
+              <template #left-icon>
+                <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
+              </template>
+            </MazInput>
           </div>
 
-          <!-- Phone field -->
-          <div class="form-group mb-4">
-            <div class="input-group_icon input-group_icon-phone relative">
-              <MazPhoneNumberInput
-                v-model="formData.phone"
-                country-code="US"
-                show-code-on-list
-                :preferred-countries="['US']"
-                :ignored-countries="['AC']"
-                :error="!!errors.phone"
-              />
-            </div>
+          <!-- Phone -->
+          <div class="form-group mb-2 ">
+            <MazPhoneNumberInput
+              country-code="US"
+              show-code-on-list
+              :preferred-countries="['US']"
+              :ignored-countries="['AC']"
+              :error="!!errors.phone"
+              :size="'lg'"
+              :phoneInputWidth="'100%'" 
+              :countrySelectorWidth="'80px'"
+              class="w-full mr-0" 
+            />
           </div>
 
-          <!-- Email field -->
-          <div class="form-group mb-6">
-            <div class="input-group_icon input-group_icon-email relative">
-              <MazInput
-                v-model="formData.email"
-                label="Email"
-                block
-                :assistive-text="errors.email"
-                :error="!!errors.email"
-                ><template #left-icon>
-                  <Icon name="fa-solid:envelope" class="h-6 w-6 text-gray-300" />
-                </template>
-              </MazInput>
-            </div>
+          <!-- Email -->
+          <div class="form-group mb-3">
+            <MazInput
+              v-model="formData.email"
+              label="Email"
+              :assistive-text="errors.email"
+              :error="!!errors.email"
+              class="w-full mr-0" 
+              :block="true"
+            >
+              <template #left-icon>
+                <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-300" />
+              </template>
+            </MazInput>
           </div>
 
-          <!-- Submit button -->
+          <!-- Submit -->
           <button
             id="btn-submit"
-            @click.prevent="submitForm"
-            class="w-full cursor-pointer rounded-sm bg-green-500 px-4 py-4 text-center font-sans text-xl font-bold tracking-wider text-white hover:bg-green-600 lg:rounded-md"
+            class="w-full rounded bg-green-500 px-3 py-2 text-lg font-bold text-white hover:bg-green-600"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
-            data-click-name="ClickForm - Submit"
           >
             <span v-if="isSubmitting">Sending...</span>
             <span v-else>{{ submitText }}</span>
           </button>
 
-          <!-- Phone number display -->
-          <div v-if="showPhoneNumber" class="form-summary mt-4 text-center">
-            <strong class="text-center text-2xl text-black" style="font-weight: bolder"
-              >or Call {{ phoneNumber }}</strong
-            >
+          <!-- Phone display -->
+          <div v-if="showPhoneNumber" class="mt-3 text-center text-lg font-bold text-black">
+            or Call {{ phoneNumber }}
           </div>
         </form>
       </div>
