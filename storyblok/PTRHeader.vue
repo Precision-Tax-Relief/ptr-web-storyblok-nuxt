@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { PtrHeaderStoryblok } from "~/types/component-types-sb"
+import { useSegment } from "~composables/useSegment"
 
 interface PropTypes {
   blok: PtrHeaderStoryblok
@@ -35,17 +36,16 @@ const props = defineProps<PropTypes>()
           >
         </div>
         <div class="block md:hidden ml-auto">
-          <a
+          <InvocaPhoneTrackingLink
             class="flex items-center gap-2 bg-green-500 hover:bg-green-600 rounded-md font-bold text-white uppercase text-base/5 sm:text-lg px-4 py-1"
-            href="tel:+18554447551"
-            data-click-name="ClickHdr - Call Button"
+            phone="+18554447551"
           >
             <Icon name="fa-solid:phone-alt" class="text-2xl sm:text-xl text-white" />
             <div class="flex flex-col sm:flex-row gap-x-1">
               <span>Call</span>
               <span>Now</span>
             </div>
-          </a>
+          </InvocaPhoneTrackingLink>
         </div>
       </div>
     </div>
