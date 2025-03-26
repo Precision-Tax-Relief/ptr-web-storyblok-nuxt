@@ -17,7 +17,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: "Set up your FREE Consultation",
+  title: "Set up your<br/>FREE Consultation",
   submitText: "Get My Free Consultation",
   phoneNumber: "1-877-635-2025",
   apiEndpoint: "/api/contact",
@@ -114,14 +114,14 @@ const submitForm = async () => {
 const route = useRoute()
 </script>
 
-<template>
-  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem]" id="contact">
+<template >
+  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem]" id="contact" style="width:78%">
     <div
       class="absolute inset-0 mt-28 bg-primaryLight -z-10 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
-    <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
-      <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl">{{ title }}</h3>
+    <div class="bg-secondary px-1 py-2 text-center font-bold text-white" >
+      <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl" v-html="title"></h3>
     </div>
     <div class="bg-white px-4 py-6"> 
       <div id="main-form" class="main-form">
@@ -131,19 +131,19 @@ const route = useRoute()
         </div>
 
         <!-- Error message -->
-        <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
+        <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700" >
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
         <form onsubmit="return false" class="space-y-2" > 
           <!-- Name -->
-          <div class="form-group mb-2 ">
+          <div class="form-group mb-2 " style="width:103%">
             <MazInput
               v-model="formData.name"
               label="Name"
               :assistive-text="errors.name"
               :block="true"
               :error="!!errors.name"
-              class="w-full mr-0" 
+              class="mr-0" 
             >
               <template #left-icon>
                 <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
@@ -152,28 +152,30 @@ const route = useRoute()
           </div>
 
           <!-- Phone -->
-          <div class="form-group mb-2 ">
+          <div class="form-group mb-2 " >
             <MazPhoneNumberInput
+              v-model="formData.phone"
               country-code="US"
               show-code-on-list
               :preferred-countries="['US']"
               :ignored-countries="['AC']"
               :error="!!errors.phone"
-              :size="'lg'"
-              :phoneInputWidth="'100%'" 
-              :countrySelectorWidth="'80px'"
-              class="w-full mr-0" 
+              :size="'md'"
+              v-bind:country-selector-width="'100%'"
+
+         
+
             />
           </div>
 
           <!-- Email -->
-          <div class="form-group mb-3">
+          <div class="form-group mb-5 " style="width:103% ;margin-bottom:10px">
             <MazInput
               v-model="formData.email"
               label="Email"
               :assistive-text="errors.email"
               :error="!!errors.email"
-              class="w-full mr-0" 
+
               :block="true"
             >
               <template #left-icon>
@@ -185,9 +187,13 @@ const route = useRoute()
           <!-- Submit -->
           <button
             id="btn-submit"
+            @click.prevent="submitForm"
+
             class="w-full rounded bg-green-500 px-3 py-2 text-lg font-bold text-white hover:bg-green-600"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
+            data-click-name="ClickForm - Submit"
+            
           >
             <span v-if="isSubmitting">Sending...</span>
             <span v-else>{{ submitText }}</span>
