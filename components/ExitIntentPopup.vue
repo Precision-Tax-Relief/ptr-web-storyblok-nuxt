@@ -141,7 +141,6 @@ const closePopup = () => {
 // Form submission handler
 const handleSubmit = () => {
   // Handle form submission logic here
-  console.log("Submitted:", { name: name.value, email: email.value })
   showPopup.value = false
   setCookie()
 }
@@ -203,24 +202,23 @@ const handleVisibilityChange = () => {
 
 onMounted(() => {
   if (process.server) return
-  showPopup.value = true
 
   // Skip if cookie exists
   if (hasCookie()) return
 
   // Initial delay before enabling exit intent
   setTimeout(() => {
-    const isMobile = detectMobileBrowser()
+    // const isMobile = detectMobileBrowser()
+    const isMobile = true
 
     if (isMobile) {
       // Mobile exit intent detection
-      document.addEventListener("touchstart", resetInactivityTimer)
-      document.addEventListener("touchmove", resetInactivityTimer)
+      // document.addEventListener("touchstart", resetInactivityTimer)
+      // document.addEventListener("touchmove", resetInactivityTimer)
       document.addEventListener("visibilitychange", handleVisibilityChange)
       resetInactivityTimer()
     } else {
       // Desktop exit intent detection
-      console.log("adding event listener")
       document.addEventListener("mouseout", detectDesktopExitIntent)
     }
   }, props.initialDelay)
