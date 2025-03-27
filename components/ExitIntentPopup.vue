@@ -147,8 +147,6 @@ const handleSubmit = () => {
 
 // Check if cookie exists to prevent showing popup repeatedly
 const hasCookie = () => {
-  // TODO remove this after testing
-  return false
   if (process.server) return false
   return document.cookie.split(";").some((c) => {
     return c.trim().startsWith("exitIntentShown=")
@@ -203,7 +201,7 @@ const handleVisibilityChange = () => {
 // Track scroll position and direction
 const lastScrollTop = ref(0)
 const scrollingUp = ref(false)
-const scrollUpThreshold = 800
+const scrollUpThreshold = 900
 const scrollUpDistance = ref(0)
 
 // Detect rapid upward scrolling (could indicate user is going to close tab)
@@ -218,7 +216,7 @@ const handleScroll = () => {
     scrollUpDistance.value += lastScrollTop.value - st
 
     // If user has scrolled up significantly and we're near the top
-    if (scrollUpDistance.value > scrollUpThreshold && st < 600) {
+    if (scrollUpDistance.value > scrollUpThreshold) {
       showPopup.value = true
       hasShownPopup = true
     }
@@ -231,20 +229,6 @@ const handleScroll = () => {
   lastScrollTop.value = st <= 0 ? 0 : st
 }
 
-// Detect back/forward button press or page unload
-const handleBeforeUnload = (e) => {
-  if (hasShownPopup || hasCookie()) return
-
-  // Show popup
-  showPopup.value = true
-  hasShownPopup = true
-
-  // Standard way to ask for confirmation before leaving
-  const message = "Are you sure you want to leave?"
-  e.returnValue = message // Standard for most browsers
-  return message // For older browsers
-}
-
 onMounted(() => {
   if (process.server) return
 
@@ -253,13 +237,12 @@ onMounted(() => {
 
   // Initial delay before enabling exit intent
   setTimeout(() => {
-    // const isMobile = detectMobileBrowser()
-    const isMobile = true
+    const isMobile = detectMobileBrowser()
 
     if (isMobile) {
       // Mobile exit intent detection
-      // document.addEventListener("touchstart", resetInactivityTimer)
-      // document.addEventListener("touchmove", resetInactivityTimer)
+      document.addEventListener("touchstart", resetInactivityTimer)
+      document.addEventListener("touchmove", resetInactivityTimer)
       document.addEventListener("visibilitychange", handleVisibilityChange)
       resetInactivityTimer()
     } else {
@@ -269,7 +252,6 @@ onMounted(() => {
 
     // Common handlers for both desktop and mobile
     window.addEventListener("scroll", handleScroll, { passive: true })
-    // window.addEventListener("beforeunload", handleBeforeUnload)
   }, props.initialDelay)
 })
 
