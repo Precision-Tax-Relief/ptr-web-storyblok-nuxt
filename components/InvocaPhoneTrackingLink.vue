@@ -3,13 +3,13 @@ import { ref } from "vue"
 import { useSegment } from "~/composables/useSegment"
 
 interface Props {
-  phone: string
+  phone?: string
   eventName?: string
   properties?: Record<string, any>
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  phone: "+18779091449",
+  phone: "+18554447551",
   eventName: "Telephone Clicked",
   properties: () => ({})
 })
@@ -50,7 +50,6 @@ const trackPhoneClick = (event: MouseEvent) => {
   segment.track(props.eventName, {
     click_url: currentHref,
     initial_phone_number: props.phone,
-    invoca_session: invocaSession,
     invoca_id: invocaId,
     phone_number: phoneNumber,
     invoca_phone: invocaPhone,
@@ -60,12 +59,7 @@ const trackPhoneClick = (event: MouseEvent) => {
 </script>
 
 <template>
-  <a
-    ref="phoneLink"
-    class="flex items-center gap-2 bg-green-500 hover:bg-green-600 rounded-md font-bold text-white uppercase text-base/5 sm:text-lg px-4 py-1"
-    :href="'tel:' + phone"
-    @click.capture="trackPhoneClick"
-  >
+  <a ref="phoneLink" :href="'tel:' + phone" @click.capture="trackPhoneClick">
     <slot />
   </a>
 </template>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { PtrFooterStoryblok } from "~/types/component-types-sb"
 import { useBusinessHours } from "@/composables/useBusinessHours"
-// const { isBusinessOpen } = useBusinessHours()
 
 interface PropTypes {
   blok: PtrFooterStoryblok
