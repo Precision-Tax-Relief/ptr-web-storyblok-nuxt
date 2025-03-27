@@ -56,6 +56,13 @@ const trackPhoneClick = (event: MouseEvent) => {
     ...props.properties
   })
 }
+
+onMounted(() => {
+  const invoca = window?.Invoca
+  if (invoca != undefined) {
+    invoca.PNAPI.run()
+  }
+})
 </script>
 
 <template>
