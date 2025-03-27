@@ -30,22 +30,20 @@ const props = defineProps<PropTypes>()
         </div>
         <div class="hidden md:block ml-auto">
           <span class="block text-right lg:text-lg uppercase text-slate-200">Get your FREE consultation now:</span>
-          <strong class="phone"
-            ><p class="text-right font-bold text-white text-3xl lg:text-5xl">877-635-2025</p></strong
-          >
+          <InvocaPhoneTrackingLink class="text-right font-bold text-white text-3xl lg:text-5xl">
+            855-444-7551
+          </InvocaPhoneTrackingLink>
         </div>
         <div class="block md:hidden ml-auto">
-          <a
+          <InvocaPhoneTrackingLink
             class="flex items-center gap-2 bg-green-500 hover:bg-green-600 rounded-md font-bold text-white uppercase text-base/5 sm:text-lg px-4 py-1"
-            href="tel:+18779091449"
-            data-click-name="ClickHdr - Call Button"
           >
             <Icon name="fa-solid:phone-alt" class="text-2xl sm:text-xl text-white" />
             <div class="flex flex-col sm:flex-row gap-x-1">
               <span>Call</span>
               <span>Now</span>
             </div>
-          </a>
+          </InvocaPhoneTrackingLink>
         </div>
       </div>
     </div>
