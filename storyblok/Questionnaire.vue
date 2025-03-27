@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue"
-import { TransitionRoot, TransitionChild } from "@headlessui/vue"
-
+import { ref, onMounted, watch } from "vue"
+import { TransitionRoot } from "@headlessui/vue"
 import type { QuestionnairePayloadInput, QuestionnaireAnswerInput } from "#shared/types/api"
+
 interface PropTypes {
   blok: QuestionnaireStoryblok
 }
@@ -256,7 +256,10 @@ onMounted(() => {
                 <h4 class="text-2xl leading-8 my-8 font-bold">This questionnaire is no longer available.</h4>
                 <p class="text-lg lg:text-xl leading-7 lg:leading-8">
                   It appears that this form has either already been submitted or the link is invalid. For immediate
-                  assistance, please <b>call us directly at <b>(877) 686-6539</b></b>
+                  assistance, please
+                  <InvocaPhoneTrackingLink class="font-bold">
+                    call us directly at (855) 444-7551
+                  </InvocaPhoneTrackingLink>
                   to speak with a tax specialist who can help with your situation.
                 </p>
               </div>
@@ -623,8 +626,10 @@ onMounted(() => {
                   <h4 class="text-2xl leading-8 my-8 font-bold">Oops! Sorry something went wrong.</h4>
                   <p class="text-lg lg:text-xl leading-7 lg:leading-8">
                     We were unable to process your submission due to a technical issue. For immediate assistance, please
-                    <b>call us directly at <b>(877) 686-6539</b></b> to speak with a tax specialist who can help with
-                    your situation. We apologize for the inconvenience.
+                    <InvocaPhoneTrackingLink class="font-bold">
+                      call us directly at (855) 444-7551
+                    </InvocaPhoneTrackingLink>
+                    to speak with a tax specialist who can help with your situation. We apologize for the inconvenience.
                   </p>
                 </div>
               </div>
@@ -652,7 +657,9 @@ onMounted(() => {
                   <p class="text-lg lg:text-xl leading-7 lg:leading-8">
                     This information will be used to assign you to the right tax specialist for your situation. If you
                     haven't already, <b> please respond to our text with the best time for us to reach you,</b> or call
-                    us now at <b>(877) 686-6539,</b> and speak with someone immediately.
+                    us now at
+                    <InvocaPhoneTrackingLink class="font-bold"> (855) 444-7551, </InvocaPhoneTrackingLink>
+                    and speak with someone immediately.
                   </p>
                 </div>
               </div>
@@ -664,7 +671,7 @@ onMounted(() => {
           <Icon name="mdi:shield-account" class="w-12 h-12 shrink-0 text-slate-600" />
           <p class="text-center text-slate-800">
             Your data is completely confidential. We will NEVER share your answers with 3rd parties. Please read our
-            <a class="underline decoration-1 decoration-black/50 open-privacy-modal" href="#">Privacy Policy</a>
+            <a class="underline decoration-1 decoration-black/50 open-privacy-modal" href="#contact">Privacy Policy</a>
             for more information.
           </p>
         </div>
