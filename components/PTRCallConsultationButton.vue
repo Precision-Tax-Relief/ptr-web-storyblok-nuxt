@@ -13,9 +13,9 @@ const { isBusinessOpen } = useBusinessHours()
       <Icon name="fa-solid:phone-alt" class="text-4xl sm:text-5xl text-white lg:text-6xl" />
       <div class="col-span-3 flex flex-col justify-center text-left text-white">
         <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
-        <p class="text-2xl sm:text-3xl font-bold md:text-4xl">(877) 635-2025</p>
-      </div></a
-    >
+        <p class="text-2xl sm:text-3xl font-bold md:text-4xl">(855) 444-7551</p>
+      </div>
+    </a>
     <div>
       <a
         class="activate-form text-neutral-500 underline"

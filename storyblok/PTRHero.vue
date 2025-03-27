@@ -59,6 +59,7 @@ const props = defineProps<PropTypes>()
           <li class="mt-5 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
               <SegmentExternalLink
+                eventName="PDF Clicked"
                 to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
                 label="Torch Awards 2023 PDF"
               >
@@ -78,6 +79,7 @@ const props = defineProps<PropTypes>()
           <li class="mt-5 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
               <SegmentExternalLink
+                eventName="PDF Clicked"
                 to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
                 label="Torch Awards 2019 PDF"
               >

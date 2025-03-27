@@ -19,7 +19,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   title: "Set up your<br/>FREE Consultation",
   submitText: "Get My Free Consultation",
-  phoneNumber: "1-877-635-2025",
+  phoneNumber: "1-855-444-7551",
   apiEndpoint: "/api/contact",
   showPhoneNumber: true
 })

@@ -73,16 +73,13 @@ export function useSegment(options: SegmentOptions = {}) {
 
   // Track an event
   const track = async (event: string, properties?: SegmentProperties): Promise<boolean> => {
-    console.log("track2")
     if (waitForLoad && !isLoaded.value) {
-      console.log("await analytics")
       isLoaded.value = await waitForAnalytics()
     }
 
     const analytics = getAnalytics()
     if (!analytics) return false
 
-    console.log("sending track")
     analytics.track(event, properties)
     return true
   }
