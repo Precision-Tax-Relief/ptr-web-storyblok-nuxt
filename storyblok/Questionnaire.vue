@@ -3,6 +3,7 @@ import { ref, computed, onMounted, watch } from "vue"
 import { TransitionRoot, TransitionChild } from "@headlessui/vue"
 
 import type { QuestionnairePayloadInput, QuestionnaireAnswerInput } from "#shared/types/api"
+import InvocaPhoneTrackingLink from "~/components/InvocaPhoneTrackingLink.vue";
 interface PropTypes {
   blok: QuestionnaireStoryblok
 }
@@ -256,7 +257,12 @@ onMounted(() => {
                 <h4 class="text-2xl leading-8 my-8 font-bold">This questionnaire is no longer available.</h4>
                 <p class="text-lg lg:text-xl leading-7 lg:leading-8">
                   It appears that this form has either already been submitted or the link is invalid. For immediate
-                  assistance, please <b>call us directly at <b>(855) 444-7551</b></b>
+                  assistance, please <b>call us directly at              <InvocaPhoneTrackingLink
+            class="flex items-center gap-2 bg-green-500 hover:bg-green-600 rounded-md font-bold text-white uppercase text-base/5 sm:text-lg px-4 py-1"
+            href="tel:+18779091449"
+            data-click-name="ClickHdr - Call Button"
+            phone="+18554447551"
+          > <b>(855) 444-7551</b></InvocaPhoneTrackingLink></b> 
                   to speak with a tax specialist who can help with your situation.
                 </p>
               </div>
@@ -623,7 +629,12 @@ onMounted(() => {
                   <h4 class="text-2xl leading-8 my-8 font-bold">Oops! Sorry something went wrong.</h4>
                   <p class="text-lg lg:text-xl leading-7 lg:leading-8">
                     We were unable to process your submission due to a technical issue. For immediate assistance, please
-                    <b>call us directly at <b>(855) 444-7551</b></b> to speak with a tax specialist who can help with
+                    <b>call us directly at           <InvocaPhoneTrackingLink
+            class="flex items-center gap-2 bg-green-500 hover:bg-green-600 rounded-md font-bold text-white uppercase text-base/5 sm:text-lg px-4 py-1"
+            href="tel:+18779091449"
+            data-click-name="ClickHdr - Call Button"
+            phone="+18554447551"
+          ><b>(855) 444-7551</b> </InvocaPhoneTrackingLink></b> to speak with a tax specialist who can help with
                     your situation. We apologize for the inconvenience.
                   </p>
                 </div>
@@ -652,7 +663,12 @@ onMounted(() => {
                   <p class="text-lg lg:text-xl leading-7 lg:leading-8">
                     This information will be used to assign you to the right tax specialist for your situation. If you
                     haven't already, <b> please respond to our text with the best time for us to reach you,</b> or call
-                    us now at <b>(855) 444-7551,</b> and speak with someone immediately.
+                    us now at           <InvocaPhoneTrackingLink
+            class="flex items-center gap-2 bg-green-500 hover:bg-green-600 rounded-md font-bold text-white uppercase text-base/5 sm:text-lg px-4 py-1"
+            href="tel:+18779091449"
+            data-click-name="ClickHdr - Call Button"
+            phone="+18554447551"
+          ><b>(855) 444-7551,</b></InvocaPhoneTrackingLink> and speak with someone immediately.
                   </p>
                 </div>
               </div>
