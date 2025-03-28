@@ -43,13 +43,20 @@ export const QuestionnairePayloadSchema = z.object({
   context: ContextSchema
 })
 
-export function validateQuestionnairePayload(data: unknown): QuestionnairePayloadOutput {
+export function validateQuestionnairePayload(data: unknown): {
+  validatedPayload: QuestionnairePayloadOutput
+  errors: any
+} {
   const result = QuestionnairePayloadSchema.safeParse(data)
 
+  let errors: false | object = false
   if (!result.success) {
-    const formattedErrors = formatZodErrors(result.error)
-    throw new Error(`Validation failed: ${JSON.stringify(formattedErrors)}`)
+    const errors = formatZodErrors(result.error)
+    console.log(`Validation failed: ${JSON.stringify(errors)}`)
   }
 
-  return result.data
+  return {
+    validatedPayload: result.data as QuestionnairePayloadOutput,
+    errors: errors
+  }
 }

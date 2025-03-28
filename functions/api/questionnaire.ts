@@ -15,21 +15,15 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
   }).on("error", console.error)
 
   try {
-    // Get request body as JSON
     const rawBody = await context.request.json()
 
-    // Validate the entire payload in one go
-    let validatedPayload: QuestionnairePayloadOutput
-
-    // TODO Refactor this to work like other endpoints
-    try {
-      validatedPayload = validateQuestionnairePayload(rawBody)
-    } catch (error) {
+    let { validatedPayload, errors } = validateQuestionnairePayload(rawBody)
+    if (errors !== false) {
       return jsonResponse(
         {
           success: false,
           message: "Validation failed",
-          errors: error instanceof Error ? error.message : "Unknown validation error"
+          errors: errors
         },
         400
       )

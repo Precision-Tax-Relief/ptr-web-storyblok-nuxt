@@ -11,7 +11,7 @@ const props = defineProps({
   // Time in milliseconds before showing popup on mobile due to inactivity
   mobileTimeout: {
     type: Number,
-    default: 15000
+    default: 20000
   },
   // Number of days to wait before showing the popup again
   cookieExpiration: {
@@ -53,7 +53,6 @@ const closePopup = () => {
 
 // Check if cookie exists
 const hasCookie = () => {
-  return false
   return !!exitIntentCookie.value
 }
 
@@ -260,7 +259,7 @@ onUnmounted(() => {
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-0 bg-gray-500/75 transition-opacity" />
+        <div class="fixed inset-0 z-10 bg-gray-500/75 transition-opacity" />
       </TransitionChild>
 
       <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
