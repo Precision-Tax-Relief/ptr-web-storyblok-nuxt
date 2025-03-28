@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue"
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue"
+import { ServerResponseSchema } from "#shared/utils/validators/apiResponse"
+import { EbookFormSchema } from "#shared/utils/validators/ebook"
+import { formatZodErrors } from "#shared/utils/validators/errorFormaters"
+import MazInput from "maz-ui/components/MazInput"
 const analytics = useSegment()
 
 const props = defineProps({
@@ -22,7 +26,7 @@ const props = defineProps({
 })
 
 const showPopup = ref(false)
-const inactivityTimer = ref(null)
+const inactivityTimer = ref<NodeJS.Timeout | undefined>(undefined)
 let hasShownPopup = false
 const formData = reactive<EbookFormInput>({
   name: "",
@@ -66,7 +70,7 @@ const setCookie = () => {
 }
 
 // Desktop exit intent detection
-const detectDesktopExitIntent = (e) => {
+const detectDesktopExitIntent = (e: MouseEvent) => {
   if (!hasShownPopup && !hasCookie() && e.clientY <= 0) {
     openPopup()
   }
@@ -129,6 +133,83 @@ const handleScroll = () => {
   lastScrollTop.value = st <= 0 ? 0 : st
 }
 
+// Form validation
+type errorsType = {
+  name?: string
+  email?: string
+}
+let errors: errorsType = reactive({})
+
+const validateForm = (): boolean => {
+  errors.name = undefined
+  errors.email = undefined
+
+  const result = EbookFormSchema.safeParse(formData)
+
+  if (!result.success) {
+    let zodErrors = formatZodErrors<typeof errors>(result.error)
+    console.log(zodErrors)
+    errors.name = zodErrors?.name
+    errors.email = zodErrors?.email
+    return false
+  }
+  return true
+}
+
+async function submitEbookForm(data: EbookPayloadInput): Promise<ServerResponse> {
+  try {
+    const response = await fetch("/api/ebook", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+
+    const jsonResponse = await response.json()
+
+    // Use safeParse instead of parse
+    const result = ServerResponseSchema.safeParse(jsonResponse)
+
+    if (result.data === undefined) throw new Error("Server returned empty response")
+
+    return result.data
+  } catch (error) {
+    // Handle any other errors (network errors, etc.)
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : "Unknown error occurred"
+    } satisfies ServerErrorResponse
+  }
+}
+
+const isSubmitting = ref(false)
+const isSuccess = ref(false)
+const errorMessage = ref<string>("")
+
+const submitForm = async () => {
+  if (!validateForm()) return
+
+  isSubmitting.value = true
+  isSuccess.value = false
+  errorMessage.value = ""
+
+  const contextData = useContextData()
+  const resp = await submitEbookForm({ form: formData, context: contextData() })
+
+  if (!resp.success) {
+    if (resp?.errors?.form && typeof resp.errors.form !== "string") {
+      errors = resp.errors.form
+    } else {
+      errorMessage.value = resp.message
+    }
+    isSubmitting.value = false
+    return
+  }
+
+  isSuccess.value = true
+}
+
 onMounted(() => {
   if (process.server) return
 
@@ -163,7 +244,7 @@ onUnmounted(() => {
   document.removeEventListener("touchstart", resetInactivityTimer)
   document.removeEventListener("touchmove", resetInactivityTimer)
   document.removeEventListener("visibilitychange", handleVisibilityChange)
-  window.removeEventListener("scroll", handleScroll, { passive: true })
+  window.removeEventListener("scroll", handleScroll)
 })
 </script>
 
@@ -215,7 +296,13 @@ onUnmounted(() => {
                   width="220"
                   height="276"
                 ></NuxtImg>
-                <div class="flex flex-col justify-center">
+                <div class="flex flex-col justify-center relative">
+                  <span
+                    class="z-10 opacity-0 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-opacity"
+                    :class="{ 'opacity-100': isSubmitting }"
+                  >
+                    <Icon name="line-md:loading-twotone-loop" class="size-16 rounded-full text-primary" />
+                  </span>
                   <div>
                     <div class="pr-8 text-lg">
                       <DialogTitle as="h3" class="text-lg font-semibold leading-6 text-gray-900">
@@ -226,31 +313,38 @@ onUnmounted(() => {
                   <div class="my-4">
                     <p class="text-sm text-gray-600">Get our Free DIY Guide to Resolving IRS Tax Problems</p>
                   </div>
-                  <form @submit.prevent="handleSubmit" class="mt-1">
+                  <form
+                    onsubmit="return false"
+                    class="mt-1 relative transition-opacity"
+                    :class="{ 'opacity-60': isSubmitting }"
+                  >
                     <div class="space-y-4">
                       <div>
                         <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
                         <div class="mt-2">
-                          <input
-                            type="text"
-                            id="name"
+                          <MazInput
                             v-model="formData.name"
-                            required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
-                            placeholder="Your name"
+                            type="text"
+                            :assistive-text="errors.name"
+                            :error="!!errors.name"
+                            :disabled="isSubmitting"
+                            size="sm"
+                            block
                           />
                         </div>
                       </div>
                       <div>
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                         <div class="mt-2">
-                          <input
-                            type="email"
-                            id="email"
+                          <MazInput
                             v-model="formData.email"
-                            required
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
-                            placeholder="you@example.com"
+                            label="you@example.com"
+                            type="email"
+                            :assistive-text="errors.email"
+                            :error="!!errors.email"
+                            :disabled="isSubmitting"
+                            size="sm"
+                            block
                           />
                         </div>
                       </div>
@@ -258,13 +352,22 @@ onUnmounted(() => {
                     <div class="mt-5">
                       <button
                         type="submit"
-                        class="inline-flex w-full justify-center rounded-md bg-primaryDark px-3 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        class="inline-flex w-full justify-center rounded-md bg-primaryDark px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        :class="{ 'hover:opacity-85': !isSubmitting }"
+                        @click.prevent="submitForm"
+                        :disabled="isSubmitting"
                       >
-                        Subscribe
+                        Submit
                       </button>
                     </div>
                     <div class="mt-3 text-center">
-                      <button type="button" class="text-sm text-gray-500 hover:text-gray-700" @click="closePopup">
+                      <button
+                        type="button"
+                        class="text-sm text-gray-500"
+                        :class="{ 'hover:text-gray-700': !isSubmitting }"
+                        @click="closePopup"
+                        :disabled="isSubmitting"
+                      >
                         No thanks
                       </button>
                     </div>

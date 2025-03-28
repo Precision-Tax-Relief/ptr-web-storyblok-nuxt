@@ -114,16 +114,16 @@ const submitForm = async () => {
 const route = useRoute()
 </script>
 
-<template >
-  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem]" id="contact" style="width:78%">
+<template>
+  <div class="mx-auto relative lg:block z-20 pt-28 -mt-28 max-w-[24.875rem]" id="contact" style="width: 78%">
     <div
       class="absolute inset-0 mt-28 bg-primaryLight -z-10 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
-    <div class="bg-secondary px-1 py-2 text-center font-bold text-white" >
+    <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
       <h3 class="m-0 py-2 text-center text-xl font-bold lg:text-xl" v-html="title"></h3>
     </div>
-    <div class="bg-white px-4 py-6"> 
+    <div class="bg-white px-4 py-6">
       <div id="main-form" class="main-form">
         <!-- Success message -->
         <div v-if="isSuccess" class="mb-6 rounded border-l-4 border-green-500 bg-green-100 p-4 text-green-700">
@@ -131,19 +131,19 @@ const route = useRoute()
         </div>
 
         <!-- Error message -->
-        <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700" >
+        <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form onsubmit="return false" class="space-y-2" > 
+        <form onsubmit="return false" class="space-y-2">
           <!-- Name -->
-          <div class="form-group mb-2 " style="width:103%">
+          <div class="form-group mb-2" style="width: 103%">
             <MazInput
               v-model="formData.name"
               label="Name"
               :assistive-text="errors.name"
               :block="true"
               :error="!!errors.name"
-              class="mr-0" 
+              class="mr-0"
             >
               <template #left-icon>
                 <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
@@ -152,7 +152,7 @@ const route = useRoute()
           </div>
 
           <!-- Phone -->
-          <div class="form-group mb-2 " >
+          <div class="form-group mb-2">
             <MazPhoneNumberInput
               v-model="formData.phone"
               country-code="US"
@@ -162,20 +162,16 @@ const route = useRoute()
               :error="!!errors.phone"
               :size="'md'"
               v-bind:country-selector-width="'100%'"
-
-         
-
             />
           </div>
 
           <!-- Email -->
-          <div class="form-group mb-5 " style="width:103% ;margin-bottom:10px">
+          <div class="form-group mb-5" style="width: 103%; margin-bottom: 10px">
             <MazInput
               v-model="formData.email"
               label="Email"
               :assistive-text="errors.email"
               :error="!!errors.email"
-
               :block="true"
             >
               <template #left-icon>
@@ -188,12 +184,10 @@ const route = useRoute()
           <button
             id="btn-submit"
             @click.prevent="submitForm"
-
             class="w-full rounded bg-green-500 px-3 py-2 text-lg font-bold text-white hover:bg-green-600"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
             data-click-name="ClickForm - Submit"
-            
           >
             <span v-if="isSubmitting">Sending...</span>
             <span v-else>{{ submitText }}</span>

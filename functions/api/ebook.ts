@@ -1,10 +1,11 @@
 import { Analytics } from "@segment/analytics-node"
+import { v4 as uuidv4 } from "uuid"
 import { validateEbookPayload } from "#shared/utils/validators/ebook"
 import jsonResponse from "#shared/utils/api/jsonResponse"
 
 /**
- * Handles form submission via Cloudflare Pages Functions
- * POST /api/contact
+ * Handles ebook form submission via Cloudflare Pages Functions
+ * POST /api/ebook
  */
 export async function onRequestPost(context: any) {
   // Initialize analytics inside the handler function
@@ -28,12 +29,20 @@ export async function onRequestPost(context: any) {
       )
     }
 
+    let anon_id = validatedPayload.context.anonymous_id
+    let extra_properties: any = {}
+    if (anon_id === undefined) {
+      anon_id = uuidv4()
+      extra_properties.analytics_no_load = true
+    }
+
     analytics.track({
-      anonymousId: validatedPayload.context.anonymous_id,
+      anonymousId: anon_id,
       event: "Ebook Form Filled",
       properties: {
         ...validatedPayload.form,
-        ...validatedPayload.context
+        ...validatedPayload.context,
+        ...extra_properties
       },
       context: {
         source: "cloudflare"
