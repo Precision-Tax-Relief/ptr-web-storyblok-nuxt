@@ -53,6 +53,7 @@ const closePopup = () => {
 
 // Check if cookie exists
 const hasCookie = () => {
+  return false
   return !!exitIntentCookie.value
 }
 
