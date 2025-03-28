@@ -34,16 +34,21 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
       )
     }
 
-    // Extract validated data
     const { form: validatedForm, context: validatedContext } = validatedPayload
 
-    // Generate or use provided anonymousId
-    const anonymousId = validatedPayload.anonymousId || uuidv4()
+    let anonymousId = validatedContext.anonymous_id
+    let analytics_no_load: undefined | true = undefined
+    if (anonymousId === undefined) {
+      anonymousId = uuidv4()
+      analytics_no_load = true
+    } else {
+      delete validatedPayload.context.anonymous_id
+    }
 
-    // Prepare properties for analytics
     const properties = {
       ...validatedForm,
-      ...validatedContext
+      ...validatedContext,
+      analytics_no_load
     }
 
     // Track the event
@@ -63,8 +68,7 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
     // Return success response
     return jsonResponse({
       success: true,
-      message: "Questionnaire submitted successfully",
-      questionnaire_id: anonymousId
+      message: "Questionnaire submitted successfully"
     })
   } catch (error) {
     console.error("Error processing questionnaire submission:", error)

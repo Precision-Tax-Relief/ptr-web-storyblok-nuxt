@@ -14,8 +14,7 @@ export const ContactFormSchema = z.object({
 // Define a schema for the request payload
 export const ContactPayloadSchema = z.object({
   form: ContactFormSchema,
-  context: ContextSchema,
-  anonymousId: z.string().uuid().optional()
+  context: ContextSchema
 })
 
 const ContactSuccessResponseSchema = z.object({

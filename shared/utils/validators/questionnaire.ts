@@ -40,8 +40,7 @@ export const QuestionnaireSchema = z.object({
 // Define a schema for the request payload
 export const QuestionnairePayloadSchema = z.object({
   form: QuestionnaireSchema,
-  context: ContextSchema,
-  anonymousId: z.string().uuid().optional()
+  context: ContextSchema
 })
 
 export function validateQuestionnairePayload(data: unknown): QuestionnairePayloadOutput {

@@ -7,7 +7,7 @@ import jsonResponse from "#shared/utils/api/jsonResponse"
  * Handles form submission via Cloudflare Pages Functions
  * POST /api/contact
  */
-export async function onRequestPost(context: any) {
+export async function onRequestPost(context: CloudflareContext) {
   // Initialize analytics inside the handler function
   const analytics = new Analytics({
     writeKey: context?.env?.ANALYTICS_KEY || ""
@@ -29,24 +29,29 @@ export async function onRequestPost(context: any) {
       )
     }
 
-    // Log form submission (for debugging purposes)
-    console.log("Validated Payload received:", validatedPayload)
-    const lead_id = uuidv4()
-    console.log("Lead ID Set to:", lead_id)
+    const { form: validatedForm, context: validatedContext } = validatedPayload
 
-    let anonymousId = validatedPayload?.anonymousId
+    let anonymousId = validatedContext.anonymous_id
+    const lead_id = uuidv4()
+    let analytics_no_load: undefined | true = undefined
     if (anonymousId === undefined) {
       anonymousId = lead_id
+      analytics_no_load = true
+    } else {
+      delete validatedPayload.context.anonymous_id
+    }
+
+    const properties = {
+      ...validatedForm,
+      ...validatedContext,
+      analytics_no_load,
+      lead_id
     }
 
     analytics.track({
-      anonymousId: anonymousId,
+      anonymousId,
       event: "Contact Form Filled",
-      properties: {
-        lead_id: lead_id,
-        ...validatedPayload.form,
-        ...validatedPayload.context
-      },
+      properties,
       context: {
         source: "cloudflare"
       }

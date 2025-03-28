@@ -7,7 +7,7 @@ import jsonResponse from "#shared/utils/api/jsonResponse"
  * Handles ebook form submission via Cloudflare Pages Functions
  * POST /api/ebook
  */
-export async function onRequestPost(context: any) {
+export async function onRequestPost(context: CloudflareContext) {
   // Initialize analytics inside the handler function
   const analytics = new Analytics({
     writeKey: context?.env?.ANALYTICS_KEY || ""
@@ -15,6 +15,8 @@ export async function onRequestPost(context: any) {
 
   try {
     const rawBody = await context.request.json()
+    console.log("ebook request")
+    console.log(JSON.stringify(rawBody, null, 2))
 
     let { validatedPayload, errors } = validateEbookPayload(rawBody)
 
@@ -29,21 +31,27 @@ export async function onRequestPost(context: any) {
       )
     }
 
-    let anon_id = validatedPayload.context.anonymous_id
-    let extra_properties: any = {}
-    if (anon_id === undefined) {
-      anon_id = uuidv4()
-      extra_properties.analytics_no_load = true
+    const { form: validatedForm, context: validatedContext } = validatedPayload
+
+    let anonymousId = validatedContext.anonymous_id
+    let analytics_no_load: undefined | true = undefined
+    if (anonymousId === undefined) {
+      anonymousId = uuidv4()
+      analytics_no_load = true
+    } else {
+      delete validatedPayload.context.anonymous_id
+    }
+
+    const properties = {
+      ...validatedForm,
+      ...validatedContext,
+      analytics_no_load
     }
 
     analytics.track({
-      anonymousId: anon_id,
+      anonymousId,
       event: "Ebook Form Filled",
-      properties: {
-        ...validatedPayload.form,
-        ...validatedPayload.context,
-        ...extra_properties
-      },
+      properties,
       context: {
         source: "cloudflare"
       }
