@@ -23,12 +23,11 @@ const props = defineProps<PropTypes>()
             <NuxtImg
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
-              :alt="blok.image.alt"
+              :alt="blok.image.alt ?? undefined"
               class="sm:m-2 w-full"
               quality="100"
               width="1010"
               height="275"
-              :placeholder="[202, 55, 35, 10]"
               format="webp"
               loading="eager"
               fetchpriority="high"
@@ -71,7 +70,6 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
-                  preload
                 ></NuxtImg>
               </SegmentExternalLink>
             </div>
@@ -91,7 +89,6 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
-                  preload
                 />
               </SegmentExternalLink>
             </div>
@@ -106,7 +103,6 @@ const props = defineProps<PropTypes>()
                 fetchpriority="high"
                 width="240"
                 height="60"
-                preload
               ></NuxtImg>
             </div>
           </li>

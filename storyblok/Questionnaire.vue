@@ -131,7 +131,7 @@ const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
 const completeQuestionnaire = async () => {
   isCompleted.value = true
 
-  submitQuestionnaire({
+  await submitQuestionnaire({
     form: userAnswers.value,
     context: useContextData()()
   })

@@ -1,14 +1,13 @@
-import { v4 as uuidv4 } from "uuid"
 import { Analytics } from "@segment/analytics-node"
+import { v4 as uuidv4 } from "uuid"
+import { validateEbookPayload } from "#shared/utils/validators/ebook"
 import jsonResponse from "#shared/utils/api/jsonResponse"
-import type { QuestionnairePayloadOutput } from "#shared/types/api"
-import { validateQuestionnairePayload } from "#shared/utils/validators/questionnaire"
 
 /**
- * Handles questionnaire submission via Cloudflare Pages Functions
- * POST /api/questionnaire
+ * Handles ebook form submission via Cloudflare Pages Functions
+ * POST /api/ebook
  */
-export async function onRequestPost(context: CloudflareContext): Promise<Response> {
+export async function onRequestPost(context: CloudflareContext) {
   // Initialize analytics inside the handler function
   const analytics = new Analytics({
     writeKey: context?.env?.ANALYTICS_KEY || ""
@@ -17,7 +16,8 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
   try {
     const rawBody = await context.request.json()
 
-    let { validatedPayload, errors } = validateQuestionnairePayload(rawBody)
+    let { validatedPayload, errors } = validateEbookPayload(rawBody)
+
     if (errors !== false) {
       return jsonResponse(
         {
@@ -46,34 +46,28 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
       analytics_no_load
     }
 
-    // Track the event
     analytics.track({
       anonymousId,
-      event: "Questionnaire Submitted",
+      event: "Ebook Form Filled",
       properties,
       context: {
         source: "cloudflare"
       }
     })
 
-    // Wait for analytics to flush
-    const flushPromise = analytics.flush({ close: true })
-    context.waitUntil(flushPromise)
+    await analytics.flush({ close: true })
 
-    // Return success response
     return jsonResponse({
       success: true,
-      message: "Questionnaire submitted successfully"
+      message: "Form submitted successfully"
     })
   } catch (error) {
-    console.error("Error processing questionnaire submission:", error)
+    console.error("Error processing form submission:", error)
 
-    // Return error response
     return jsonResponse(
       {
         success: false,
-        message: "Failed to process questionnaire submission",
-        error: error instanceof Error ? error.message : "Unknown error"
+        message: "Failed to process form submission"
       },
       500
     )

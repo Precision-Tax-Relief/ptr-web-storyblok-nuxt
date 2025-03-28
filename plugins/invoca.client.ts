@@ -1,4 +1,3 @@
-// plugins/invoca.client.ts
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook("app:created", () => {
     window.InvocaTagId = "2085/4188255346"

@@ -12,5 +12,6 @@ export const ContextSchema = z.object({
   utm_source: z.string().optional(),
   utm_medium: z.string().optional(),
   utm_campaign: z.string().optional(),
-  utm_content: z.string().optional()
+  utm_content: z.string().optional(),
+  mobile: z.boolean()
 })
