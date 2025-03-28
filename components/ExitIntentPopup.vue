@@ -1,4 +1,5 @@
-<script setup>
+<script setup lang="ts">
+import { ref, reactive } from "vue"
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue"
 const analytics = useSegment()
 
@@ -21,10 +22,12 @@ const props = defineProps({
 })
 
 const showPopup = ref(false)
-const name = ref("")
-const email = ref("")
 const inactivityTimer = ref(null)
 let hasShownPopup = false
+const formData = reactive<EbookFormInput>({
+  name: "",
+  email: ""
+})
 
 const openPopup = () => {
   analytics.track("Exit Popup Open")
@@ -40,8 +43,10 @@ const closePopup = () => {
 
 const handleSubmit = () => {
   // Handle form submission logic here
-  showPopup.value = false
-  setCookie()
+  console.log(formData)
+
+  // showPopup.value = false
+  // setCookie()
 }
 
 // Check if cookie exists to prevent showing popup repeatedly
@@ -63,8 +68,7 @@ const setCookie = () => {
 // Desktop exit intent detection
 const detectDesktopExitIntent = (e) => {
   if (!hasShownPopup && !hasCookie() && e.clientY <= 0) {
-    showPopup.value = true
-    hasShownPopup = true
+    openPopup()
   }
 }
 
@@ -74,8 +78,7 @@ const resetInactivityTimer = () => {
   clearTimeout(inactivityTimer.value)
   inactivityTimer.value = setTimeout(() => {
     if (!hasShownPopup && !hasCookie()) {
-      showPopup.value = true
-      hasShownPopup = true
+      openPopup()
     }
   }, props.mobileTimeout)
 }
@@ -88,8 +91,7 @@ const handleVisibilityChange = () => {
       "visibilitychange",
       () => {
         if (document.visibilityState === "visible" && !hasShownPopup) {
-          showPopup.value = true
-          hasShownPopup = true
+          openPopup()
         }
       },
       { once: true }
@@ -116,8 +118,7 @@ const handleScroll = () => {
 
     // If user has scrolled up significantly and we're near the top
     if (scrollUpDistance.value > scrollUpThreshold) {
-      showPopup.value = true
-      hasShownPopup = true
+      openPopup()
     }
   } else {
     // Reset when scrolling down
@@ -233,7 +234,7 @@ onUnmounted(() => {
                           <input
                             type="text"
                             id="name"
-                            v-model="name"
+                            v-model="formData.name"
                             required
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
                             placeholder="Your name"
@@ -246,7 +247,7 @@ onUnmounted(() => {
                           <input
                             type="email"
                             id="email"
-                            v-model="email"
+                            v-model="formData.email"
                             required
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
                             placeholder="you@example.com"
