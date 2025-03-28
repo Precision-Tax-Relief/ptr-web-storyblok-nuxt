@@ -40,17 +40,11 @@ const openPopup = () => {
 }
 
 const closePopup = () => {
-  analytics.track("Exit Popup Close")
+  if (!isSuccess.value) {
+    analytics.track("Exit Popup Close")
+  }
   showPopup.value = false
   setCookie()
-}
-
-const handleSubmit = () => {
-  // Handle form submission logic here
-  console.log(formData)
-
-  // showPopup.value = false
-  // setCookie()
 }
 
 // Check if cookie exists to prevent showing popup repeatedly
@@ -207,7 +201,9 @@ const submitForm = async () => {
     return
   }
 
+  isSubmitting.value = false
   isSuccess.value = true
+  setCookie()
 }
 
 onMounted(() => {
@@ -277,11 +273,13 @@ onUnmounted(() => {
             <DialogPanel
               class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-md sm:p-6 md:max-w-2xl"
             >
-              <div class="absolute right-0 top-0 pr-4 pt-4">
+              <div class="absolute right-0 top-0 pr-4 pt-4 z-10">
                 <button
                   type="button"
-                  class="rounded-md bg-white text-gray-400 hover:text-gray-500 flex focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2"
+                  class="rounded-md bg-white text-gray-400 flex focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2"
+                  :class="{ 'hover:text-gray-500': !isSubmitting }"
                   @click="closePopup"
+                  :disabled="isSubmitting"
                 >
                   <span class="sr-only">Close</span>
                   <Icon name="mdi:close" class="size-8" />
@@ -298,13 +296,13 @@ onUnmounted(() => {
                 ></NuxtImg>
                 <div class="flex flex-col justify-center relative">
                   <span
-                    class="z-10 opacity-0 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-opacity"
+                    class="z-10 opacity-0 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-opacity pointer-events-none"
                     :class="{ 'opacity-100': isSubmitting }"
                   >
                     <Icon name="line-md:loading-twotone-loop" class="size-16 rounded-full text-primary" />
                   </span>
                   <div>
-                    <div class="pr-8 text-lg">
+                    <div class="mr-8 text-lg">
                       <DialogTitle as="h3" class="text-lg font-semibold leading-6 text-gray-900">
                         Did you know that 90% of tax issues can be resolved without professional help?
                       </DialogTitle>
@@ -318,6 +316,21 @@ onUnmounted(() => {
                     class="mt-1 relative transition-opacity"
                     :class="{ 'opacity-60': isSubmitting }"
                   >
+                    <transition
+                      enter-active-class="transition ease-out duration-200"
+                      enter-from-class="opacity-0"
+                      enter-to-class="opacity-100"
+                    >
+                      <div
+                        v-if="isSuccess"
+                        class="absolute bg-white inset-0 z-20 flex flex-col gap-4 items-center justify-center pb-10"
+                      >
+                        <span class="p-2 rounded-full flex bg-primaryLight bg-opacity-40">
+                          <Icon name="line-md:email-check" class="size-10 text-primaryDark" />
+                        </span>
+                        <span class="text-lg font-semibold text-gray-900">Check your email to download the guide</span>
+                      </div>
+                    </transition>
                     <div class="space-y-4">
                       <div>
                         <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
