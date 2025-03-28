@@ -1,4 +1,5 @@
 import { ref, onMounted } from "vue"
+import { useSimpleContextData } from "~/composables/useSimpleContextData"
 
 interface SegmentProperties {
   [key: string]: any
@@ -80,6 +81,10 @@ export function useSegment(options: SegmentOptions = {}) {
     const analytics = getAnalytics()
     if (!analytics) return false
 
+    properties = {
+      ...properties,
+      ...useSimpleContextData()()
+    }
     analytics.track(event, properties)
     return true
   }
