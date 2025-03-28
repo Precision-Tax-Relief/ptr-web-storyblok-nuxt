@@ -165,7 +165,12 @@ async function submitEbookForm(data: EbookPayloadInput): Promise<ServerResponse>
     // Use safeParse instead of parse
     const result = ServerResponseSchema.safeParse(jsonResponse)
 
-    if (result.data === undefined) throw new Error("Server returned empty response")
+    if (!result.success) {
+      return {
+        success: false,
+        message: "Unexpected Server Response"
+      }
+    }
 
     return result.data
   } catch (error) {
@@ -310,6 +315,10 @@ onUnmounted(() => {
                   </div>
                   <div class="my-4">
                     <p class="text-sm text-gray-600">Get our Free DIY Guide to Resolving IRS Tax Problems</p>
+                  </div>
+
+                  <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
+                    <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
                   </div>
                   <form
                     onsubmit="return false"

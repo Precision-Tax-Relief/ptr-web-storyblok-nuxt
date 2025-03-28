@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { useBusinessHours } from "@/composables/useBusinessHours"
 const { isBusinessOpen } = useBusinessHours()
+onMounted(() => {
+  const invoca = window?.Invoca
+  if (invoca != undefined) {
+    invoca.PNAPI.run()
+  }
+})
 </script>
 
 <template>

@@ -15,8 +15,6 @@ export async function onRequestPost(context: CloudflareContext) {
 
   try {
     const rawBody = await context.request.json()
-    console.log("ebook request")
-    console.log(JSON.stringify(rawBody, null, 2))
 
     let { validatedPayload, errors } = validateEbookPayload(rawBody)
 

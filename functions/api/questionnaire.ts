@@ -21,6 +21,7 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
     // Validate the entire payload in one go
     let validatedPayload: QuestionnairePayloadOutput
 
+    // TODO Refactor this to work like other endpoints
     try {
       validatedPayload = validateQuestionnairePayload(rawBody)
     } catch (error) {
