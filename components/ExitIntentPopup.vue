@@ -33,6 +33,10 @@ const formData = reactive<EbookFormInput>({
   email: ""
 })
 
+const exitIntentCookie = useCookie("exitIntentShown", {
+  maxAge: props.cookieExpiration * 24 * 60 * 60 // One day expiration
+})
+
 const openPopup = () => {
   analytics.track("Exit Popup Open")
   showPopup.value = true
@@ -47,20 +51,14 @@ const closePopup = () => {
   setCookie()
 }
 
-// Check if cookie exists to prevent showing popup repeatedly
+// Check if cookie exists
 const hasCookie = () => {
-  if (process.server) return false
-  return document.cookie.split(";").some((c) => {
-    return c.trim().startsWith("exitIntentShown=")
-  })
+  return !!exitIntentCookie.value
 }
 
 // Set cookie when popup is closed
 const setCookie = () => {
-  if (process.server) return
-  const date = new Date()
-  date.setTime(date.getTime() + props.cookieExpiration * 24 * 60 * 1000) // One day timeout
-  document.cookie = `exitIntentShown=true; expires=${date.toUTCString()}; path=/`
+  exitIntentCookie.value = "true"
 }
 
 // Desktop exit intent detection
