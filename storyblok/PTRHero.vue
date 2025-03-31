@@ -12,10 +12,10 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="bg-slate-100 py-16">
-    <div class="px-0 sm:px-4 md:px-8 container max-w-7xl">
+    <div class="px-0 sm:px-4 md:px-8 container">
       <div class="flex flex-col lg:flex-row gap-16 lg:items-start lg:justify-between">
         <div>
-          <div class="px-2 sm:px-0 mb-8 lg:mx-auto lg:max-w-7xl text-center text-primary">
+          <div class="px-2 sm:px-0 mb-8 text-center text-primary">
             <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10" v-html="blok.header"></h1>
             <h3 class="text-xl md:text-3xl/8 font-normal" v-html="blok.subheader"></h3>
           </div>
@@ -44,7 +44,7 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div class="shrink-0 basis-auto lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
+        <div class="basis-[20rem] shrink-0 lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
           <ContactForm />
         </div>
       </div>

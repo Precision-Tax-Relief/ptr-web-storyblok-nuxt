@@ -65,18 +65,18 @@ export async function onRequestPost(context: CloudflareContext) {
       },
       context: {
         source: "cloudflare",
-        messaging_subscriptions: [
-          {
-            key: properties.phone,
-            type: "SMS",
-            status: "SUBSCRIBED"
-          },
-          {
-            key: properties.email,
-            type: "EMAIL",
-            status: "SUBSCRIBED"
-          }
-        ]
+        "messaging_subscriptions": [
+      {
+        "key": properties.phone,
+        "type": "SMS",
+        "status": "SUBSCRIBED"
+      },
+      {
+        "key": properties.email,
+        "type": "EMAIL",
+        "status": "SUBSCRIBED"
+      }
+    ],
       }
     })
 
