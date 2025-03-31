@@ -2,6 +2,7 @@
 import { ref, onMounted, watch } from "vue"
 import { TransitionRoot } from "@headlessui/vue"
 import type { QuestionnairePayloadInput, QuestionnaireAnswerInput } from "#shared/types/api"
+import { useLeadIdCookie } from "~/utils/cookies"
 
 interface PropTypes {
   blok: QuestionnaireStoryblok
@@ -114,9 +115,7 @@ const submitQuestionnaire = async (data: QuestionnairePayloadInput) => {
       throw new Error(errorData.message || "Something went wrong")
     }
 
-    let resp = await response.json()
-    console.log(resp)
-    // TODO change local storage now that form is completed
+    useLeadIdCookie().value = null
   } catch (error: any) {
     hasError.value = true
     errorMessage.value = error.message || "Failed to submit form"
@@ -173,7 +172,7 @@ watch([currentStep, isLoading, isValid, isCompleted, hasError], () => {
 })
 
 onMounted(() => {
-  let lead_id = localStorage.getItem("lead_id")
+  let lead_id = useLeadIdCookie().value
   const route = useRoute()
   let q_lead_id = route.query.form_id
 

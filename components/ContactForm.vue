@@ -4,6 +4,7 @@ import type { ContactAnswerInput, ContactApiResponse, ContactPayload, ServerErro
 import { ContactApiResponseSchema, ContactFormSchema } from "#shared/utils/validators/contact"
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput"
 import MazInput from "maz-ui/components/MazInput"
+import { useLeadIdCookie } from "~/utils/cookies"
 
 import { formatZodErrors } from "#shared/utils/validators/errorFormaters"
 
@@ -108,7 +109,8 @@ const submitForm = async () => {
   isSuccess.value = true
 
   const router = useRouter()
-  localStorage.setItem("lead_id", resp.lead_id)
+  const leadIdCookie = useLeadIdCookie()
+  leadIdCookie.value = resp.lead_id
   await router.push({ path: "questionnaire", query: { form_id: resp.lead_id } })
 }
 const route = useRoute()
