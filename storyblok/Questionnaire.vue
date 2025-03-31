@@ -216,7 +216,7 @@ onMounted(() => {
         <TransitionRoot
           appear
           :show="true"
-          enter="transition-opacity duration-300"
+          enter="transition-opacity duration-200"
           enter-from="opacity-0"
           enter-to="opacity-100"
         >
@@ -225,7 +225,7 @@ onMounted(() => {
             :style="{ height: `${containerHeight}px`, transition: 'height 0.3s ease' }"
           >
             <!-- Loading state -->
-            <TransitionRoot :show="isLoading">
+            <TransitionRoot :show="isLoading && !isCompleted">
               <div class="bg-primary p-3">
                 <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Loading your questionnaire...</h3>
               </div>
@@ -239,10 +239,10 @@ onMounted(() => {
             <!-- Invalid lead_id state -->
             <TransitionRoot
               :show="!isLoading && !isValid"
-              enter="transition-opacity duration-300 delay-200"
+              enter="transition-opacity duration-200 delay-200"
               enter-from="opacity-0"
               enter-to="opacity-100"
-              leave="transition-opacity duration-300"
+              leave="transition-opacity duration-200"
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
@@ -268,10 +268,10 @@ onMounted(() => {
             <!-- Active questionnaire -->
             <TransitionRoot
               :show="!isLoading && isValid && !isCompleted && !hasError"
-              enter="transition-opacity duration-300 delay-200"
+              enter="transition-opacity duration-200 delay-200"
               enter-from="opacity-0"
               enter-to="opacity-100"
-              leave="transition-opacity duration-300"
+              leave="transition-opacity duration-200"
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
@@ -290,7 +290,7 @@ onMounted(() => {
                 <!-- Question 1: Self-employed -->
                 <TransitionRoot
                   :show="currentStep === 0"
-                  enter="transition ease-out duration-300 delay-200"
+                  enter="transition ease-out duration-200 delay-200"
                   enter-from="transform opacity-0 translate-y-4"
                   enter-to="transform opacity-100 translate-y-0"
                   leave="transition ease-in duration-200"
@@ -349,7 +349,7 @@ onMounted(() => {
                 <!-- Question 2: Owe IRS -->
                 <TransitionRoot
                   :show="currentStep === 1"
-                  enter="transition ease-out duration-300 delay-200"
+                  enter="transition ease-out duration-200 delay-200"
                   enter-from="transform opacity-0 translate-y-4"
                   enter-to="transform opacity-100 translate-y-0"
                   leave="transition ease-in duration-200"
@@ -431,7 +431,7 @@ onMounted(() => {
                 <!-- Question 3: Your situation (Multi-select) -->
                 <TransitionRoot
                   :show="currentStep === 2"
-                  enter="transition ease-out duration-300 delay-200"
+                  enter="transition ease-out duration-200 delay-200"
                   enter-from="transform opacity-0 translate-y-4"
                   enter-to="transform opacity-100 translate-y-0"
                   leave="transition ease-in duration-200"
@@ -586,10 +586,10 @@ onMounted(() => {
             <!-- Submitting Screen-->
             <TransitionRoot
               :show="isLoading && isCompleted"
-              enter="transition-opacity duration-300 delay-200"
+              enter="transition-opacity duration-200 delay-200"
               enter-from="opacity-0"
               enter-to="opacity-100"
-              leave="transition-opacity duration-300"
+              leave="transition-opacity duration-200"
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
@@ -608,10 +608,10 @@ onMounted(() => {
             <!-- Error Screen-->
             <TransitionRoot
               :show="hasError"
-              enter="transition-opacity duration-300 delay-200"
+              enter="transition-opacity duration-200 delay-200"
               enter-from="opacity-0"
               enter-to="opacity-100"
-              leave="transition-opacity duration-300"
+              leave="transition-opacity duration-200"
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
@@ -638,10 +638,10 @@ onMounted(() => {
             <!-- Thank You / Completion Screen -->
             <TransitionRoot
               :show="isCompleted && !isLoading && !hasError"
-              enter="transition-opacity duration-300 delay-200"
+              enter="transition-opacity duration-200 delay-250"
               enter-from="opacity-0"
               enter-to="opacity-100"
-              leave="transition-opacity duration-300"
+              leave="transition-opacity duration-200"
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
