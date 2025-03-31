@@ -162,9 +162,8 @@ const config: NuxtConfig = {
     defer: true, // This improves performance by deferring script loading
     compatibility: true, // For SSR compatibility
     enabled: false, // This is enabled in the gtm.client.ts plug after page load
-    loadScript: true
-
-    // enableRouterSync: true, // Track page views automatically
+    loadScript: true,
+    enableRouterSync: true // Track page views automatically
   },
   future: {
     // Enable auto-imports in shared/utils/ and shared/types/

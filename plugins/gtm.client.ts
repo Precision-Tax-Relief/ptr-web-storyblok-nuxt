@@ -17,5 +17,17 @@ export default defineNuxtPlugin({
         }
       }, 150) // 2-second delay for better TBT - adjust as needed
     })
+    let isFirstLoad = true
+    nuxtApp.hook("page:finish", () => {
+      if (isFirstLoad) {
+        isFirstLoad = false
+        return
+      }
+      window.dataLayer = window.dataLayer || []
+      window.dataLayer.push({
+        event: "nuxtRouteChange",
+        "page.path": window.location.pathname
+      })
+    })
   }
 })

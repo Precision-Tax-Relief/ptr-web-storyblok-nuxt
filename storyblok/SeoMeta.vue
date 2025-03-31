@@ -15,16 +15,6 @@ useSeoMeta({
   ogUrl: props.blok.canonical_url,
   ogSiteName: props.blok.site_name
 })
-if (props.blok.canonical_url) {
-  useHead(() => ({
-    link: [
-      {
-        rel: "canonical",
-        href: props.blok.canonical_url
-      }
-    ]
-  }))
-}
 </script>
 
 <template>
