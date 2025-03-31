@@ -54,6 +54,23 @@ export async function onRequestPost(context: CloudflareContext) {
         source: "cloudflare"
       }
     })
+    analytics.identify({
+      anonymousId,
+      traits: {
+        name: properties.name,
+        email: properties.email
+      },
+      context: {
+        source: "cloudflare",
+        messaging_subscriptions: [
+          {
+            key: properties.email,
+            type: "EMAIL",
+            status: "SUBSCRIBED"
+          }
+        ]
+      }
+    })
 
     await analytics.flush({ close: true })
 
