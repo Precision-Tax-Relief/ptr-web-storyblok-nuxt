@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PtrFooterStoryblok } from "~/types/component-types-sb"
 import { useBusinessHours } from "@/composables/useBusinessHours"
-
+const { isBusinessOpen } = useBusinessHours()
 interface PropTypes {
   blok: PtrFooterStoryblok
 }
@@ -45,7 +45,7 @@ const props = defineProps<PropTypes>()
               <span class="text-xl">Call us today:</span><strong class="text-4xl">1-855-444-7551</strong>
               <span>
                 <span class="underline text-2xl" href="#contact" data-click-name="ClickFtr - Form Scroll"
-                  >or fill out the form above</span
+                :class="{ hidden: isBusinessOpen }">or fill out the form above</span
                 >
               </span>
             </a>
