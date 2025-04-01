@@ -115,7 +115,7 @@ const closeGoogleModal = () => {
         </li>
         <li class="mx-auto lg:mx-0">
           <div>
-            <svg class="mx-auto w-full" viewbox="0 0 574.04 89.64">
+            <svg class="mx-auto w-full" viewBox="0 0 574.04 89.64">
               <path fill="#323a56" d="M33.6 24.8l6.33 4-2.42 22.87L71.57 30.9a36 36 0 10-70.5 13.77z" />
               <path fill="#323a56" d="M34.64 63.21l-6.33-4 2.42-22.86L4.09 52.61a36 36 0 0067.53-12z" />
               <circle fill="#f64e00" cx="37.81" cy="16.42" r="5.09" />
