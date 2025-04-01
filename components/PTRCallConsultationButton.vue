@@ -22,9 +22,9 @@ onMounted(() => {
         <p class="text-2xl sm:text-3xl font-bold md:text-4xl">(855) 444-7551</p>
       </div>
     </a>
-    <div >
+    <div  :class="{ hidden: isBusinessOpen }">
       <a
-        :class="{ hidden: isBusinessOpen }"
+       
         class="activate-form text-neutral-500 underline"
         href="#contact"
         data-modal-open=""
