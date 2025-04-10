@@ -12,19 +12,19 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="bg-slate-100 py-16">
-    <div class="px-0 sm:px-4 md:px-8 container">
-      <div class="flex flex-col lg:flex-row gap-16 lg:items-start lg:justify-between">
+    <div class="container px-0 sm:px-4 md:px-8">
+      <div class="flex flex-col gap-16 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          <div class="px-2 sm:px-0 mb-8 text-center text-primary">
-            <h1 class="mb-12 text-4xl md:text-6xl font-bold tracking-wider lg:mb-10" v-html="blok.header"></h1>
-            <h3 class="text-xl md:text-3xl/8 font-normal" v-html="blok.subheader"></h3>
+          <div class="mb-8 px-2 text-center text-primary sm:px-0">
+            <h1 class="mb-12 text-4xl font-bold tracking-wider md:text-6xl lg:mb-10" v-html="blok.header"></h1>
+            <h3 class="text-xl font-normal md:text-3xl/8" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
             <NuxtImg
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
               :alt="blok.image.alt ?? undefined"
-              class="sm:m-2 w-full"
+              class="w-full sm:m-2"
               quality="100"
               width="1010"
               height="275"
@@ -34,7 +34,7 @@ const props = defineProps<PropTypes>()
               preload
             />
             <figcaption
-              class="text-pretty lg:leading-1 px-2 pb-0 pt-6 sm:px-0 text-center text-sm leading-normal text-[#666] lg:pt-2 lg:text-left xl:text-xl"
+              class="lg:leading-1 text-pretty px-2 pb-0 pt-6 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left xl:text-xl"
             >
               <p>
                 <strong>Precision Tax</strong>, under the leadership of Scott Gettis, Michele Mulkey, and Gene Haag,
@@ -44,12 +44,12 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div class="basis-[20rem] shrink-0 lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
-          <ContactForm />
+        <div class="shrink-0 basis-[20rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
+          <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
       </div>
-      <div class="px-3 sm:px-0 py-12">
-        <ul class="grid grid-cols-2 items-center justify-between max-w-xl mx-auto lg:max-w-full lg:flex">
+      <div class="px-3 py-12 sm:px-0">
+        <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
           <li class="flex flex-col items-center">
             <span class="text-center">
               <BBBTorchAwards />
@@ -108,7 +108,7 @@ const props = defineProps<PropTypes>()
           </li>
         </ul>
       </div>
-      <div class="pt-5 px-3 md:px-0 text-xl md:text-center xl:text-2xl">
+      <div class="px-3 pt-5 text-xl md:px-0 md:text-center xl:text-2xl">
         <h5 class="mb-5 text-center text-xl font-bold text-primary underline lg:hidden">Our promise:</h5>
         <p>
           <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax Relief

@@ -16,10 +16,10 @@ onMounted(() => {
       data-click-name="ClickBody - Form Scroll  Below What To Expect"
       class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-6 py-3 hover:bg-green-600 lg:px-10 lg:py-6"
     >
-      <Icon name="fa-solid:phone-alt" class="text-4xl sm:text-5xl text-white lg:text-6xl" />
+      <Icon name="fa-solid:phone-alt" class="text-4xl text-white sm:text-5xl lg:text-6xl" />
       <div class="col-span-3 flex flex-col justify-center text-left text-white">
         <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
-        <p class="text-2xl sm:text-3xl font-bold md:text-4xl">(855) 444-7551</p>
+        <p class="text-2xl font-bold sm:text-3xl md:text-4xl">(855) 444-7551</p>
       </div>
     </a>
     <div>
