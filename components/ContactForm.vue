@@ -198,6 +198,9 @@ const route = useRoute()
           <div v-if="showPhoneNumber" class="mt-3 text-center text-lg font-bold text-black">
             or Call {{ phoneNumber }}
           </div>
+          <div v-else class="mt-3 text-center text-black">
+            <strong> A licensed tax professional</strong> will contact you within <strong></strong>
+          </div>
         </form>
       </div>
     </div>
