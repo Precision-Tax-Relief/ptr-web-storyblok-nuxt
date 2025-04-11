@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { PtrFooterStoryblok } from "~/types/component-types-sb"
 import { useBusinessHours } from "@/composables/useBusinessHours"
+import MBG30Day from "~/assets/svg/30d-mbg.svg"
+
 const { isBusinessOpen } = useBusinessHours()
 interface PropTypes {
   blok: PtrFooterStoryblok
@@ -11,11 +13,11 @@ const props = defineProps<PropTypes>()
 
 <template>
   <footer v-editable="props.blok" class="bg-primaryDark pt-8 sm:pt-16">
-    <div class="container px-2 sm:px-8 pb-0">
+    <div class="container px-2 pb-0 sm:px-8">
       <div class="lg:px-10">
         <div>
           <div class="mx-auto text-center">
-            <figure class="flex items-center justify-center flex-col">
+            <figure class="flex flex-col items-center justify-center">
               <NuxtPicture
                 height="380"
                 :modifiers="{ smart: true }"
@@ -26,39 +28,22 @@ const props = defineProps<PropTypes>()
                   class: 'mx-auto'
                 }"
               />
-              <figcaption class="text-slate-300 text-lg font-light">
+              <figcaption class="text-lg font-light text-slate-300">
                 Our team consists of proven tax professionals that include CPAs, Tax Attorneys, and federally licensed
                 Enrolled Agents.
               </figcaption>
             </figure>
           </div>
-          <aside class="text-center text-white my-8">
-            <h4 class="font-bold text-3xl sm:text-4xl pb-3">If you have a tax problem, the time to act is now.</h4>
-            <p class="text-white text-lg sm:text-xl pb-4">
+          <aside class="my-8 text-center text-white">
+            <h4 class="pb-3 text-3xl font-bold sm:text-4xl">If you have a tax problem, the time to act is now.</h4>
+            <p class="pb-4 text-lg text-white sm:text-xl">
               Trust the experts at Precision Tax Relief to put it behind you for good.
             </p>
-            <a
-              class="flex-col mx-auto bg-green-500 hover:bg-green-600 py-3 px-8 hidden sm:inline-flex items-center justify-center gap-1 select-none rounded-sm lg:rounded-md"
-              href="#contact"
-              v-if="true"
-            >
-              <span class="text-xl">Call us today:</span><strong class="text-4xl">1-855-444-7551</strong>
-              <span>
-                <span class="underline text-2xl" href="#contact" data-click-name="ClickFtr - Form Scroll"
-                :class="{ hidden: isBusinessOpen }">or fill out the form above</span
-                >
-              </span>
-            </a>
-            <a
-              class="flex-col mx-auto font-medium text-3xl bg-green-500 hover:bg-green-600 py-3 px-8 hidden sm:inline-flex items-center justify-center gap-1 select-none rounded-sm lg:rounded-md"
-              href="#contact"
-              v-else
-              >Get a Free Consultation</a
-            >
+            <PTRCallConsultationButton :lighter_text="true" />
           </aside>
         </div>
-        <div class="pb-16 sm:py-16 flex flex-wrap justify-center items-center gap-8">
-          <span class="text-slate-300 uppercase shrink-0">Proud members of:</span>
+        <div class="hidden flex-wrap items-center justify-center gap-8 pb-16 sm:py-16 md:flex">
+          <span class="shrink-0 uppercase text-slate-300">Proud members of:</span>
           <NuxtPicture
             loading="lazy"
             src="https://a-us.storyblok.com/f/1023258/120x58/71e700f6c8/naea.webp"
@@ -81,14 +66,26 @@ const props = defineProps<PropTypes>()
             height="58"
           />
         </div>
-        <div class="text-center text-slate-400 text-sm mb-1">
+        <div class="mx-auto my-8 flex flex-col items-center gap-6 md:hidden">
+          <NuxtImg
+            src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
+            alt="BBB A+ Accredited Business"
+            format="webp"
+            loading="eager"
+            fetchpriority="high"
+            width="240"
+            height="60"
+          ></NuxtImg>
+          <MBG30Day width="240" class="max-w-full" />
+        </div>
+        <div class="mb-1 text-center text-sm text-slate-400">
           <p>
             We will not rent, share, or sell your information I <a id="open-privacy-modal" href="#">Privacy Policy</a>
           </p>
           <p>Contact us: Precision Tax Relief 1-855-444-7551 I Address: 233 E Locust Ave, Coeur d' Alene, ID 83814</p>
           <p>Copyright 2025 Precision Tax Relief, LLC | All Rights Reserved</p>
         </div>
-        <div id="disclaimers" class="text-slate-300 gap-2 flex flex-col text-xs py-4">
+        <div id="disclaimers" class="flex flex-col gap-2 py-4 text-xs text-slate-300">
           <p>
             [1] Precision Tax Relief is a registered trademark of Precision Tax Relief, LLC. All other trademarks, trade
             names, product names, logos, and brands are property of their respective owners. Use of these trademarks,
@@ -108,5 +105,4 @@ const props = defineProps<PropTypes>()
       </div>
     </div>
   </footer>
-
 </template>

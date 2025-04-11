@@ -7,6 +7,12 @@ onMounted(() => {
     invoca.PNAPI.run()
   }
 })
+
+interface PropTypes {
+  lighter_text?: Boolean
+}
+
+defineProps<PropTypes>()
 </script>
 
 <template>
@@ -24,7 +30,8 @@ onMounted(() => {
     </a>
     <div>
       <a
-        class="activate-form text-neutral-500 underline"
+        class="activate-form underline"
+        :class="{ 'text-neutral-500': !lighter_text, 'text-neutral-400': lighter_text }"
         href="#contact"
         data-modal-open=""
         data-click-name="ClickBodyM - Callback Form Modal Below What To Expect"
