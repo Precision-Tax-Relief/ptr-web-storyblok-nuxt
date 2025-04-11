@@ -138,7 +138,7 @@ const route = useRoute()
         </div>
         <form onsubmit="return false" class="space-y-2">
           <!-- Name -->
-          <div class="form-group mb-2" style="width: 103%">
+          <div class="mb-2">
             <MazInput
               v-model="formData.name"
               label="Name"
@@ -146,6 +146,7 @@ const route = useRoute()
               :block="true"
               :error="!!errors.name"
               class="mr-0"
+              :size="'md'"
             >
               <template #left-icon>
                 <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
@@ -154,26 +155,29 @@ const route = useRoute()
           </div>
 
           <!-- Phone -->
-          <div class="form-group mb-2">
+          <div>
             <MazPhoneNumberInput
+              class="w-full"
               v-model="formData.phone"
               country-code="US"
               show-code-on-list
               :preferred-countries="['US']"
               :error="!!errors.phone"
               :size="'md'"
-              v-bind:country-selector-width="'100%'"
+              countrySelectorWidth="7.75rem"
+              block
             />
           </div>
 
           <!-- Email -->
-          <div class="form-group mb-5" style="width: 103%; margin-bottom: 10px">
+          <div class="pb-2">
             <MazInput
               v-model="formData.email"
               label="Email"
               :assistive-text="errors.email"
               :error="!!errors.email"
               :block="true"
+              :size="'md'"
             >
               <template #left-icon>
                 <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-300" />
