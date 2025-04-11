@@ -117,9 +117,9 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="relative lg:block z-20 pt-28 -mt-28" id="contact">
+  <div class="relative z-20 -mt-28 pt-28 lg:block" id="contact">
     <div
-      class="absolute inset-0 mt-28 bg-primaryLight -z-10 shadow-lg shadow-slate-300"
+      class="absolute inset-0 -z-10 mt-28 bg-primaryLight shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
     <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
@@ -160,7 +160,6 @@ const route = useRoute()
               country-code="US"
               show-code-on-list
               :preferred-countries="['US']"
-              :ignored-countries="['AC']"
               :error="!!errors.phone"
               :size="'md'"
               v-bind:country-selector-width="'100%'"
@@ -198,6 +197,9 @@ const route = useRoute()
           <!-- Phone display -->
           <div v-if="showPhoneNumber" class="mt-3 text-center text-lg font-bold text-black">
             or Call {{ phoneNumber }}
+          </div>
+          <div v-else class="mt-3 text-center text-black">
+            <strong> A licensed tax professional</strong> will contact you within <strong></strong>
           </div>
         </form>
       </div>
