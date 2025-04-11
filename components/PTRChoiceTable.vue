@@ -1,35 +1,35 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="max-w-6xl mx-auto">
-    <h3 id="compare-title" class="font-bold text-primary text-3xl px-4 lg:px-0 mb-5">
+  <div class="mx-auto max-w-6xl">
+    <h3 id="compare-title" class="mb-5 px-4 text-3xl font-bold text-primary lg:px-0">
       Why Precision Tax Relief Is Trusted by the BBB Over Competitors
     </h3>
     <div>
       <div>
-        <div class="overflow-x-scroll border-b-2 pb-1 sm:border-b-0">
+        <div class="overflow-x-auto border-b-2 pb-1 sm:border-b-0">
           <table class="min-w-full">
-            <thead class="text-md text-white text-center">
+            <thead class="text-md text-center text-white">
               <tr>
                 <th
-                  class="bg-[#77A6E9] text-lg ease-in md:text-left p-2 uppercase border-e border-white min-w-64 w-1/3"
+                  class="w-1/3 min-w-64 border-e border-white bg-[#77A6E9] p-2 text-lg uppercase ease-in md:text-left"
                 >
                   <span class="flex items-center gap-3">
-                    <Icon name="material-symbols-light:verified-outline" class="h-11 w-11 -m-1" />
+                    <Icon name="material-symbols-light:verified-outline" class="-m-1 h-11 w-11" />
                     <span>The Choice is Clear</span>
                   </span>
                 </th>
-                <th class="min-w-36 w-1/6 bg-[#4A924D] p-2 border-e border-white">PRECISION TAX RELIEF</th>
-                <th class="min-w-36 w-1/6 bg-neutral-500 p-2 border-e border-white">OPTIMA TAX</th>
-                <th class="min-w-36 w-1/6 bg-neutral-500 p-2 border-e border-white">TAX DEFENSE NETWORK</th>
-                <th class="min-w-36 w-1/6 bg-neutral-500 p-2 border-e border-white">ANTHEM TAX SERVICES</th>
+                <th class="w-1/6 min-w-36 border-e border-white bg-[#4A924D] p-2">PRECISION TAX RELIEF</th>
+                <th class="w-1/6 min-w-36 border-e border-white bg-neutral-500 p-2">OPTIMA TAX</th>
+                <th class="w-1/6 min-w-36 border-e border-white bg-neutral-500 p-2">TAX DEFENSE NETWORK</th>
+                <th class="w-1/6 min-w-36 border-e border-white bg-neutral-500 p-2">ANTHEM TAX SERVICES</th>
               </tr>
             </thead>
-            <tbody id="rowColors" class="text-lg text-center">
+            <tbody id="rowColors" class="text-center text-lg">
               <tr class="bg-white">
                 <td class="p-4 text-left">BBB Rating</td>
-                <td class="p-4 gap-3 flex items-center justify-center">
-                  <Icon name="material-symbols:check" class="h-8 w-8 -m-1 text-[#5D9E61]" />
+                <td class="flex items-center justify-center gap-3 p-4">
+                  <Icon name="material-symbols:check" class="-m-1 h-8 w-8 text-[#5D9E61]" />
                   <span class="min-w-10">
                     <SegmentExternalLink
                       to="https://www.bbb.org/us/id/coeur-d-alene/profile/tax-consultant/precision-tax-relief-llc-1296-1000004284"
@@ -66,8 +66,8 @@
               </tr>
               <tr>
                 <td class="p-4 text-left">BBB Complaints</td>
-                <td class="p-4 flex items-center gap-3 justify-center">
-                  <Icon name="material-symbols:check" class="h-8 w-8 -m-1 text-[#5D9E61]" />
+                <td class="flex items-center justify-center gap-3 p-4">
+                  <Icon name="material-symbols:check" class="-m-1 h-8 w-8 text-[#5D9E61]" />
                   <span class="min-w-10">
                     <SegmentExternalLink
                       to="https://www.bbb.org/us/id/coeur-d-alene/profile/tax-consultant/precision-tax-relief-llc-1296-1000004284/complaints"
@@ -104,8 +104,8 @@
               </tr>
               <tr class="bg-white">
                 <td class="p-4 text-left">BBB Torch Award for Ethics</td>
-                <td class="p-4 flex items-center gap-3 justify-center">
-                  <Icon name="material-symbols:check" class="h-8 w-8 -m-1 text-[#5D9E61]" />
+                <td class="flex items-center justify-center gap-3 p-4">
+                  <Icon name="material-symbols:check" class="-m-1 h-8 w-8 text-[#5D9E61]" />
                   <span class="min-w-10">
                     <SegmentExternalLink
                       to="https://cdapress.com/news/2023/dec/24/precision-tax-receives-torch-award/"
@@ -128,8 +128,8 @@
               </tr>
               <tr>
                 <td class="p-4 text-left">Google Rating</td>
-                <td class="p-4 flex items-center gap-3 justify-center">
-                  <Icon name="material-symbols:check" class="h-8 w-8 -m-1 text-[#5D9E61]" />
+                <td class="flex items-center justify-center gap-3 p-4">
+                  <Icon name="material-symbols:check" class="-m-1 h-8 w-8 text-[#5D9E61]" />
                   <span class="min-w-10">
                     <SegmentExternalLink
                       to="https://www.google.com/maps/place/Precision+Tax+Relief/@47.6937866,-116.7832412,15z/data=!4m2!3m1!1s0x0:0x11a9c7e1bd2363cb?sa=X&amp;ved=2ahUKEwi1lZXlpvSEAxWAka8BHci7B6UQ_BJ6BAgTEAA&amp;hl=en&amp;gl=us"
@@ -166,8 +166,8 @@
               </tr>
               <tr class="bg-white">
                 <td class="p-4 text-left">Trustpilot Rating</td>
-                <td class="p-4 flex items-center gap-3 justify-center">
-                  <Icon name="material-symbols:check" class="h-8 w-8 -m-1 text-[#5D9E61]" />
+                <td class="flex items-center justify-center gap-3 p-4">
+                  <Icon name="material-symbols:check" class="-m-1 h-8 w-8 text-[#5D9E61]" />
                   <span class="min-w-10">
                     <SegmentExternalLink
                       to="https://www.trustpilot.com/review/www.precisiontaxrelief.com"
@@ -204,8 +204,8 @@
               </tr>
               <tr>
                 <td class="p-4 text-left">Experience</td>
-                <td class="p-4 flex items-center gap-3 justify-center">
-                  <Icon name="material-symbols:check" class="h-8 w-8 -m-1 text-[#5D9E61]" />
+                <td class="flex items-center justify-center gap-3 p-4">
+                  <Icon name="material-symbols:check" class="-m-1 h-8 w-8 text-[#5D9E61]" />
                   <span class="min-w-10">
                     <SegmentExternalLink
                       to="https://www.bbb.org/us/id/coeur-d-alene/profile/tax-consultant/precision-tax-relief-llc-1296-1000004284"
@@ -242,7 +242,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="text-right pr-4 mt-4">
+          <div class="mt-4 pr-4 text-right">
             <p class="text-lg text-gray-500">Last Update 02/14/2025<sup> [3]</sup></p>
           </div>
         </div>
