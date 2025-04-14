@@ -58,6 +58,7 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
 
   // Compute whether the business is open based on current time
   const isBusinessOpen: ComputedRef<boolean> = computed(() => {
+    return false
     return isBusinessOpenAt(currentTime.value)
   })
 
