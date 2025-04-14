@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { PtrFooterStoryblok } from "~/types/component-types-sb"
-import { useBusinessHours } from "@/composables/useBusinessHours"
-import MBG30Day from "~/assets/svg/30d-mbg.svg"
+import MBG30 from "~/components/svg/MBG30.vue"
 
-const { isBusinessOpen } = useBusinessHours()
 interface PropTypes {
   blok: PtrFooterStoryblok
 }
@@ -76,7 +74,7 @@ const props = defineProps<PropTypes>()
             width="240"
             height="60"
           ></NuxtImg>
-          <MBG30Day width="240" class="max-w-full" />
+          <MBG30 width="240" class="max-w-full" />
         </div>
         <div class="mb-1 text-center text-sm text-slate-400">
           <p>

@@ -53,7 +53,6 @@ const config: NuxtConfig = {
     "@zadigetvoltaire/nuxt-gtm",
     "maz-ui/nuxt",
     "nuxt-delay-hydration",
-    "nuxt-svgo",
     [
       "@storyblok/nuxt",
       {
