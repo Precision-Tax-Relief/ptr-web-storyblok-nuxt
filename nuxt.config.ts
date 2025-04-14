@@ -149,12 +149,11 @@ const config: NuxtConfig = {
     }
   },
   googleFonts: {
-    display: "swap",
     prefetch: true,
     preconnect: true,
     preload: true,
     families: {
-      // Your fonts here
+      "Open Sans": true
     }
   },
   gtm: {
