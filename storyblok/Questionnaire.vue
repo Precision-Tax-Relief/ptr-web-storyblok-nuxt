@@ -195,17 +195,19 @@ onMounted(() => {
 
 <template>
   <div v-editable="props.blok" class="py-16">
-    <div class="px-0 sm:px-4 md:px-8 pb-16 mx-auto container text-center">
-      <h1 class="text-3xl md:text-4xl text-primary font-bold">Thank you for trusting Precision Tax Relief!</h1>
+    <div class="container mx-auto pb-16 text-center sm:px-4 md:px-8">
+      <h1 class="text-3xl font-bold text-primary md:text-4xl">Thank you for trusting Precision Tax Relief!</h1>
       <p class="mt-4 text-xl md:text-2xl">
         In the next 2 minutes, you'll receive a text from us.<br />Please respond with the best time for us to reach
         you.
       </p>
     </div>
 
-    <section class="container mx-auto">
-      <div class="mx-auto max-w-4xl text-center bg-neutral-100 border border-primaryLight rounded-md p-8">
-        <p class="text-xl mb-8">
+    <section class="container mx-auto bg-neutral-100 px-0 md:bg-white md:py-8">
+      <div
+        class="mx-auto max-w-4xl border-y border-primaryLight bg-neutral-100 py-6 text-center md:rounded-md md:border md:p-8"
+      >
+        <p class="mb-8 px-6 text-xl md:px-0">
           Our team of 50+ specialized experts includes CPAs, tax attorneys, and enrolled agents. To
           <b>save you time</b> and ensure you <b>get the most personalized solution,</b> answer 3 simple questions; it
           takes 30 seconds.
@@ -220,16 +222,16 @@ onMounted(() => {
           enter-to="opacity-100"
         >
           <div
-            class="bg-slate-200 text-left relative"
+            class="relative bg-slate-200 text-left"
             :style="{ height: `${containerHeight}px`, transition: 'height 0.3s ease' }"
           >
             <!-- Loading state -->
             <TransitionRoot :show="isLoading && !isCompleted">
               <div class="bg-primary p-3">
-                <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Loading your questionnaire...</h3>
+                <h3 class="flex items-center gap-1 text-2xl font-bold text-white">Loading your questionnaire...</h3>
               </div>
-              <div ref="loadingRef" class="text-center text-neutral-800 py-8">
-                <div class="flex justify-center mt-4">
+              <div ref="loadingRef" class="py-8 text-center text-neutral-800">
+                <div class="mt-4 flex justify-center">
                   <Icon name="eos-icons:three-dots-loading" class="h-24 w-24 py-32 text-slate-500" />
                 </div>
               </div>
@@ -245,15 +247,15 @@ onMounted(() => {
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="w-full z-10 bg-primary p-3">
-                <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Questionnaire Unavailable</h3>
+              <div class="z-10 w-full bg-primary p-3">
+                <h3 class="flex items-center gap-1 text-2xl font-bold text-white">Questionnaire Unavailable</h3>
               </div>
-              <div class="bg-slate-200 text-center text-neutral-800 py-8">
-                <div class="flex justify-center mt-4">
+              <div class="bg-slate-200 py-8 text-center text-neutral-800">
+                <div class="mt-4 flex justify-center">
                   <Icon name="mdi:alert-circle" class="h-20 w-20 text-red-600" />
                 </div>
-                <h4 class="text-2xl leading-8 my-8 font-bold">This questionnaire is no longer available.</h4>
-                <p class="text-lg lg:text-xl leading-7 lg:leading-8">
+                <h4 class="my-8 text-2xl font-bold leading-8">This questionnaire is no longer available.</h4>
+                <p class="text-lg leading-7 lg:text-xl lg:leading-8">
                   It appears that this form has either already been submitted or the link is invalid. For immediate
                   assistance, please
                   <InvocaPhoneTrackingLink class="font-bold">
@@ -274,10 +276,10 @@ onMounted(() => {
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="w-full z-10 bg-primary p-3">
-                <h3 class="text-white font-bold flex items-center gap-1 text-2xl">
+              <div class="z-10 w-full bg-primary p-3">
+                <h3 class="flex items-center gap-1 text-2xl font-bold text-white">
                   Question
-                  <span class="w-10 h-10 rounded-full bg-[#78A7E9] flex items-center justify-center">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#78A7E9]">
                     {{ currentStep + 1 }}
                   </span>
                   of 3
@@ -285,7 +287,7 @@ onMounted(() => {
               </div>
 
               <!-- Questions Area -->
-              <div class="text-center text-neutral-800 relative">
+              <div class="relative text-center text-neutral-800">
                 <!-- Question 1: Self-employed -->
                 <TransitionRoot
                   :show="currentStep === 0"
@@ -296,15 +298,15 @@ onMounted(() => {
                   leave-from="transform opacity-100 translate-y-0"
                   leave-to="transform opacity-0 translate-y-4"
                 >
-                  <div ref="q1Ref" class="px-4 py-6 absolute inset-0">
-                    <div class="flex justify-center items-center relative text-slate-900">
-                      <h4 class="text-2xl font-bold px-2 py-10">Are you currently self-employed?</h4>
+                  <div ref="q1Ref" class="absolute inset-0 px-4 py-6">
+                    <div class="relative flex items-center justify-center text-slate-900">
+                      <h4 class="px-2 py-10 text-2xl font-bold">Are you currently self-employed?</h4>
                       <div class="flex justify-center">
-                        <div class="group has-tooltip flex justify-center">
+                        <div class="has-tooltip group flex justify-center">
                           <div
-                            class="tooltip z-50 absolute left-0 bottom-20 md:left-auto rounded-md bg-white md:max-w-sm border border-black shadow-lg p-4 hidden group-hover:block"
+                            class="tooltip absolute bottom-20 left-0 z-50 hidden rounded-md border border-black bg-white p-4 shadow-lg group-hover:block md:left-auto md:max-w-sm"
                           >
-                            <p class="text-blue-800 text-left text-lg tracking-wide font-bold pb-2">
+                            <p class="pb-2 text-left text-lg font-bold tracking-wide text-blue-800">
                               Why are we asking?
                             </p>
                             <p class="text-left">
@@ -321,21 +323,21 @@ onMounted(() => {
 
                     <!-- Single Select Answers -->
                     <div class="mx-auto mb-8">
-                      <div class="grid grid-cols-2 justify-center gap-6 max-w-2xl mx-auto px-4">
+                      <div class="mx-auto grid max-w-2xl grid-cols-2 justify-center gap-6 px-4">
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('self-employed', 'true')"
                         >
                           Yes
                         </button>
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('self-employed', 'false')"
                         >
                           No
                         </button>
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('self-employed', 'no_answer')"
                         >
                           I prefer not to say
@@ -355,15 +357,15 @@ onMounted(() => {
                   leave-from="transform opacity-100 translate-y-0"
                   leave-to="transform opacity-0 translate-y-4"
                 >
-                  <div ref="q2Ref" class="px-4 py-6 absolute inset-0">
-                    <div class="flex justify-center items-center relative text-slate-900">
-                      <h4 class="text-2xl font-bold px-2 py-10">How much do you owe to the IRS?</h4>
+                  <div ref="q2Ref" class="absolute inset-0 px-4 py-6">
+                    <div class="relative flex items-center justify-center text-slate-900">
+                      <h4 class="px-2 py-10 text-2xl font-bold">How much do you owe to the IRS?</h4>
                       <div class="flex justify-center">
-                        <div class="group has-tooltip flex justify-center">
+                        <div class="has-tooltip group flex justify-center">
                           <div
-                            class="tooltip z-50 absolute left-0 bottom-20 md:left-auto rounded-md bg-white md:max-w-sm border border-black shadow-lg p-4 hidden group-hover:block"
+                            class="tooltip absolute bottom-20 left-0 z-50 hidden rounded-md border border-black bg-white p-4 shadow-lg group-hover:block md:left-auto md:max-w-sm"
                           >
-                            <p class="text-blue-800 text-left text-lg tracking-wide font-bold pb-2">
+                            <p class="pb-2 text-left text-lg font-bold tracking-wide text-blue-800">
                               Why are we asking?
                             </p>
                             <p class="text-left">
@@ -380,39 +382,39 @@ onMounted(() => {
 
                     <!-- Single Select Answers -->
                     <div class="mx-auto mb-8">
-                      <div class="grid grid-cols-2 justify-center gap-6 max-w-2xl mx-auto px-4">
+                      <div class="mx-auto grid max-w-2xl grid-cols-2 justify-center gap-6 px-4">
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('owe_irs', '1')"
                         >
                           $0 – $9,999
                         </button>
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('owe_irs', '2')"
                         >
                           $10,000 – $49,999
                         </button>
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('owe_irs', '3')"
                         >
                           $50,000 – $99,999
                         </button>
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('owe_irs', '4')"
                         >
                           $100,000 or more
                         </button>
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('owe_irs', 'unknown')"
                         >
                           I don't know
                         </button>
                         <button
-                          class="text-lg lg:text-2xl py-4 lg:py-5 bg-white hover:bg-primaryDark hover:text-white border border-gray-300 rounded-lg transition-colors col-span-2 sm:col-span-1"
+                          class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
                           @click="selectSingleAnswer('owe_irs', 'no_answer')"
                         >
                           I prefer not to say
@@ -421,7 +423,7 @@ onMounted(() => {
                     </div>
 
                     <!-- Navigation buttons -->
-                    <div class="flex justify-between px-8 py-4 mt-auto">
+                    <div class="mt-auto flex justify-between px-8 py-4">
                       <button class="text-primary underline" @click="moveToPrevStep">Back</button>
                     </div>
                   </div>
@@ -437,13 +439,13 @@ onMounted(() => {
                   leave-from="transform opacity-100 translate-y-0"
                   leave-to="transform opacity-0 translate-y-4"
                 >
-                  <div ref="q3Ref" class="px-4 py-6 absolute inset-0">
-                    <div class="flex justify-center items-center relative text-slate-900">
-                      <h4 class="text-2xl font-bold px-2 py-10">Do any of the following apply to your situation?</h4>
+                  <div ref="q3Ref" class="absolute inset-0 px-4 py-6">
+                    <div class="relative flex items-center justify-center text-slate-900">
+                      <h4 class="px-2 py-10 text-2xl font-bold">Do any of the following apply to your situation?</h4>
                       <div class="flex justify-center">
-                        <div class="group has-tooltip flex justify-center">
+                        <div class="has-tooltip group flex justify-center">
                           <div
-                            class="tooltip z-50 absolute left-0 bottom-20 md:left-auto rounded-md bg-white md:max-w-sm border border-black shadow-lg p-4 hidden group-hover:block"
+                            class="tooltip absolute bottom-20 left-0 z-50 hidden rounded-md border border-black bg-white p-4 shadow-lg group-hover:block md:left-auto md:max-w-sm"
                           >
                             <p class="text-left">
                               Check any issues that apply. Recognizing these give us a head start in finding the urgent
@@ -459,21 +461,21 @@ onMounted(() => {
 
                     <!-- Multi Select Answers -->
                     <div class="mx-auto mb-8">
-                      <div class="grid grid-cols-1 justify-center gap-4 max-w-2xl mx-auto px-4">
+                      <div class="mx-auto grid max-w-2xl grid-cols-1 justify-center gap-4 px-4">
                         <button
-                          class="text-left p-4 border rounded-lg transition-colors flex items-center"
+                          class="flex items-center rounded-lg border p-4 text-left transition-colors"
                           :class="[
                             selectedMultiAnswers['your_situation-3_plus_unfiled']
-                              ? 'bg-primary bg-opacity-10 border-primary'
-                              : 'bg-white border-gray-300'
+                              ? 'border-primary bg-primary bg-opacity-10'
+                              : 'border-gray-300 bg-white'
                           ]"
                           @click="toggleMultiAnswer('your_situation', '3_plus_unfiled')"
                         >
                           <div
-                            class="w-6 h-6 border rounded mr-4 flex items-center justify-center"
+                            class="mr-4 flex h-6 w-6 items-center justify-center rounded border"
                             :class="[
                               selectedMultiAnswers['your_situation-3_plus_unfiled']
-                                ? 'bg-primary border-primary'
+                                ? 'border-primary bg-primary'
                                 : 'border-gray-400'
                             ]"
                           >
@@ -486,19 +488,19 @@ onMounted(() => {
                           I have more than 3+ years of unfiled taxes
                         </button>
                         <button
-                          class="text-left p-4 border rounded-lg transition-colors flex items-center"
+                          class="flex items-center rounded-lg border p-4 text-left transition-colors"
                           :class="[
                             selectedMultiAnswers['your_situation-levied']
-                              ? 'bg-primary bg-opacity-10 border-primary'
-                              : 'bg-white border-gray-300'
+                              ? 'border-primary bg-primary bg-opacity-10'
+                              : 'border-gray-300 bg-white'
                           ]"
                           @click="toggleMultiAnswer('your_situation', 'levied')"
                         >
                           <div
-                            class="w-6 h-6 border rounded mr-4 flex items-center justify-center"
+                            class="mr-4 flex h-6 w-6 items-center justify-center rounded border"
                             :class="[
                               selectedMultiAnswers['your_situation-levied']
-                                ? 'bg-primary border-primary'
+                                ? 'border-primary bg-primary'
                                 : 'border-gray-400'
                             ]"
                           >
@@ -511,19 +513,19 @@ onMounted(() => {
                           My wages or bank account is being levied
                         </button>
                         <button
-                          class="text-left p-4 border rounded-lg transition-colors flex items-center"
+                          class="flex items-center rounded-lg border p-4 text-left transition-colors"
                           :class="[
                             selectedMultiAnswers['your_situation-contacted_by_ro']
-                              ? 'bg-primary bg-opacity-10 border-primary'
-                              : 'bg-white border-gray-300'
+                              ? 'border-primary bg-primary bg-opacity-10'
+                              : 'border-gray-300 bg-white'
                           ]"
                           @click="toggleMultiAnswer('your_situation', 'contacted_by_ro')"
                         >
                           <div
-                            class="w-6 h-6 border rounded mr-4 flex items-center justify-center"
+                            class="mr-4 flex h-6 w-6 items-center justify-center rounded border"
                             :class="[
                               selectedMultiAnswers['your_situation-contacted_by_ro']
-                                ? 'bg-primary border-primary'
+                                ? 'border-primary bg-primary'
                                 : 'border-gray-400'
                             ]"
                           >
@@ -536,19 +538,19 @@ onMounted(() => {
                           I've been contacted by a Revenue Officer
                         </button>
                         <button
-                          class="text-left p-4 border rounded-lg transition-colors flex items-center"
+                          class="flex items-center rounded-lg border p-4 text-left transition-colors"
                           :class="[
                             selectedMultiAnswers['your_situation-no_answer']
-                              ? 'bg-primary bg-opacity-10 border-primary'
-                              : 'bg-white border-gray-300'
+                              ? 'border-primary bg-primary bg-opacity-10'
+                              : 'border-gray-300 bg-white'
                           ]"
                           @click="toggleMultiAnswer('your_situation', 'no_answer')"
                         >
                           <div
-                            class="w-6 h-6 border rounded mr-4 flex items-center justify-center"
+                            class="mr-4 flex h-6 w-6 items-center justify-center rounded border"
                             :class="[
                               selectedMultiAnswers['your_situation-no_answer']
-                                ? 'bg-primary border-primary'
+                                ? 'border-primary bg-primary'
                                 : 'border-gray-400'
                             ]"
                           >
@@ -563,9 +565,9 @@ onMounted(() => {
                       </div>
 
                       <!-- Continue button for multi-select -->
-                      <div class="flex justify-center mt-6">
+                      <div class="mt-6 flex justify-center">
                         <button
-                          class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+                          class="hover:bg-primary-dark rounded-lg bg-primary px-8 py-3 text-white transition-colors"
                           @click="submitMultiAnswers"
                         >
                           Continue
@@ -574,7 +576,7 @@ onMounted(() => {
                     </div>
 
                     <!-- Navigation buttons -->
-                    <div class="flex justify-between px-8 py-4 mt-auto">
+                    <div class="mt-auto flex justify-between px-8 py-4">
                       <button class="text-primary underline" @click="moveToPrevStep">Back</button>
                     </div>
                   </div>
@@ -592,12 +594,12 @@ onMounted(() => {
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="absolute w-full z-10 bg-primary p-3">
-                <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Submitting your responses...</h3>
+              <div class="absolute z-10 w-full bg-primary p-3">
+                <h3 class="flex items-center gap-1 text-2xl font-bold text-white">Submitting your responses...</h3>
               </div>
-              <div ref="loadingRef" class="text-center text-neutral-800 py-8">
-                <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
-                  <div class="flex justify-center mt-4">
+              <div ref="loadingRef" class="py-8 text-center text-neutral-800">
+                <div class="mx-auto max-w-xl px-4 py-8 text-center sm:px-8">
+                  <div class="mt-4 flex justify-center">
                     <Icon name="eos-icons:three-dots-loading" class="h-24 w-24 py-32 text-slate-500" />
                   </div>
                 </div>
@@ -614,16 +616,16 @@ onMounted(() => {
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="absolute w-full z-10 bg-primary p-3">
-                <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Error</h3>
+              <div class="absolute z-10 w-full bg-primary p-3">
+                <h3 class="flex items-center gap-1 text-2xl font-bold text-white">Error</h3>
               </div>
-              <div ref="errorRef" class="text-center text-neutral-800 py-8">
-                <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
-                  <div class="flex justify-center mt-4">
+              <div ref="errorRef" class="py-8 text-center text-neutral-800">
+                <div class="mx-auto max-w-xl px-4 py-8 text-center sm:px-8">
+                  <div class="mt-4 flex justify-center">
                     <Icon name="ix:cloud-fail" class="h-20 w-20 text-black" />
                   </div>
-                  <h4 class="text-2xl leading-8 my-8 font-bold">Oops! Sorry something went wrong.</h4>
-                  <p class="text-lg lg:text-xl leading-7 lg:leading-8">
+                  <h4 class="my-8 text-2xl font-bold leading-8">Oops! Sorry something went wrong.</h4>
+                  <p class="text-lg leading-7 lg:text-xl lg:leading-8">
                     We were unable to process your submission due to a technical issue. For immediate assistance, please
                     <InvocaPhoneTrackingLink class="font-bold">
                       call us directly at (855) 444-7551
@@ -644,16 +646,16 @@ onMounted(() => {
               leave-from="opacity-100"
               leave-to="opacity-0"
             >
-              <div class="absolute w-full z-10 bg-primary p-3">
-                <h3 class="text-white font-bold flex items-center gap-1 text-2xl">Thank You</h3>
+              <div class="absolute z-10 w-full bg-primary p-3">
+                <h3 class="flex items-center gap-1 text-2xl font-bold text-white">Thank You</h3>
               </div>
-              <div ref="completedRef" class="text-center text-neutral-800 py-8">
-                <div class="text-center py-8 max-w-xl px-4 sm:px-8 mx-auto">
-                  <div class="flex justify-center mt-4">
+              <div ref="completedRef" class="py-8 text-center text-neutral-800">
+                <div class="mx-auto max-w-xl px-4 py-8 text-center sm:px-8">
+                  <div class="mt-4 flex justify-center">
                     <Icon name="line-md:email-check" class="h-20 w-20 text-blue-700" />
                   </div>
-                  <h4 class="text-2xl leading-8 my-8 font-bold">Thank you for answering.</h4>
-                  <p class="text-lg lg:text-xl leading-7 lg:leading-8">
+                  <h4 class="my-8 text-2xl font-bold leading-8">Thank you for answering.</h4>
+                  <p class="text-lg leading-7 lg:text-xl lg:leading-8">
                     This information will be used to assign you to the right tax specialist for your situation. If you
                     haven't already, <b> please respond to our text with the best time for us to reach you,</b> or call
                     us now at
@@ -666,11 +668,11 @@ onMounted(() => {
           </div>
         </TransitionRoot>
 
-        <div class="flex py-6 mx-auto items-start justify-center gap-2 md:px-16">
-          <Icon name="mdi:shield-account" class="w-12 h-12 shrink-0 text-slate-600" />
+        <div class="mx-auto flex items-start justify-center gap-2 px-4 py-6 md:px-16">
+          <Icon name="mdi:shield-account" class="h-12 w-12 shrink-0 text-slate-600" />
           <p class="text-center text-slate-800">
             Your data is completely confidential. We will NEVER share your answers with 3rd parties. Please read our
-            <a class="underline decoration-1 decoration-black/50 open-privacy-modal" href="#contact">Privacy Policy</a>
+            <a class="open-privacy-modal underline decoration-black/50 decoration-1" href="#contact">Privacy Policy</a>
             for more information.
           </p>
         </div>
