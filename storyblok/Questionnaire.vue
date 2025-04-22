@@ -338,7 +338,7 @@ onMounted(() => {
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('self-employed', 'no_answer')"
+                          @click="selectSingleAnswer('self-employed', 'undefined')"
                         >
                           I prefer not to say
                         </button>
@@ -415,7 +415,7 @@ onMounted(() => {
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', 'no_answer')"
+                          @click="selectSingleAnswer('owe_irs', 'undefined')"
                         >
                           I prefer not to say
                         </button>
