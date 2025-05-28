@@ -11,13 +11,13 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div class="bg-slate-100 py-16">
-    <div class="container px-0 sm:px-4 md:px-8">
-      <div class="flex flex-col gap-16 lg:flex-row lg:items-start lg:justify-between">
+  <div class="bg-slate-100 py-10" id="heroCSS">
+    <div class="container mx-auto max-w-6xl px-4 md:px-8">
+      <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          <div class="mb-8 px-2 text-center text-primary sm:px-0">
-            <h1 class="mb-12 text-4xl font-bold tracking-wider md:text-6xl lg:mb-10" v-html="blok.header"></h1>
-            <h3 class="text-xl font-normal md:text-3xl/8" v-html="blok.subheader"></h3>
+          <div class="mb-6 px-2 text-center text-primary sm:px-0">
+            <h1 class="mb-8 text-3xl font-bold tracking-wider md:text-5xl lg:mb-6" v-html="blok.header"></h1>
+            <h3 class="text-lg font-normal md:text-2xl" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
             <NuxtImg
@@ -34,7 +34,7 @@ const props = defineProps<PropTypes>()
               preload
             />
             <figcaption
-              class="lg:leading-1 text-pretty px-2 pb-0 pt-6 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left xl:text-xl"
+              class="lg:leading-1 text-pretty px-2 pb-0 pt-4 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left lg:text-lg"
             >
               <p>
                 <strong>Precision Tax</strong>, under the leadership of Scott Gettis, Michele Mulkey, and Gene Haag,
@@ -44,18 +44,18 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div class="shrink-0 basis-[20rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
+        <div class="shrink-0 basis-[18rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
       </div>
-      <div class="px-3 py-12 sm:px-0">
+      <div class="px-3 py-8 sm:px-0">
         <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
           <li class="flex flex-col items-center">
             <span class="text-center">
               <BBBTorchAwards />
             </span>
           </li>
-          <li class="mt-5 flex flex-col items-center lg:mt-0">
+          <li class="mt-4 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
               <SegmentExternalLink
                 eventName="PDF Clicked"
@@ -74,7 +74,7 @@ const props = defineProps<PropTypes>()
               </SegmentExternalLink>
             </div>
           </li>
-          <li class="mt-5 flex flex-col items-center lg:mt-0">
+          <li class="mt-4 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
               <SegmentExternalLink
                 eventName="PDF Clicked"
@@ -93,7 +93,7 @@ const props = defineProps<PropTypes>()
               </SegmentExternalLink>
             </div>
           </li>
-          <li class="mt-5 flex flex-col items-center lg:mt-0">
+          <li class="mt-4 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
               <NuxtImg
                 src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
@@ -108,8 +108,8 @@ const props = defineProps<PropTypes>()
           </li>
         </ul>
       </div>
-      <div class="px-3 pt-5 text-xl md:px-0 md:text-center xl:text-2xl">
-        <h5 class="mb-5 text-center text-xl font-bold text-primary underline lg:hidden">Our promise:</h5>
+      <div class="px-3 pt-4 text-lg md:px-0 md:text-center lg:text-xl">
+        <h5 class="mb-4 text-center text-lg font-bold text-primary underline lg:hidden">Our promise:</h5>
         <p>
           <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax Relief
           <strong>will never share or sell</strong> your information. Everything you discuss with us is

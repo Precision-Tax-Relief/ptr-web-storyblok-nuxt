@@ -117,7 +117,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="relative z-20 -mt-28 pt-28 lg:block" id="contact">
+  <div class="relative z-20 -mt-28 ml-auto pt-28 lg:block" id="contact">
     <div
       class="absolute inset-0 -z-10 mt-28 bg-primaryLight shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
@@ -197,10 +197,15 @@ const route = useRoute()
             <span v-if="isSubmitting">Sending...</span>
             <span v-else>{{ submitText }}</span>
           </button>
-
+          <p class="mt-3 text-center text-sm font-bold text-black">
+            <strong>A licensed tax professional</strong>&nbsp;will contact&nbsp;you within&nbsp;<strong
+              >one business day</strong
+            >
+          </p>
           <!-- Phone display -->
-          <div v-if="showPhoneNumber" class="mt-3 text-center text-lg font-bold text-black">
-            or Call {{ phoneNumber }}
+
+          <div v-if="showPhoneNumber" class="mt-3 text-center text-xl font-bold text-black">
+            or Call <b>{{ phoneNumber }}</b>
           </div>
           <div v-else class="mt-3 text-center text-black">
             <strong> A licensed tax professional</strong> will contact you within <strong></strong>

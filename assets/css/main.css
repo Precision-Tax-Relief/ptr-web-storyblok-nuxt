@@ -11,3 +11,28 @@ html {
 .m-phone-input .m-input-wrapper {
   width: 100% !important;
 }
+
+#contact {
+  transform: translateX(0); /* Default */
+}
+
+
+
+@media (min-width: 1540px) {
+  #contact {
+    transform: translateX(12rem); /* translate-x-48 */
+  }
+}
+
+/* Optional: Mid-range for 1201px–1539px */
+@media (min-width: 1201px) and (max-width: 1539px) {
+  #contact {
+    transform: translateX(2rem); /* e.g., translate-x-32 */
+  }
+}
+  /* Optional: Mid-range for 1201px–1539px */
+  @media (min-width: 801px) and (max-width: 1201px) {
+    #contact {
+      transform: translateX(0rem); /* e.g., translate-x-32 */
+    }
+}
