@@ -146,7 +146,7 @@ const route = useRoute()
               :block="true"
               :error="!!errors.name"
               class="mr-0"
-              :size="'md'"
+              :size="'sm'"
             >
               <template #left-icon>
                 <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
@@ -175,7 +175,7 @@ const route = useRoute()
               :assistive-text="errors.phone"
               :error="!!errors.phone"
               :block="true"
-              :size="'md'"
+              :size="'sm'"
             >
               <template #left-icon>
                 <Icon name="fa-solid:phone" class="h-5 w-5 text-gray-300" />
@@ -190,7 +190,7 @@ const route = useRoute()
               :assistive-text="errors.email"
               :error="!!errors.email"
               :block="true"
-              :size="'md'"
+              :size="'sm'"
             >
               <template #left-icon>
                 <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-300" />
@@ -212,7 +212,7 @@ const route = useRoute()
           </button>
 
           <div class="mb-14">
-            <p class="mx-auto mb-4 mt-8 text-center text-sm text-black">
+            <p class="mx-auto mb-4 mt-8 text-center text-xs text-black">
               <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within&nbsp;
               <strong>one business day</strong>
             </p>
