@@ -21,11 +21,13 @@ const props = defineProps<PropTypes>()
           </svg>
         </NuxtLink>
         <div class="flex flex-col lg:text-xl">
+          <!--
           <div class="align-super font-bold text-white">
             <span class="hidden sm:inline">Better Business Bureau</span>
             <span class="inline text-lg sm:hidden">BBB</span>
             <span class="align-super text-sm">®</span>
           </div>
+          -->
           <div class="text-sm text-white">Recommends Precision&nbsp;Tax&nbsp;Relief</div>
         </div>
         <div class="ml-auto hidden md:block">

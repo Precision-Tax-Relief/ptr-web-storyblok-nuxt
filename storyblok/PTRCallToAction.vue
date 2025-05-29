@@ -20,10 +20,8 @@ const props = defineProps<PropTypes>()
       <PTRCallToActionStep>
         <template v-slot:number> 1 </template>
         <template v-slot:header>
-          <div class="text-md">
-            Speak to a licensed <br class="hidden sm:inline" />
-            tax expert
-          </div>
+          Speak to a licensed <br class="hidden sm:inline" />
+          tax expert
         </template>
         <template v-slot:default>
           <div class="lg:py-20">
