@@ -29,10 +29,10 @@ const props = defineProps<PropTypes>()
           <div class="text-sm text-white">Recommends Precision&nbsp;Tax&nbsp;Relief</div>
         </div>
         <div class="ml-auto hidden md:block">
-          <span class="block text-right text-base uppercase text-slate-300 lg:text-lg">
+          <span class="block text-right text-base uppercase text-slate-300 lg:text-sm">
             Get your FREE consultation now:
           </span>
-          <InvocaPhoneTrackingLink class="text-right text-2xl font-bold text-white lg:text-4xl">
+          <InvocaPhoneTrackingLink class="text-right text-xl font-bold text-white lg:text-2xl">
             855-444-7551
           </InvocaPhoneTrackingLink>
         </div>

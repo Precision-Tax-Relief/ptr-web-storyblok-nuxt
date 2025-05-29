@@ -20,7 +20,7 @@ defineProps<PropTypes>()
     <a
       href="#contact"
       data-click-name="ClickBody - Form Scroll  Below What To Expect"
-      class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-6 py-3 hover:bg-green-600 lg:px-10 lg:py-6"
+      class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-500 px-6 py-3 hover:bg-green-600 lg:px-6 lg:py-3"
     >
       <Icon name="fa-solid:phone-alt" class="text-4xl text-white sm:text-5xl lg:text-6xl" />
       <div class="col-span-3 flex flex-col justify-center text-left text-white">
