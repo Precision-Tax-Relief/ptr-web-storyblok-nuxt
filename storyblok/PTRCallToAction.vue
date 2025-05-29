@@ -20,31 +20,37 @@ const props = defineProps<PropTypes>()
       <PTRCallToActionStep>
         <template v-slot:number> 1 </template>
         <template v-slot:header>
-          Speak to a licensed <br class="hidden sm:inline" />
-          tax expert
+          <div class="text-md">
+            Speak to a licensed <br class="hidden sm:inline" />
+            tax expert
+          </div>
         </template>
         <template v-slot:default>
-          Share details about your situation in a <strong>free, confidential consultation,</strong> and ask our tax
-          professional any questions you have.
+          <div class="lg:py-20">
+            Share details about your situation in a <strong>free, confidential consultation,</strong> and ask our tax
+            professional any questions you have.
+          </div>
         </template>
       </PTRCallToActionStep>
       <PTRCallToActionStep>
         <template v-slot:number> 2 </template>
         <template v-slot:header> Get an honest assessment <br class="hidden sm:inline" />of your situation </template>
         <template v-slot:default>
-          Our tax professionals will assess your <strong>options for reaching a favorable solution</strong> to your tax
-          problem. We may even be able to <strong>help you resolve your issue for free.</strong>
+          <div class="lg:py-10">
+            Our tax professionals will assess your <strong>options for reaching a favorable solution</strong> to your
+            tax problem. We may even be able to <strong>help you resolve your issue for free.</strong>
+          </div>
         </template>
       </PTRCallToActionStep>
       <PTRCallToActionStep hasCheck class="lg:translate-y-[-6px]">
         <template v-slot:number> 3 </template>
-        <template v-slot:header>
-          Get a transparent quote <br class="hidden sm:inline" />with affordable payments
-        </template>
+        <template v-slot:header> Get a transparent quote with affordable payments </template>
         <template v-slot:default>
-          If your situation requires professional assistance, we'll provide you a transparent quote for our services
-          with <strong>flexible payment options based on what you can afford.</strong> We NEVER request full payment up
-          front.
+          <div class="lg:py-7">
+            If your situation requires professional assistance, we'll provide you a transparent quote for our services
+            with <strong>flexible payment options based on what you can afford.</strong> We NEVER request full payment
+            up front.
+          </div>
         </template>
       </PTRCallToActionStep>
     </div>
