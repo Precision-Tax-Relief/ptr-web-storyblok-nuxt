@@ -18,7 +18,7 @@ const userAnswers = ref<QuestionnaireAnswerInput>({
   levied: false,
   contacted_by_ro: false,
   "self-employed": "undefined",
-  owe_irs: "undefined"
+  owe_irs: "7"
 })
 const isCompleted = ref(false)
 const isLoading = ref(true) // Start with loading state
@@ -391,31 +391,31 @@ onMounted(() => {
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '2')"
+                          @click="selectSingleAnswer('owe_irs', '10')"
                         >
                           $10,000 – $49,999
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '3')"
+                          @click="selectSingleAnswer('owe_irs', '11')"
                         >
                           $50,000 – $99,999
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '4')"
+                          @click="selectSingleAnswer('owe_irs', '6')"
                         >
                           $100,000 or more
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', 'unknown')"
+                          @click="selectSingleAnswer('owe_irs', '7')"
                         >
                           I don't know
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', 'undefined')"
+                          @click="selectSingleAnswer('owe_irs', '15')"
                         >
                           I prefer not to say
                         </button>
