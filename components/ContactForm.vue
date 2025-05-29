@@ -197,19 +197,20 @@ const route = useRoute()
             <span v-if="isSubmitting">Sending...</span>
             <span v-else>{{ submitText }}</span>
           </button>
-          <p class="mt-3 text-center text-sm font-bold text-black">
-            <strong>A licensed tax professional</strong>&nbsp;will contact&nbsp;you within&nbsp;<strong
-              >one business day</strong
-            >
-          </p>
+          <div class="mb-14">
+            <p class="mb-4 mt-8 text-center text-sm font-bold text-black">
+              <strong>A licensed tax professional</strong>&nbsp;will contact&nbsp;you within&nbsp;
+              <strong>one business day</strong>
+            </p>
+          </div>
           <!-- Phone display -->
 
-          <div v-if="showPhoneNumber" class="mt-3 text-center text-xl font-bold text-black">
-            or Call <b>{{ phoneNumber }}</b>
+          <div v-if="showPhoneNumber" class="mt-12 text-center text-xl font-bold text-black">
+            <div class="mt-8 text-2xl font-extrabold text-green-500">
+              Or Call <b>{{ phoneNumber }}</b>
+            </div>
           </div>
-          <div v-else class="mt-3 text-center text-black">
-            <strong> A licensed tax professional</strong> will contact you within <strong></strong>
-          </div>
+          <div v-else class="mt-12 text-center text-black"></div>
         </form>
       </div>
     </div>
