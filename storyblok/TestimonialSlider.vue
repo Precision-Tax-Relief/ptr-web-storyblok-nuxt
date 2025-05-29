@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <ClientOnly>
-    <div class="testimonial-slider-container mx-auto w-full max-w-7xl px-4">
+    <div class="testimonial-slider-container max-h-xl mx-auto w-full max-w-6xl px-2">
       <swiper-container
         :init="true"
         :pagination="{ type: 'progressbar' }"
