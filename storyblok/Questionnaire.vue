@@ -19,13 +19,7 @@ const userAnswers = ref<QuestionnaireAnswerInput>({
   contacted_by_ro: false,
   "self-employed": "undefined",
   owe_irs: "7",
-  lead_id: (() => {
-    const formId = useRoute().query?.form_id
-    if (typeof formId === 'string') {
-      return formId
-    }
-    throw new Error('Invalid or missing form_id parameter')
-  })()
+  lead_id: ""
 })
 const isCompleted = ref(false)
 const isLoading = ref(true) // Start with loading state
@@ -182,6 +176,10 @@ onMounted(() => {
   let lead_id = useLeadIdCookie().value
   const route = useRoute()
   let q_lead_id = route.query.form_id
+  if (typeof q_lead_id !== "string") {
+    throw new Error("Invalid or missing form_id parameter")
+  }
+  userAnswers.value.lead_id = q_lead_id
 
   // Validate lead_id after a short delay to simulate checking
   setTimeout(() => {
