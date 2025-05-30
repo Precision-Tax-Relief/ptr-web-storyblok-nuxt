@@ -19,7 +19,13 @@ const userAnswers = ref<QuestionnaireAnswerInput>({
   contacted_by_ro: false,
   "self-employed": "undefined",
   owe_irs: "7",
-  lead_id: useRoute().query?.form_id
+  lead_id: (() => {
+    const formId = useRoute().query?.form_id
+    if (typeof formId === 'string') {
+      return formId
+    }
+    throw new Error('Invalid or missing form_id parameter')
+  })()
 })
 const isCompleted = ref(false)
 const isLoading = ref(true) // Start with loading state
