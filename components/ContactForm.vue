@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue"
+import { ref, reactive, computed } from "vue"
 import type { ContactAnswerInput, ContactApiResponse, ContactPayload, ServerErrorResponse } from "#shared/types/api"
 import { ContactApiResponseSchema, ContactFormSchema } from "#shared/utils/validators/contact"
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput"
@@ -25,12 +25,15 @@ const props = withDefaults(defineProps<Props>(), {
   showPhoneNumber: true
 })
 
-// Form state
+// Form state - using a separate field for display
 const formData = reactive<ContactAnswerInput>({
   name: "",
   email: "",
   phone: ""
 })
+
+// Separate reactive value for phone display
+const phoneDisplay = ref("")
 
 // Form state management
 const isSubmitting = ref(false)
@@ -40,10 +43,35 @@ const errorMessage = ref("")
 // Form validation
 let errors: { [key: string]: string | undefined } = reactive({})
 
+// Helper function to extract digits and format with +1
+const formatPhoneNumber = (phone: string): string => {
+  // Extract only digits from the input
+  const digitsOnly = phone.replace(/\D/g, "")
+
+  // If empty, return empty string
+  if (!digitsOnly) return ""
+
+  // If already has country code 1 at the start, just prepend +
+  if (digitsOnly.startsWith("1") && digitsOnly.length === 11) {
+    return `+${digitsOnly}`
+  }
+
+  // Otherwise, prepend +1
+  return `+1${digitsOnly}`
+}
+
+// Watch phoneDisplay and update formData.phone with formatted version
+const updatePhoneNumber = () => {
+  formData.phone = formatPhoneNumber(phoneDisplay.value)
+}
+
 const validateForm = (): boolean => {
   errors.name = undefined
   errors.email = undefined
   errors.phone = undefined
+
+  // Update phone number before validation
+  updatePhoneNumber()
 
   const result = ContactFormSchema.safeParse(formData)
 
@@ -155,22 +183,10 @@ const route = useRoute()
           </div>
 
           <!-- Phone -->
-          <!--
-          <div>
-            <MazPhoneNumberInput
-              v-model="formData.phone"
-              country-code="US"
-              show-code-on-list
-              :preferred-countries="['US']"
-              :error="!!errors.phone"
-              :size="'md'"
-              block
-            />
-          </div>
-          -->
           <div>
             <MazInput
-              v-model="formData.phone"
+              v-model="phoneDisplay"
+              @update:model-value="updatePhoneNumber"
               label="Phone"
               :assistive-text="errors.phone"
               :error="!!errors.phone"
@@ -182,6 +198,7 @@ const route = useRoute()
               </template>
             </MazInput>
           </div>
+
           <!-- Email -->
           <div class="pb-2">
             <MazInput
