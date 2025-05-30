@@ -19,10 +19,10 @@ const slots = useSlots()
       >
         <div class="max-w-2xl pt-12 lg:ml-auto">
           <h1 class="text-4xl font-bold tracking-tight text-charcoal-900 sm:mt-10 sm:text-6xl">
-            <slot name="title"/>
+            <slot name="title" />
           </h1>
           <p class="mt-6 whitespace-pre-wrap text-lg leading-8 text-charcoal-700">
-            <slot name="big-text"/>
+            <slot name="big-text" />
           </p>
         </div>
       </div>
@@ -38,9 +38,9 @@ const slots = useSlots()
       </div>
       <div class="px-6 md:pl-20 lg:col-span-6 lg:mx-0 xl:col-span-5">
         <div class="max-w-2xl lg:ml-auto">
-          <div class="mt-10 hidden max-w-2xl border-t-2 border-charcoal-600/50 pt-10 lg:block"/>
+          <div class="mt-10 hidden max-w-2xl border-t-2 border-charcoal-600/50 pt-10 lg:block" />
           <p class="whitespace-pre-wrap text-base leading-7 text-charcoal-600">
-            <slot name="small-text"/>
+            <slot name="small-text" />
           </p>
         </div>
       </div>

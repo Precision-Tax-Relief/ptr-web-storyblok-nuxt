@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue"
+import { ref, reactive, computed } from "vue"
 import type { ContactAnswerInput, ContactApiResponse, ContactPayload, ServerErrorResponse } from "#shared/types/api"
 import { ContactApiResponseSchema, ContactFormSchema } from "#shared/utils/validators/contact"
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput"
@@ -25,12 +25,15 @@ const props = withDefaults(defineProps<Props>(), {
   showPhoneNumber: true
 })
 
-// Form state
+// Form state - using a separate field for display
 const formData = reactive<ContactAnswerInput>({
   name: "",
   email: "",
   phone: ""
 })
+
+// Separate reactive value for phone display
+const phoneDisplay = ref("")
 
 // Form state management
 const isSubmitting = ref(false)
@@ -40,10 +43,35 @@ const errorMessage = ref("")
 // Form validation
 let errors: { [key: string]: string | undefined } = reactive({})
 
+// Helper function to extract digits and format with +1
+const formatPhoneNumber = (phone: string): string => {
+  // Extract only digits from the input
+  const digitsOnly = phone.replace(/\D/g, "")
+
+  // If empty, return empty string
+  if (!digitsOnly) return ""
+
+  // If already has country code 1 at the start, just prepend +
+  if (digitsOnly.startsWith("1") && digitsOnly.length === 11) {
+    return `+${digitsOnly}`
+  }
+
+  // Otherwise, prepend +1
+  return `+1${digitsOnly}`
+}
+
+// Watch phoneDisplay and update formData.phone with formatted version
+const updatePhoneNumber = () => {
+  formData.phone = formatPhoneNumber(phoneDisplay.value)
+}
+
 const validateForm = (): boolean => {
   errors.name = undefined
   errors.email = undefined
   errors.phone = undefined
+
+  // Update phone number before validation
+  updatePhoneNumber()
 
   const result = ContactFormSchema.safeParse(formData)
 
@@ -117,13 +145,13 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="relative z-20 -mt-28 pt-28 lg:block" id="contact">
+  <div class="relative z-20 -mt-28 ml-auto pt-28 lg:block" id="contact">
     <div
-      class="absolute inset-0 -z-10 mt-28 bg-primaryLight shadow-lg shadow-slate-300"
+      class="absolute inset-0 -z-10 mt-28 bg-yellow-400 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
     <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
-      <h3 class="m-0 py-1 text-center text-xl font-bold lg:text-xl">{{ title }}</h3>
+      <h3 class="lg:text-md text-md m-0 py-1 text-center font-bold">{{ title }}</h3>
     </div>
     <div class="bg-white px-4 py-6">
       <div id="main-form" class="main-form">
@@ -136,7 +164,7 @@ const route = useRoute()
         <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form onsubmit="return false" class="space-y-2">
+        <form onsubmit="return false" class="w-sm space-y-2">
           <!-- Name -->
           <div class="mb-2">
             <MazInput
@@ -146,7 +174,7 @@ const route = useRoute()
               :block="true"
               :error="!!errors.name"
               class="mr-0"
-              :size="'md'"
+              :size="'sm'"
             >
               <template #left-icon>
                 <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
@@ -156,17 +184,19 @@ const route = useRoute()
 
           <!-- Phone -->
           <div>
-            <MazPhoneNumberInput
-              class="w-full"
-              v-model="formData.phone"
-              country-code="US"
-              show-code-on-list
-              :preferred-countries="['US']"
+            <MazInput
+              v-model="phoneDisplay"
+              @update:model-value="updatePhoneNumber"
+              label="Phone"
+              :assistive-text="errors.phone"
               :error="!!errors.phone"
-              :size="'md'"
-              countrySelectorWidth="7.75rem"
-              block
-            />
+              :block="true"
+              :size="'sm'"
+            >
+              <template #left-icon>
+                <Icon name="fa-solid:phone" class="h-5 w-5 text-gray-300" />
+              </template>
+            </MazInput>
           </div>
 
           <!-- Email -->
@@ -177,7 +207,7 @@ const route = useRoute()
               :assistive-text="errors.email"
               :error="!!errors.email"
               :block="true"
-              :size="'md'"
+              :size="'sm'"
             >
               <template #left-icon>
                 <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-300" />
@@ -198,13 +228,20 @@ const route = useRoute()
             <span v-else>{{ submitText }}</span>
           </button>
 
+          <div class="mb-14">
+            <p class="mx-auto mb-4 mt-8 text-center text-xs text-black">
+              <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within&nbsp;
+              <strong>one business day</strong>
+            </p>
+          </div>
           <!-- Phone display -->
-          <div v-if="showPhoneNumber" class="mt-3 text-center text-lg font-bold text-black">
-            or Call {{ phoneNumber }}
+          <hr />
+          <div v-if="showPhoneNumber" class="mt-12 text-center text-xl font-bold text-black">
+            <div class="mt-8 text-xl font-semibold">
+              or Call <b class="text-2xl font-extrabold text-secondary">{{ phoneNumber }}</b>
+            </div>
           </div>
-          <div v-else class="mt-3 text-center text-black">
-            <strong> A licensed tax professional</strong> will contact you within <strong></strong>
-          </div>
+          <div v-else class="mt-12 text-center text-black"></div>
         </form>
       </div>
     </div>

@@ -9,9 +9,11 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div class="mt-12">
-    <h4 class="font-bold text-primary text-center md:text-left text-3xl px-4 lg:px-0">Our Recent Client Results:</h4>
-    <div class="container lg:px-0 px-2">
+  <div class="mx-auto my-12 mt-12 max-w-6xl">
+    <h4 class="px-4 text-center text-3xl font-bold text-primary md:text-left lg:mx-auto lg:px-0">
+      Our Recent Client Results:
+    </h4>
+    <div class="container px-2 lg:px-0">
       <ClientOnly>
         <swiper-container
           :init="true"
@@ -28,10 +30,10 @@ const props = defineProps<PropTypes>()
           <swiper-slide
             v-for="client in bloks"
             :key="client.name"
-            class="w-auto max-w-md md:max-w-3xl border bg-white border-slate-200 rounded-lg"
+            class="w-auto max-w-md rounded-lg border border-slate-200 bg-white md:max-w-3xl"
           >
             <div class="flex items-center">
-              <div class="flex md:items-center w-full justify-between py-4 px-6 flex-wrap flex-row gap-3 md:gap-6">
+              <div class="flex w-full flex-row flex-wrap justify-between gap-3 px-6 py-4 md:items-center md:gap-6">
                 <figure>
                   <NuxtPicture
                     :src="client.profile.filename"
@@ -40,12 +42,12 @@ const props = defineProps<PropTypes>()
                     :img-attrs="{ class: 'h-12 w-12' }"
                   />
                 </figure>
-                <div class="flex flex-col md:flex-row gap-x-8 gap-y-3">
+                <div class="flex flex-col gap-x-8 gap-y-3 md:flex-row">
                   <div class="user_title flex flex-col justify-center">
-                    <h4 class="font-bold text-lg leading-tight">{{ client.name }}</h4>
-                    <p class="text-neutral-400 font-normal">{{ client.location }}</p>
+                    <h4 class="text-lg font-bold leading-tight">{{ client.name }}</h4>
+                    <p class="font-normal text-neutral-400">{{ client.location }}</p>
                   </div>
-                  <ul class="flex flex-col gap-x-4 gap-y-1 md:flex-row md:items-center justify-between font-bold">
+                  <ul class="flex flex-col justify-between gap-x-4 gap-y-1 font-bold md:flex-row md:items-center">
                     <li><span class="text-rose-600">Owed:</span> ${{ parseInt(client.owed).toLocaleString() }}</li>
                     <li><span class="text-[#49924d]">Paid:</span> ${{ parseInt(client.paid).toLocaleString() }}</li>
                     <li>
