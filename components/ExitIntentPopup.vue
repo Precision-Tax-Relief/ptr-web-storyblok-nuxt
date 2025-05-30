@@ -113,7 +113,7 @@ const handleScroll = () => {
     scrollUpDistance.value += lastScrollTop.value - st
 
     // If user has scrolled up significantly and we're near the top
-    if (scrollUpDistance.value > scrollUpThreshold) {
+    if (scrollUpDistance.value > scrollUpThreshold && st < 700) {
       openPopup()
     }
   } else {
@@ -274,12 +274,12 @@ onUnmounted(() => {
             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 w-full sm:max-w-md sm:p-6 md:max-w-2xl"
+              class="relative w-full transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:max-w-md sm:p-6 md:max-w-2xl"
             >
-              <div class="absolute right-0 top-0 pr-4 pt-4 z-10">
+              <div class="absolute right-0 top-0 z-10 pr-4 pt-4">
                 <button
                   type="button"
-                  class="rounded-md bg-white text-gray-400 flex focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2"
+                  class="flex rounded-md bg-white text-gray-400 focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2"
                   :class="{ 'hover:text-gray-500': !isSubmitting }"
                   @click="closePopup"
                   :disabled="isSubmitting"
@@ -288,7 +288,7 @@ onUnmounted(() => {
                   <Icon name="mdi:close" class="size-8" />
                 </button>
               </div>
-              <div class="flex gap-6 justify-center">
+              <div class="flex justify-center gap-6">
                 <NuxtImg
                   src="https://a-us.storyblok.com/f/1023258/220x276/6e4d600673/how-to-guide-5-step-we-use-to-tax-issues.webp"
                   alt="Free How-To Guide: 5 steps we use to clear up over 1,500 tax issues every year"
@@ -297,9 +297,9 @@ onUnmounted(() => {
                   width="220"
                   height="276"
                 ></NuxtImg>
-                <div class="flex flex-col justify-center relative">
+                <div class="relative flex flex-col justify-center">
                   <span
-                    class="z-10 opacity-0 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-opacity pointer-events-none"
+                    class="pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform opacity-0 transition-opacity"
                     :class="{ 'opacity-100': isSubmitting }"
                   >
                     <Icon name="line-md:loading-twotone-loop" class="size-16 rounded-full text-primary" />
@@ -320,7 +320,7 @@ onUnmounted(() => {
                   </div>
                   <form
                     onsubmit="return false"
-                    class="mt-1 relative transition-opacity"
+                    class="relative mt-1 transition-opacity"
                     :class="{ 'opacity-60': isSubmitting }"
                   >
                     <transition
@@ -330,9 +330,9 @@ onUnmounted(() => {
                     >
                       <div
                         v-if="isSuccess"
-                        class="absolute bg-white inset-0 z-20 flex flex-col gap-4 items-center justify-center pb-10"
+                        class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-white pb-10"
                       >
-                        <span class="p-2 rounded-full flex bg-primaryLight bg-opacity-40">
+                        <span class="flex rounded-full bg-primaryLight bg-opacity-40 p-2">
                           <Icon name="line-md:email-check" class="size-10 text-primaryDark" />
                         </span>
                         <span class="text-lg font-semibold text-gray-900">Check your email to download the guide</span>
