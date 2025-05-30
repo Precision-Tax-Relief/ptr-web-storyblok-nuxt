@@ -57,16 +57,16 @@ const props = defineProps<PropTypes>()
                 </div>
               </li>
               <li class="lg:ml-0">
-                <strong class="text-2xl text-rose-900"><span class="text-rose-600">Owed: </span>{{ tm.owed }}</strong>
+                <strong class="text-xl text-rose-900"><span class="text-rose-600">Owed: </span>{{ tm.owed }}</strong>
               </li>
               <li>
-                <strong class="text-2xl text-emerald-900">
+                <strong class="text-xl text-emerald-900">
                   <span class="text-emerald-600">Paid: </span>{{ tm.paid }}</strong
                 >
               </li>
             </ul>
-            <div class="my-12">
-              <p class="text-md mt-1 hidden text-stone-800 md:block">{{ tm.text }}</p>
+            <div>
+              <p class="text-md mt-10 hidden text-stone-800 md:block">{{ tm.text }}</p>
             </div>
           </div>
         </swiper-slide>
