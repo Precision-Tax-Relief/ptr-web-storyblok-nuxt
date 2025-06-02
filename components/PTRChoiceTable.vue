@@ -344,7 +344,7 @@ onUnmounted(() => {
               }}</a>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="precisionTax.experience" target="_blank" class="border-b-2 border-gray-300">
+              <a :href="data.links.experience" target="_blank" class="border-b-2 border-gray-300">
                 {{ data.experience }}
               </a>
             </td>
