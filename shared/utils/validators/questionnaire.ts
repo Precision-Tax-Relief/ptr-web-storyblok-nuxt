@@ -34,7 +34,8 @@ export const QuestionnaireSchema = z.object({
       if (val === "false") return false
       throw new Error("Invalid boolean value")
     })
-  ])
+  ]),
+  lead_id: z.string().uuid()
 })
 
 // Define a schema for the request payload
