@@ -53,6 +53,7 @@ const config: NuxtConfig = {
     "@zadigetvoltaire/nuxt-gtm",
     "maz-ui/nuxt",
     "nuxt-delay-hydration",
+    "@nuxtjs/critters",
     [
       "@storyblok/nuxt",
       {
@@ -70,7 +71,15 @@ const config: NuxtConfig = {
       postcssOptions: {
         plugins: {
           tailwindcss: {},
-          autoprefixer: {}
+          autoprefixer: {},
+          ...(process.env.NODE_ENV === 'production' ? {
+            cssnano: {
+              preset: ['default', {
+                discardComments: { removeAll: true },
+                minifyFontValues: { removeQuotes: false }
+              }]
+            }
+          } : {})
         }
       }
     }
