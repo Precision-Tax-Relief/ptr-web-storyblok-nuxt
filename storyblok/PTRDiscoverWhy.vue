@@ -139,7 +139,7 @@ const closeGoogleModal = () => {
       </ul>
 
       <div class="my-20">
-        <h3 class="mb-8 px-4 text-center text-4xl font-bold text-primary">Featured client stories</h3>
+        <h3 class="mb-8 px-4 text-center text-3xl font-bold text-primary">Featured client stories</h3>
         <StoryblokComponent v-for="child_block in blok.slider" :key="child_block._uid" :blok="child_block" />
       </div>
 
