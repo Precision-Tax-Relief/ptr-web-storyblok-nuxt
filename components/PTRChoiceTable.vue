@@ -125,7 +125,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.bbbRating"
                 label="precision bbb rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.bbbRating }}
@@ -135,7 +135,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="competitors[activeCompetitor].links.bbbRating"
                 label="competitor bbb rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].bbbRating }}
@@ -148,7 +148,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.bbbComplaints"
                 label="precision bbb complaints"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.bbbComplaints }}
@@ -158,7 +158,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="competitors[activeCompetitor].links.bbbComplaints"
                 label="competitor bbb complaints"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].bbbComplaints }}
@@ -171,7 +171,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.bbbTorch"
                 label="precision bbb torch"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.torchAward }}
@@ -182,7 +182,7 @@ onUnmounted(() => {
                 <SegmentExternalLink
                   :to="competitors[activeCompetitor].links.bbbTorch"
                   label="competitor bbb torch"
-                  eventName="competitor link clicked"
+                  eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
                   class="border-b-2 border-gray-300"
                 >
                   {{ competitors[activeCompetitor].torchAward }}
@@ -201,7 +201,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.google"
                 label="precision google rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.googleRating }}
@@ -211,7 +211,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="competitors[activeCompetitor].links.google"
                 label="competitor google rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].googleRating }}
@@ -224,7 +224,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.trustpilot"
                 label="precision trustpilot rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.trustpilotRating }}
@@ -234,7 +234,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="competitors[activeCompetitor].links.trustpilot"
                 label="competitor trustpilot rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].trustpilotRating }}
@@ -247,7 +247,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.experience"
                 label="precision experience"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.experience }}
@@ -257,7 +257,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="competitors[activeCompetitor].links.experience"
                 label="competitor experience"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].experience }}
@@ -310,7 +310,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.bbbRating"
                 label="precision bbb rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.bbbRating }}
@@ -320,7 +320,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="data.links.bbbRating"
                 label="competitor bbb rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ data.bbbRating }}
@@ -333,7 +333,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.bbbComplaints"
                 label="precision bbb complaints"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.bbbComplaints }}
@@ -343,7 +343,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="data.links.bbbComplaints"
                 label="competitor bbb complaints"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
                 class="border-b-2 border-gray-300"
               >
                 {{ data.bbbComplaints }}
@@ -356,7 +356,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.bbbTorch"
                 label="precision bbb torch"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.torchAward }}
@@ -367,7 +367,7 @@ onUnmounted(() => {
                 <SegmentExternalLink
                   :to="data.links.bbbTorch"
                   label="competitor bbb torch"
-                  eventName="competitor link clicked"
+                  eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
                   class="border-b-2 border-gray-300"
                 >
                   {{ data.torchAward }}
@@ -386,7 +386,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.google"
                 label="precision google rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.googleRating }}
@@ -396,7 +396,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="data.links.google"
                 label="competitor google rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ data.googleRating }}
@@ -409,7 +409,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.trustpilot"
                 label="precision trustpilot rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.trustpilotRating }}
@@ -419,7 +419,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="data.links.trustpilot"
                 label="competitor trustpilot rating"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
                 class="border-b-2 border-gray-300"
               >
                 {{ data.trustpilotRating }}
@@ -432,7 +432,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="precisionTax.links.experience"
                 label="precision experience"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
                 class="border-b-2 border-gray-300"
               >
                 {{ precisionTax.experience }}
@@ -442,7 +442,7 @@ onUnmounted(() => {
               <SegmentExternalLink
                 :to="data.links.experience"
                 label="competitor experience"
-                eventName="competitor link clicked"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
                 class="border-b-2 border-gray-300"
               >
                 {{ data.experience }}
