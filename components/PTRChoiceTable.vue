@@ -45,7 +45,7 @@ const competitors = {
   taxDefense: {
     name: "TAX DEFENSE NETWORK",
     bbbRating: "A+",
-    bbbComplaints: "222",
+    bbbComplaints: "221",
     torchAward: "No",
     googleRating: "4.0",
     trustpilotRating: "3.4",
