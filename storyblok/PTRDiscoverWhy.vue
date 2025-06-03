@@ -20,9 +20,10 @@ const closeGoogleModal = () => {
     <div class="container px-0 sm:px-4">
       <div class="mx-auto max-w-3xl">
         <h2
-          class="mx-auto mb-10 max-w-5xl text-center text-xl font-bold leading-tight text-primary sm:text-4xl md:text-4xl"
+          class="mx-auto mb-10 max-w-5xl text-center text-4xl font-bold leading-tight text-primary sm:text-4xl md:text-4xl"
         >
-          Discover Why Precision Tax Earns Top BBB Endorsement
+          Discover Why Precision Tax <br />
+          Earns Top BBB Endorsement
         </h2>
       </div>
       <ul class="my-8 flex flex-row flex-wrap items-center justify-center gap-x-20 gap-y-10 md:mx-auto">
