@@ -122,54 +122,71 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-2 text-left">BBB Rating</td>
             <td class="flex items-center justify-center gap-1 p-2">
-              <a :href="precisionTax.links.bbbRating" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.bbbRating
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbRating"
+                label="precision bbb rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbRating }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a
-                :href="competitors[activeCompetitor].links.bbbRating"
-                target="_blank"
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.bbbRating"
+                label="competitor bbb rating"
+                eventName="competitor link clicked"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].bbbRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr>
             <td class="p-2 text-left">BBB Complaints</td>
             <td class="p-2">
-              <a :href="precisionTax.links.bbbComplaints" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.bbbComplaints
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbComplaints"
+                label="precision bbb complaints"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbComplaints }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a
-                :href="competitors[activeCompetitor].links.bbbComplaints"
-                target="_blank"
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.bbbComplaints"
+                label="competitor bbb complaints"
+                eventName="competitor link clicked"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].bbbComplaints }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-2 text-left">BBB Torch Award</td>
             <td class="gap-1 p-2">
-              <a :href="precisionTax.links.bbbTorch" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.torchAward
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbTorch"
+                label="precision bbb torch"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.torchAward }}
+              </SegmentExternalLink>
             </td>
-
             <td class="p-4">
               <template v-if="competitors[activeCompetitor].links.bbbTorch">
-                <a
-                  :href="competitors[activeCompetitor].links.bbbTorch"
+                <SegmentExternalLink
+                  :to="competitors[activeCompetitor].links.bbbTorch"
+                  label="competitor bbb torch"
+                  eventName="competitor link clicked"
                   class="border-b-2 border-gray-300"
-                  target="_blank"
                 >
                   {{ competitors[activeCompetitor].torchAward }}
-                </a>
+                </SegmentExternalLink>
               </template>
               <template v-else>
                 <span class="cursor-default">
@@ -181,48 +198,70 @@ onUnmounted(() => {
           <tr>
             <td class="p-2 text-left">Google Rating</td>
             <td class="gap-1 p-2">
-              <a :href="precisionTax.links.google" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.googleRating
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.google"
+                label="precision google rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.googleRating }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a :href="competitors[activeCompetitor].links.google" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.google"
+                label="competitor google rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
                 {{ competitors[activeCompetitor].googleRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-2 text-left">Trustpilot Rating</td>
             <td class="gap-1 p-2">
-              <a :href="precisionTax.links.trustpilot" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.trustpilotRating
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.trustpilot"
+                label="precision trustpilot rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.trustpilotRating }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a
-                :href="competitors[activeCompetitor].links.trustpilot"
-                target="_blank"
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.trustpilot"
+                label="competitor trustpilot rating"
+                eventName="competitor link clicked"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].trustpilotRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr>
             <td class="p-2 text-left">Experience</td>
             <td class="gap-1 p-2">
-              <a :href="precisionTax.links.experience" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.experience
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.experience"
+                label="precision experience"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.experience }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a
-                :href="competitors[activeCompetitor].links.experience"
-                target="_blank"
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.experience"
+                label="competitor experience"
+                eventName="competitor link clicked"
                 class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].experience }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
         </tbody>
@@ -242,6 +281,7 @@ onUnmounted(() => {
       </div>
     </div>
 
+    <!-- Desktop View -->
     <!-- Desktop View -->
     <div v-else class="border-b-2 pb-1">
       <table class="w-full text-center">
@@ -267,41 +307,71 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-4 text-left">BBB Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <a :href="precisionTax.links.bbbRating" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.bbbRating
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbRating"
+                label="precision bbb rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbRating }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.bbbRating" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="data.links.bbbRating"
+                label="competitor bbb rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.bbbRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr>
             <td class="p-4 text-left">BBB Complaints</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <a :href="precisionTax.links.bbbComplaints" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.bbbComplaints
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbComplaints"
+                label="precision bbb complaints"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbComplaints }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.bbbComplaints" class="border-b-2 border-gray-300" target="_blank">
+              <SegmentExternalLink
+                :to="data.links.bbbComplaints"
+                label="competitor bbb complaints"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.bbbComplaints }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-4 text-left">BBB Torch Award</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <a :href="precisionTax.links.bbbTorch" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.torchAward
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbTorch"
+                label="precision bbb torch"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.torchAward }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
               <template v-if="data.links?.bbbTorch">
-                <a :href="data.links.bbbTorch" class="border-b-2 border-gray-300" target="_blank">
+                <SegmentExternalLink
+                  :to="data.links.bbbTorch"
+                  label="competitor bbb torch"
+                  eventName="competitor link clicked"
+                  class="border-b-2 border-gray-300"
+                >
                   {{ data.torchAward }}
-                </a>
+                </SegmentExternalLink>
               </template>
               <template v-else>
                 <span class="cursor-default">
@@ -313,40 +383,70 @@ onUnmounted(() => {
           <tr>
             <td class="p-4 text-left">Google Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <a :href="precisionTax.links.google" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.googleRating
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.google"
+                label="precision google rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.googleRating }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.google" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="data.links.google"
+                label="competitor google rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.googleRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-4 text-left">Trustpilot Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <a :href="precisionTax.links.trustpilot" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.trustpilotRating
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.trustpilot"
+                label="precision trustpilot rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.trustpilotRating }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.trustpilot" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="data.links.trustpilot"
+                label="competitor trustpilot rating"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.trustpilotRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr>
             <td class="p-4 text-left">Experience</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <a :href="precisionTax.links.experience" target="_blank" class="border-b-2 border-gray-300">{{
-                precisionTax.experience
-              }}</a>
+              <SegmentExternalLink
+                :to="precisionTax.links.experience"
+                label="precision experience"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.experience }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.experience" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="data.links.experience"
+                label="competitor experience"
+                eventName="competitor link clicked"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.experience }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
         </tbody>
