@@ -145,7 +145,7 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="relative z-20 -mt-28 ml-auto pt-28 lg:block" id="contact">
+  <div class="relative z-20 -mt-28 ml-auto w-max pt-28 lg:block" id="contact">
     <div
       class="absolute inset-0 -z-10 mt-28 bg-yellow-400 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
@@ -236,9 +236,10 @@ const route = useRoute()
           </div>
           <!-- Phone display -->
           <hr />
-          <div v-if="showPhoneNumber" class="mt-12 text-center text-xl font-bold text-black">
-            <div class="mt-8 text-xl font-semibold">
-              or Call <b class="text-2xl font-extrabold text-secondary">{{ phoneNumber }}</b>
+          <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
+            <div class="mt-4 text-xl font-semibold">
+              or Call
+              <b class="text-2xl font-extrabold text-secondary">{{ phoneNumber }}</b>
             </div>
           </div>
           <div v-else class="mt-12 text-center text-black"></div>
