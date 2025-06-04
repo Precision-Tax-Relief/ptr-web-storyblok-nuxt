@@ -32,7 +32,7 @@ const props = defineProps<PropTypes>()
               format="avif,webp"
               loading="eager"
               fetchpriority="high"
-              sizes="752px md:704px sm:400px"
+              sizes="752px md:704px sm:95vw xs:95vw"
             />
             <figcaption
               class="lg:leading-1 text-pretty px-2 pb-0 pt-4 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left lg:text-lg"
