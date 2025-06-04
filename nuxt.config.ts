@@ -48,7 +48,7 @@ const config: NuxtConfig = {
     "@nuxt/eslint",
     "@nuxt/icon",
     "nuxt-swiper",
-    "@nuxtjs/google-fonts",
+    // "@nuxtjs/google-fonts",
     "@nuxtjs/sitemap",
     "@zadigetvoltaire/nuxt-gtm",
     "maz-ui/nuxt",
@@ -157,14 +157,14 @@ const config: NuxtConfig = {
       failOnError: true
     }
   },
-  googleFonts: {
-    prefetch: true,
-    preconnect: true,
-    preload: true,
-    families: {
-      "Open Sans": true
-    }
-  },
+  // googleFonts: {
+  //   prefetch: true,
+  //   preconnect: true,
+  //   preload: true,
+  //   families: {
+  //     "Open Sans": true
+  //   }
+  // },
   gtm: {
     id: process.env.GTM_ID || "GTM-XXXXXX", // Replace with your new GTM container ID
     defer: true, // This improves performance by deferring script loading
