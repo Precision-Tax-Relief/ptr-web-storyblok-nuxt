@@ -37,6 +37,7 @@ export function isBusinessOpenAt(date: Date): boolean {
 export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   // Create a reactive reference for the current time
   const currentTime: Ref<Date> = ref(new Date())
+  const route = useRoute()
 
   // Store the timer reference
   let timer: number | null = null
@@ -58,6 +59,10 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
 
   // Compute whether the business is open based on current time
   const isBusinessOpen: ComputedRef<boolean> = computed(() => {
+    const onHoursParam = route.query.onHours
+    if (onHoursParam === "0") {
+      return false // force open for testing
+    }
     return isBusinessOpenAt(currentTime.value)
   })
 
