@@ -4,6 +4,25 @@ import { useWindowSize } from "@vueuse/core" // Optional, you can implement your
 const activeCompetitor = ref("optima") // Default competitor for mobile view
 const { width } = useWindowSize() // For responsive design
 const isDesktop = computed(() => width.value >= 1024) // Desktop breakpoint at 1024px
+const precisionTax = {
+  name: "PRECISION TAX RELIEF",
+  bbbRating: "✅ A+",
+  bbbComplaints: "✅ 2",
+  torchAward: "✅ Yes",
+  googleRating: "✅ 5.0",
+  trustpilotRating: "✅ 5.0",
+  experience: "✅ 1967",
+  links: {
+    bbbRating: "https://www.bbb.org/us/id/coeur-d-alene/profile/tax-attorney/precision-tax-relief-llc-1296-1000004284",
+    bbbComplaints:
+      "https://www.bbb.org/us/id/coeur-d-alene/profile/tax-attorney/precision-tax-relief-llc-1296-1000004284/complaints",
+    bbbTorch: "https://cdapress.com/news/2023/dec/24/precision-tax-receives-torch-award/",
+    google:
+      "https://www.google.com/maps/place/Precision+Tax+Relief/@47.6937866,-116.7832412,15z/data=!4m2!3m1!1s0x0:0x11a9c7e1bd2363cb?sa=X&ved=2ahUKEwi1lZXlpvSEAxWAka8BHci7B6UQ_BJ6BAgTEAA&hl=en&gl=us",
+    trustpilot: "https://www.trustpilot.com/review/www.precisiontaxrelief.com",
+    experience: "https://www.bbb.org/us/id/coeur-d-alene/profile/tax-attorney/precision-tax-relief-llc-1296-1000004284"
+  }
+}
 const competitors = {
   optima: {
     name: "OPTIMA TAX",
@@ -14,23 +33,30 @@ const competitors = {
     trustpilotRating: "4.3",
     experience: "2010",
     links: {
-      bbb: "https://www.bbb.org/us/ca/santa-ana/profile/tax-return-preparation/optima-tax-relief-1126-100115586",
+      bbbRating: "https://www.bbb.org/us/ca/santa-ana/profile/tax-return-preparation/optima-tax-relief-1126-100115586",
+      bbbComplaints:
+        "https://www.bbb.org/us/ca/santa-ana/profile/tax-return-preparation/optima-tax-relief-1126-100115586/complaints",
+      bbbTorch: "https://optimataxrelief.com/about-us/accreditations/bbb-torch-award-for-ethics/",
       google: "https://www.google.com/maps/place/Optima+Tax+Relief/",
-      trustpilot: "https://www.trustpilot.com/review/optimataxrelief.com"
+      trustpilot: "https://www.trustpilot.com/review/optimataxrelief.com",
+      experience: "https://www.bbb.org/us/ca/santa-ana/profile/tax-return-preparation/optima-tax-relief-1126-100115586"
     }
   },
   taxDefense: {
     name: "TAX DEFENSE NETWORK",
     bbbRating: "A+",
-    bbbComplaints: "191",
+    bbbComplaints: "221",
     torchAward: "No",
     googleRating: "4.0",
     trustpilotRating: "3.4",
     experience: "2007",
     links: {
-      bbb: "https://www.bbb.org/us/fl/jacksonville/profile/tax-consultant/tax-defense-network-%E2%84%A2-0403-184747163",
+      bbbRating: "https://www.bbb.org/us/fl/jacksonville/profile/tax-consultant/tax-defense-network-0403-184747163",
+      bbbComplaints:
+        "https://www.bbb.org/us/fl/jacksonville/profile/tax-consultant/tax-defense-network-0403-184747163/complaints",
       google: "https://www.google.com/maps/place/Tax+Defense+Network/",
-      trustpilot: "https://www.trustpilot.com/review/taxdefensenetwork.com"
+      trustpilot: "https://www.trustpilot.com/review/taxdefensenetwork.com",
+      experience: "https://www.bbb.org/us/fl/jacksonville/profile/tax-consultant/tax-defense-network-0403-184747163"
     }
   },
   anthem: {
@@ -42,9 +68,12 @@ const competitors = {
     trustpilotRating: "4.1",
     experience: "2010",
     links: {
-      bbb: "https://www.bbb.org/us/ca/westlake-village/profile/tax-negotiators/anthem-tax-services-1236-92020364",
+      bbbRating: "https://www.bbb.org/us/ca/westlake-village/profile/tax-negotiators/anthem-tax-services-1236-92020364",
+      bbbComplaints:
+        "https://www.bbb.org/us/ca/westlake-village/profile/tax-negotiators/anthem-tax-services-1236-92020364/complaints",
       google: "https://www.google.com/maps/place/Anthem+Tax+Services/",
-      trustpilot: "https://www.trustpilot.com/review/anthemtaxservices.com"
+      trustpilot: "https://www.trustpilot.com/review/anthemtaxservices.com",
+      experience: "https://www.bbb.org/us/ca/westlake-village/profile/tax-negotiators/anthem-tax-services-1236-92020364"
     }
   }
 }
@@ -68,11 +97,11 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="mx-auto max-w-6xl">
-    <h3 class="mb-5 px-4 text-xl font-bold text-primary lg:px-0">
+    <h3 class="mb-5 px-4 text-2xl font-bold text-primary lg:px-0">
       Why Precision Tax Relief Is Trusted by the BBB Over Competitors
     </h3>
 
-    <!-- Mobile View (Button Selector) -->
+    <!-- Mobile View -->
     <div v-if="!isDesktop" class="border-b-2 pb-1">
       <table class="w-full text-center">
         <thead class="text-sm text-white">
@@ -92,71 +121,153 @@ onUnmounted(() => {
         <tbody class="text-base">
           <tr class="bg-white">
             <td class="p-2 text-left">BBB Rating</td>
-            <td class="p-2">
-              <span class="font-bold text-green-600">A+</span>
+            <td class="flex items-center justify-center gap-1 p-2">
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbRating"
+                label="precision bbb rating"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbRating }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a :href="competitors[activeCompetitor].links.bbb" target="_blank" class="border-b border-gray-300">
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.bbbRating"
+                label="competitor bbb rating"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
+                class="border-b-2 border-gray-300"
+              >
                 {{ competitors[activeCompetitor].bbbRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
-          <!-- Other rows similar - change p-4 to p-2 -->
           <tr>
             <td class="p-2 text-left">BBB Complaints</td>
             <td class="p-2">
-              <span class="font-bold text-green-600">2</span>
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbComplaints"
+                label="precision bbb complaints"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbComplaints }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              {{ competitors[activeCompetitor].bbbComplaints }}
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.bbbComplaints"
+                label="competitor bbb complaints"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
+                class="border-b-2 border-gray-300"
+              >
+                {{ competitors[activeCompetitor].bbbComplaints }}
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-2 text-left">BBB Torch Award</td>
-            <td class="p-2">
-              <span class="font-bold text-green-600">Yes</span>
+            <td class="gap-1 p-2">
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbTorch"
+                label="precision bbb torch"
+                eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.torchAward }}
+              </SegmentExternalLink>
             </td>
-            <td class="p-2">
-              {{ competitors[activeCompetitor].torchAward }}
+            <td class="p-4">
+              <template v-if="competitors[activeCompetitor].links.bbbTorch">
+                <SegmentExternalLink
+                  :to="competitors[activeCompetitor].links.bbbTorch"
+                  label="competitor bbb torch"
+                  eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
+                  class="border-b-2 border-gray-300"
+                >
+                  {{ competitors[activeCompetitor].torchAward }}
+                </SegmentExternalLink>
+              </template>
+              <template v-else>
+                <span class="cursor-default">
+                  {{ competitors[activeCompetitor].torchAward }}
+                </span>
+              </template>
             </td>
           </tr>
           <tr>
             <td class="p-2 text-left">Google Rating</td>
-            <td class="p-2">
-              <span class="font-bold text-green-600">5.0</span>
+            <td class="gap-1 p-2">
+              <SegmentExternalLink
+                :to="precisionTax.links.google"
+                label="precision google rating"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.googleRating }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a :href="competitors[activeCompetitor].links.google" target="_blank" class="border-b border-gray-300">
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.google"
+                label="competitor google rating"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
+                class="border-b-2 border-gray-300"
+              >
                 {{ competitors[activeCompetitor].googleRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-2 text-left">Trustpilot Rating</td>
-            <td class="p-2">
-              <span class="font-bold text-green-600">5.0</span>
+            <td class="gap-1 p-2">
+              <SegmentExternalLink
+                :to="precisionTax.links.trustpilot"
+                label="precision trustpilot rating"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.trustpilotRating }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              <a
-                :href="competitors[activeCompetitor].links.trustpilot"
-                target="_blank"
-                class="border-b border-gray-300"
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.trustpilot"
+                label="competitor trustpilot rating"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
+                class="border-b-2 border-gray-300"
               >
                 {{ competitors[activeCompetitor].trustpilotRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr>
             <td class="p-2 text-left">Experience</td>
-            <td class="p-2">
-              <span class="font-bold text-green-600">1967</span>
+            <td class="gap-1 p-2">
+              <SegmentExternalLink
+                :to="precisionTax.links.experience"
+                label="precision experience"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.experience }}
+              </SegmentExternalLink>
             </td>
             <td class="p-2">
-              {{ competitors[activeCompetitor].experience }}
+              <SegmentExternalLink
+                :to="competitors[activeCompetitor].links.experience"
+                label="competitor experience"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
+                class="border-b-2 border-gray-300"
+              >
+                {{ competitors[activeCompetitor].experience }}
+              </SegmentExternalLink>
             </td>
           </tr>
         </tbody>
       </table>
+
+      <!-- Button Switcher -->
       <div class="my-2 flex justify-center gap-2">
         <button
           v-for="(data, key) in competitors"
@@ -170,7 +281,8 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- Desktop View (All Competitors Side by Side) -->
+    <!-- Desktop View -->
+    <!-- Desktop View -->
     <div v-else class="border-b-2 pb-1">
       <table class="w-full text-center">
         <thead class="text-md text-white">
@@ -194,62 +306,147 @@ onUnmounted(() => {
         <tbody class="text-lg">
           <tr class="bg-white">
             <td class="p-4 text-left">BBB Rating</td>
-            <td class="p-4">
-              <span class="font-bold text-green-600">A+</span>
+            <td class="flex items-center justify-center gap-1 p-4">
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbRating"
+                label="precision bbb rating"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbRating }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.bbb" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="data.links.bbbRating"
+                label="competitor bbb rating"
+                eventName="Tracking ClickLink - Chart Reference - BBB Rating"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.bbbRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr>
             <td class="p-4 text-left">BBB Complaints</td>
-            <td class="p-4">
-              <span class="font-bold text-green-600">2</span>
+            <td class="flex items-center justify-center gap-1 p-4">
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbComplaints"
+                label="precision bbb complaints"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.bbbComplaints }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              {{ data.bbbComplaints }}
+              <SegmentExternalLink
+                :to="data.links.bbbComplaints"
+                label="competitor bbb complaints"
+                eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
+                class="border-b-2 border-gray-300"
+              >
+                {{ data.bbbComplaints }}
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-4 text-left">BBB Torch Award</td>
-            <td class="p-4">
-              <span class="font-bold text-green-600">Yes</span>
+            <td class="flex items-center justify-center gap-1 p-4">
+              <SegmentExternalLink
+                :to="precisionTax.links.bbbTorch"
+                label="precision bbb torch"
+                eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.torchAward }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              {{ data.torchAward }}
+              <template v-if="data.links?.bbbTorch">
+                <SegmentExternalLink
+                  :to="data.links.bbbTorch"
+                  label="competitor bbb torch"
+                  eventName="Tracking ClickLink - Chart Reference - BBB Torch Award for Ethics"
+                  class="border-b-2 border-gray-300"
+                >
+                  {{ data.torchAward }}
+                </SegmentExternalLink>
+              </template>
+              <template v-else>
+                <span class="cursor-default">
+                  {{ data.torchAward }}
+                </span>
+              </template>
             </td>
           </tr>
           <tr>
             <td class="p-4 text-left">Google Rating</td>
-            <td class="p-4">
-              <span class="font-bold text-green-600">5.0</span>
+            <td class="flex items-center justify-center gap-1 p-4">
+              <SegmentExternalLink
+                :to="precisionTax.links.google"
+                label="precision google rating"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.googleRating }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.google" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="data.links.google"
+                label="competitor google rating"
+                eventName="Tracking ClickLink - Chart Reference - Google Rating"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.googleRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr class="bg-white">
             <td class="p-4 text-left">Trustpilot Rating</td>
-            <td class="p-4">
-              <span class="font-bold text-green-600">5.0</span>
+            <td class="flex items-center justify-center gap-1 p-4">
+              <SegmentExternalLink
+                :to="precisionTax.links.trustpilot"
+                label="precision trustpilot rating"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.trustpilotRating }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              <a :href="data.links.trustpilot" target="_blank" class="border-b-2 border-gray-300">
+              <SegmentExternalLink
+                :to="data.links.trustpilot"
+                label="competitor trustpilot rating"
+                eventName="Tracking ClickLink - Chart Reference - Trust Pilot Rating"
+                class="border-b-2 border-gray-300"
+              >
                 {{ data.trustpilotRating }}
-              </a>
+              </SegmentExternalLink>
             </td>
           </tr>
           <tr>
             <td class="p-4 text-left">Experience</td>
-            <td class="p-4">
-              <span class="font-bold text-green-600">1967</span>
+            <td class="flex items-center justify-center gap-1 p-4">
+              <SegmentExternalLink
+                :to="precisionTax.links.experience"
+                label="precision experience"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
+                class="border-b-2 border-gray-300"
+              >
+                {{ precisionTax.experience }}
+              </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
-              {{ data.experience }}
+              <SegmentExternalLink
+                :to="data.links.experience"
+                label="competitor experience"
+                eventName="Tracking ClickLink - Chart Reference - Experience"
+                class="border-b-2 border-gray-300"
+              >
+                {{ data.experience }}
+              </SegmentExternalLink>
             </td>
           </tr>
         </tbody>

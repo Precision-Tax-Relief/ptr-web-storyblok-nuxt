@@ -12,7 +12,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="bg-slate-100 py-10" id="heroCSS">
-    <div class="container mx-auto max-w-6xl px-4 md:px-8">
+    <div class="container mx-auto mt-4 max-w-6xl px-4 md:px-8">
       <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <div class="mb-6 px-2 text-center text-primary sm:px-0">
@@ -37,7 +37,7 @@ const props = defineProps<PropTypes>()
             <figcaption
               class="lg:leading-1 text-pretty px-2 pb-0 pt-4 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left lg:text-lg"
             >
-              <p>
+              <p class="text-base">
                 <strong>Precision Tax</strong>, under the leadership of Scott Gettis, Michele Mulkey, and Gene Haag,
                 proudly maintains an <strong>A+&nbsp;BBB</strong> rating and has been awarded the
                 <strong>Torch Award for Ethics in 2019, 2023, and 2024.</strong>
