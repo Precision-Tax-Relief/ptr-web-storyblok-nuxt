@@ -20,7 +20,7 @@ const props = defineProps<PropTypes>()
             <h3 class="text-lg font-normal md:text-2xl" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
-            <NuxtPicture
+            <NuxtImg
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
               :alt="blok.image.alt ?? undefined"
@@ -71,6 +71,7 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
+                  sizes="131 "
                 ></NuxtImg>
               </SegmentExternalLink>
             </div>
@@ -90,6 +91,7 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
+                  sizes="131"
                 />
               </SegmentExternalLink>
             </div>
@@ -104,6 +106,7 @@ const props = defineProps<PropTypes>()
                 fetchpriority="high"
                 width="240"
                 height="60"
+                sizes="240 xs:132"
               ></NuxtImg>
             </div>
           </li>
