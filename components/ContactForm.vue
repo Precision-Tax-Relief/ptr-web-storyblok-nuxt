@@ -235,7 +235,7 @@ const route = useRoute()
             </p>
           </div>
           <!-- Phone display -->
-          <hr />
+          <hr v-if="showPhoneNumber" />
           <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
             <div class="mt-4 text-xl font-semibold">
               or Call
