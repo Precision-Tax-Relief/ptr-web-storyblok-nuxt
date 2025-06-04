@@ -24,14 +24,15 @@ const props = defineProps<PropTypes>()
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
               :alt="blok.image.alt ?? undefined"
+              width="752"
+              height="229"
               class="w-full sm:m-2"
-              quality="100"
-              width="1010"
-              height="275"
-              format="webp"
+              quality="90"
+              densities="x1 x2"
+              format="avif,webp"
               loading="eager"
               fetchpriority="high"
-              preload
+              sizes="752px md:704px sm:95vw xs:95vw"
             />
             <figcaption
               class="lg:leading-1 text-pretty px-2 pb-0 pt-4 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left lg:text-lg"
@@ -70,6 +71,7 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
+                  sizes="131 "
                 ></NuxtImg>
               </SegmentExternalLink>
             </div>
@@ -89,6 +91,7 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
+                  sizes="131"
                 />
               </SegmentExternalLink>
             </div>
@@ -103,6 +106,7 @@ const props = defineProps<PropTypes>()
                 fetchpriority="high"
                 width="240"
                 height="60"
+                sizes="240 xs:132"
               ></NuxtImg>
             </div>
           </li>

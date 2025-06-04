@@ -33,6 +33,7 @@ const closeGoogleModal = () => {
               :src="blok.googleImg?.filename"
               :alt="blok.googleImg?.alt ?? undefined"
               loading="lazy"
+              sizes="140px"
             />
             <div class="mt-2 text-center">
               <!-- TODO fix broken link -->
