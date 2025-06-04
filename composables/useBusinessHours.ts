@@ -61,7 +61,7 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   const isBusinessOpen: ComputedRef<boolean> = computed(() => {
     const onHoursParam = route.query.onHours
     if (onHoursParam === "0") {
-      return false // force open for testing
+      return false // force close for testing
     }
     return isBusinessOpenAt(currentTime.value)
   })

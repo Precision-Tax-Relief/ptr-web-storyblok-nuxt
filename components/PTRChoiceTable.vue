@@ -6,12 +6,12 @@ const { width } = useWindowSize() // For responsive design
 const isDesktop = computed(() => width.value >= 1024) // Desktop breakpoint at 1024px
 const precisionTax = {
   name: "PRECISION TAX RELIEF",
-  bbbRating: "A+",
-  bbbComplaints: "2",
-  torchAward: "Yes",
-  googleRating: "5.0",
-  trustpilotRating: "5.0",
-  experience: "1967",
+  bbbRating: "✅ A+",
+  bbbComplaints: "✅ 2",
+  torchAward: "✅ Yes",
+  googleRating: "✅ 5.0",
+  trustpilotRating: "✅ 5.0",
+  experience: "✅ 1967",
   links: {
     bbbRating: "https://www.bbb.org/us/id/coeur-d-alene/profile/tax-attorney/precision-tax-relief-llc-1296-1000004284",
     bbbComplaints:
