@@ -1,6 +1,14 @@
 // useBusinessHours.ts
 import { ref, computed, type ComputedRef, type Ref, onUnmounted } from "vue"
 
+// Singleton wrapper to ensure one shared instance across the app
+let sharedInstance: ReturnType<typeof useBusinessHoursInternal> | null = null
+export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
+  if (!sharedInstance) {
+    sharedInstance = useBusinessHoursInternal()
+  }
+  return sharedInstance
+}
 // Function to determine if business is open at a specific date. Used in testing
 export function isBusinessOpenAt(date: Date): boolean {
   // Get the current date in Pacific Time
@@ -34,7 +42,7 @@ export function isBusinessOpenAt(date: Date): boolean {
   return true
 }
 
-export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
+export function useBusinessHoursInternal(): { isBusinessOpen: ComputedRef<boolean> } {
   // Create a reactive reference for the current time
   const currentTime: Ref<Date> = ref(new Date())
   const route = useRoute()
@@ -45,6 +53,36 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   let timer: number | null = null
   let chatStatusTimer: number | null = null
 
+  //set counter for refresh
+  function startPolling() {
+    if (chatStatusTimer === null) {
+      chatStatusTimer = window.setInterval(fetchLiveChatStatus, 30000)
+    }
+  }
+
+  //stop counter for when user leaves page
+  function stopPolling() {
+    if (chatStatusTimer !== null) {
+      clearInterval(chatStatusTimer)
+      chatStatusTimer = null
+    }
+  }
+
+  //Function which gets the current live status from the durable object
+  function fetchLiveChatStatus() {
+    fetch("https://livechat-status.lruf.workers.dev")
+      .then((res) => res.json())
+      .then((data) => {
+        //if accepting chats exists with a bool type
+        if (typeof data.acceptingChats === "boolean") {
+          //update the value of accepting chats
+          isAcceptingChats.value = data.acceptingChats
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not fetch LiveChat status:", err)
+      })
+  }
   // Setup the timer only on client-side
   onMounted(() => {
     // Update the current time every minute
@@ -53,15 +91,15 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
     }, 60000) // 60,000 milliseconds = 1 minute
     // Initial fetch
     fetchLiveChatStatus()
-    // Refresh chat status every 30 seconds
-    chatStatusTimer = window.setInterval(() => {
-      fetchLiveChatStatus()
-    }, 30000)
+    startPolling()
 
     //refresh when the user returns to the tabl
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "visible") {
         fetchLiveChatStatus()
+        startPolling()
+      } else {
+        stopPolling()
       }
     })
   })
@@ -71,22 +109,9 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
     if (timer !== null) {
       clearInterval(timer)
     }
-    if (chatStatusTimer !== null) {
-      clearInterval(chatStatusTimer)
-    }
+    stopPolling()
   })
-  function fetchLiveChatStatus() {
-    fetch("https://livechat-status.lruf.workers.dev")
-      .then((res) => res.json())
-      .then((data) => {
-        if (typeof data.acceptingChats === "boolean") {
-          isAcceptingChats.value = data.acceptingChats
-        }
-      })
-      .catch((err) => {
-        console.warn("Could not fetch LiveChat status:", err)
-      })
-  }
+
   // Compute whether the business is open based on current time
   const isBusinessOpen: ComputedRef<boolean> = computed(() => {
     const onHoursParam = route.query.onHours || route.query.onhours
