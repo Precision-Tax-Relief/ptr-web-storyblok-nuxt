@@ -38,16 +38,39 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   // Create a reactive reference for the current time
   const currentTime: Ref<Date> = ref(new Date())
   const route = useRoute()
+  //response from livechat on durable object
+  const isAcceptingChats: Ref<boolean | null> = ref(null)
+  //last response
+  let lastAcceptingChats: boolean | null = null
+  let lastFetchTime = 0
 
   // Store the timer reference
   let timer: number | null = null
-
   // Setup the timer only on client-side
   onMounted(() => {
     // Update the current time every minute
     timer = window.setInterval(() => {
       currentTime.value = new Date()
     }, 60000) // 60,000 milliseconds = 1 minute
+    const CACHE_DURATION = 30 * 1000
+
+    const now = Date.now()
+    if (lastAcceptingChats !== null && now - lastFetchTime < CACHE_DURATION) {
+      isAcceptingChats.value = lastAcceptingChats
+    } else {
+      fetch("https://livechat-status.lruf.workers.dev")
+        .then((res) => res.json())
+        .then((data) => {
+          if (typeof data.acceptingChats === "boolean") {
+            isAcceptingChats.value = data.acceptingChats
+            lastAcceptingChats = data.acceptingChats
+            lastFetchTime = Date.now()
+          }
+        })
+        .catch((err) => {
+          console.warn("Could not fetch LiveChat status:", err)
+        })
+    }
   })
 
   // Clean up the interval when the component is unmounted
@@ -62,6 +85,10 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
     const onHoursParam = route.query.onHours || route.query.onhours
     if (onHoursParam) {
       return onHoursParam === "1"
+    }
+
+    if (isAcceptingChats.value !== null) {
+      return isAcceptingChats.value
     }
     return isBusinessOpenAt(currentTime.value)
   })
