@@ -40,37 +40,30 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   const route = useRoute()
   //response from livechat on durable object
   const isAcceptingChats: Ref<boolean | null> = ref(null)
-  //last response
-  let lastAcceptingChats: boolean | null = null
-  let lastFetchTime = 0
 
   // Store the timer reference
   let timer: number | null = null
+  let chatStatusTimer: number | null = null
+
   // Setup the timer only on client-side
   onMounted(() => {
     // Update the current time every minute
     timer = window.setInterval(() => {
       currentTime.value = new Date()
     }, 60000) // 60,000 milliseconds = 1 minute
-    const CACHE_DURATION = 30 * 1000
+    // Initial fetch
+    fetchLiveChatStatus()
+    // Refresh chat status every 30 seconds
+    chatStatusTimer = window.setInterval(() => {
+      fetchLiveChatStatus()
+    }, 30000)
 
-    const now = Date.now()
-    if (lastAcceptingChats !== null && now - lastFetchTime < CACHE_DURATION) {
-      isAcceptingChats.value = lastAcceptingChats
-    } else {
-      fetch("https://livechat-status.lruf.workers.dev")
-        .then((res) => res.json())
-        .then((data) => {
-          if (typeof data.acceptingChats === "boolean") {
-            isAcceptingChats.value = data.acceptingChats
-            lastAcceptingChats = data.acceptingChats
-            lastFetchTime = Date.now()
-          }
-        })
-        .catch((err) => {
-          console.warn("Could not fetch LiveChat status:", err)
-        })
-    }
+    //refresh when the user returns to the tabl
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        fetchLiveChatStatus()
+      }
+    })
   })
 
   // Clean up the interval when the component is unmounted
@@ -78,8 +71,22 @@ export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
     if (timer !== null) {
       clearInterval(timer)
     }
+    if (chatStatusTimer !== null) {
+      clearInterval(chatStatusTimer)
+    }
   })
-
+  function fetchLiveChatStatus() {
+    fetch("https://livechat-status.lruf.workers.dev")
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.acceptingChats === "boolean") {
+          isAcceptingChats.value = data.acceptingChats
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not fetch LiveChat status:", err)
+      })
+  }
   // Compute whether the business is open based on current time
   const isBusinessOpen: ComputedRef<boolean> = computed(() => {
     const onHoursParam = route.query.onHours || route.query.onhours
