@@ -83,6 +83,16 @@ export function useBusinessHoursInternal(): { isBusinessOpen: ComputedRef<boolea
         console.warn("Could not fetch LiveChat status:", err)
       })
   }
+
+  // Store visibility change handler
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === "visible") {
+      fetchLiveChatStatus()
+      startPolling()
+    } else {
+      stopPolling()
+    }
+  }
   // Setup the timer only on client-side
   onMounted(() => {
     // Update the current time every minute
@@ -93,15 +103,8 @@ export function useBusinessHoursInternal(): { isBusinessOpen: ComputedRef<boolea
     fetchLiveChatStatus()
     startPolling()
 
-    //refresh when the user returns to the tabl
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") {
-        fetchLiveChatStatus()
-        startPolling()
-      } else {
-        stopPolling()
-      }
-    })
+    //refresh when the user returns to the tab
+    document.addEventListener("visibilitychange", handleVisibilityChange)
   })
 
   // Clean up the interval when the component is unmounted
@@ -110,6 +113,7 @@ export function useBusinessHoursInternal(): { isBusinessOpen: ComputedRef<boolea
       clearInterval(timer)
     }
     stopPolling()
+    document.removeEventListener("visibilitychange", handleVisibilityChange)
   })
 
   // Compute whether the business is open based on current time
