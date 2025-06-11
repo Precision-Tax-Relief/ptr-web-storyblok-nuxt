@@ -106,7 +106,7 @@ const props = defineProps<PropTypes>()
                 fetchpriority="high"
                 width="240"
                 height="60"
-                sizes="240 xs:132"
+                sizes="240"
               ></NuxtImg>
             </div>
           </li>

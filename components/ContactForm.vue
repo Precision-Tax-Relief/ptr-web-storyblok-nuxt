@@ -166,7 +166,7 @@ const route = useRoute()
         </div>
         <form onsubmit="return false" class="w-sm space-y-2">
           <p class="mx-auto mb-4 text-center text-xs text-black">
-            <strong>Let us know how we can reach you</strong>
+            <strong>Let us know how we can reach you.</strong>
           </p>
           <!-- Name -->
           <div class="mb-2">
