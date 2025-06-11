@@ -49,9 +49,15 @@ module.exports = {
           900: "#5C554E",
           1000: "#47423E"
         },
-        ptrGreen: {
+        green: {
           DEFAULT: "#00ff00",
-          600: "#189821"
+          666: "#189821",
+          600: "#04AE3E",
+          700: "#03872F"
+        },
+        Zgreen: {
+          DEFAULT: "#85CC28",
+          600: "#6FAA22"
         }
       },
       transitionDelay: {

@@ -32,6 +32,7 @@ const props = defineProps<PropTypes>()
         </div>
         <div class="ml-auto hidden text-right md:block">
           <span class="block text-base uppercase text-slate-300 lg:text-sm"> Get your FREE consultation now: </span>
+
           <InvocaPhoneTrackingLink class="text-xl font-bold text-white lg:text-2xl">
             1-855-444-7551
           </InvocaPhoneTrackingLink>

@@ -12,7 +12,7 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="bg-slate-100 py-10" id="heroCSS">
-    <div class="container mx-auto mt-4 max-w-6xl px-4 md:px-8">
+    <div class="container mx-auto max-w-6xl px-1">
       <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <div class="mb-6 px-2 text-center text-primary sm:px-0">
@@ -112,7 +112,7 @@ const props = defineProps<PropTypes>()
           </li>
         </ul>
       </div>
-      <div class="px-3 pt-4 text-lg md:px-0 md:text-center lg:text-xl">
+      <div class="px-3 pt-4 text-lg md:px-0 md:text-center lg:text-lg">
         <h5 class="mb-4 text-center text-lg font-bold text-primary underline lg:hidden">Our promise:</h5>
         <p>
           <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax Relief
