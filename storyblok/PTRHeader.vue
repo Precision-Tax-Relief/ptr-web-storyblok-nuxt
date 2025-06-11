@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
 <template>
   <header v-editable="props.blok" class="bg-primary">
     <div class="container px-2 py-1 leading-6 sm:px-8 md:py-2 lg:py-3">
-      <div class="flex w-full flex-row items-center gap-2">
+      <div class="max-w-5-5xl mx-auto flex w-full flex-row items-center gap-6">
         <NuxtLink to="/" data-click-name="ClickHdr - Logo">
           <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="50" height="50" viewBox="0.5 0.5 266.4 368.6">
             <title>Better Business Bureau</title>
@@ -33,7 +33,7 @@ const props = defineProps<PropTypes>()
         <div class="ml-auto hidden text-right md:block">
           <span class="block text-base uppercase text-slate-300 lg:text-sm"> Get your FREE consultation now: </span>
           <InvocaPhoneTrackingLink class="text-xl font-bold text-white lg:text-2xl">
-            855-444-7551
+            1-855-444-7551
           </InvocaPhoneTrackingLink>
         </div>
 

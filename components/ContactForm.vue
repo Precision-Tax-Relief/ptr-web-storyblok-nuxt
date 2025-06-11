@@ -150,7 +150,7 @@ const route = useRoute()
       class="absolute inset-0 -z-10 mt-28 bg-yellow-400 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
-    <div class="bg-green-600 px-1 py-2 text-center font-bold text-white">
+    <div class="bg-ptrGreen-600 px-1 py-2 text-center font-bold text-white">
       <h3 class="lg:text-md text-md m-0 py-1 text-center font-bold">{{ title }}</h3>
     </div>
     <div class="bg-white px-4 py-6">
@@ -219,7 +219,7 @@ const route = useRoute()
           <button
             id="btn-submit"
             @click.prevent="submitForm"
-            class="w-full rounded bg-green-600 px-3 py-2 text-lg font-bold text-white hover:bg-green-700"
+            class="bg-ptrGreen-600 w-full rounded px-3 py-2 text-lg font-bold text-white hover:bg-green-700"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
             data-click-name="ClickForm - Submit"

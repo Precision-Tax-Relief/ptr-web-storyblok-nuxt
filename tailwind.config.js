@@ -48,12 +48,19 @@ module.exports = {
           800: "#706A63",
           900: "#5C554E",
           1000: "#47423E"
+        },
+        ptrGreen: {
+          DEFAULT: "#00ff00",
+          600: "#189821"
         }
       },
       transitionDelay: {
         50: "50ms",
         250: "250ms",
         400: "400ms"
+      },
+      maxWidth: {
+        "5-5xl": "72rem"
       }
     }
   },
