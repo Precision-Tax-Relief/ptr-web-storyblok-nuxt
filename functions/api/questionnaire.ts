@@ -40,6 +40,8 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
       delete validatedPayload.context.anonymous_id
     }
 
+    const ip = context.request.headers.get('CF-Connecting-IP') || context.request.cf?.ip || 'unknown'
+
     const properties = {
       ...validatedForm,
       ...validatedContext,
@@ -52,7 +54,8 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
       event: "Questionnaire Submitted",
       properties,
       context: {
-        source: "cloudflare"
+        source: "cloudflare",
+        ip
       }
     })
 

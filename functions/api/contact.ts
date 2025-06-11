@@ -41,6 +41,8 @@ export async function onRequestPost(context: CloudflareContext) {
       delete validatedPayload.context.anonymous_id
     }
 
+    const ip = context.request.headers.get('CF-Connecting-IP') || context.request.cf?.ip || 'unknown'
+
     const properties = {
       ...validatedForm,
       ...validatedContext,
@@ -53,7 +55,8 @@ export async function onRequestPost(context: CloudflareContext) {
       event: "Contact Form Filled",
       properties,
       context: {
-        source: "cloudflare"
+        source: "cloudflare",
+        ip
       }
     })
     analytics.identify({
@@ -65,6 +68,7 @@ export async function onRequestPost(context: CloudflareContext) {
       },
       context: {
         source: "cloudflare",
+        ip,
         "messaging_subscriptions": [
           {
             "key": properties.phone,
