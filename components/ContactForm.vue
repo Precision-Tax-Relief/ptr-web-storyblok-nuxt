@@ -233,12 +233,12 @@ const route = useRoute()
           <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
             <div class="mt-4 text-xl font-semibold">
               or Call
-              <b class="text-2xl font-extrabold text-secondary">{{ phoneNumber }}</b>
+              <b class="text-2xl font-extrabold text-black">{{ phoneNumber }}</b>
             </div>
           </div>
           <div v-else class="mb-14">
             <p class="mx-auto mb-4 mt-8 text-center text-xs text-black">
-              <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within&nbsp;
+              <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within
               <strong>one business day</strong>
             </p>
           </div>
