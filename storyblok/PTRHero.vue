@@ -55,15 +55,14 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-
         <div v-if="!isMobile" class="shrink-0 basis-[18rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
-        <div v-else-if="isMobile && isBusinessOpen" class="mx-auto">
-          <PTRCallConsultationButton />
-        </div>
         <div v-else-if="isMobile && !isBusinessOpen" class="mx-auto" :class="{ hidden: isBusinessOpen }">
           <ContactForm :show-phone-number="isBusinessOpen" />
+        </div>
+        <div v-else-if="showMobileCTAButton" class="mx-auto">
+          <PTRCallConsultationButton />
         </div>
       </div>
       <div class="px-3 py-8 sm:px-0">
@@ -132,7 +131,7 @@ const props = defineProps<PropTypes>()
       <div class="px-3 pt-4 text-lg md:px-0 md:text-center lg:text-lg">
         <h5 class="mb-4 text-center text-lg font-bold text-primary underline lg:hidden">Our promise:</h5>
         <p>
-          <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax Relief
+          <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax
           <strong>will never share or sell</strong> your information. Everything you discuss with us is
           <strong>completely confidential.</strong>
         </p>

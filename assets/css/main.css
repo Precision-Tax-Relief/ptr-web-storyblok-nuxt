@@ -21,12 +21,6 @@ html {
 .m-phone-input .m-input-wrapper {
   width: 100% !important;
 }
-
-#contact {
-  transform: translateX(0); /* Default */
-
+.m-input-input, .m-input-wrapper-left {
+  background-color: #e0e9f0 !important;
 }
-
-
-
-

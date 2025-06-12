@@ -180,7 +180,7 @@ const route = useRoute()
               :size="'sm'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
+                <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-700" />
               </template>
             </MazInput>
           </div>
@@ -197,7 +197,7 @@ const route = useRoute()
               :size="'sm'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:phone" class="h-5 w-5 text-gray-300" />
+                <Icon name="fa-solid:phone" class="h-5 w-5 text-gray-700" />
               </template>
             </MazInput>
           </div>
@@ -213,7 +213,7 @@ const route = useRoute()
               :size="'sm'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-300" />
+                <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-700" />
               </template>
             </MazInput>
           </div>
