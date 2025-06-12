@@ -30,6 +30,7 @@ const props = defineProps<PropTypes>()
       name="twitter:image"
       :content="props.blok?.featuredImage?.filename"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
   </Head>
   <div v-editable="props.blok" class="mx-auto">
     <div class="flex min-h-[80vh] flex-col">
@@ -80,7 +81,7 @@ const props = defineProps<PropTypes>()
     </div>
     <NuxtLink
       v-if="props.blok.matterPortImage?.filename && props.blok.matterPortLink?.url"
-      class="relative m-auto mt-20 flex aspect-[4/3] w-full max-w-7xl flex-col items-center justify-center gap-5 sm:gap-10 md:aspect-22/11 md:w-[60rem] lg:w-[80rem]"
+      class="md:aspect-22/11 relative m-auto mt-20 flex aspect-[4/3] w-full max-w-7xl flex-col items-center justify-center gap-5 sm:gap-10 md:w-[60rem] lg:w-[80rem]"
       :to="props.blok.matterPortLink?.url"
       target="_blank"
     >
@@ -95,7 +96,7 @@ const props = defineProps<PropTypes>()
           alt: props.blok.matterPortImage?.alt
         }"
       />
-      <div class="class absolute inset-0 -z-10 bg-black opacity-100"/>
+      <div class="absolute inset-0 -z-10 bg-black opacity-100" />
     </NuxtLink>
     <div class="pt-20">
       <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />

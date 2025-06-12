@@ -12,12 +12,12 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="bg-slate-100 py-10" id="heroCSS">
-    <div class="container mx-auto mt-4 max-w-6xl px-4 md:px-8">
+    <div class="container mx-auto max-w-6xl px-1">
       <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <div class="mb-6 px-2 text-center text-primary sm:px-0">
-            <h1 class="mb-8 text-3xl font-bold tracking-wider md:text-5xl lg:mb-6" v-html="blok.header"></h1>
-            <h3 class="text-lg font-normal md:text-2xl" v-html="blok.subheader"></h3>
+            <h1 class="mb-8 text-4xl font-black tracking-wider md:text-4xl lg:mb-6" v-html="blok.header"></h1>
+            <h3 class="mx-auto text-base md:text-xl" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
             <NuxtImg
@@ -106,13 +106,13 @@ const props = defineProps<PropTypes>()
                 fetchpriority="high"
                 width="240"
                 height="60"
-                sizes="240 xs:132"
+                sizes="240"
               ></NuxtImg>
             </div>
           </li>
         </ul>
       </div>
-      <div class="px-3 pt-4 text-lg md:px-0 md:text-center lg:text-xl">
+      <div class="px-3 pt-4 text-lg md:px-0 md:text-center lg:text-lg">
         <h5 class="mb-4 text-center text-lg font-bold text-primary underline lg:hidden">Our promise:</h5>
         <p>
           <strong class="hidden lg:inline-block">Our Promise:</strong> Precision Tax Relief

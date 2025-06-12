@@ -150,8 +150,8 @@ const route = useRoute()
       class="absolute inset-0 -z-10 mt-28 bg-yellow-400 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
-    <div class="bg-secondary px-1 py-2 text-center font-bold text-white">
-      <h3 class="lg:text-md text-md m-0 py-1 text-center font-bold">{{ title }}</h3>
+    <div class="bg-green-600 px-1 py-2 text-center font-bold text-white">
+      <h3 class="m-0 py-1 text-center text-lg font-bold lg:text-base">{{ title }}</h3>
     </div>
     <div class="bg-white px-4 py-6">
       <div id="main-form" class="main-form">
@@ -165,6 +165,9 @@ const route = useRoute()
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
         <form onsubmit="return false" class="w-sm space-y-2">
+          <p class="mx-auto mb-4 text-center text-xs text-black">
+            <strong>Let us know how we can reach you.</strong>
+          </p>
           <!-- Name -->
           <div class="mb-2">
             <MazInput
@@ -219,7 +222,7 @@ const route = useRoute()
           <button
             id="btn-submit"
             @click.prevent="submitForm"
-            class="w-full rounded bg-green-500 px-3 py-2 text-lg font-bold text-white hover:bg-green-600"
+            class="w-full rounded bg-green-600 px-3 py-2 text-lg font-bold text-white hover:bg-green-700"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
             data-click-name="ClickForm - Submit"
@@ -228,21 +231,22 @@ const route = useRoute()
             <span v-else>{{ submitText }}</span>
           </button>
 
-          <div class="mb-14">
+          <!-- Phone display -->
+          <hr />
+          <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
+            <div class="mt-4 text-lg font-semibold">
+              or Call
+              <InvocaPhoneTrackingLink>
+                <b class="text-xl font-extrabold text-black">{{ phoneNumber }}</b>
+              </InvocaPhoneTrackingLink>
+            </div>
+          </div>
+          <div v-else class="mb-14">
             <p class="mx-auto mb-4 mt-8 text-center text-xs text-black">
-              <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within&nbsp;
+              <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within
               <strong>one business day</strong>
             </p>
           </div>
-          <!-- Phone display -->
-          <hr v-if="showPhoneNumber" />
-          <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
-            <div class="mt-4 text-xl font-semibold">
-              or Call
-              <b class="text-2xl font-extrabold text-secondary">{{ phoneNumber }}</b>
-            </div>
-          </div>
-          <div v-else class="mt-12 text-center text-black"></div>
         </form>
       </div>
     </div>

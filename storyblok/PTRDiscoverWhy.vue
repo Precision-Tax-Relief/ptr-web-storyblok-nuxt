@@ -16,7 +16,7 @@ const closeGoogleModal = () => {
 </script>
 
 <template>
-  <div v-editable="props.blok" class="bg-slate-100 py-20 md:py-28">
+  <div v-editable="props.blok" class="bg-slate-100 py-20">
     <div class="container px-0 sm:px-4">
       <div class="mx-auto max-w-3xl">
         <h2

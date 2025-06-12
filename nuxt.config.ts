@@ -72,14 +72,19 @@ const config: NuxtConfig = {
         plugins: {
           tailwindcss: {},
           autoprefixer: {},
-          ...(process.env.NODE_ENV === 'production' ? {
-            cssnano: {
-              preset: ['default', {
-                discardComments: { removeAll: true },
-                minifyFontValues: { removeQuotes: false }
-              }]
-            }
-          } : {})
+          ...(process.env.NODE_ENV === "production"
+            ? {
+                cssnano: {
+                  preset: [
+                    "default",
+                    {
+                      discardComments: { removeAll: true },
+                      minifyFontValues: { removeQuotes: false }
+                    }
+                  ]
+                }
+              }
+            : {})
         }
       }
     }
@@ -155,6 +160,15 @@ const config: NuxtConfig = {
     prerender: {
       crawlLinks: false,
       failOnError: true
+    }
+  },
+  app: {
+    head: {
+      link: [
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
+        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" }
+      ]
     }
   },
   // googleFonts: {

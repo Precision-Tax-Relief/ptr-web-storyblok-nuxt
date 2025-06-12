@@ -48,12 +48,25 @@ module.exports = {
           800: "#706A63",
           900: "#5C554E",
           1000: "#47423E"
+        },
+        green: {
+          DEFAULT: "#00ff00",
+          600: "#189821",
+          666: "#04AE3E",
+          700: "#03872F"
+        },
+        Zgreen: {
+          DEFAULT: "#85CC28",
+          600: "#6FAA22"
         }
       },
       transitionDelay: {
         50: "50ms",
         250: "250ms",
         400: "400ms"
+      },
+      maxWidth: {
+        "5-5xl": "72rem"
       }
     }
   },
