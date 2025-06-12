@@ -8,10 +8,10 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div v-editable="props.blok" class="container max-w-6xl px-2 py-20 md:px-8 lg:py-28">
+  <div v-editable="props.blok" class="container max-w-6xl px-2 py-20 md:px-8">
     <div class="section-head">
       <h2
-        class="mx-auto mb-12 max-w-5xl text-center text-3xl font-bold leading-tight text-primary md:px-24 md:text-4xl lg:-mt-20 lg:mb-20"
+        class="mx-auto mb-12 max-w-5xl text-center text-3xl font-bold leading-tight text-primary md:px-24 md:text-4xl lg:-mt-8 lg:mb-20"
       >
         What to expect during your<br /><span class="md:whitespace-nowrap">free consultation</span>
       </h2>
