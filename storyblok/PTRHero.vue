@@ -2,7 +2,17 @@
 import type { PtrHeroStoryblok } from "~/types/component-types-sb"
 import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
 const { isBusinessOpen } = useBusinessHours()
+import { detectMobileBrowser } from "~/utils/mobileDetect"
 
+// SSR-safe mobile detection
+const isMobile = ref(false)
+onMounted(() => {
+  isMobile.value = detectMobileBrowser()
+})
+// When to show mobile CTA button (not form)
+const showMobileCTAButton = computed(() => {
+  return isBusinessOpen && isMobile.value
+})
 interface PropTypes {
   blok: PtrHeroStoryblok
 }
@@ -37,7 +47,7 @@ const props = defineProps<PropTypes>()
             <figcaption
               class="lg:leading-1 text-pretty px-2 pb-0 pt-4 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left lg:text-lg"
             >
-              <p class="text-base">
+              <p class="mb-4 text-base">
                 <strong>Precision Tax</strong>, under the leadership of Scott Gettis, Michele Mulkey, and Gene Haag,
                 proudly maintains an <strong>A+&nbsp;BBB</strong> rating and has been awarded the
                 <strong>Torch Award for Ethics in 2019, 2023, and 2024.</strong>
@@ -46,7 +56,13 @@ const props = defineProps<PropTypes>()
           </figure>
         </div>
 
-        <div class="shrink-0 basis-[18rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
+        <div v-if="!isMobile" class="shrink-0 basis-[18rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
+          <ContactForm :show-phone-number="isBusinessOpen" />
+        </div>
+        <div v-else-if="isMobile && isBusinessOpen" class="mx-auto">
+          <PTRCallConsultationButton />
+        </div>
+        <div v-else-if="isMobile && !isBusinessOpen" class="mx-auto" :class="{ hidden: isBusinessOpen }">
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
       </div>
