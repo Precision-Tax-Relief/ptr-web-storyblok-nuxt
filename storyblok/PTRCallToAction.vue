@@ -40,7 +40,7 @@ const props = defineProps<PropTypes>()
           </div>
         </template>
       </PTRCallToActionStep>
-      <PTRCallToActionStep hasCheck class="lg:translate-y-[-12px]">
+      <PTRCallToActionStep hasCheck>
         <template v-slot:number> 3 </template>
         <template v-slot:header> Get a transparent quote with affordable payments </template>
         <template v-slot:default>

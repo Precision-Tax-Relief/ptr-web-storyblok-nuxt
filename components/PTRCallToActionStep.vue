@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
   >
     <div class="mb-3 flex items-center justify-between">
       <span
-        class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-400 text-center text-3xl font-bold text-white"
+        class="mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-blue-400 text-center text-3xl font-bold text-white"
       >
         <slot name="number" />
       </span>
@@ -19,7 +19,9 @@ const props = defineProps<PropTypes>()
       <PTRArrow class="grow px-4" />
 
       <div class="flex items-center">
-        <Icon v-if="hasCheck" name="material-symbols-light:check-circle" class="text-green-500" size="69px" />
+        <div class="flex h-16 items-center justify-center">
+          <Icon v-if="hasCheck" name="material-symbols-light:check-circle" class="text-green-500" size="69px" />
+        </div>
       </div>
     </div>
 
