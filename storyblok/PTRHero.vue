@@ -17,7 +17,7 @@ const props = defineProps<PropTypes>()
         <div>
           <div class="mb-6 px-2 text-center text-primary sm:px-0">
             <h1 class="mb-8 text-4xl font-black tracking-wider md:text-4xl lg:mb-6" v-html="blok.header"></h1>
-            <h3 class="text-md mx-auto md:text-xl" v-html="blok.subheader"></h3>
+            <h3 class="mx-auto text-base md:text-xl" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
             <NuxtImg

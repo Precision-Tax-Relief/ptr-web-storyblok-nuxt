@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
 <template>
   <header v-editable="props.blok" class="bg-primary">
     <div class="container px-2 py-1 leading-6 sm:px-8 md:py-2 lg:py-3">
-      <div class="max-w-5-5xl mx-auto flex w-full flex-row items-center gap-6">
+      <div class="mx-auto flex w-full max-w-5-5xl flex-row items-center gap-6">
         <NuxtLink to="/" data-click-name="ClickHdr - Logo">
           <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="50" height="50" viewBox="0.5 0.5 266.4 368.6">
             <title>Better Business Bureau</title>
@@ -40,7 +40,7 @@ const props = defineProps<PropTypes>()
 
         <div class="ml-auto block md:hidden">
           <InvocaPhoneTrackingLink
-            class="flex items-center gap-2 rounded-md bg-green-500 px-4 py-1 text-base/5 font-bold uppercase text-white hover:bg-green-600 sm:text-lg"
+            class="flex items-center gap-2 rounded-md bg-green-600 px-4 py-1 text-base/5 font-bold uppercase text-white hover:bg-green-700 sm:text-lg"
           >
             <Icon name="fa-solid:phone-alt" class="text-2xl text-white sm:text-xl" />
             <div class="flex flex-col gap-x-1 sm:flex-row">

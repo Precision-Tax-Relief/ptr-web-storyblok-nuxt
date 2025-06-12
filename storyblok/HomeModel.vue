@@ -96,7 +96,7 @@ const props = defineProps<PropTypes>()
           alt: props.blok.matterPortImage?.alt
         }"
       />
-      <div class="class absolute inset-0 -z-10 bg-black opacity-100" />
+      <div class="absolute inset-0 -z-10 bg-black opacity-100" />
     </NuxtLink>
     <div class="pt-20">
       <StoryblokComponent v-for="child_block in blok.body" :key="child_block._uid" :blok="child_block" />

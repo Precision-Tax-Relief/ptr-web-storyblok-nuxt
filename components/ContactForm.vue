@@ -151,7 +151,7 @@ const route = useRoute()
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
     <div class="bg-green-600 px-1 py-2 text-center font-bold text-white">
-      <h3 class="lg:text-md text-md m-0 py-1 text-center font-bold">{{ title }}</h3>
+      <h3 class="m-0 py-1 text-center text-lg font-bold lg:text-base">{{ title }}</h3>
     </div>
     <div class="bg-white px-4 py-6">
       <div id="main-form" class="main-form">
