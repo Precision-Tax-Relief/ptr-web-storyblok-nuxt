@@ -28,7 +28,7 @@ const props = defineProps<PropTypes>()
             <span class="align-super text-sm">®</span>
           </div>
           -->
-          <div class="text-sm text-white">Recommends Precision&nbsp;Tax&nbsp;Relief</div>
+          <div class="text-sm text-white">Recommends <br />Precision&nbsp;Tax&nbsp;</div>
         </div>
         <div class="ml-auto hidden text-right md:block">
           <span class="block text-base uppercase text-slate-300 lg:text-sm"> Get your FREE consultation now: </span>

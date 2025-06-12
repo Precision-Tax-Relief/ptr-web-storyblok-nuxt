@@ -53,7 +53,7 @@ const props = defineProps<PropTypes>()
             <ul class="mb-2 flex flex-wrap justify-between gap-4 px-3 sm:py-0 lg:gap-8">
               <li class="w-full lg:ml-0 lg:w-auto">
                 <div class="user_title">
-                  <p class="text-4xl font-bold text-primaryDark">{{ tm.name }}</p>
+                  <p class="text-xl font-bold text-primaryDark">{{ tm.name }}</p>
                 </div>
               </li>
               <li class="lg:ml-0">

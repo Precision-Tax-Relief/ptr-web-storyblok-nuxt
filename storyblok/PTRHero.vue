@@ -45,6 +45,7 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
+
         <div class="shrink-0 basis-[18rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>

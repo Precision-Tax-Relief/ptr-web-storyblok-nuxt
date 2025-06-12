@@ -165,7 +165,7 @@ const route = useRoute()
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
         <form onsubmit="return false" class="w-sm space-y-2">
-          <p class="mx-auto mb-4 text-center text-xs text-black">
+          <p class="mx-auto mb-4 text-center text-sm text-black">
             <strong>Let us know how we can reach you.</strong>
           </p>
           <!-- Name -->
