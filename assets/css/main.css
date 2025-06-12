@@ -2,13 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 @plugin "@tailwindcss/typography";
+/*
+html {
+scroll-behavior: smooth;
+font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+
+font-family: Opensans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+*/
 
 html {
   scroll-behavior: smooth;
-  /*font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
-*/
-  font-family: Opensans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 .m-phone-input,
 .m-phone-input .m-input-wrapper {
   width: 100% !important;
