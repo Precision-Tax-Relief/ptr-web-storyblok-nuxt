@@ -123,7 +123,7 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-2 text-left">BBB Rating</td>
             <td class="flex items-center justify-center gap-1 p-2">
-              <checkmark />
+              <checkmark />&nbsp;
               <SegmentExternalLink
                 :to="precisionTax.links.bbbRating"
                 label="precision bbb rating"
@@ -147,14 +147,14 @@ onUnmounted(() => {
           <tr>
             <td class="p-2 text-left">BBB Complaints</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />
+              <checkmark />&nbsp;&nbsp;
               <SegmentExternalLink
                 :to="precisionTax.links.bbbComplaints"
                 label="precision bbb complaints"
                 eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
                 class="border-b-2 border-gray-300"
               >
-                {{ precisionTax.bbbComplaints }}
+                {{ precisionTax.bbbComplaints }}&nbsp;
               </SegmentExternalLink>
             </td>
             <td class="p-2">
@@ -172,7 +172,7 @@ onUnmounted(() => {
             <td class="p-2 text-left">BBB Torch Award</td>
 
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />
+              <checkmark />&nbsp;
               <SegmentExternalLink
                 :to="precisionTax.links.bbbTorch"
                 label="precision bbb torch"
@@ -204,7 +204,7 @@ onUnmounted(() => {
             <td class="p-2 text-left">Google Rating</td>
 
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />
+              <checkmark />&nbsp;
               <SegmentExternalLink
                 :to="precisionTax.links.google"
                 label="precision google rating"
@@ -228,7 +228,7 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-2 text-left">Trustpilot Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />
+              <checkmark />&nbsp;
               <SegmentExternalLink
                 :to="precisionTax.links.trustpilot"
                 label="precision trustpilot rating"
