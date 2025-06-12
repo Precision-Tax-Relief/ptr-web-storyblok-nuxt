@@ -10,7 +10,7 @@ export const QuestionnaireSchema = z.object({
     if (val === "undefined") return undefined
     return val // This line shouldn't be reached due to enum validation
   }),
-  owe_irs: z.enum(["1", "10", "11", "4", "6", "7"]),
+  owe_irs: z.enum(["1", "2", "3", "4", "5", "6"]),
   "3_plus_unfiled": z.union([
     z.boolean(),
     z.string().transform((val) => {

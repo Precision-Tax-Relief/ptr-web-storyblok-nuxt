@@ -396,31 +396,31 @@ onMounted(() => {
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '10')"
+                          @click="selectSingleAnswer('owe_irs', '2')"
                         >
                           $10,000 – $49,999
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '11')"
+                          @click="selectSingleAnswer('owe_irs', '3')"
                         >
                           $50,000 – $99,999
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '6')"
+                          @click="selectSingleAnswer('owe_irs', '4')"
                         >
                           $100,000 or more
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '7')"
+                          @click="selectSingleAnswer('owe_irs', '5')"
                         >
                           I don't know
                         </button>
                         <button
                           class="col-span-2 rounded-lg border border-gray-300 bg-white py-4 text-lg transition-colors hover:bg-primaryDark hover:text-white sm:col-span-1 lg:py-5 lg:text-2xl"
-                          @click="selectSingleAnswer('owe_irs', '15')"
+                          @click="selectSingleAnswer('owe_irs', '6')"
                         >
                           I prefer not to say
                         </button>
