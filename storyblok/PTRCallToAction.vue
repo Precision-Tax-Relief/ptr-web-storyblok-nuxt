@@ -13,7 +13,7 @@ const props = defineProps<PropTypes>()
       <h2
         class="mx-auto mb-12 max-w-5xl text-center text-3xl font-bold leading-tight text-primary md:px-24 md:text-4xl lg:-mt-8 lg:mb-20"
       >
-        What to expect during your<br /><span class="md:whitespace-nowrap">free consultation</span>
+        What To Expect During Your<br /><span class="md:whitespace-nowrap">Free Consultation</span>
       </h2>
     </div>
     <div class="my-10 flex flex-col justify-between gap-12 px-2 sm:px-0 lg:flex-row">

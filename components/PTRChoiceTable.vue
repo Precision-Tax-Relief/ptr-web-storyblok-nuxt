@@ -283,7 +283,7 @@ onUnmounted(() => {
           :key="key"
           @click="setCompetitor(key)"
           class="rounded-md px-2 py-1 text-xs text-white transition"
-          :class="activeCompetitor === key ? 'bg-blue-700' : 'bg-gray-500 hover:bg-gray-700'"
+          :class="activeCompetitor === key ? 'bg-primary' : 'bg-gray-500 hover:bg-gray-700'"
         >
           {{ data.name }}
         </button>
