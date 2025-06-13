@@ -165,7 +165,7 @@ const route = useRoute()
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
         <form onsubmit="return false" class="w-sm space-y-2">
-          <p class="mx-auto mb-4 text-center text-xs text-black">
+          <p class="mx-auto mb-4 text-center text-sm text-black">
             <strong>Let us know how we can reach you.</strong>
           </p>
           <!-- Name -->
@@ -180,7 +180,7 @@ const route = useRoute()
               :size="'sm'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-300" />
+                <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-700" />
               </template>
             </MazInput>
           </div>
@@ -197,7 +197,7 @@ const route = useRoute()
               :size="'sm'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:phone" class="h-5 w-5 text-gray-300" />
+                <Icon name="fa-solid:phone" class="h-5 w-5 text-gray-700" />
               </template>
             </MazInput>
           </div>
@@ -213,7 +213,7 @@ const route = useRoute()
               :size="'sm'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-300" />
+                <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-700" />
               </template>
             </MazInput>
           </div>

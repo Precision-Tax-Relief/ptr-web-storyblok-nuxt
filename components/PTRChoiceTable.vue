@@ -97,8 +97,8 @@ onUnmounted(() => {
 */
 </script>
 <template>
-  <div class="mx-auto max-w-6xl">
-    <h3 class="mb-5 px-4 text-2xl font-bold text-primary lg:px-0">
+  <div class="mx-auto max-w-6xl px-2">
+    <h3 class="mb-5 px-4 text-3xl font-bold text-primary lg:px-0">
       Why Precision Tax Relief Is Trusted by the BBB Over Competitors
     </h3>
 
@@ -283,7 +283,7 @@ onUnmounted(() => {
           :key="key"
           @click="setCompetitor(key)"
           class="rounded-md px-2 py-1 text-xs text-white transition"
-          :class="activeCompetitor === key ? 'bg-blue-700' : 'bg-gray-500 hover:bg-gray-700'"
+          :class="activeCompetitor === key ? 'bg-primary' : 'bg-gray-500 hover:bg-gray-700'"
         >
           {{ data.name }}
         </button>
