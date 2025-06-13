@@ -11,7 +11,7 @@ onMounted(() => {
 })
 // When to show mobile CTA button (not form)
 const showMobileCTAButton = computed(() => {
-  return isBusinessOpen && isMobile.value
+  return unref(isBusinessOpen) && isMobile.value
 })
 interface PropTypes {
   blok: PtrHeroStoryblok
