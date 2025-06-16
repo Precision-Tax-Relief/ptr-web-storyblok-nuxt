@@ -242,7 +242,7 @@ const route = useRoute()
             </div>
           </div>
           <div v-else class="mb-14">
-            <p class="mx-auto mb-4 mt-8 text-center text-xs text-black">
+            <p class="mx-auto mt-4 text-center text-xs text-black">
               <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within
               <strong>one business day</strong>
             </p>
