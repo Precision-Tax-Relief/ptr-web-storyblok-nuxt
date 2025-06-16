@@ -26,16 +26,23 @@ const props = defineProps<PropTypes>()
       <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <div class="mb-6 px-2 text-center text-primary sm:px-0">
-            <h1 class="mb-8 text-4xl font-black tracking-wider md:text-4xl lg:mb-6" v-html="blok.header"></h1>
-            <h3 class="mx-auto text-base md:text-xl" v-html="blok.subheader"></h3>
+            <h1
+              class="mb-2 font-sans text-[41px] font-bold leading-[53px] tracking-wider text-primary"
+              v-html="blok.header"
+            ></h1>
+
+            <h3
+              class="mx-auto mt-8 font-sans text-xl leading-7 tracking-wide text-primary md:text-[24px] md:leading-[36px]"
+              v-html="blok.subheader"
+            ></h3>
           </div>
           <figure class="splash-thumb">
             <NuxtImg
               :modifiers="{ smart: true }"
               :src="blok.image.filename"
               :alt="blok.image.alt ?? undefined"
-              width="752"
-              height="229"
+              width="810"
+              height="220"
               class="w-full sm:m-2"
               quality="90"
               densities="x1 x2"
