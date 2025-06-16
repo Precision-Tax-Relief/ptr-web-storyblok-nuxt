@@ -164,12 +164,12 @@ const route = useRoute()
         <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form onsubmit="return false" class="w-max space-y-2">
+        <form onsubmit="return false" class="w-max space-y-4">
           <p class="text-md mx-auto mb-4 text-center text-black">
             <strong>Let us know how we can reach you.</strong>
           </p>
           <!-- Name -->
-          <div class="pb-2">
+          <div>
             <MazInput
               v-model="formData.name"
               label="Name"
@@ -186,7 +186,7 @@ const route = useRoute()
           </div>
 
           <!-- Phone -->
-          <div class="pb-2">
+          <div>
             <MazInput
               v-model="phoneDisplay"
               @update:model-value="updatePhoneNumber"
@@ -203,7 +203,7 @@ const route = useRoute()
           </div>
 
           <!-- Email -->
-          <div class="pb-2">
+          <div>
             <MazInput
               v-model="formData.email"
               label="Email"
@@ -222,7 +222,7 @@ const route = useRoute()
           <button
             id="btn-submit"
             @click.prevent="submitForm"
-            class="w-full rounded bg-green-600 px-6 py-3 text-xl font-bold text-white hover:bg-green-700"
+            class="text-md w-full rounded bg-green-600 px-12 py-3 font-bold text-white hover:bg-green-700"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
             data-click-name="ClickForm - Submit"
@@ -235,9 +235,8 @@ const route = useRoute()
 
           <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
             <div class="mt-4 text-lg font-semibold">
-              or Call
               <InvocaPhoneTrackingLink>
-                <b class="text-2xl">{{ phoneNumber }}</b>
+                <b class="text-2xl"> or Call {{ phoneNumber }}</b>
               </InvocaPhoneTrackingLink>
             </div>
           </div>
