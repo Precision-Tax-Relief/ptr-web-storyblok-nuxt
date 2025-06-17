@@ -27,12 +27,14 @@ const props = defineProps<PropTypes>()
         <div>
           <div class="mb-6 px-2 text-center text-primary sm:px-0">
             <h1
-              class="mb-2 font-sans text-[41px] font-bold leading-[53px] tracking-wider text-primary"
+              id="heroH1"
+              class="mb-2 text-[41px] font-bold leading-[53px] tracking-widest text-primary"
               v-html="blok.header"
             ></h1>
 
             <h3
-              class="mx-auto mt-8 font-sans text-xl leading-7 tracking-wide text-primary md:text-[24px] md:leading-[36px]"
+              id="heroH3"
+              class="mx-auto mt-8 text-xl leading-7 tracking-wide text-primary md:text-[24px] md:leading-[36px]"
               v-html="blok.subheader"
             ></h3>
           </div>
