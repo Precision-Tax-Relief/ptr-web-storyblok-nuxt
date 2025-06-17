@@ -222,7 +222,7 @@ const route = useRoute()
           <button
             id="btn-submit"
             @click.prevent="submitForm"
-            class="text-md w-full rounded bg-green-600 px-12 py-3 font-bold text-white hover:bg-green-700"
+            class="w-full rounded bg-green-600 px-12 py-3 text-base font-bold text-white hover:bg-green-700"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
             data-click-name="ClickForm - Submit"
