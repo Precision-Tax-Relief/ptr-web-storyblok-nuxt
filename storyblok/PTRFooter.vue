@@ -26,7 +26,7 @@ const props = defineProps<PropTypes>()
                   class: 'mx-auto'
                 }"
               />
-              <figcaption class="text-lg font-light text-slate-300">
+              <figcaption class="mt-4 text-lg font-light text-slate-300">
                 Our team consists of proven tax professionals that include CPAs, Tax Attorneys, and federally licensed
                 Enrolled Agents.
               </figcaption>

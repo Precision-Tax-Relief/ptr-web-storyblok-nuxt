@@ -164,7 +164,7 @@ const route = useRoute()
         <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form onsubmit="return false" class="w-max space-y-4">
+        <form onsubmit="return false" class="w-max max-w-3xl space-y-4">
           <p class="text-md mx-auto mb-4 text-center text-black">
             <strong>Let us know how we can reach you.</strong>
           </p>
@@ -233,11 +233,9 @@ const route = useRoute()
 
           <!-- Phone display -->
 
-          <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
-            <div class="mt-4 text-lg font-semibold">
-              <InvocaPhoneTrackingLink>
-                <b class="text-2xl"> or Call {{ phoneNumber }}</b>
-              </InvocaPhoneTrackingLink>
+          <div v-if="showPhoneNumber">
+            <div class="mx-auto mt-4 text-center text-2xl font-bold">
+              <InvocaPhoneTrackingLink> or Call {{ phoneNumber }} </InvocaPhoneTrackingLink>
             </div>
           </div>
           <div v-else class="mb-14">
