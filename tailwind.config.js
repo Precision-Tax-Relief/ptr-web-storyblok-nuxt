@@ -71,6 +71,9 @@ module.exports = {
       },
       maxWidth: {
         "5-5xl": "72rem"
+      },
+      fontFamily: {
+        sans: ['"Open Sans"', "sans-serif"]
       }
     }
   },
