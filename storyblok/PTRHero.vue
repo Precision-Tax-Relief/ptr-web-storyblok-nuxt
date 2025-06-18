@@ -123,8 +123,8 @@ const props = defineProps<PropTypes>()
                 format="webp"
                 loading="eager"
                 fetchpriority="high"
-                width="240"
-                height="60"
+                width="200"
+                height="50"
                 sizes="240"
               ></NuxtImg>
             </div>

@@ -164,7 +164,7 @@ const route = useRoute()
         <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form onsubmit="return false" class="w-max max-w-3xl space-y-4">
+        <form onsubmit="return false" class="max-w-3xl space-y-4 lg:w-max">
           <p class="text-md mx-auto mb-4 text-center text-black">
             <strong>Let us know how we can reach you.</strong>
           </p>
