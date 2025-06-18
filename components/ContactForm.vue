@@ -145,13 +145,13 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="relative z-20 -mt-28 ml-auto w-max pt-28 lg:block" id="contact">
+  <div class="relative z-20 -mt-28 ml-auto pt-28 lg:block" id="contact">
     <div
       class="absolute inset-0 -z-10 mt-28 bg-yellow-400 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
-    <div class="bg-green-600 px-1 py-2 text-center font-bold text-white">
-      <h3 class="m-0 py-1 text-center text-lg font-bold lg:text-base">{{ title }}</h3>
+    <div class="bg-Zblue-600 px-1 py-2 text-center font-bold text-white">
+      <h3 class="m-0 py-1 text-center text-lg font-bold lg:text-lg">{{ title }}</h3>
     </div>
     <div class="bg-white px-4 py-6">
       <div id="main-form" class="main-form">
@@ -164,12 +164,12 @@ const route = useRoute()
         <div v-if="!!errorMessage" class="mb-6 rounded border-l-4 border-red-500 bg-red-100 p-4 text-red-700">
           <p>{{ errorMessage || "An error occurred. Please try again." }}</p>
         </div>
-        <form onsubmit="return false" class="w-sm space-y-2">
-          <p class="mx-auto mb-4 text-center text-sm text-black">
+        <form onsubmit="return false" class="max-w-3xl space-y-4 lg:w-max">
+          <p class="text-md mx-auto mb-4 text-center text-black">
             <strong>Let us know how we can reach you.</strong>
           </p>
           <!-- Name -->
-          <div class="mb-2">
+          <div>
             <MazInput
               v-model="formData.name"
               label="Name"
@@ -177,10 +177,10 @@ const route = useRoute()
               :block="true"
               :error="!!errors.name"
               class="mr-0"
-              :size="'sm'"
+              :size="'md'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:user-alt" class="h-5 w-5 text-gray-700" />
+                <Icon name="fa-solid:user-alt" class="h-4 w-4 text-gray-400" />
               </template>
             </MazInput>
           </div>
@@ -194,26 +194,26 @@ const route = useRoute()
               :assistive-text="errors.phone"
               :error="!!errors.phone"
               :block="true"
-              :size="'sm'"
+              :size="'md'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:phone" class="h-5 w-5 text-gray-700" />
+                <Icon name="fa-solid:phone" class="h-4 w-4 text-gray-400" />
               </template>
             </MazInput>
           </div>
 
           <!-- Email -->
-          <div class="pb-2">
+          <div>
             <MazInput
               v-model="formData.email"
               label="Email"
               :assistive-text="errors.email"
               :error="!!errors.email"
               :block="true"
-              :size="'sm'"
+              :size="'md'"
             >
               <template #left-icon>
-                <Icon name="fa-solid:envelope" class="h-5 w-5 text-gray-700" />
+                <Icon name="fa-solid:envelope" class="h-4 w-4 text-gray-400" />
               </template>
             </MazInput>
           </div>
@@ -222,7 +222,7 @@ const route = useRoute()
           <button
             id="btn-submit"
             @click.prevent="submitForm"
-            class="w-full rounded bg-green-600 px-3 py-2 text-lg font-bold text-white hover:bg-green-700"
+            class="w-full rounded bg-green-600 px-12 py-3 text-base font-bold text-white hover:bg-green-700"
             :disabled="isSubmitting"
             :class="{ 'opacity-70': isSubmitting }"
             data-click-name="ClickForm - Submit"
@@ -232,17 +232,14 @@ const route = useRoute()
           </button>
 
           <!-- Phone display -->
-          <hr />
-          <div v-if="showPhoneNumber" class="text-center text-xl font-bold text-black">
-            <div class="mt-4 text-lg font-semibold">
-              or Call
-              <InvocaPhoneTrackingLink>
-                <b class="text-xl font-extrabold text-black">{{ phoneNumber }}</b>
-              </InvocaPhoneTrackingLink>
+
+          <div v-if="showPhoneNumber">
+            <div class="mx-auto mt-4 text-center text-2xl font-bold">
+              <InvocaPhoneTrackingLink> or Call {{ phoneNumber }} </InvocaPhoneTrackingLink>
             </div>
           </div>
           <div v-else class="mb-14">
-            <p class="mx-auto mb-4 mt-8 text-center text-xs text-black">
+            <p class="mx-auto mt-4 text-center text-xs text-black">
               <strong>A licensed tax professional</strong><br />&nbsp;will contact&nbsp;you within
               <strong>one business day</strong>
             </p>

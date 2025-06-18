@@ -98,7 +98,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="mx-auto max-w-6xl px-2">
-    <h3 class="mb-5 px-4 text-3xl font-bold text-primary lg:px-0">
+    <h3 class="mb-5 px-4 text-4xl font-black text-primary lg:px-0">
       Why Precision Tax Relief Is Trusted by the BBB Over Competitors
     </h3>
 
@@ -113,9 +113,9 @@ onUnmounted(() => {
                 <span>The Choice is Clear</span>
               </span>
             </th>
-            <th class="w-1/3 border-e border-white bg-[#4A924D] p-2 text-sm font-normal">PRECISION TAX</th>
+            <th class="w-1/3 border-e border-white bg-[#4A924D] p-2 text-sm font-normal"><b>PRECISION TAX</b></th>
             <th class="w-1/3 border-e border-white bg-gray-600 p-2 text-sm font-normal">
-              {{ competitors[activeCompetitor].name }}
+              <b>{{ competitors[activeCompetitor].name }}</b>
             </th>
           </tr>
         </thead>
@@ -285,7 +285,7 @@ onUnmounted(() => {
           class="rounded-md px-2 py-1 text-xs text-white transition"
           :class="activeCompetitor === key ? 'bg-primary' : 'bg-gray-500 hover:bg-gray-700'"
         >
-          {{ data.name }}
+          <b> {{ data.name }}</b>
         </button>
       </div>
     </div>
@@ -302,13 +302,13 @@ onUnmounted(() => {
                 <span>The Choice is Clear</span>
               </span>
             </th>
-            <th class="text-md border-e border-white bg-[#4A924D] p-3 font-normal">PRECISION TAX RELIEF</th>
+            <th class="text-md border-e border-white bg-[#4A924D] p-3 font-normal"><b>PRECISION TAX RELIEF</b></th>
             <th
               v-for="(data, key) in competitors"
               :key="key"
               class="text-md border-e border-white bg-gray-600 p-3 font-normal"
             >
-              {{ data.name }}
+              <b>{{ data.name }}</b>
             </th>
           </tr>
         </thead>

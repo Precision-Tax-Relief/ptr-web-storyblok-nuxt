@@ -58,6 +58,10 @@ module.exports = {
         Zgreen: {
           DEFAULT: "#85CC28",
           600: "#6FAA22"
+        },
+        Zblue: {
+          DEFAULT: "#0022ff",
+          600: "#005f88"
         }
       },
       transitionDelay: {
@@ -67,6 +71,9 @@ module.exports = {
       },
       maxWidth: {
         "5-5xl": "72rem"
+      },
+      fontFamily: {
+        sans: ['"Open Sans"', "sans-serif"]
       }
     }
   },
