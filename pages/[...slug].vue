@@ -14,8 +14,8 @@ const story = await useAsyncStoryblok(slug && slug.length > 0 ? slug.join("/").r
 })
 
 // If story doesn't exist, redirect to homepage
-if (!story.value) {
-  await navigateTo('/')
+if (story.value === null || story.value === undefined) {
+  await navigateTo("/")
 }
 </script>
 
