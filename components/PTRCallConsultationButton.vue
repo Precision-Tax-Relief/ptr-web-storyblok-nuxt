@@ -1,10 +1,30 @@
 <script setup lang="ts">
 import { useBusinessHours } from "@/composables/useBusinessHours"
 const { isBusinessOpen } = useBusinessHours()
+import { detectMobileBrowser } from "~/utils/mobileDetect"
+import { useContactFormPopUp } from "../composables/ContactFormPopUp"
+const { showPopup, closePopup, openPopup } = useContactFormPopUp()
+// SSR-safe mobile detection
+const isMobile = ref(false)
+onMounted(() => {
+  isMobile.value = detectMobileBrowser()
+})
+
 onMounted(() => {
   const invoca = window?.Invoca
+  const link = document.querySelector(".activate-form")
+
   if (invoca != undefined) {
     invoca.PNAPI.run()
+  }
+
+  if (link) {
+    link.addEventListener("click", (e: Event) => {
+      if (isMobile.value) {
+        e.preventDefault()
+        openPopup()
+      }
+    })
   }
 })
 
@@ -38,6 +58,7 @@ defineProps<PropTypes>()
         >or click here to request a call back</a
       >
     </div>
+    <ContactFormPopup />
   </div>
   <div v-else class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
     <a
