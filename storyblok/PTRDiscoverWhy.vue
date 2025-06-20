@@ -20,7 +20,7 @@ const closeGoogleModal = () => {
     <div class="container px-0 sm:px-4">
       <div class="mx-auto max-w-3xl">
         <h2
-          class="mx-auto mb-10 max-w-5xl text-center text-2xl font-black leading-tight text-black text-primary sm:text-3xl md:text-4xl lg:text-4xl"
+          class="mx-auto mb-10 max-w-5xl text-center text-4xl font-black leading-tight text-black text-primary sm:text-3xl md:text-4xl"
         >
           Discover Why Precision Tax <br />
           Earns Top BBB Endorsement
@@ -141,9 +141,7 @@ const closeGoogleModal = () => {
       </ul>
 
       <div class="my-20">
-        <h3 class="mb-8 px-4 text-center text-2xl font-black text-primary md:text-4xl lg:text-4xl">
-          Featured Client Stories
-        </h3>
+        <h3 class="mb-8 px-4 text-center text-4xl font-black text-primary">Featured Client Stories</h3>
         <StoryblokComponent v-for="child_block in blok.slider" :key="child_block._uid" :blok="child_block" />
       </div>
 

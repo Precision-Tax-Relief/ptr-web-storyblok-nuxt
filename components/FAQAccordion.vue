@@ -63,29 +63,27 @@ function leave(el: Element, done: () => void): void {
 </script>
 
 <template>
-  <div class="container px-0 pt-8 sm:px-2 md:py-12">
+  <div class="container px-0 sm:px-2 md:py-12 pt-8">
     <header class="px-2 sm:px-0">
-      <h2
-        class="mx-auto mb-8 max-w-4xl text-center text-2xl font-bold leading-tight text-primary md:text-4xl lg:text-4xl"
-      >
+      <h2 class="mb-8 text-3xl md:text-4xl font-bold text-primary text-center max-w-4xl mx-auto leading-tight">
         {{ title }}
       </h2>
-      <h5 v-if="subtitle" class="mx-auto mb-6 hidden max-w-3xl px-4 text-center text-lg md:block lg:px-0">
+      <h5 v-if="subtitle" class="text-center hidden md:block mb-6 text-lg max-w-3xl mx-auto px-4 lg:px-0">
         {{ subtitle }}
       </h5>
     </header>
 
-    <div class="mx-auto mb-10 lg:max-w-3xl xl:max-w-4xl">
+    <div class="mb-10 lg:max-w-3xl xl:max-w-4xl mx-auto">
       <HeadlessDisclosure
         v-for="(item, index) in items"
         :key="index"
         v-slot="{ open }"
         as="div"
-        class="mb-3 overflow-hidden bg-white"
+        class="bg-white mb-3 overflow-hidden"
       >
         <div class="content">
           <HeadlessDisclosureButton
-            class="relative flex w-full items-center gap-4 rounded-xl p-1 transition-colors duration-300 hover:bg-neutralLight md:gap-8"
+            class="relative rounded-xl flex gap-4 md:gap-8 items-center p-1 w-full transition-colors duration-300 hover:bg-neutralLight"
             :id="`accordion-button-${index}`"
             :aria-expanded="open"
             :aria-controls="`accordion-panel-${index}`"
@@ -93,11 +91,11 @@ function leave(el: Element, done: () => void): void {
             <span class="flex items-center justify-center" aria-hidden="true">
               <Icon
                 name="mdi:add-circle"
-                class="h-10 w-10 transform text-primaryDark transition-transform duration-300 ease-in-out"
+                class="transform transition-transform duration-300 ease-in-out w-10 h-10 text-primaryDark"
                 :class="{ 'rotate-45': open }"
               />
             </span>
-            <h3 class="text-left text-lg font-bold leading-normal text-primary md:text-xl">
+            <h3 class="font-bold text-lg md:text-xl leading-normal text-primary text-left">
               {{ item.question }}
             </h3>
           </HeadlessDisclosureButton>

@@ -98,7 +98,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="mx-auto max-w-6xl px-2">
-    <h3 class="mx-auto mb-5 px-4 text-2xl font-black text-primary md:text-4xl lg:px-0 lg:text-4xl">
+    <h3 class="mb-5 px-4 text-4xl font-black text-primary lg:px-0">
       Why Precision Tax Relief Is Trusted by the BBB Over Competitors
     </h3>
 
