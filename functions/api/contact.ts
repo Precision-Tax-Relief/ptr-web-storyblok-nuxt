@@ -8,98 +8,98 @@ import jsonResponse from "#shared/utils/api/jsonResponse"
  * POST /api/contact
  */
 export async function onRequestPost(context: CloudflareContext) {
-	// Initialize analytics inside the handler function
-	const analytics = new Analytics({
-		writeKey: context?.env?.ANALYTICS_KEY || ""
-	}).on("error", console.error)
+  // Initialize analytics inside the handler function
+  const analytics = new Analytics({
+    writeKey: context?.env?.ANALYTICS_KEY || ""
+  }).on("error", console.error)
 
-	try {
-		const rawBody = await context.request.json()
+  try {
+    const rawBody = await context.request.json()
 
-		let { validatedPayload, errors } = validateContactPayload(rawBody)
+    let { validatedPayload, errors } = validateContactPayload(rawBody)
 
-		if (errors !== false) {
-			return jsonResponse(
-				{
-					success: false,
-					message: "Validation failed",
-					errors: errors
-				},
-				400
-			)
-		}
+    if (errors !== false) {
+      return jsonResponse(
+        {
+          success: false,
+          message: "Validation failed",
+          errors: errors
+        },
+        400
+      )
+    }
 
-		const { form: validatedForm, context: validatedContext } = validatedPayload
+    const { form: validatedForm, context: validatedContext } = validatedPayload
 
-		let anonymousId = validatedContext.anonymous_id
-		const lead_id = uuidv4()
-		let analytics_no_load: undefined | true = undefined
-		if (anonymousId === undefined) {
-			anonymousId = lead_id
-			analytics_no_load = true
-		} else {
-			delete validatedPayload.context.anonymous_id
-		}
+    let anonymousId = validatedContext.anonymous_id
+    const lead_id = uuidv4()
+    let analytics_no_load: undefined | true = undefined
+    if (anonymousId === undefined) {
+      anonymousId = lead_id
+      analytics_no_load = true
+    } else {
+      delete validatedPayload.context.anonymous_id
+    }
 
-		const ip = context.request.headers.get('CF-Connecting-IP') || context.request.cf?.ip || 'unknown'
+    const ip = context.request.headers.get('CF-Connecting-IP') || context.request.cf?.ip || 'unknown'
 
-		const properties = {
-			...validatedForm,
-			...validatedContext,
-			analytics_no_load,
-			lead_id
-		}
+    const properties = {
+      ...validatedForm,
+      ...validatedContext,
+      analytics_no_load,
+      lead_id
+    }
 
-		analytics.track({
-			anonymousId,
-			event: "Form Lead Submitted",
-			properties,
-			context: {
-				source: "cloudflare",
-				ip
-			}
-		})
-		analytics.identify({
-			anonymousId,
-			traits: {
-				name: properties.name,
-				phone: properties.phone,
-				email: properties.email
-			},
-			context: {
-				source: "cloudflare",
-				ip,
-				"messaging_subscriptions": [
-					{
-						"key": properties.phone,
-						"type": "SMS",
-						"status": "SUBSCRIBED"
-					},
-					{
-						"key": properties.email,
-						"type": "EMAIL",
-						"status": "SUBSCRIBED"
-					}
-				],
-			}
-		})
+    analytics.track({
+      anonymousId,
+      event: "Form Lead Submitted",
+      properties,
+      context: {
+        source: "cloudflare",
+        ip
+      }
+    })
+    analytics.identify({
+      anonymousId,
+      traits: {
+        name: properties.name,
+        phone: properties.phone,
+        email: properties.email
+      },
+      context: {
+        source: "cloudflare",
+        ip,
+        "messaging_subscriptions": [
+          {
+            "key": properties.phone,
+            "type": "SMS",
+            "status": "SUBSCRIBED"
+          },
+          {
+            "key": properties.email,
+            "type": "EMAIL",
+            "status": "SUBSCRIBED"
+          }
+        ],
+      }
+    })
 
-		await analytics.flush({ close: true })
+    await analytics.flush({ close: true })
 
-		return jsonResponse({
-			success: true,
-			message: "Form submitted successfully",
-			lead_id: lead_id
-		})
-	} catch (error) {
-		console.error("Error processing form submission:", error)
+    return jsonResponse({
+      success: true,
+      message: "Form submitted successfully",
+      lead_id: lead_id
+    })
+  } catch (error) {
+    console.error("Error processing form submission:", error)
 
-		return jsonResponse(
-			{
-				success: false,
-				message: "Failed to process form submission"
-			},
-			500
-		)
-	}
+    return jsonResponse(
+      {
+        success: false,
+        message: "Failed to process form submission"
+      },
+      500
+    )
+  }
 }
