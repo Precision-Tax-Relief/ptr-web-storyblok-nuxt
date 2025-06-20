@@ -44,7 +44,8 @@ const props = defineProps<PropTypes>()
           >
             <Icon name="fa-solid:phone-alt" class="text-2xl text-white sm:text-xl" />
             <div class="flex flex-col gap-x-1 sm:flex-row">
-              <span>Call Now</span>
+              <span>Call</span>
+              <span>Now</span>
             </div>
           </InvocaPhoneTrackingLink>
         </div>
