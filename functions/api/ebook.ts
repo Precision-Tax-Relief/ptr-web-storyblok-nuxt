@@ -50,7 +50,7 @@ export async function onRequestPost(context: CloudflareContext) {
 
     analytics.track({
       anonymousId,
-      event: "Ebook Form Filled",
+      event: "Ebook Lead Submitted",
       properties,
       context: {
         source: "cloudflare",
