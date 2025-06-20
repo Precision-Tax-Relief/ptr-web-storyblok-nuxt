@@ -50,7 +50,7 @@ export async function onRequestPost(context: CloudflareContext) {
 
     analytics.track({
       anonymousId,
-      event: "Ebook Form Filled",
+      event: "Ebook Lead Submitted",
       properties,
       context: {
         source: "cloudflare",
@@ -69,7 +69,7 @@ export async function onRequestPost(context: CloudflareContext) {
         messaging_subscriptions: [
           {
             key: properties.email,
-            type: "EMAIL",
+            type: "EMAIL"
             status: "SUBSCRIBED"
           }
         ]
