@@ -51,7 +51,7 @@ export async function onRequestPost(context: CloudflareContext): Promise<Respons
     // Track the event
     analytics.track({
       anonymousId,
-      event: "Questionnaire Submitted",
+      event: "Questionnaire Form Submitted",
       properties,
       context: {
         source: "cloudflare",
