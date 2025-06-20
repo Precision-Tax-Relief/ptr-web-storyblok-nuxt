@@ -69,7 +69,7 @@ export async function onRequestPost(context: CloudflareContext) {
         messaging_subscriptions: [
           {
             key: properties.email,
-            type: "EMAIL"
+            type: "EMAIL",
             status: "SUBSCRIBED"
           }
         ]
