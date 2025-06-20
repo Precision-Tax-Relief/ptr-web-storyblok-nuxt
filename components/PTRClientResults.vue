@@ -10,7 +10,9 @@ const props = defineProps<PropTypes>()
 
 <template>
   <div class="mx-auto my-12 mt-12 max-w-6xl">
-    <h4 class="px-4 text-center text-4xl font-black text-primary md:text-left lg:mx-auto lg:px-0">
+    <h4
+      class="px-4 text-center text-2xl font-black text-primary md:text-left md:text-4xl lg:mx-auto lg:px-0 lg:text-4xl"
+    >
       Our Recent Client Results:
     </h4>
     <div class="container px-2 lg:px-0">

@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
   <div v-editable="props.blok" class="container max-w-6xl px-2 py-20 md:px-8">
     <div class="section-head">
       <h2
-        class="mx-auto mb-12 max-w-5xl text-center text-4xl font-black font-bold leading-tight text-primary md:px-24 md:text-4xl lg:-mt-8 lg:mb-20"
+        class="mx-auto mb-12 max-w-5xl text-center text-2xl font-black font-bold leading-tight text-primary sm:text-2xl md:px-24 md:text-4xl lg:-mt-8 lg:mb-20 lg:text-4xl"
       >
         What To Expect During Your<br /><span class="md:whitespace-nowrap">Free Consultation</span>
       </h2>
