@@ -60,16 +60,19 @@ const props = defineProps<PropTypes>()
 
           <template v-else>
             <!-- Business CLOSED on small screens → show form -->
-            <div class="w-sm shrink-0 px-10 sm:grow-0">
+            <div class="shrink-0 px-8 sm:grow-0 md:px-24">
               <ContactForm :show-phone-number="isBusinessOpen" class="mx-auto" />
             </div>
           </template>
         </div>
       </div>
-      <div class="px-3 py-8 sm:px-0">
+
+      <!-- BBB Awards images -->
+
+      <div class="items-center px-3 py-8 sm:px-0">
         <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
           <li class="flex flex-col items-center">
-            <span class="text-center">
+            <span class="mt-6 text-center lg:mt-0">
               <BBBTorchAwards />
             </span>
           </li>
