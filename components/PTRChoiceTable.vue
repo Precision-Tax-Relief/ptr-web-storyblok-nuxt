@@ -4,7 +4,7 @@ import { useWindowSize } from "@vueuse/core" // Optional, you can implement your
 const activeCompetitor = ref("optima") // Default competitor for mobile view
 const { width } = useWindowSize() // For responsive design
 const isDesktop = computed(() => width.value >= 1024) // Desktop breakpoint at 1024px
-import checkmark from "~/components/svg/Checkmark.vue"
+import Checkmark from "~/components/svg/Checkmark.vue"
 const precisionTax = {
   name: "PRECISION TAX RELIEF",
   bbbRating: "A+",
@@ -113,9 +113,9 @@ onUnmounted(() => {
                 <span>The Choice is Clear</span>
               </span>
             </th>
-            <th class="w-1/3 border-e border-white bg-[#4A924D] p-2 text-sm font-normal"><b>PRECISION TAX</b></th>
-            <th class="w-1/3 border-e border-white bg-gray-600 p-2 text-sm font-normal">
-              <b>{{ competitors[activeCompetitor].name }}</b>
+            <th class="w-1/3 border-e border-white bg-[#4A924D] p-2 text-sm font-bold">PRECISION TAX</th>
+            <th class="w-1/3 border-e border-white bg-gray-600 p-2 text-sm font-bold">
+              {{ competitors[activeCompetitor].name }}
             </th>
           </tr>
         </thead>
@@ -123,7 +123,7 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-2 text-left">BBB Rating</td>
             <td class="flex items-center justify-center gap-1 p-2">
-              <checkmark />&nbsp;
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.bbbRating"
                 label="precision bbb rating"
@@ -147,14 +147,14 @@ onUnmounted(() => {
           <tr>
             <td class="p-2 text-left">BBB Complaints</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />&nbsp;&nbsp;
+              <Checkmark class="mr-2" />
               <SegmentExternalLink
                 :to="precisionTax.links.bbbComplaints"
                 label="precision bbb complaints"
                 eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
                 class="border-b-2 border-gray-300"
               >
-                {{ precisionTax.bbbComplaints }}&nbsp;
+                {{ precisionTax.bbbComplaints }}
               </SegmentExternalLink>
             </td>
             <td class="p-2">
@@ -172,7 +172,7 @@ onUnmounted(() => {
             <td class="p-2 text-left">BBB Torch Award</td>
 
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />&nbsp;
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.bbbTorch"
                 label="precision bbb torch"
@@ -204,7 +204,7 @@ onUnmounted(() => {
             <td class="p-2 text-left">Google Rating</td>
 
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />&nbsp;
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.google"
                 label="precision google rating"
@@ -228,7 +228,7 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-2 text-left">Trustpilot Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />&nbsp;
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.trustpilot"
                 label="precision trustpilot rating"
@@ -252,12 +252,12 @@ onUnmounted(() => {
           <tr>
             <td class="p-2 text-left">Experience</td>
             <td class="flex items-center justify-center gap-1 p-2">
-              <checkmark />
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.experience"
                 label="precision experience"
                 eventName="Tracking ClickLink - Chart Reference - Experience"
-                class="border-b-2 border-gray-300"
+                class="-ml-1 border-b-2 border-gray-300"
               >
                 {{ precisionTax.experience }}
               </SegmentExternalLink>
@@ -282,10 +282,10 @@ onUnmounted(() => {
           v-for="(data, key) in competitors"
           :key="key"
           @click="setCompetitor(key)"
-          class="rounded-md px-2 py-1 text-xs text-white transition"
+          class="rounded-md px-2 py-1 text-xs font-bold text-white transition"
           :class="activeCompetitor === key ? 'bg-primary' : 'bg-gray-500 hover:bg-gray-700'"
         >
-          <b> {{ data.name }}</b>
+          {{ data.name }}
         </button>
       </div>
     </div>
@@ -302,13 +302,13 @@ onUnmounted(() => {
                 <span>The Choice is Clear</span>
               </span>
             </th>
-            <th class="text-md border-e border-white bg-[#4A924D] p-3 font-normal"><b>PRECISION TAX RELIEF</b></th>
+            <th class="text-md border-e border-white bg-[#4A924D] p-3 font-bold">PRECISION TAX RELIEF</th>
             <th
               v-for="(data, key) in competitors"
               :key="key"
-              class="text-md border-e border-white bg-gray-600 p-3 font-normal"
+              class="text-md border-e border-white bg-gray-600 p-3 font-bold"
             >
-              <b>{{ data.name }}</b>
+              {{ data.name }}
             </th>
           </tr>
         </thead>
@@ -316,7 +316,7 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-4 text-left">BBB Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.bbbRating"
                 label="precision bbb rating"
@@ -340,14 +340,14 @@ onUnmounted(() => {
           <tr>
             <td class="p-4 text-left">BBB Complaints</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />&nbsp;
+              <Checkmark class="mr-2" />
               <SegmentExternalLink
                 :to="precisionTax.links.bbbComplaints"
                 label="precision bbb complaints"
                 eventName="Tracking ClickLink - Chart Reference - BBB Complaints"
-                class="border-b-2 border-gray-300"
+                class="ml-1 border-b-2 border-gray-300"
               >
-                {{ precisionTax.bbbComplaints }} &nbsp;
+                {{ precisionTax.bbbComplaints }}
               </SegmentExternalLink>
             </td>
             <td v-for="(data, key) in competitors" :key="key" class="p-4">
@@ -364,7 +364,7 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-4 text-left">BBB Torch Award</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark /> &nbsp;
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.bbbTorch"
                 label="precision bbb torch"
@@ -395,7 +395,7 @@ onUnmounted(() => {
           <tr>
             <td class="p-4 text-left">Google Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark /> &nbsp;
+              <Checkmark />
               <SegmentExternalLink
                 :to="precisionTax.links.google"
                 label="precision google rating"
@@ -419,7 +419,7 @@ onUnmounted(() => {
           <tr class="bg-white">
             <td class="p-4 text-left">Trustpilot Rating</td>
             <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark /> &nbsp;
+              <Checkmark />
 
               <SegmentExternalLink
                 :to="precisionTax.links.trustpilot"
@@ -443,8 +443,8 @@ onUnmounted(() => {
           </tr>
           <tr>
             <td class="p-4 text-left">Experience</td>
-            <td class="flex items-center justify-center gap-1 p-4">
-              <checkmark />
+            <td class="ml-3 flex items-center justify-center gap-1 p-4">
+              <Checkmark />
 
               <SegmentExternalLink
                 :to="precisionTax.links.experience"

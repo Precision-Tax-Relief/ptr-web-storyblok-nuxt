@@ -2,17 +2,7 @@
 import type { PtrHeroStoryblok } from "~/types/component-types-sb"
 import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
 const { isBusinessOpen } = useBusinessHours()
-import { detectMobileBrowser } from "~/utils/mobileDetect"
 
-// SSR-safe mobile detection
-const isMobile = ref(false)
-onMounted(() => {
-  isMobile.value = detectMobileBrowser()
-})
-// When to show mobile CTA button (not form)
-const showMobileCTAButton = computed(() => {
-  return unref(isBusinessOpen) && isMobile.value
-})
 interface PropTypes {
   blok: PtrHeroStoryblok
 }
@@ -58,14 +48,22 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div v-if="!isMobile" class="shrink-0 basis-[18rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
+
+        <div class="hidden shrink-0 basis-[18rem] lg:block lg:grow-0">
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
-        <div v-else-if="isMobile && !isBusinessOpen" class="mx-auto" :class="{ hidden: isBusinessOpen }">
-          <ContactForm :show-phone-number="isBusinessOpen" />
-        </div>
-        <div v-else-if="showMobileCTAButton" class="mx-auto">
-          <PTRCallConsultationButton />
+        <div class="lg:hidden">
+          <template v-if="isBusinessOpen">
+            <!-- Business OPEN on small screens → show call button -->
+            <PTRCallConsultationButton class="mx-auto block" />
+          </template>
+
+          <template v-else>
+            <!-- Business CLOSED on small screens → show form -->
+            <div class="w-sm shrink-0 px-10 sm:grow-0">
+              <ContactForm :show-phone-number="isBusinessOpen" class="mx-auto" />
+            </div>
+          </template>
         </div>
       </div>
       <div class="px-3 py-8 sm:px-0">

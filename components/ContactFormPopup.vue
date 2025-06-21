@@ -1,11 +1,19 @@
 <script setup lang="ts">
 const { isBusinessOpen } = useBusinessHours()
-
-import { useContactFormPopUp } from "~/composables/ContactFormPopUp"
-const { showPopup, openPopup, closePopup } = useContactFormPopUp()
+import { ref } from "vue"
 
 interface PropTypes {
   lighter_text?: Boolean
+}
+
+const showPopup = ref(false) // 🔁 shared reactive state
+
+const openPopup = () => {
+  showPopup.value = true
+}
+
+const closePopup = () => {
+  showPopup.value = false
 }
 
 defineProps<PropTypes>()
