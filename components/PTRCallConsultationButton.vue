@@ -1,26 +1,25 @@
 <script setup lang="ts">
+import { onMounted } from "vue"
 import { useBusinessHours } from "@/composables/useBusinessHours"
+
 const { isBusinessOpen } = useBusinessHours()
 
 onMounted(() => {
   const invoca = window?.Invoca
-
-  if (invoca != undefined) {
+  if (invoca?.PNAPI?.run) {
     invoca.PNAPI.run()
   }
 })
 
 interface PropTypes {
-  lighter_text?: Boolean
+  lighter_text?: boolean
 }
-
 defineProps<PropTypes>()
 </script>
 
 <template>
-  <!-- When business is OPEN -->
+  <!-- Business OPEN -->
   <div v-if="isBusinessOpen" class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
-    <!-- Call Button -->
     <InvocaPhoneTrackingLink
       data-click-name="ClickBody - Form Scroll  Below What To Expect"
       class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-6 py-3 hover:bg-green-700 lg:px-6 lg:py-3"
@@ -32,7 +31,6 @@ defineProps<PropTypes>()
       </div>
     </InvocaPhoneTrackingLink>
 
-    <!-- Request a callback link for mobile -->
     <div>
       <a
         class="activate-form hidden underline lg:block"
@@ -44,16 +42,17 @@ defineProps<PropTypes>()
       >
     </div>
 
-    <!-- Mobile-only form (open state) -->
     <div class="lg:hidden">
       <ContactFormPopup :class="{ 'text-neutral-500': !lighter_text, 'text-neutral-400': lighter_text }" />
     </div>
   </div>
+
+  <!-- Business CLOSED -->
   <div v-else class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
     <a
       href="#"
       data-click-name="ClickBody - Form Scroll  Below What To Expect"
-      class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:px-8 lg:py-5"
+      class="activate-form mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:px-8 lg:py-5"
     >
       <div class="col-span-3 flex flex-col py-4 text-left text-white">
         <span class="text-2xl text-base font-bold sm:text-2xl">GET A FREE CONSULTATION</span>
