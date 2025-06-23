@@ -103,7 +103,7 @@ onUnmounted(() => {
     </h3>
 
     <!-- Mobile View -->
-    <div v-if="!isDesktop" class="border-b-2 pb-1">
+    <div class="block border-b-2 pb-1 lg:hidden">
       <table class="w-full text-center">
         <thead class="text-sm text-white">
           <tr>
@@ -291,8 +291,7 @@ onUnmounted(() => {
     </div>
 
     <!-- Desktop View -->
-    <!-- Desktop View -->
-    <div v-else class="border-b-2 pb-1">
+    <div class="hidden border-b-2 pb-1 lg:block">
       <table class="w-full text-center">
         <thead class="text-md text-white">
           <tr>
