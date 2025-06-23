@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  safelist: [
+    'whitespace-nowrap',
+  ],
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
