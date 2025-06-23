@@ -11,7 +11,7 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div class="bg-slate-100 py-10">
+  <div class="bg-slate-100 px-4 py-10 lg:px-0">
     <div class="container mx-auto max-w-6xl px-1">
       <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div>
@@ -60,7 +60,7 @@ const props = defineProps<PropTypes>()
 
           <template v-else>
             <!-- Business CLOSED on small screens → show form -->
-            <div class="shrink-0 px-8 sm:grow-0 md:px-24">
+            <div class="shrink-0 px-4 sm:grow-0 md:px-24">
               <ContactForm :show-phone-number="isBusinessOpen" class="mx-auto" />
             </div>
           </template>
