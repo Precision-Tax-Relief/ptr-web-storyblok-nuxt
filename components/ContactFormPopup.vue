@@ -22,7 +22,12 @@ watch(showPopup, (isOpen) => {
 
 <template>
   <div>
-    <a class="cursor-pointer underline" @click.prevent="openPopup"> or click here to request a call back </a>
+    <!-- Use slot for custom trigger content, with fallback -->
+    <div @click.prevent="openPopup">
+      <slot>
+        <a class="cursor-pointer underline">or click here to request a call back</a>
+      </slot>
+    </div>
 
     <div
       v-if="showPopup"

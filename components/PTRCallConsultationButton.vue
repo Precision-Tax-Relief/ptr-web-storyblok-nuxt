@@ -49,14 +49,28 @@ defineProps<PropTypes>()
 
   <!-- Business CLOSED -->
   <div v-else class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
-    <a
-      href="#"
-      data-click-name="ClickBody - Form Scroll  Below What To Expect"
-      class="activate-form mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:px-8 lg:py-5"
-    >
-      <div class="col-span-3 flex flex-col py-4 text-left text-white">
-        <span class="text-2xl text-base font-bold sm:text-2xl">GET A FREE CONSULTATION</span>
-      </div>
-    </a>
+    <div class="hidden lg:block">
+      <a
+        href="#contact"
+        data-modal-open=""
+        data-click-name="ClickBody - Form Scroll  Below What To Expect"
+        class="activate-form mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:px-6 lg:py-3"
+      >
+        <div class="col-span-3 flex flex-col py-4 text-left text-white">
+          <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
+        </div>
+      </a>
+    </div>
+    <div class="block lg:hidden">
+      <ContactFormPopup class="mb-4">
+        <div
+          class="flex cursor-pointer items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:px-6 lg:py-3"
+        >
+          <div class="col-span-3 flex flex-col py-4 text-left text-white">
+            <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
+          </div>
+        </div>
+      </ContactFormPopup>
+    </div>
   </div>
 </template>

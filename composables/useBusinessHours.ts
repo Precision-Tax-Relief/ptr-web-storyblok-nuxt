@@ -2,12 +2,15 @@
 import { ref, computed, type ComputedRef, type Ref, onUnmounted } from "vue"
 
 // Singleton wrapper to ensure one shared instance across the app
-let sharedInstance: ReturnType<typeof useBusinessHoursInternal> | null = null
+// let sharedInstance: ReturnType<typeof useBusinessHoursInternal> | null = null
+// export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
+//   if (!sharedInstance) {
+//     sharedInstance = useBusinessHoursInternal()
+//   }
+//   return sharedInstance
+// }
 export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
-  if (!sharedInstance) {
-    sharedInstance = useBusinessHoursInternal()
-  }
-  return sharedInstance
+  return useBusinessHoursInternal()
 }
 // Function to determine if business is open at a specific date. Used in testing
 export function isBusinessOpenAt(date: Date): boolean {
