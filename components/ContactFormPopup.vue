@@ -18,6 +18,11 @@ const closePopup = () => {
 watch(showPopup, (isOpen) => {
   document.body.style.overflow = isOpen ? "hidden" : ""
 })
+
+// Cleanup on unmount to avoid stuck overflow
+onUnmounted(() => {
+  document.body.style.overflow = ""
+})
 </script>
 
 <template>
