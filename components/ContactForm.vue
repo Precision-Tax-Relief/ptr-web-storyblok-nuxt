@@ -139,7 +139,7 @@ const submitForm = async () => {
   const router = useRouter()
   const leadIdCookie = useLeadIdCookie()
   leadIdCookie.value = resp.lead_id
-  await router.push({ path: "questionnaire", query: { form_id: resp.lead_id } })
+  await router.push({ path: "/questionnaire/", query: { form_id: resp.lead_id } })
 }
 const route = useRoute()
 </script>

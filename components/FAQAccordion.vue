@@ -63,7 +63,7 @@ function leave(el: Element, done: () => void): void {
 </script>
 
 <template>
-  <div class="container px-0 pt-8 sm:px-2 md:py-12">
+  <div class="container px-4 pt-8 sm:px-2 md:py-12 lg:px-0">
     <header class="px-2 sm:px-0">
       <h2
         class="mx-auto mb-8 max-w-4xl text-center text-2xl font-bold leading-tight text-primary md:text-4xl lg:text-4xl"

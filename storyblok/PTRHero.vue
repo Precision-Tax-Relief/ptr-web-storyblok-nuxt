@@ -2,17 +2,7 @@
 import type { PtrHeroStoryblok } from "~/types/component-types-sb"
 import BBBTorchAwards from "~/components/svg/BBBTorchAwards.vue"
 const { isBusinessOpen } = useBusinessHours()
-import { detectMobileBrowser } from "~/utils/mobileDetect"
 
-// SSR-safe mobile detection
-const isMobile = ref(false)
-onMounted(() => {
-  isMobile.value = detectMobileBrowser()
-})
-// When to show mobile CTA button (not form)
-const showMobileCTAButton = computed(() => {
-  return unref(isBusinessOpen) && isMobile.value
-})
 interface PropTypes {
   blok: PtrHeroStoryblok
 }
@@ -21,7 +11,7 @@ const props = defineProps<PropTypes>()
 </script>
 
 <template>
-  <div class="bg-slate-100 py-10">
+  <div class="bg-slate-100 px-4 py-10 lg:px-0">
     <div class="container mx-auto max-w-6xl px-1">
       <div class="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
         <div>
@@ -58,20 +48,31 @@ const props = defineProps<PropTypes>()
             </figcaption>
           </figure>
         </div>
-        <div v-if="!isMobile" class="shrink-0 basis-[18rem] lg:block lg:grow-0" :class="{ hidden: isBusinessOpen }">
+
+        <div class="hidden shrink-0 basis-[18rem] lg:block lg:grow-0">
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
-        <div v-else-if="isMobile && !isBusinessOpen" class="mx-auto" :class="{ hidden: isBusinessOpen }">
-          <ContactForm :show-phone-number="isBusinessOpen" />
-        </div>
-        <div v-else-if="showMobileCTAButton" class="mx-auto">
-          <PTRCallConsultationButton />
+        <div class="lg:hidden">
+          <template v-if="isBusinessOpen">
+            <!-- Business OPEN on small screens → show call button -->
+            <PTRCallConsultationButton class="mx-auto block" />
+          </template>
+
+          <template v-else>
+            <!-- Business CLOSED on small screens → show form -->
+            <div class="shrink-0 px-4 sm:grow-0 md:px-24">
+              <ContactForm :show-phone-number="isBusinessOpen" class="mx-auto" />
+            </div>
+          </template>
         </div>
       </div>
-      <div class="px-3 py-8 sm:px-0">
+
+      <!-- BBB Awards images -->
+
+      <div class="items-center px-3 py-8 sm:px-0">
         <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
           <li class="flex flex-col items-center">
-            <span class="text-center">
+            <span class="mt-6 text-center lg:mt-0">
               <BBBTorchAwards />
             </span>
           </li>

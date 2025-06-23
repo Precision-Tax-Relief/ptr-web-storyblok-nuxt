@@ -2,13 +2,16 @@
 import { ref, computed, type ComputedRef, type Ref, onUnmounted } from "vue"
 
 // Singleton wrapper to ensure one shared instance across the app
-let sharedInstance: ReturnType<typeof useBusinessHoursInternal> | null = null
-export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
-  if (!sharedInstance) {
-    sharedInstance = useBusinessHoursInternal()
-  }
-  return sharedInstance
-}
+// let sharedInstance: ReturnType<typeof useBusinessHoursInternal> | null = null
+// export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
+//   if (!sharedInstance) {
+//     sharedInstance = useBusinessHoursInternal()
+//   }
+//   return sharedInstance
+// }
+// export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
+//   return useBusinessHoursInternal()
+// }
 // Function to determine if business is open at a specific date. Used in testing
 export function isBusinessOpenAt(date: Date): boolean {
   // Get the current date in Pacific Time
@@ -42,7 +45,7 @@ export function isBusinessOpenAt(date: Date): boolean {
   return true
 }
 
-export function useBusinessHoursInternal(): { isBusinessOpen: ComputedRef<boolean> } {
+export function useBusinessHours(): { isBusinessOpen: ComputedRef<boolean> } {
   // Create a reactive reference for the current time
   const currentTime: Ref<Date> = ref(new Date())
   const route = useRoute()
