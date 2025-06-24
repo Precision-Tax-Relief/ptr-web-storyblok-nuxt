@@ -23,7 +23,7 @@ const props = defineProps<PropTypes>()
         <div class="flex flex-col lg:text-lg">
           <div class="align-super font-semibold text-white">
             <span class="hidden lg:inline">Better Business Bureau</span>
-            <span class="hidden text-lg md:inline">BBB</span>
+            <span class="hidden text-lg">BBB</span>
             <span class="hidden align-super text-sm lg:inline">®</span>
           </div>
           <div class="text-sm font-semibold text-white">
