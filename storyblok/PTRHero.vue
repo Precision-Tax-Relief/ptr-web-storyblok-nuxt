@@ -50,17 +50,16 @@ const props = defineProps<PropTypes>()
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
         <div class="lg:hidden">
-          <template v-if="isBusinessOpen">
+          <div v-show="isBusinessOpen" class="mx-auto block">
             <!-- Business OPEN on small screens → show call button -->
-            <PTRCallConsultationButton class="mx-auto block" />
-          </template>
 
-          <template v-else>
-            <!-- Business CLOSED on small screens → show form -->
-            <div class="shrink-0 px-4 sm:grow-0 md:px-24">
-              <ContactForm :show-phone-number="isBusinessOpen" class="mx-auto" />
-            </div>
-          </template>
+            <PTRCallConsultationButton />
+          </div>
+          <div v-show="!isBusinessOpen" class="shrink-0 px-4 sm:grow-0 md:px-24">
+            <!-- Business closed on small screens → show call form -->
+
+            <ContactForm :show-phone-number="false" class="mx-auto" />
+          </div>
         </div>
       </div>
 
