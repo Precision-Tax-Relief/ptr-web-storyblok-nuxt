@@ -145,17 +145,15 @@ const route = useRoute()
 </script>
 
 <template>
-  <!-- Reserve space for the contact form -->
-  <div class="relative z-20 ml-auto min-h-[420px] lg:block" id="contact">
+  <div id="contact" class="relative z-20 ml-auto min-h-[420px] scroll-mt-28 lg:block">
     <div
-      class="absolute inset-0 -z-10 mt-28 bg-yellow-400 shadow-lg shadow-slate-300"
+      class="absolute inset-0 -z-10 bg-yellow-400 shadow-lg shadow-slate-300"
       :class="{ 'scale-[1.02]': route.hash === '#contact' }"
     />
-    <!-- Add fixed height to prevent shifts -->
     <div class="flex h-[60px] items-center justify-center bg-Zblue-600 px-1 py-2 text-center font-bold text-white">
       <h3 class="m-0 py-1 text-center text-lg font-bold lg:text-lg">{{ title }}</h3>
     </div>
-    <div class="min-h-[360px] bg-white px-4 py-6">
+    <div class="bg-white px-4 py-6">
       <div id="main-form" class="main-form">
         <!-- Success message -->
         <div v-if="isSuccess" class="mb-6 rounded border-l-4 border-green-500 bg-green-100 p-4 text-green-700">
