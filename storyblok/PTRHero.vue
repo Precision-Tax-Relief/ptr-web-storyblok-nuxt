@@ -20,14 +20,14 @@ const props = defineProps<PropTypes>()
             <h3 class="mx-auto mt-8 text-lg leading-7 tracking-wide md:text-2xl" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
-            <div class="relative aspect-[850/220] w-full sm:m-2">
+            <div class="relative aspect-[850/220] w-full">
               <NuxtImg
                 :modifiers="{ smart: true }"
                 :src="blok.image.filename"
                 :alt="blok.image.alt ?? undefined"
                 width="850"
                 height="220"
-                class="w-full object-contain"
+                class="w-full object-contain sm:m-2"
                 quality="90"
                 densities="x1 x2"
                 format="avif,webp"
