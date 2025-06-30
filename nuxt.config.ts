@@ -93,8 +93,8 @@ const config: NuxtConfig = {
     public: {
       siteUrl: process.env.URL || "https://localhost:3000",
       storyblokVersion: process.env.STORYBLOK_VERSION || "published",
-      useGtm: !!process.env.GTM_ID,
-      gtmId: process.env.GTM_ID
+      useGtm: true,
+      gtmId: "GTM-WQTMXXCV"
     }
   },
   vite: {
