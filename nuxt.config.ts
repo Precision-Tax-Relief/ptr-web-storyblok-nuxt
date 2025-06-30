@@ -94,7 +94,6 @@ const config: NuxtConfig = {
       siteUrl: process.env.URL || "https://localhost:3000",
       storyblokVersion: process.env.STORYBLOK_VERSION || "published",
       useGtm: true,
-      gtmId: "GTM-WQTMXXCV"
     }
   },
   vite: {
@@ -171,7 +170,7 @@ const config: NuxtConfig = {
     }
   },
   gtm: {
-    id: process.env.GTM_ID || "GTM-XXXXXX", // Replace with your new GTM container ID
+    id: "GTM-WQTMXXCV", // Replace with your new GTM container ID
     defer: true, // This improves performance by deferring script loading
     compatibility: true, // For SSR compatibility
     enabled: false, // This is enabled in the gtm.client.ts plug after page load
