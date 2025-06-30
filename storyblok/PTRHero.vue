@@ -67,7 +67,7 @@ const props = defineProps<PropTypes>()
 
       <!-- BBB Awards images -->
 
-      <div class="min-h-[160px] items-center px-3 py-8 sm:px-0">
+      <div class="min-h-[170px] items-center px-3 py-8 sm:px-0">
         <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
           <li class="flex flex-col items-center">
             <span class="mt-6 text-center lg:mt-0">
