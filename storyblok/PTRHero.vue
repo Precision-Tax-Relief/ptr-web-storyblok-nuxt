@@ -103,16 +103,18 @@ const props = defineProps<PropTypes>()
                 to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
                 label="Torch Awards 2019 PDF"
               >
-                <NuxtImg
-                  src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
-                  alt="BBB Torch Awards for Ethics 2019 Winner"
-                  format="webp"
-                  loading="eager"
-                  width="131"
-                  height="90"
-                  fetchpriority="high"
-                  sizes="131"
-                />
+                <div class="relative h-[90px] w-[131px]">
+                  <NuxtImg
+                    src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
+                    alt="BBB Torch Awards for Ethics 2019 Winner"
+                    format="webp"
+                    loading="eager"
+                    width="131"
+                    height="90"
+                    fetchpriority="high"
+                    sizes="131"
+                  />
+                </div>
               </SegmentExternalLink>
             </div>
           </li>
