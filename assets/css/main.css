@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 @plugin "@tailwindcss/typography";
+
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/_nuxt/Open_Sans-400-10.BQjZ2nPP.woff2') format('woff2');
+  font-display: swap; /* Critical: prevents layout shift */
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Ensure fallback fonts match as closely as possible */
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 /*
 html {
 scroll-behavior: smooth;

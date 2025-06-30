@@ -68,14 +68,17 @@ const props = defineProps<PropTypes>()
       <!-- BBB Awards images -->
 
       <div class="items-center px-3 py-8 sm:px-0">
-        <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
-          <li class="flex flex-col items-center">
-            <span class="mt-6 text-center lg:mt-0">
+        <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between gap-4 lg:flex lg:max-w-full">
+          <!-- First item: BBB Torch Awards SVG -->
+          <li class="flex h-[120px] min-w-[160px] flex-col items-center justify-center">
+            <span class="text-center">
               <BBBTorchAwards />
             </span>
           </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
+
+          <!-- Second item: 2023 Award - Fixed dimensions -->
+          <li class="flex h-[120px] min-w-[140px] flex-col items-center justify-center">
+            <div class="badge badge_google flex h-[90px] w-[131px] items-center justify-center">
               <SegmentExternalLink
                 eventName="PDF Clicked"
                 to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
@@ -89,13 +92,17 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
-                  sizes="131"
-                ></NuxtImg>
+                  sizes="131px"
+                  class="block"
+                  :style="{ width: '131px', height: '90px', objectFit: 'contain' }"
+                />
               </SegmentExternalLink>
             </div>
           </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
+
+          <!-- Third item: 2019 Award - Fixed dimensions -->
+          <li class="flex h-[120px] min-w-[140px] flex-col items-center justify-center">
+            <div class="badge badge_google flex h-[90px] w-[131px] items-center justify-center">
               <SegmentExternalLink
                 eventName="PDF Clicked"
                 to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
@@ -109,23 +116,29 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
-                  sizes="131"
+                  sizes="131px"
+                  class="block"
+                  :style="{ width: '131px', height: '90px', objectFit: 'contain' }"
                 />
               </SegmentExternalLink>
             </div>
           </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
+
+          <!-- Fourth item: BBB Accredited - Normalized size -->
+          <li class="flex h-[120px] min-w-[160px] flex-col items-center justify-center">
+            <div class="badge badge_google flex h-[40px] w-[160px] items-center justify-center">
               <NuxtImg
                 src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
                 alt="BBB A+ Accredited Business"
                 format="webp"
                 loading="eager"
                 fetchpriority="high"
-                width="200"
-                height="50"
-                sizes="240"
-              ></NuxtImg>
+                width="160"
+                height="40"
+                sizes="160px"
+                class="block"
+                :style="{ width: '160px', height: '40px', objectFit: 'contain' }"
+              />
             </div>
           </li>
         </ul>
