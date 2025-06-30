@@ -166,7 +166,7 @@ const config: NuxtConfig = {
     prefetch: true,
     preconnect: true,
     preload: true,
-    display: "swap",
+    display: "block",
     families: {
       "Open Sans": ["200", "400", "500", "700", "800"]
     }
