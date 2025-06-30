@@ -67,7 +67,7 @@ const props = defineProps<PropTypes>()
 
       <!-- BBB Awards images -->
 
-      <div class="min-h-[90px] items-center px-3 py-8 sm:px-0">
+      <div class="items-center px-3 py-8 sm:px-0">
         <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
           <li class="flex flex-col items-center">
             <span class="mt-6 text-center lg:mt-0">
@@ -81,17 +81,18 @@ const props = defineProps<PropTypes>()
                 to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
                 label="Torch Awards 2023 PDF"
               >
-                <NuxtImg
-                  src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
-                  alt="BBB Torch Awards for Ethics 2023 Winner"
-                  format="webp"
-                  loading="eager"
-                  width="131"
-                  height="90"
-                  fetchpriority="high"
-                  sizes="131 "
-                  object-fit="contain"
-                ></NuxtImg>
+                <div class="relative h-[90px] w-[131px]">
+                  <NuxtImg
+                    src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
+                    alt="BBB Torch Awards for Ethics 2023 Winner"
+                    format="webp"
+                    loading="eager"
+                    width="131"
+                    height="90"
+                    fetchpriority="high"
+                    sizes="131 "
+                  ></NuxtImg>
+                </div>
               </SegmentExternalLink>
             </div>
           </li>
