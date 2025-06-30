@@ -89,9 +89,7 @@ const props = defineProps<PropTypes>()
                   width="131"
                   height="90"
                   fetchpriority="high"
-                  sizes="131px"
-                  class="block"
-                  :style="{ width: '131px', height: '90px' }"
+                  sizes="131"
                 ></NuxtImg>
               </SegmentExternalLink>
             </div>
