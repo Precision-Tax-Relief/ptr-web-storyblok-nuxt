@@ -3,11 +3,6 @@
 @tailwind utilities;
 @plugin "@tailwindcss/typography";
 
-
-/* Ensure fallback fonts match as closely as possible */
-body {
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
 /*
 html {
 scroll-behavior: smooth;
