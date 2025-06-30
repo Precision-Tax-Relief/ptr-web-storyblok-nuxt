@@ -2,7 +2,14 @@
 useHead({
   htmlAttrs: {
     lang: "en"
-  }
+  },
+  script: [
+    {
+      src: "https://meclabsai.com/embed/chat.js?appId=xulqous1vdSlUH6LQY7VNCba",
+      async: true,
+      defer: true
+    }
+  ]
 })
 
 const config = useRuntimeConfig()
