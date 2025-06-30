@@ -119,7 +119,7 @@ const props = defineProps<PropTypes>()
             </div>
           </li>
           <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
+            <div class="badge badge_google relative h-[50px] w-[200px]">
               <NuxtImg
                 src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
                 alt="BBB A+ Accredited Business"
