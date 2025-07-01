@@ -74,16 +74,16 @@ const config: NuxtConfig = {
           autoprefixer: {},
           ...(process.env.NODE_ENV === "production"
             ? {
-              cssnano: {
-                preset: [
-                  "default",
-                  {
-                    discardComments: { removeAll: true },
-                    minifyFontValues: { removeQuotes: false }
-                  }
-                ]
+                cssnano: {
+                  preset: [
+                    "default",
+                    {
+                      discardComments: { removeAll: true },
+                      minifyFontValues: { removeQuotes: false }
+                    }
+                  ]
+                }
               }
-            }
             : {})
         }
       }
@@ -166,6 +166,7 @@ const config: NuxtConfig = {
     prefetch: true,
     preconnect: true,
     preload: true,
+    display: "swap",
     families: {
       "Open Sans": ["200", "400", "500", "700", "800"]
     }
