@@ -162,32 +162,11 @@ const config: NuxtConfig = {
       failOnError: true
     }
   },
-  // Add app config for better font loading
-  app: {
-    head: {
-      link: [
-        // Preconnect to Google Fonts early
-        {
-          rel: "preconnect",
-          href: "https://fonts.googleapis.com"
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: ""
-        }
-      ]
-    }
-  },
   googleFonts: {
     prefetch: true,
     preconnect: true,
     preload: true,
-    useStylesheet: true,
     display: "swap",
-    download: true, // Download fonts locally
-    subsets: ["latin"],
-    inject: true,
     families: {
       "Open Sans": ["200", "400", "500", "700", "800"]
     }
