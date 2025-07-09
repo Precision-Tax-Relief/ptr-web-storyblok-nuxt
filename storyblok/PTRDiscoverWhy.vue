@@ -30,11 +30,15 @@ const closeGoogleModal = () => {
         <li>
           <div>
             <NuxtPicture
-              width="140"
               :src="blok.googleImg?.filename"
               :alt="blok.googleImg?.alt ?? undefined"
-              loading="lazy"
-              sizes="140px"
+              width="140"
+              height="70"
+              class="aspect-[513/255] h-[70px] w-[140px]"
+              sizes="(max-width: 768px) 100px, 140px"
+              format="webp"
+              quality="70"
+              loading="eager"
             />
             <div class="mt-2 text-center">
               <!-- TODO fix broken link -->
@@ -105,12 +109,14 @@ const closeGoogleModal = () => {
                   width="140"
                   src="https://emailsignature.trustpilot.com/signature/en-US/3/51eca7db00006400055e8023/stars.png"
                   alt="Trustpilot Stars"
+                  format="webp"
                   loading="lazy"
                 />
                 <img
                   width="140"
                   src="https://emailsignature.trustpilot.com/newsletter/en-US/2/51eca7db00006400055e8023/text@2x.png"
                   alt="TrustScore"
+                  format="webp"
                   loading="lazy"
                 />
               </SegmentExternalLink>

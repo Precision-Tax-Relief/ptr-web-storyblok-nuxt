@@ -74,16 +74,16 @@ const config: NuxtConfig = {
           autoprefixer: {},
           ...(process.env.NODE_ENV === "production"
             ? {
-              cssnano: {
-                preset: [
-                  "default",
-                  {
-                    discardComments: { removeAll: true },
-                    minifyFontValues: { removeQuotes: false }
-                  }
-                ]
+                cssnano: {
+                  preset: [
+                    "default",
+                    {
+                      discardComments: { removeAll: true },
+                      minifyFontValues: { removeQuotes: false }
+                    }
+                  ]
+                }
               }
-            }
             : {})
         }
       }
@@ -166,9 +166,20 @@ const config: NuxtConfig = {
     prefetch: true,
     preconnect: true,
     preload: true,
+    display: "swap",
     families: {
       "Open Sans": ["200", "400", "500", "700", "800"]
-    }
+    },
+    // Add these options
+    subsets: ["latin"],
+    download: true, // Downloads fonts locally
+    inject: true,
+    outputDir: "assets/fonts",
+    stylePath: "css/fonts.css",
+    fontsDir: "fonts",
+    overwriting: false,
+    // Use size-adjust
+    useStylesheet: true
   },
   gtm: {
     id: process.env.GTM_ID || "GTM-XXXXXX", // Replace with your new GTM container ID

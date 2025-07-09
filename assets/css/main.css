@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @plugin "@tailwindcss/typography";
+
 /*
 html {
 scroll-behavior: smooth;
@@ -11,10 +12,30 @@ font-family: Opensans, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 */
+@font-face {
+  font-family: 'Open Sans Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 10%;
+  size-adjust: 107%;
+}
 
+@font-face {
+  font-family: 'Open Sans Fallback';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arial');
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 10%;
+  size-adjust: 107%;
+}
 html {
   scroll-behavior: smooth;
-  font-family:"Open Sans", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
 }
 

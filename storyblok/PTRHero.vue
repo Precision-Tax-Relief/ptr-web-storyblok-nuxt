@@ -20,20 +20,22 @@ const props = defineProps<PropTypes>()
             <h3 class="mx-auto mt-8 text-lg leading-7 tracking-wide md:text-2xl" v-html="blok.subheader"></h3>
           </div>
           <figure class="splash-thumb">
-            <NuxtImg
-              :modifiers="{ smart: true }"
-              :src="blok.image.filename"
-              :alt="blok.image.alt ?? undefined"
-              width="850"
-              height="220"
-              class="w-full sm:m-2"
-              quality="90"
-              densities="x1 x2"
-              format="avif,webp"
-              loading="eager"
-              fetchpriority="high"
-              sizes="850px md:728px sm:95vw xs:95vw"
-            />
+            <div class="relative aspect-[850/220] w-full">
+              <NuxtImg
+                :modifiers="{ smart: true }"
+                :src="blok.image.filename"
+                :alt="blok.image.alt ?? undefined"
+                width="850"
+                height="220"
+                class="w-full object-contain sm:m-2"
+                quality="90"
+                densities="x1 x2"
+                format="avif,webp"
+                loading="eager"
+                fetchpriority="high"
+                sizes="850px md:728px sm:95vw xs:95vw"
+              />
+            </div>
             <figcaption
               class="lg:leading-1 text-pretty px-2 pb-0 pt-4 text-center text-sm leading-normal text-[#666] sm:px-0 lg:pt-2 lg:text-left lg:text-lg"
             >
@@ -50,81 +52,88 @@ const props = defineProps<PropTypes>()
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
         <div class="lg:hidden">
-          <template v-if="isBusinessOpen">
+          <div v-show="isBusinessOpen" class="mx-auto block">
             <!-- Business OPEN on small screens → show call button -->
-            <PTRCallConsultationButton class="mx-auto block" />
-          </template>
 
-          <template v-else>
-            <!-- Business CLOSED on small screens → show form -->
-            <div class="shrink-0 px-4 sm:grow-0 md:px-24">
-              <ContactForm :show-phone-number="isBusinessOpen" class="mx-auto" />
-            </div>
-          </template>
+            <PTRCallConsultationButton />
+          </div>
+          <div v-show="!isBusinessOpen" class="shrink-0 px-4 sm:grow-0 md:px-24">
+            <!-- Business closed on small screens → show call form -->
+
+            <ContactForm :show-phone-number="false" class="mx-auto" />
+          </div>
         </div>
       </div>
 
       <!-- BBB Awards images -->
 
-      <div class="items-center px-3 py-8 sm:px-0">
-        <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
-          <li class="flex flex-col items-center">
+      <div class="flex h-[170px] items-center px-3 py-8 sm:px-0">
+        <ul
+          class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:h-[120px] lg:max-w-full lg:justify-center lg:gap-8"
+        >
+          <li class="flex flex-col items-center lg:flex-shrink-0">
             <span class="mt-6 text-center lg:mt-0">
               <BBBTorchAwards />
             </span>
           </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
+          <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
             <div class="badge badge_google">
-              <SegmentExternalLink
-                eventName="PDF Clicked"
-                to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
-                label="Torch Awards 2023 PDF"
-              >
+              <div class="relative aspect-[131/90] h-[90px] w-[131px]">
+                <SegmentExternalLink
+                  eventName="PDF Clicked"
+                  to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
+                  label="Torch Awards 2023 PDF"
+                >
+                  <NuxtImg
+                    src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
+                    alt="BBB Torch Awards for Ethics 2023 Winner"
+                    format="webp"
+                    loading="eager"
+                    width="131"
+                    height="90"
+                    fetchpriority="high"
+                    sizes="131px"
+                  ></NuxtImg>
+                </SegmentExternalLink>
+              </div>
+            </div>
+          </li>
+          <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
+            <div class="badge badge_google">
+              <div class="relative aspect-[134/90] h-[90px] w-[131px]">
+                <SegmentExternalLink
+                  eventName="PDF Clicked"
+                  to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
+                  label="Torch Awards 2019 PDF"
+                >
+                  <NuxtImg
+                    src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
+                    alt="BBB Torch Awards for Ethics 2019 Winner"
+                    format="webp"
+                    loading="eager"
+                    width="131"
+                    height="90"
+                    fetchpriority="high"
+                    sizes="131px"
+                  />
+                </SegmentExternalLink>
+              </div>
+            </div>
+          </li>
+          <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
+            <div class="badge badge_google">
+              <div class="relative aspect-[479/120] h-[50px] w-[200px]">
                 <NuxtImg
-                  src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
-                  alt="BBB Torch Awards for Ethics 2023 Winner"
+                  src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
+                  alt="BBB A+ Accredited Business"
                   format="webp"
                   loading="eager"
-                  width="131"
-                  height="90"
                   fetchpriority="high"
-                  sizes="131 "
+                  width="200"
+                  height="50"
+                  sizes="200px"
                 ></NuxtImg>
-              </SegmentExternalLink>
-            </div>
-          </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
-              <SegmentExternalLink
-                eventName="PDF Clicked"
-                to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
-                label="Torch Awards 2019 PDF"
-              >
-                <NuxtImg
-                  src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
-                  alt="BBB Torch Awards for Ethics 2019 Winner"
-                  format="webp"
-                  loading="eager"
-                  width="131"
-                  height="90"
-                  fetchpriority="high"
-                  sizes="131"
-                />
-              </SegmentExternalLink>
-            </div>
-          </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
-              <NuxtImg
-                src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
-                alt="BBB A+ Accredited Business"
-                format="webp"
-                loading="eager"
-                fetchpriority="high"
-                width="200"
-                height="50"
-                sizes="240"
-              ></NuxtImg>
+              </div>
             </div>
           </li>
         </ul>

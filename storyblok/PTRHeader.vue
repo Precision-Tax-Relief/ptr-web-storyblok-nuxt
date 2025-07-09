@@ -42,7 +42,7 @@ const props = defineProps<PropTypes>()
 
         <div class="ml-auto block md:hidden">
           <InvocaPhoneTrackingLink
-            class="flex items-center gap-2 rounded-md bg-green-600 px-4 py-1 text-base/5 font-bold uppercase text-white hover:bg-green-700 sm:text-lg"
+            class="flex items-center gap-2 rounded-md bg-green-600 px-1 py-1 text-base/5 font-bold uppercase text-white hover:bg-green-700 sm:text-lg"
           >
             <Icon name="fa-solid:phone-alt" class="text-2xl text-white sm:text-xl" />
             <div class="flex flex-col gap-x-1 sm:flex-row">
