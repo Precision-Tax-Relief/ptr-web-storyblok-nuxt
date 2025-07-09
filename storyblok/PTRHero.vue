@@ -76,56 +76,62 @@ const props = defineProps<PropTypes>()
           </li>
           <li class="mt-4 flex flex-col items-center lg:mt-0">
             <div class="badge badge_google">
-              <SegmentExternalLink
-                eventName="PDF Clicked"
-                to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
-                label="Torch Awards 2023 PDF"
-              >
+              <div class="relative h-[90px] w-[131px]">
+                <SegmentExternalLink
+                  eventName="PDF Clicked"
+                  to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
+                  label="Torch Awards 2023 PDF"
+                >
+                  <NuxtImg
+                    src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
+                    alt="BBB Torch Awards for Ethics 2023 Winner"
+                    format="webp"
+                    loading="eager"
+                    width="131"
+                    height="90"
+                    fetchpriority="high"
+                    sizes="131px"
+                  ></NuxtImg>
+                </SegmentExternalLink>
+              </div>
+            </div>
+          </li>
+          <li class="mt-4 flex flex-col items-center lg:mt-0">
+            <div class="badge badge_google">
+              <div class="relative h-[90px] w-[131px]">
+                <SegmentExternalLink
+                  eventName="PDF Clicked"
+                  to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
+                  label="Torch Awards 2019 PDF"
+                >
+                  <NuxtImg
+                    src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
+                    alt="BBB Torch Awards for Ethics 2019 Winner"
+                    format="webp"
+                    loading="eager"
+                    width="131"
+                    height="90"
+                    fetchpriority="high"
+                    sizes="131px"
+                  />
+                </SegmentExternalLink>
+              </div>
+            </div>
+          </li>
+          <li class="mt-4 flex flex-col items-center lg:mt-0">
+            <div class="badge badge_google">
+              <div class="relative h-[50px] w-[200px]">
                 <NuxtImg
-                  src="https://a-us.storyblok.com/f/1023258/131x90/5b311ae5d1/tafe2023.png"
-                  alt="BBB Torch Awards for Ethics 2023 Winner"
+                  src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
+                  alt="BBB A+ Accredited Business"
                   format="webp"
                   loading="eager"
-                  width="131"
-                  height="90"
                   fetchpriority="high"
-                  sizes="131px"
+                  width="200"
+                  height="50"
+                  sizes="200px"
                 ></NuxtImg>
-              </SegmentExternalLink>
-            </div>
-          </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
-              <SegmentExternalLink
-                eventName="PDF Clicked"
-                to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
-                label="Torch Awards 2019 PDF"
-              >
-                <NuxtImg
-                  src="https://a-us.storyblok.com/f/1023258/134x90/35be32afe6/tafe2019.png"
-                  alt="BBB Torch Awards for Ethics 2019 Winner"
-                  format="webp"
-                  loading="eager"
-                  width="131"
-                  height="90"
-                  fetchpriority="high"
-                  sizes="131px"
-                />
-              </SegmentExternalLink>
-            </div>
-          </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
-            <div class="badge badge_google">
-              <NuxtImg
-                src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
-                alt="BBB A+ Accredited Business"
-                format="webp"
-                loading="eager"
-                fetchpriority="high"
-                width="200"
-                height="50"
-                sizes="200px"
-              ></NuxtImg>
+              </div>
             </div>
           </li>
         </ul>
