@@ -67,14 +67,16 @@ const props = defineProps<PropTypes>()
 
       <!-- BBB Awards images -->
 
-      <div class="min-h-[170px] items-center px-3 py-8 sm:px-0">
-        <ul class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full">
-          <li class="flex flex-col items-center">
+      <div class="h-[170px] items-center px-3 py-8 sm:px-0">
+        <ul
+          class="mx-auto grid max-w-xl grid-cols-2 items-center justify-between lg:flex lg:max-w-full lg:justify-center lg:gap-8"
+        >
+          <li class="flex flex-col items-center lg:flex-shrink-0">
             <span class="mt-6 text-center lg:mt-0">
               <BBBTorchAwards />
             </span>
           </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
+          <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
             <div class="badge badge_google">
               <div class="relative h-[90px] w-[131px]">
                 <SegmentExternalLink
@@ -96,7 +98,7 @@ const props = defineProps<PropTypes>()
               </div>
             </div>
           </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
+          <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
             <div class="badge badge_google">
               <div class="relative h-[90px] w-[131px]">
                 <SegmentExternalLink
@@ -118,7 +120,7 @@ const props = defineProps<PropTypes>()
               </div>
             </div>
           </li>
-          <li class="mt-4 flex flex-col items-center lg:mt-0">
+          <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
             <div class="badge badge_google">
               <div class="relative h-[50px] w-[200px]">
                 <NuxtImg
