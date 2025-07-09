@@ -86,10 +86,10 @@ const props = defineProps<PropTypes>()
                   alt="BBB Torch Awards for Ethics 2023 Winner"
                   format="webp"
                   loading="eager"
-                  width="131px"
-                  height="90px"
+                  width="131"
+                  height="90"
                   fetchpriority="high"
-                  sizes="131 "
+                  sizes="131px"
                 ></NuxtImg>
               </SegmentExternalLink>
             </div>
@@ -106,10 +106,10 @@ const props = defineProps<PropTypes>()
                   alt="BBB Torch Awards for Ethics 2019 Winner"
                   format="webp"
                   loading="eager"
-                  width="131px"
-                  height="90px"
+                  width="131"
+                  height="90"
                   fetchpriority="high"
-                  sizes="131"
+                  sizes="131px"
                 />
               </SegmentExternalLink>
             </div>
@@ -122,9 +122,9 @@ const props = defineProps<PropTypes>()
                 format="webp"
                 loading="eager"
                 fetchpriority="high"
-                width="200px"
-                height="50px"
-                sizes="240"
+                width="200"
+                height="50"
+                sizes="200px"
               ></NuxtImg>
             </div>
           </li>
