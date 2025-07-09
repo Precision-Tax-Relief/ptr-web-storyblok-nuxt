@@ -40,6 +40,7 @@ const props = defineProps<PropTypes>()
                   <NuxtPicture
                     :src="client.profile.filename"
                     :alt="client.profile.alt"
+                    format="webp"
                     loading="lazy"
                     sizes="48px"
                     width="48"
