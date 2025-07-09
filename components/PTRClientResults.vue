@@ -41,7 +41,11 @@ const props = defineProps<PropTypes>()
                     :src="client.profile.filename"
                     :alt="client.profile.alt"
                     loading="lazy"
-                    :img-attrs="{ class: 'h-12 w-12' }"
+                    sizes="48px"
+                    width="48"
+                    height="48"
+                    quality="70"
+                    :img-attrs="{ class: 'h-12 w-12 rounded-full' }"
                   />
                 </figure>
                 <div class="flex flex-col gap-x-8 gap-y-3 md:flex-row">
