@@ -105,12 +105,14 @@ const closeGoogleModal = () => {
                   width="140"
                   src="https://emailsignature.trustpilot.com/signature/en-US/3/51eca7db00006400055e8023/stars.png"
                   alt="Trustpilot Stars"
+                  format="webp"
                   loading="lazy"
                 />
                 <img
                   width="140"
                   src="https://emailsignature.trustpilot.com/newsletter/en-US/2/51eca7db00006400055e8023/text@2x.png"
                   alt="TrustScore"
+                  format="webp"
                   loading="lazy"
                 />
               </SegmentExternalLink>
