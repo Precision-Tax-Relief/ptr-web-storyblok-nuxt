@@ -78,7 +78,7 @@ const props = defineProps<PropTypes>()
           </li>
           <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
             <div class="badge badge_google">
-              <div class="relative h-[90px] w-[131px]">
+              <div class="relative aspect-[131/90] h-[90px] w-[131px]">
                 <SegmentExternalLink
                   eventName="PDF Clicked"
                   to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2023.pdf"
@@ -100,7 +100,7 @@ const props = defineProps<PropTypes>()
           </li>
           <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
             <div class="badge badge_google">
-              <div class="relative h-[90px] w-[131px]">
+              <div class="relative aspect-[134/90] h-[90px] w-[131px]">
                 <SegmentExternalLink
                   eventName="PDF Clicked"
                   to="https://www.precisiontaxrelief.com/pdf/TorchAwards_Certificate_Recipient_2019.pdf"
@@ -122,7 +122,7 @@ const props = defineProps<PropTypes>()
           </li>
           <li class="mt-4 flex flex-col items-center lg:mt-0 lg:flex-shrink-0">
             <div class="badge badge_google">
-              <div class="relative h-[50px] w-[200px]">
+              <div class="relative aspect-[479/120] h-[50px] w-[200px]">
                 <NuxtImg
                   src="https://a-us.storyblok.com/f/1023258/479x120/ab7cca33fc/bbb-mobile.png"
                   alt="BBB A+ Accredited Business"
