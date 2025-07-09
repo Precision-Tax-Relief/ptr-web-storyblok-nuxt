@@ -30,11 +30,14 @@ const closeGoogleModal = () => {
         <li>
           <div>
             <NuxtPicture
-              width="140"
               :src="blok.googleImg?.filename"
               :alt="blok.googleImg?.alt ?? undefined"
+              width="140"
+              height="auto"
+              sizes="(max-width: 768px) 100px, 140px"
+              format="webp"
+              quality="70"
               loading="lazy"
-              sizes="140px"
             />
             <div class="mt-2 text-center">
               <!-- TODO fix broken link -->
