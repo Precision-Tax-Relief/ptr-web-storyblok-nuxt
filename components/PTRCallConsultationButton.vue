@@ -49,28 +49,25 @@ defineProps<PropTypes>()
 
   <!-- Business CLOSED -->
   <div v-else class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
-    <div class="hidden md:flex">
-      <a
-        href="#contact"
-        data-modal-open=""
-        data-click-name="ClickBody - Form Scroll  Below What To Expect"
-        class="activate-form mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:px-6 lg:py-3"
-      >
-        <div class="col-span-3 flex flex-col py-4 text-left text-white">
+    <!-- Desktop version -->
+    <a
+      href="#contact"
+      data-modal-open=""
+      data-click-name="ClickBody - Form Scroll  Below What To Expect"
+      class="activate-form mb-4 hidden items-center justify-center rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:flex lg:px-6 lg:py-3"
+    >
+      <div class="flex flex-col py-4 text-center text-white">
+        <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
+      </div>
+    </a>
+
+    <!-- Mobile version -->
+    <ContactFormPopup class="mb-4 lg:hidden">
+      <div class="flex cursor-pointer items-center justify-center rounded-md bg-green-600 px-4 py-1 hover:bg-green-700">
+        <div class="flex flex-col py-4 text-center text-white">
           <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
         </div>
-      </a>
-    </div>
-    <div class="block md:hidden">
-      <ContactFormPopup class="mb-4">
-        <div
-          class="flex cursor-pointer items-center justify-center gap-2 rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:px-6 lg:py-3"
-        >
-          <div class="col-span-3 flex flex-col py-4 text-left text-white">
-            <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
-          </div>
-        </div>
-      </ContactFormPopup>
-    </div>
+      </div>
+    </ContactFormPopup>
   </div>
 </template>
