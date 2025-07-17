@@ -18,6 +18,7 @@ defineProps<PropTypes>()
 </script>
 
 <template>
+  <div style="background: yellow; padding: 10px; color: black">🐛 DEBUG: isBusinessOpen = {{ isBusinessOpen }}</div>
   <!-- Business OPEN -->
   <div v-if="isBusinessOpen" class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
     <InvocaPhoneTrackingLink
