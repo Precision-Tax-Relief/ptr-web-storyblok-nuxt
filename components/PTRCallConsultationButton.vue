@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { onMounted } from "vue"
+import { ref, watch, nextTick, onMounted } from "vue"
 import { useBusinessHours } from "@/composables/useBusinessHours"
 
 const { isBusinessOpen } = useBusinessHours()
 
-onMounted(() => {
+const isStable = ref(false)
+
+onMounted(async () => {
+  await nextTick()
+  isStable.value = true
+
   const invoca = window?.Invoca
   if (invoca?.PNAPI?.run) {
     invoca.PNAPI.run()
@@ -18,57 +23,60 @@ defineProps<PropTypes>()
 </script>
 
 <template>
-  <div style="background: yellow; padding: 10px; color: black">🐛 DEBUG: isBusinessOpen = {{ isBusinessOpen }}</div>
-  <!-- Business OPEN -->
-  <div v-if="isBusinessOpen" class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
-    <InvocaPhoneTrackingLink
-      data-click-name="ClickBody - Form Scroll  Below What To Expect"
-      class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-6 py-3 hover:bg-green-700 lg:px-6 lg:py-3"
-    >
-      <Icon name="fa-solid:phone-alt" class="text-4xl text-white sm:text-5xl lg:text-6xl" />
-      <div class="col-span-3 flex flex-col justify-center text-left text-white">
-        <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
-        <p class="text-2xl font-bold sm:text-3xl md:text-4xl">(855) 444-7551</p>
-      </div>
-    </InvocaPhoneTrackingLink>
+  <div v-if="isStable">
+    <!-- Business OPEN -->
+    <div v-if="isBusinessOpen" class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
+      <InvocaPhoneTrackingLink
+        data-click-name="ClickBody - Form Scroll  Below What To Expect"
+        class="mb-4 flex items-center justify-center gap-2 rounded-md bg-green-600 px-6 py-3 hover:bg-green-700 lg:px-6 lg:py-3"
+      >
+        <Icon name="fa-solid:phone-alt" class="text-4xl text-white sm:text-5xl lg:text-6xl" />
+        <div class="col-span-3 flex flex-col justify-center text-left text-white">
+          <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
+          <p class="text-2xl font-bold sm:text-3xl md:text-4xl">(855) 444-7551</p>
+        </div>
+      </InvocaPhoneTrackingLink>
 
-    <div>
+      <div>
+        <a
+          class="activate-form hidden underline lg:block"
+          :class="{ 'text-neutral-500': !lighter_text, 'text-neutral-400': lighter_text }"
+          href="#contact"
+          data-modal-open=""
+          data-click-name="ClickBodyM - Callback Form Modal Below What To Expect"
+          >or click here to request a call back</a
+        >
+      </div>
+
+      <div class="lg:hidden">
+        <ContactFormPopup :class="{ 'text-neutral-500': !lighter_text, 'text-neutral-400': lighter_text }" />
+      </div>
+    </div>
+
+    <!-- Business CLOSED -->
+    <div v-else class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
+      <!-- Desktop version -->
       <a
-        class="activate-form hidden underline lg:block"
-        :class="{ 'text-neutral-500': !lighter_text, 'text-neutral-400': lighter_text }"
         href="#contact"
         data-modal-open=""
-        data-click-name="ClickBodyM - Callback Form Modal Below What To Expect"
-        >or click here to request a call back</a
+        data-click-name="ClickBody - Form Scroll  Below What To Expect"
+        class="activate-form mb-4 hidden items-center justify-center rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:flex lg:px-6 lg:py-3"
       >
-    </div>
-
-    <div class="lg:hidden">
-      <ContactFormPopup :class="{ 'text-neutral-500': !lighter_text, 'text-neutral-400': lighter_text }" />
-    </div>
-  </div>
-
-  <!-- Business CLOSED -->
-  <div v-else class="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
-    <!-- Desktop version -->
-    <a
-      href="#contact"
-      data-modal-open=""
-      data-click-name="ClickBody - Form Scroll  Below What To Expect"
-      class="activate-form mb-4 hidden items-center justify-center rounded-md bg-green-600 px-4 py-1 hover:bg-green-700 lg:flex lg:px-6 lg:py-3"
-    >
-      <div class="flex flex-col py-4 text-center text-white">
-        <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
-      </div>
-    </a>
-
-    <!-- Mobile version -->
-    <ContactFormPopup class="mb-4 lg:hidden">
-      <div class="flex cursor-pointer items-center justify-center rounded-md bg-green-600 px-4 py-1 hover:bg-green-700">
         <div class="flex flex-col py-4 text-center text-white">
           <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
         </div>
-      </div>
-    </ContactFormPopup>
+      </a>
+
+      <!-- Mobile version -->
+      <ContactFormPopup class="mb-4 lg:hidden">
+        <div
+          class="flex cursor-pointer items-center justify-center rounded-md bg-green-600 px-4 py-1 hover:bg-green-700"
+        >
+          <div class="flex flex-col py-4 text-center text-white">
+            <span class="text-base font-medium uppercase md:text-xl">GET A FREE CONSULTATION</span>
+          </div>
+        </div>
+      </ContactFormPopup>
+    </div>
   </div>
 </template>
