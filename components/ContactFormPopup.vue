@@ -36,23 +36,23 @@ onUnmounted(() => {
 
     <div
       v-if="showPopup"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/75 p-4"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/75 p-0 shadow-xl transition-opacity"
       @click="closePopup"
     >
-      <div class="relative w-full max-w-md rounded-lg bg-white shadow-xl" @click.stop>
+      <div class="w-md relative max-w-md" @click.stop>
         <!-- Close Button -->
-        <button
-          @click="closePopup"
-          class="absolute right-3 top-3 z-10 h-10 w-10 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200"
-          type="button"
-          aria-label="Close"
-        >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div class="absolute -top-10 right-0 z-50">
+          <button
+            type="button"
+            class="flex rounded-md bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2"
+            @click="closePopup"
+          >
+            <span class="sr-only">Close</span>
+            <Icon name="mdi:close" class="size-8" />
+          </button>
+        </div>
 
-        <div class="px-4 pb-4 pt-5 sm:p-6">
+        <div>
           <ContactForm :show-phone-number="isBusinessOpen" />
         </div>
       </div>
